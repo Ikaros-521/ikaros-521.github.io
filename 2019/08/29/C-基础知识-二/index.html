@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ikaros-521.github.io">
-  <title>Ikaros</title>
+  <title>C++基础知识(二) | Ikaros</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ikaros">
-<meta property="og:url" content="https://ikaros-521.github.io/index.html">
+  <meta name="description" content="十、函数重载（重载、隐藏、重写）1、函数重载     在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++基础知识(二)">
+<meta property="og:url" content="https://ikaros-521.github.io/2019/08/29/C-基础知识-二/index.html">
 <meta property="og:site_name" content="Ikaros">
+<meta property="og:description" content="十、函数重载（重载、隐藏、重写）1、函数重载     在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。">
 <meta property="og:locale" content="UTF-8">
+<meta property="og:updated_time" content="2019-08-29T07:10:46.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ikaros">
+<meta name="twitter:title" content="C++基础知识(二)">
+<meta name="twitter:description" content="十、函数重载（重载、隐藏、重写）1、函数重载     在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。">
   
     <link rel="alternative" href="/atom.xml" title="Ikaros" type="application/atom+xml">
   
@@ -152,100 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-C-基础知识-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-C-基础知识-二" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/C-基础知识-三/">C++基础知识(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/C-基础知识-三/" class="archive-article-date">
-  	<time datetime="2019-08-29T07:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、this指针"><a href="#一、this指针" class="headerlink" title="一、this指针"></a>一、this指针</h1><pre><code>类的成员变量单独存储在每个类对象中，成员函数存储在代码段中，所有的类对象共享一份成员函数。
-
-成员函数是如何区别调用它的是哪个类对象的？
-答：借助了this指针，类的每个成员函数都有一个隐藏的参数this指针，它指向类对象。</code></pre>
-        
-          <a class="article-more-a" href="/2019/08/29/C-基础知识-三/#more">more >></a>
-        
-      
-
-	  
-
-  <div class="declare" hidden="hidden"></div>
-
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/C-基础知识-三/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-基础知识-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/C-基础知识-二/">C++基础知识(二)</a>
+    <h1 class="article-title" itemprop="name">
+      C++基础知识(二)
     </h1>
   
 
@@ -259,17 +178,121 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="十、函数重载（重载、隐藏、重写）"><a href="#十、函数重载（重载、隐藏、重写）" class="headerlink" title="十、函数重载（重载、隐藏、重写）"></a>十、函数重载（重载、隐藏、重写）</h1><pre><code>1、函数重载
-    在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。</code></pre>
-        
-          <a class="article-more-a" href="/2019/08/29/C-基础知识-二/#more">more >></a>
-        
+    在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。</code></pre><a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void f(const int* p)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt;&quot;f const&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void f(int* p)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt;&quot;f&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	const int num = 0;</span><br><span class="line">	f(&amp;num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   2、重载实现的机制<br>        C++代码在编译时会把函数的参数类型添加到参数名中，借助这个方式来实现函数重载，也就是C++的函数在编译期间经历换名的过程。<br>    因此，C++代码不能调用C函数（C语言编译器编译出的函数）<br>    3、extern “C” {}<br>        告诉C++编译器按照C语言的方式声明函数，这样C++就可以调用C编译器编译出的函数了（C++目标文件可以与C目标文件合并生成可执行程序）。<br>        如果C想调用C++编译出的函数，需要将C++函数的定义用extern “C”包括一下。<br>        注意：如果两个函数名一样，一定会冲突。<br>    4、重载和作用域<br>        函数的重载关系发生在同一作用域下，不同作用域下的同名函数，构成隐藏关系。<br>    5、重载解析<br>        当调用函数时，编译器根据实参的类型和形参的匹配情况，选择一个确定的重载版本，这个过程叫重载解析。<br>        实参的类型和形参的匹配情况有三种：<br>            1、编译器找到与实参最佳的匹配函数，编译器将生成调用代码。<br>            2、编译找不到匹配函数，编译器将给出错误信息。<br>            3、编译器找到多个匹配函数，但没有一个最佳的，这种错误叫二义性。<br>        在大多数情况下编译器都能立即找到一个最佳的调用版本，但如果没有，编译就会进行类型提升，这样备选函数中就可能具有多个可调用<br>的版本，这样就可能产生二义性错误。<br>    6、确定存在函数的三个步骤<br>        1）候选函数<br>        函数调用的第一步就是确定所有可调用的函数的集合（函数名、作用域），该集合中的函数就是候选函数。<br>        2）选择可行函数<br>        从候选函数中选择一个或多个函数，选择的标准是参数个数相同，而且通过类型提升实参可被隐式转换为形参。<br>        3）寻找最佳匹配<br>        优先每个参数都完全匹配的方案，其次参数完全匹配的个数，再其次是浪费内存的字节数。<br>    7、指针类型会对函数重载造成影响<br>        C++函数的形参如果是指针类型，编译时函数名中会追加Px。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void sum(short a,short b)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt; a+b &lt;&lt; &quot;  3&quot; &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void sum(int a,short b)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt; a+b &lt;&lt; &quot;  1&quot; &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void sum(short a,long b)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; a+b &lt;&lt;&quot;  2&quot;&lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	short a=3, b=7;</span><br><span class="line">	sum(a,b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="十一、默认形参"><a href="#十一、默认形参" class="headerlink" title="十一、默认形参"></a>十一、默认形参</h1><pre><code>1、在C++中函数的形参可以设置默认值，调用函数，如果没有提供实参数，则使用默认形参。
+2、如果形参只有一部分设置了默认形参，则必须靠右排列。
+3、函数的默认形参是在编译阶段确定的，因此只能使用常量、常量表达式、全局变量数据作为默认值。
+4、如果函数的声明和定义需要分开，那么默认形参设置在声明、定义，还是声明定义都需要设置。
+5、默认形参会对函数重载造成影响，设置默认形参时一定要慎重。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void fun(int b,int a=100);</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	fun(10,20);</span><br><span class="line">	fun(50);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void fun(int b,int a)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt;&quot;b:&quot; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt;&quot;a:&quot; &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="十二、内联函数"><a href="#十二、内联函数" class="headerlink" title="十二、内联函数"></a>十二、内联函数</h1><pre><code>1、普通函数调用时是生成调用指令（跳转），然后当代码执行到调用位置时跳转到函数所在的代码段执行。
+2、内联函数就把函数编译好的二进制指令直接复制到函数的调用位置。
+3、内联函数的优点就是提高程序的运行速度（因为没有跳转，也不需要返回），但这样会导致可执行文件增大（冗余），也就是牺牲空间来换取时间。
+4、内联分为显示内联和隐式内联
+    显示内联：在函数前 inline（C语言C99标准也支持）
+    隐式内联：结构、类中内部直接定义的成员函数，则该类型函数会被优化成内联函数。
+5、宏函数在调用时会把函数体直接替换到调用位置，与内联函数一样也是使用空间来换取时间，所以宏函数与内联函数的区别（优缺点）？
+    1.宏函数不是真正的函数，只是代码替换，不会有参数压栈、出栈以及返回值，也不会检查参数类型，因此所有类型都能使用，但这样会</code></pre><p>有安全隐患。<br>        2.内联函数是真正的函数，被调用时会进行传参，会进行压栈、出栈，可以有返回值，并会严格检查参数类型，这样就不能通用，如果被<br>多种类型调用需要重载。<br>    6、内联适用的条件<br>        由于内联会造成可执行文件变大，并增加内存开销，因此只有频繁调用的简单函数适合作为内联。<br>        调用比较少的复杂函数，内联后并不显著提高性能，不足以抵消牺牲空间带来的损失，所以不适合内联。<br>        带有递归特性和动态绑定特性的函数，无法实施内联，因此编译器会忽略声明部分的inline关键字。</p>
+<h1 id="十三、引用"><a href="#十三、引用" class="headerlink" title="十三、引用"></a>十三、引用</h1><pre><code>引用就是取艺名（别名）。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int wqq = 18;</span><br><span class="line">	int&amp; xiu = wqq;</span><br><span class="line">    //int&amp; xiu; 不存在空引用,错误</span><br><span class="line">    //int const &amp; xi = 20; 无名对象</span><br><span class="line">	cout &lt;&lt; wqq &lt;&lt;&quot; &quot;&lt;&lt;xiu&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>1、引用的基本特性
+    引用就是取别名，声明一个标识符为引用，就表示该标识符是另一个对象的外号。
+    1）引用必须初始化，不存在空引用，但有悬空引用（变量死了，名还留着）。
+    2）可以引用无名对象和临时对象，但必须使用常引用。
+    3）引用不能更换目标
+    引用一旦完成了定义和初始化就和普通变量名一样，它就代表了目标，一经引用终身不能再引用其他目标。
+2、引用型参数
+    引用当作函数的参数能达到指针同样的效果，但不具备指针的危险，还比指针方便。
+    引用可以非常简单的实现函数间共享变量的目的，而且是否使用引用由被调函数说了算。
+    引用当作函数的参数还能提高传递参数效率，指针至少还需要4字节内存，而引用只需要增加一条标识符与内存之间的绑定（映射）。
+3、引用型返回值
+    不要返回局部变量的引用，会造成悬空引用。
+    如果返回值是一个临时值（右值），如果非要使用引用接收的话，必须使用常引用。
+注意：C++中的引用时一种取别名的机制，而C语言中的指针是一种数据类型（代表内存编号的无符号整数）。
+练习1：实现一个C++版本的swap函数。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void swap(int&amp; a,int&amp; b) //引用</span><br><span class="line">&#123;</span><br><span class="line">	int temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a=3,b=4;</span><br><span class="line">	swap(a,b);</span><br><span class="line">	cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="十四、C-的内存管理"><a href="#十四、C-的内存管理" class="headerlink" title="十四、C++的内存管理"></a>十四、C++的内存管理</h1><pre><code>1、new/delete C++具备申请/释放堆内存功能的运算符
+    相当于C语言中的malloc和free。
+    new 类型：会自动计算类型所需要字节数，然后从堆中分配对应字节数的内存，并返回内存的首地址（具备类型）。
+    delete 指针：会自动释放堆内存。
+    注意：new/delete与malloc/free不能混用，因为new和delete会自动调用类、结构的构造函数、析构函数。
+2、数组的分配与释放
+    new 类型[n]； n表示数组长度，如果类、结构会自动调用n次构造函数。
+    delete[] 指针；通过new[] 分配的内存，必须通过delete[]释放。
+    new[] 返回值前4个字节中存放着数组的长度。
+3、重复释放
+    delete/delete[]不能重复释放同一块内存。
+    delete/delete[]释放野指针的后果不确定，但释放空指针是安全的。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Student</span><br><span class="line">&#123;</span><br><span class="line">	Student(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;我是构造函数，创建对象时，我就会执行&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	~Student(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt; &quot;我是析构函数，释放对象时，我就会执行&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int* p = new int;</span><br><span class="line">	*p = 10;</span><br><span class="line"></span><br><span class="line">	cout&lt;&lt; *p &lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">	Student stu;</span><br><span class="line">	</span><br><span class="line">	Student* s = new Student;</span><br><span class="line">	delete(s);</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Student* a = new Student[3];</span><br><span class="line">	p = (int*)a;</span><br><span class="line">	cout &lt;&lt; *(p-1) &lt;&lt; endl;</span><br><span class="line">	delete[] a;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   4、内存分配失败<br>        当分配的内存过大，没有能满足需求的整块内存就会抛出异常，std::bad_alloc。<br>        new/delete和C语言的malloc/free的相同点和不同点（区别）？<br>        不同点：<br>            身份     运算符               标准库函数<br>            参数     类型（自动计算）      字节数（手动计算）<br>            返回值   带类型的地址          void*地址<br>            调用构造 自动调用              不能调用构造/析构函数<br>            出错     抛出异常              返回NULL<br>        相同点：<br>            1、都能管理堆内存<br>            2、不能重复释放<br>            3、可以释放NULL</p>
+<p>   注意：在C++中尽量使用引用、new/delete</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int *p = NULL;</span><br><span class="line">	try&#123;</span><br><span class="line">		p = new int[~0];</span><br><span class="line">	&#125;</span><br><span class="line">	catch(std::bad_alloc&amp; ex)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;error&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
 	  
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      Love丶伊卡洛斯
+    
+    <br>
+    <strong>本文链接：</strong>
+    https://ikaros-521.github.io/2019/08/29/C-基础知识-二/
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
 
 	  
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wx.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -289,16 +312,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/C-基础知识-二/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ikaros-521.github.io/2019/08/29/C-基础知识-二/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/29/C-基础知识-三/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++基础知识(三)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/29/C-基础知识-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++基础知识(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -313,183 +404,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-基础知识-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/C-基础知识-一/">C++基础知识(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/C-基础知识-一/" class="archive-article-date">
-  	<time datetime="2019-08-29T01:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>思考题：C与C++的区别？</p>
-<h1 id="一、C-介绍"><a href="#一、C-介绍" class="headerlink" title="一、C++介绍"></a>一、C++介绍</h1><pre><code>本贾尼·斯特劳斯特卢普，与1979年4月份贝尔实验室的本贾尼博士在分析UNIX系统分布内核流量分析时，希望有一种有效的更加模块化的工具。
-1979年10月完成了预处理器Cpre，为C增加了类机制，也就是面向对象，1983年完成了C++的第一个版本，C with classes也就是C++。
-C++与C的不同点：
-1、C++完全兼容C的所有语法（内容）
-2、支持面向对象的编程思想
-3、支持运算符重载
-4、支持泛型编程、模板
-5、支持异常处理
-6、类型检查严格</code></pre>
-        
-          <a class="article-more-a" href="/2019/08/29/C-基础知识-一/#more">more >></a>
-        
-      
-
-	  
-
-  <div class="declare" hidden="hidden"></div>
-
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/C-基础知识-一/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#十、函数重载（重载、隐藏、重写）"><span class="toc-number">1.</span> <span class="toc-text">十、函数重载（重载、隐藏、重写）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、默认形参"><span class="toc-number">2.</span> <span class="toc-text">十一、默认形参</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二、内联函数"><span class="toc-number">3.</span> <span class="toc-text">十二、内联函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三、引用"><span class="toc-number">4.</span> <span class="toc-text">十三、引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四、C-的内存管理"><span class="toc-number">5.</span> <span class="toc-text">十四、C++的内存管理</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2019/08/28/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-28T14:24:12.584Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-	  
-
-  <div class="declare" hidden="hidden"></div>
-
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -513,8 +453,8 @@ C++与C的不同点：
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
