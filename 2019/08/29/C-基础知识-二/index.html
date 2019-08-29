@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ikaros">
 <meta property="og:description" content="十、函数重载（重载、隐藏、重写）1、函数重载     在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2019-08-29T07:10:46.819Z">
+<meta property="og:updated_time" content="2019-08-29T12:51:27.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++基础知识(二)">
 <meta name="twitter:description" content="十、函数重载（重载、隐藏、重写）1、函数重载     在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。">
@@ -215,7 +215,13 @@
     不要返回局部变量的引用，会造成悬空引用。
     如果返回值是一个临时值（右值），如果非要使用引用接收的话，必须使用常引用。
 注意：C++中的引用时一种取别名的机制，而C语言中的指针是一种数据类型（代表内存编号的无符号整数）。
-练习1：实现一个C++版本的swap函数。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void swap(int&amp; a,int&amp; b) //引用</span><br><span class="line">&#123;</span><br><span class="line">	int temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a=3,b=4;</span><br><span class="line">	swap(a,b);</span><br><span class="line">	cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+练习1：实现一个C++版本的swap函数。
+
+指针和引用的相同点和不同点：
+    相同点：跨函数共享变量，优化传参效率，避免传参的时候调用拷贝构造
+    不同点：指针有自己的存储空间，借助指针可以使用堆内存，引用不行。引用取别名，指针是数据类型。指针可以为空，引用不可以为
+    空。指针可以不初始化，引用必须初始化。指针可以改变指向，引用不能引用其他对象（可以定义指针的指针，不能定义引用的引用。
+    可以定义指针的引用，不能定义引用的指针。可以定义指针的数组，但不能定义引用的数组。可以定义数组的引用）。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void swap(int&amp; a,int&amp; b) //引用</span><br><span class="line">&#123;</span><br><span class="line">	int temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a=3,b=4;</span><br><span class="line">	swap(a,b);</span><br><span class="line">	cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
