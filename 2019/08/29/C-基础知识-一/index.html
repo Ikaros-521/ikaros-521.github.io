@@ -5,17 +5,18 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://ikaros-521.github.io">
   <title>C++基础知识(一) | Ikaros</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="下一章：传送门 思考题：C与C++的区别？一、C++介绍    本贾尼·斯特劳斯特卢普，与1979年4月份贝尔实验室的本贾尼博士在分析UNIX系统分布内核流量分析时，希望有一种有效的更加模块化的工具。    1979年10月完成了预处理器Cpre，为C增加了类机制，也就是面向对象，1983年完成了C++的第一个版本，C with classes也就是C++。    C++与C的不同点：    1、">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++基础知识(一)">
-<meta property="og:url" content="http://yoursite.com/2019/08/29/C-基础知识-一/index.html">
+<meta property="og:url" content="https://ikaros-521.github.io/2019/08/29/C-基础知识-一/index.html">
 <meta property="og:site_name" content="Ikaros">
 <meta property="og:description" content="下一章：传送门 思考题：C与C++的区别？一、C++介绍    本贾尼·斯特劳斯特卢普，与1979年4月份贝尔实验室的本贾尼博士在分析UNIX系统分布内核流量分析时，希望有一种有效的更加模块化的工具。    1979年10月完成了预处理器Cpre，为C增加了类机制，也就是面向对象，1983年完成了C++的第一个版本，C with classes也就是C++。    C++与C的不同点：    1、">
 <meta property="og:locale" content="UTF-8">
-<meta property="og:updated_time" content="2019-08-29T02:12:53.602Z">
+<meta property="og:updated_time" content="2019-08-29T03:25:07.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++基础知识(一)">
 <meta name="twitter:description" content="下一章：传送门 思考题：C与C++的区别？一、C++介绍    本贾尼·斯特劳斯特卢普，与1979年4月份贝尔实验室的本贾尼博士在分析UNIX系统分布内核流量分析时，希望有一种有效的更加模块化的工具。    1979年10月完成了预处理器Cpre，为C增加了类机制，也就是面向对象，1983年完成了C++的第一个版本，C with classes也就是C++。    C++与C的不同点：    1、">
@@ -181,7 +182,7 @@
 <a id="more"></a>
 
 <p><strong>二、第一个C++程序</strong><br>    1、文件扩展名<br>        .cpp .cc .C .cxx<br>    2、编译器<br>        g++ 大多数系统需要额外安装，Ubuntu系统下的安装命令：<br>            sudo apt-get update<br>            sudo apt-get install g++<br>        gcc也可以继续使用，但需要增加参数 -xC++ -lstdc++<br>    3、头文件<br>        #include <iostream><br>        #include &lt;stdio.h&gt; 可以继续使用，但C++建议使用 #include <cstdio><br>    4、输入/输出<br>        cin &lt;&lt; 输入数据<br>        cout &gt;&gt; 输出数据<br>        cin/cout会自动识别类型<br>        scanf/printf可以继续使用<br>        注意：cout和cin是类对象，而scanf/printf是标准库函数。<br>    5、增加了名字空间<br>        std::cout<br>        using namespace std;</cstdio></iostream></p>
-<p><strong>三、名字空间</strong><br>    1、什么是名字空间<br>    在C++中经常使用多个独立开发的库来完成项目，由于库的作者或开发人员没见过面，因此命名冲突在所难免。<br>    2、为什么需要名字空间<br>    在项目中函数名、全局变量、结构、联合、枚举、类，非常有可能名字冲突，而名字空间就对这些命名进行逻辑空间划分（不是物理单元划分），<br>    为了解决命名冲突，C++之父为防止命名冲突给C++设计一个名字空间的机制。<br>    通过使用namespace XXX把库中的变量、函数、类型、结构等包含在名字空间中，形成自己的作用域，避免名字冲突。<br>    namespace xxx<br>    {<br>    }// 没有分号<br>    注意：名字空间也是一种标识符，在同一作用域下不能重名。<br>    3、同名的名字空间有自动合并（为了声明和定义可以分开写）<br>    同名的名字空间中如果有重名的依然会命名冲突<br>    4、名字空间的使用方法<br>    ::域限定符<br>    空间名::标识符 // 使用麻烦，但是非常安全<br>    using namespace 空间名; 把空间中定义的标识符导入到当前代码中<br>        不建议这样使用，相当于把垃圾分类后，又导入同一个垃圾车，依然会冲突</p>
+<p><strong>三、名字空间</strong><br>    1、什么是名字空间<br>    在C++中经常使用多个独立开发的库来完成项目，由于库的作者或开发人员没见过面，因此命名冲突在所难免。<br>    2、为什么需要名字空间<br>    在项目中函数名、全局变量、结构、联合、枚举、类，非常有可能名字冲突，而名字空间就对这些命名进行逻辑空间划分（不是物理单元划分），<br>    为了解决命名冲突，C++之父为防止命名冲突给C++设计一个名字空间的机制。<br>    通过使用namespace XXX把库中的变量、函数、类型、结构等包含在名字空间中，形成自己的作用域，避免名字冲突。<br>    namespace xxx<br>    {<br>    }// 没有分号<br>    注意：名字空间也是一种标识符，在同一作用域下不能重名。<br>    3、同名的名字空间有自动合并（为了声明和定义可以分开写）<br>    同名的名字空间中如果有重名的依然会命名冲突<br>    4、名字空间的使用方法<br>    ::域限定符<br>    空间名::标识符 // 使用麻烦，但是非常安全<br>    using namespace 空间名; 把空间中定义的标识符导入到当前代码中<br>        不建议这样使用，相当于把垃圾分类后，又倒入同一个垃圾车，依然会冲突</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">namespace test&#123;</span><br><span class="line">int cout = 100;</span><br><span class="line">int cin = 99;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	std::cout&lt;&lt;test::cout&lt;&lt;&apos; &apos;&lt;&lt;test::cin&lt;&lt;std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>   5、无名名字空间<br>    不属于任何名字空间中的标识符，隶属于无名名字空间。<br>    无名名字空间中的成员使用 ::标识符 进行访问。<br>    如何访问被屏蔽的全局变量。</p>
@@ -224,6 +225,28 @@ not     !
 
       
 
+	  
+
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      ikaros
+    
+    <br>
+    <strong>本文链接：</strong>
+    https://ikaros-521.github.io/2019/08/29/C-基础知识-一/
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+	  
       
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -250,6 +273,17 @@ not     !
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -300,7 +334,7 @@ not     !
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/29/C-基础知识-一/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ikaros-521.github.io/2019/08/29/C-基础知识-一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -456,6 +490,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
