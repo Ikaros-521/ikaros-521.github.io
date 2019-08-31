@@ -6,15 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ikaros-521.github.io">
-  <title>Archives | Ikaros</title>
+  <title>C++中STL相关知识 | Ikaros</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ikaros">
-<meta property="og:url" content="https://ikaros-521.github.io/archives/index.html">
+  <meta name="description" content="STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大提高容器的访问速度。    算法：STL实现了常见的排序、查找算法。">
+<meta name="keywords" content="C++,STL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++中STL相关知识">
+<meta property="og:url" content="https://ikaros-521.github.io/2019/08/31/C-中STL相关知识/index.html">
 <meta property="og:site_name" content="Ikaros">
+<meta property="og:description" content="STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大提高容器的访问速度。    算法：STL实现了常见的排序、查找算法。">
 <meta property="og:locale" content="UTF-8">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150134261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150153998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150209482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082715022572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150318915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150335763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150349668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150410951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150451820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827150513935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-08-31T14:55:38.406Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ikaros">
+<meta name="twitter:title" content="C++中STL相关知识">
+<meta name="twitter:description" content="STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大提高容器的访问速度。    算法：STL实现了常见的排序、查找算法。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190827150134261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Ikaros" type="application/atom+xml">
   
@@ -152,36 +168,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-C-中STL相关知识" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/31/C-中STL相关知识/" class="archive-article-date">
-  	<time datetime="2019-08-31T14:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/31/C-中STL相关知识/">C++中STL相关知识</a>
+    <h1 class="article-title" itemprop="name">
+      C++中STL相关知识
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/31/C-中STL相关知识/" class="archive-article-date">
+  	<time datetime="2019-08-31T14:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>STL介绍</strong><br>    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。<br>    容器：用来存储各种类型数据的数据结构。<br>    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大提高容器的访问速度。<br>    算法：STL实现了常见的排序、查找算法。</p>
+<a id="more"></a>
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150134261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="List：双端链表容器"><a href="#List：双端链表容器" class="headerlink" title="List：双端链表容器"></a>List：双端链表容器</h1><pre><code>iterator：用来指向容器中的元素
+    begin() 获取指向第一个元素的迭代器
+    end() 获取指向最后一个元素的下一个位置
+相关使用参考：https://blog.csdn.net/Ikaros_521/article/details/100091859</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150153998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="vector：向量容器，俗称数组"><a href="#vector：向量容器，俗称数组" class="headerlink" title="vector：向量容器，俗称数组"></a>vector：向量容器，俗称数组</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void show(vector&lt;int&gt;&amp; arr)</span><br><span class="line">&#123;</span><br><span class="line">	for(int i=0; i&lt;arr.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	// 创建向量，设置容量并初始化</span><br><span class="line">	vector&lt;int&gt; arr(12,0);</span><br><span class="line">	show(arr);</span><br><span class="line"></span><br><span class="line">	// 向量支持[]运算符，所以被称为数组</span><br><span class="line">	for(int i=0; i&lt;10; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		arr[i] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	show(arr);</span><br><span class="line"></span><br><span class="line">	vector&lt;int&gt; arr1(10,0);	</span><br><span class="line">	// 支持比较运算符</span><br><span class="line">	cout &lt;&lt; (arr[0]==arr1[0]) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	// at成员函数,相当于[]操作</span><br><span class="line">	for(int i=0; i&lt;arr.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arr.at(i) &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	// 获取向量的容量 </span><br><span class="line">	cout &lt;&lt; arr.capacity() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150209482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/2019082715022572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="stack、queue：栈和队列"><a href="#stack、queue：栈和队列" class="headerlink" title="stack、queue：栈和队列"></a>stack、queue：栈和队列</h1><p>   <img src="https://img-blog.csdnimg.cn/20190827150318915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"><a href="#double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素" class="headerlink" title="double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"></a>double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	deque&lt;int&gt; d(10,0);</span><br><span class="line">	for(int i=0; i&lt;d.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		d[i] = i;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for(int i=0; i&lt;d.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; d[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150335763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"><a href="#set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。" class="headerlink" title="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"></a>set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[5] = &#123;4,3,2,2,5&#125;;</span><br><span class="line">	set&lt;int&gt; s;</span><br><span class="line">	// 在集合中插入元素</span><br><span class="line">	s.insert(arr,arr+5);</span><br><span class="line">	set&lt;int&gt;::iterator it;</span><br><span class="line">	for(it=s.begin(); it!=s.end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	// 返回某个值元素的个数</span><br><span class="line">	cout &lt;&lt; endl &lt;&lt; s.count(2) &lt;&lt;&quot; &quot;&lt;&lt;s.count(1)&lt;&lt; endl;</span><br><span class="line">	// 返回指向大于（或等于）某值的第一个元素的迭代器</span><br><span class="line">	cout &lt;&lt; *s.lower_bound(1) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150349668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。"><a href="#map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。" class="headerlink" title="map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。"></a>map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	map&lt;int,string&gt; m;</span><br><span class="line">	// 插入元素</span><br><span class="line">	m.insert(make_pair(10010,&quot;hehe&quot;));</span><br><span class="line">	m.insert(make_pair(10011,&quot;haaa&quot;));</span><br><span class="line">	m.insert(make_pair(10012,&quot;xixi&quot;));</span><br><span class="line">	m.insert(make_pair(10013,&quot;ohho&quot;));</span><br><span class="line">	m.insert(make_pair(10013,&quot;ohho&quot;));</span><br><span class="line">	cout &lt;&lt; m.size() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; (*m.find(10011)).second &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	map&lt;int,string&gt;::iterator it;</span><br><span class="line">	for(it=m.begin(); it!=m.end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150410951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"><a href="#multimap：多重映射，它与map很像，区别是它的key的值可以重复。" class="headerlink" title="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"></a>multimap：多重映射，它与map很像，区别是它的key的值可以重复。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	multimap&lt;int,string&gt; mm;</span><br><span class="line">	// 插入元素</span><br><span class="line">	mm.insert(make_pair(10010,&quot;ha1&quot;));</span><br><span class="line">	mm.insert(make_pair(10012,&quot;ha2&quot;));</span><br><span class="line">	mm.insert(make_pair(10010,&quot;ha3&quot;));</span><br><span class="line">	mm.insert(make_pair(10013,&quot;ha4&quot;));</span><br><span class="line">	mm.insert(make_pair(10010,&quot;ha5&quot;));</span><br><span class="line">	cout &lt;&lt; mm.size() &lt;&lt; endl;</span><br><span class="line">	multimap&lt;int,string&gt;::iterator it;</span><br><span class="line">	// 查找一个元素</span><br><span class="line">	it = mm.find(10010);</span><br><span class="line">	// 返回指定元素出现的次数</span><br><span class="line">	for(int i=0; i&lt;mm.count(10010); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; (*it).second &lt;&lt; endl;</span><br><span class="line">		it++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150451820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="multiset：多重集合，它与set很像，区别是它的值可以重复。"><a href="#multiset：多重集合，它与set很像，区别是它的值可以重复。" class="headerlink" title="multiset：多重集合，它与set很像，区别是它的值可以重复。"></a>multiset：多重集合，它与set很像，区别是它的值可以重复。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[10] = &#123;1,3,5,3,2,5,7,6,3,9&#125;;</span><br><span class="line">	multiset&lt;int&gt; ms(arr,arr+10);</span><br><span class="line">	cout &lt;&lt; ms.size() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; ms.count(3) &lt;&lt; endl;</span><br><span class="line">	multiset&lt;int&gt;::iterator it;</span><br><span class="line">	for(it=ms.begin(); it!=ms.end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; (*it) &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190827150513935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="priority-queue：优先队列，它会根据元素的比较结果进行排序。"><a href="#priority-queue：优先队列，它会根据元素的比较结果进行排序。" class="headerlink" title="priority_queue：优先队列，它会根据元素的比较结果进行排序。"></a>priority_queue：优先队列，它会根据元素的比较结果进行排序。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int com(int&amp; a,int&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">	if(a &gt; b)</span><br><span class="line">		return 1;</span><br><span class="line">	else if(a &lt; b)</span><br><span class="line">		return -1;</span><br><span class="line">	else</span><br><span class="line">		return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	srand(time(NULL));</span><br><span class="line">	priority_queue&lt;int&gt; pq;</span><br><span class="line">	for(int i=0; i&lt;10; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int val = rand()%100;</span><br><span class="line">		cout &lt;&lt; val &lt;&lt; &quot; &quot;;</span><br><span class="line">		pq.push(val);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; pq.size() &lt;&lt; endl;</span><br><span class="line">	while(!pq.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; pq.top() &lt;&lt; &quot; &quot;;</span><br><span class="line">		pq.pop();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   总结：<br>    1、vector和deque是支持[]运算，因此基本不需要迭代器，其他容器一律使用迭代器进行遍历。<br>    2、stack、queue、priority_queue容器没有迭代器。<br>    3、set、multiset、priority_queue会对元素进行排序，因它存储元素要支持比较运算符。</p>
+
+      
+
+	  
+
+  <div class="declare" hidden="hidden"></div>
+
+	  
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wx.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,332 +281,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ikaros-521.github.io/2019/08/31/C-中STL相关知识/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/31/C-中的模板/" class="archive-article-date">
-  	<time datetime="2019-08-31T14:36:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/31/C-中的模板/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++中的模板</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/31/C-中的模板/">C++中的模板</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#List：双端链表容器"><span class="toc-number">1.</span> <span class="toc-text">List：双端链表容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vector：向量容器，俗称数组"><span class="toc-number">2.</span> <span class="toc-text">vector：向量容器，俗称数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#stack、queue：栈和队列"><span class="toc-number">3.</span> <span class="toc-text">stack、queue：栈和队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"><span class="toc-number">4.</span> <span class="toc-text">double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"><span class="toc-number">5.</span> <span class="toc-text">set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。"><span class="toc-number">6.</span> <span class="toc-text">map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#multimap：多重映射，它与map很像，区别是它的key的值可以重复。"><span class="toc-number">7.</span> <span class="toc-text">multimap：多重映射，它与map很像，区别是它的key的值可以重复。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#multiset：多重集合，它与set很像，区别是它的值可以重复。"><span class="toc-number">8.</span> <span class="toc-text">multiset：多重集合，它与set很像，区别是它的值可以重复。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#priority-queue：优先队列，它会根据元素的比较结果进行排序。"><span class="toc-number">9.</span> <span class="toc-text">priority_queue：优先队列，它会根据元素的比较结果进行排序。</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/31/C-中类的继承-二/" class="archive-article-date">
-  	<time datetime="2019-08-31T14:24:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/31/C-中类的继承-二/">C++中类的继承(二)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-new">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/31/C-中类的继承-一/" class="archive-article-date">
-  	<time datetime="2019-08-31T13:34:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/31/C-中类的继承-一/">C++中类的继承(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/C语言基础知识/" class="archive-article-date">
-  	<time datetime="2019-08-29T12:55:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/C语言基础知识/">C语言基础知识</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/C-基础知识-三/" class="archive-article-date">
-  	<time datetime="2019-08-29T07:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/C-基础知识-三/">C++基础知识(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/C-基础知识-二/" class="archive-article-date">
-  	<time datetime="2019-08-29T07:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/C-基础知识-二/">C++基础知识(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/C-基础知识-一/" class="archive-article-date">
-  	<time datetime="2019-08-29T01:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/C-基础知识-一/">C++基础知识(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-28T14:24:12.584Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -546,8 +417,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
