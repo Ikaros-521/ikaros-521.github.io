@@ -416,11 +416,11 @@
 <a id="more"></a>
 
 <p><img src="https://img-blog.csdnimg.cn/20190827150134261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="List：双端链表容器"><a href="#List：双端链表容器" class="headerlink" title="List：双端链表容器"></a>List：双端链表容器</h1><pre><code>iterator：用来指向容器中的元素
+<h2 id="List：双端链表容器"><a href="#List：双端链表容器" class="headerlink" title="List：双端链表容器"></a>List：双端链表容器</h2><pre><code>iterator：用来指向容器中的元素
     begin() 获取指向第一个元素的迭代器
     end() 获取指向最后一个元素的下一个位置
 相关使用参考：https://blog.csdn.net/Ikaros_521/article/details/100091859</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150153998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="vector：向量容器，俗称数组"><a href="#vector：向量容器，俗称数组" class="headerlink" title="vector：向量容器，俗称数组"></a>vector：向量容器，俗称数组</h1><pre><code>    #include &lt;iostream&gt;
+<h2 id="vector：向量容器，俗称数组"><a href="#vector：向量容器，俗称数组" class="headerlink" title="vector：向量容器，俗称数组"></a>vector：向量容器，俗称数组</h2><pre><code>    #include &lt;iostream&gt;
     #include &lt;vector&gt;
     using namespace std;
 
@@ -460,8 +460,8 @@
         // 获取向量的容量 
         cout &lt;&lt; arr.capacity() &lt;&lt; endl;
     }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150209482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/2019082715022572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="stack、queue：栈和队列"><a href="#stack、queue：栈和队列" class="headerlink" title="stack、queue：栈和队列"></a>stack、queue：栈和队列</h1><p>   <img src="https://img-blog.csdnimg.cn/20190827150318915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"><a href="#double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素" class="headerlink" title="double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"></a>double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素</h1><pre><code>    #include &lt;iostream&gt;
+<h2 id="stack、queue：栈和队列"><a href="#stack、queue：栈和队列" class="headerlink" title="stack、queue：栈和队列"></a>stack、queue：栈和队列</h2><p>   <img src="https://img-blog.csdnimg.cn/20190827150318915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"><a href="#double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素" class="headerlink" title="double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"></a>double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素</h2><pre><code>    #include &lt;iostream&gt;
     #include &lt;deque&gt;
     using namespace std;
 
@@ -479,7 +479,7 @@
         }
         cout &lt;&lt; endl;
     }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150335763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"><a href="#set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。" class="headerlink" title="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"></a>set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。</h1><pre><code>    #include &lt;iostream&gt;
+<h2 id="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"><a href="#set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。" class="headerlink" title="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"></a>set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。</h2><pre><code>    #include &lt;iostream&gt;
     #include &lt;set&gt;
     using namespace std;
 
@@ -499,7 +499,7 @@
         // 返回指向大于（或等于）某值的第一个元素的迭代器
         cout &lt;&lt; *s.lower_bound(1) &lt;&lt; endl;
     }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150349668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。"><a href="#map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。" class="headerlink" title="map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。"></a>map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。</h1><pre><code>    #include &lt;iostream&gt;
+<h2 id="map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。"><a href="#map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。" class="headerlink" title="map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。"></a>map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。</h2><pre><code>    #include &lt;iostream&gt;
     #include &lt;map&gt;
     using namespace std;
 
@@ -521,7 +521,7 @@
             cout&lt;&lt; (*it).first &lt;&lt; " " &lt;&lt; (*it).second &lt;&lt; endl;
         }
     }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150410951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"><a href="#multimap：多重映射，它与map很像，区别是它的key的值可以重复。" class="headerlink" title="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"></a>multimap：多重映射，它与map很像，区别是它的key的值可以重复。</h1><pre><code>    #include &lt;iostream&gt;
+<h2 id="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"><a href="#multimap：多重映射，它与map很像，区别是它的key的值可以重复。" class="headerlink" title="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"></a>multimap：多重映射，它与map很像，区别是它的key的值可以重复。</h2><pre><code>    #include &lt;iostream&gt;
     #include &lt;map&gt;
     using namespace std;
 
@@ -545,7 +545,7 @@
             it++;
         }
     }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150451820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="multiset：多重集合，它与set很像，区别是它的值可以重复。"><a href="#multiset：多重集合，它与set很像，区别是它的值可以重复。" class="headerlink" title="multiset：多重集合，它与set很像，区别是它的值可以重复。"></a>multiset：多重集合，它与set很像，区别是它的值可以重复。</h1><pre><code>    #include &lt;iostream&gt;
+<h2 id="multiset：多重集合，它与set很像，区别是它的值可以重复。"><a href="#multiset：多重集合，它与set很像，区别是它的值可以重复。" class="headerlink" title="multiset：多重集合，它与set很像，区别是它的值可以重复。"></a>multiset：多重集合，它与set很像，区别是它的值可以重复。</h2><pre><code>    #include &lt;iostream&gt;
     #include &lt;set&gt;
     using namespace std;
 
@@ -561,7 +561,7 @@
             cout &lt;&lt; (*it) &lt;&lt; " ";
         }
     }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150513935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="priority-queue：优先队列，它会根据元素的比较结果进行排序。"><a href="#priority-queue：优先队列，它会根据元素的比较结果进行排序。" class="headerlink" title="priority_queue：优先队列，它会根据元素的比较结果进行排序。"></a>priority_queue：优先队列，它会根据元素的比较结果进行排序。</h1><pre><code>#include &lt;iostream&gt;
+<h2 id="priority-queue：优先队列，它会根据元素的比较结果进行排序。"><a href="#priority-queue：优先队列，它会根据元素的比较结果进行排序。" class="headerlink" title="priority_queue：优先队列，它会根据元素的比较结果进行排序。"></a>priority_queue：优先队列，它会根据元素的比较结果进行排序。</h2><pre><code>#include &lt;iostream&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;time.h&gt;
 #include &lt;queue&gt;

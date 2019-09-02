@@ -414,7 +414,7 @@ void f(const">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="十、函数重载（重载、隐藏、重写）"><a href="#十、函数重载（重载、隐藏、重写）" class="headerlink" title="十、函数重载（重载、隐藏、重写）"></a>十、函数重载（重载、隐藏、重写）</h1><pre><code>1、函数重载
+                <h2 id="十、函数重载（重载、隐藏、重写）"><a href="#十、函数重载（重载、隐藏、重写）" class="headerlink" title="十、函数重载（重载、隐藏、重写）"></a>十、函数重载（重载、隐藏、重写）</h2><pre><code>1、函数重载
     在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。</code></pre><a id="more"></a>
 
 <pre><code>#include &lt;iostream&gt;
@@ -457,7 +457,7 @@ int main()
 {
     short a=3, b=7;
     sum(a,b);
-}</code></pre><h1 id="十一、默认形参"><a href="#十一、默认形参" class="headerlink" title="十一、默认形参"></a>十一、默认形参</h1><pre><code>1、在C++中函数的形参可以设置默认值，调用函数，如果没有提供实参数，则使用默认形参。
+}</code></pre><h2 id="十一、默认形参"><a href="#十一、默认形参" class="headerlink" title="十一、默认形参"></a>十一、默认形参</h2><pre><code>1、在C++中函数的形参可以设置默认值，调用函数，如果没有提供实参数，则使用默认形参。
 2、如果形参只有一部分设置了默认形参，则必须靠右排列。
 3、函数的默认形参是在编译阶段确定的，因此只能使用常量、常量表达式、全局变量数据作为默认值。
 4、如果函数的声明和定义需要分开，那么默认形参设置在声明、定义，还是声明定义都需要设置。
@@ -477,7 +477,7 @@ void fun(int b,int a)
 {
     cout &lt;&lt;"b:" &lt;&lt; b &lt;&lt; endl;
     cout &lt;&lt;"a:" &lt;&lt; a &lt;&lt; endl;
-}</code></pre><h1 id="十二、内联函数"><a href="#十二、内联函数" class="headerlink" title="十二、内联函数"></a>十二、内联函数</h1><pre><code>1、普通函数调用时是生成调用指令（跳转），然后当代码执行到调用位置时跳转到函数所在的代码段执行。
+}</code></pre><h2 id="十二、内联函数"><a href="#十二、内联函数" class="headerlink" title="十二、内联函数"></a>十二、内联函数</h2><pre><code>1、普通函数调用时是生成调用指令（跳转），然后当代码执行到调用位置时跳转到函数所在的代码段执行。
 2、内联函数就把函数编译好的二进制指令直接复制到函数的调用位置。
 3、内联函数的优点就是提高程序的运行速度（因为没有跳转，也不需要返回），但这样会导致可执行文件增大（冗余），也就是牺牲空间来换取时间。
 4、内联分为显示内联和隐式内联
@@ -485,7 +485,7 @@ void fun(int b,int a)
     隐式内联：结构、类中内部直接定义的成员函数，则该类型函数会被优化成内联函数。
 5、宏函数在调用时会把函数体直接替换到调用位置，与内联函数一样也是使用空间来换取时间，所以宏函数与内联函数的区别（优缺点）？
     1.宏函数不是真正的函数，只是代码替换，不会有参数压栈、出栈以及返回值，也不会检查参数类型，因此所有类型都能使用，但这样会</code></pre><p>有安全隐患。<br>        2.内联函数是真正的函数，被调用时会进行传参，会进行压栈、出栈，可以有返回值，并会严格检查参数类型，这样就不能通用，如果被<br>多种类型调用需要重载。<br>    6、内联适用的条件<br>        由于内联会造成可执行文件变大，并增加内存开销，因此只有频繁调用的简单函数适合作为内联。<br>        调用比较少的复杂函数，内联后并不显著提高性能，不足以抵消牺牲空间带来的损失，所以不适合内联。<br>        带有递归特性和动态绑定特性的函数，无法实施内联，因此编译器会忽略声明部分的inline关键字。</p>
-<h1 id="十三、引用"><a href="#十三、引用" class="headerlink" title="十三、引用"></a>十三、引用</h1><pre><code>引用就是取艺名（别名）。</code></pre><pre><code>#include &lt;iostream&gt;
+<h2 id="十三、引用"><a href="#十三、引用" class="headerlink" title="十三、引用"></a>十三、引用</h2><pre><code>引用就是取艺名（别名）。</code></pre><pre><code>#include &lt;iostream&gt;
 using namespace std;
 
 int main()
@@ -530,7 +530,7 @@ int main()
     int a=3,b=4;
     swap(a,b);
     cout&lt;&lt;a&lt;&lt;" "&lt;&lt;b&lt;&lt;endl;
-}</code></pre><h1 id="十四、C-的内存管理"><a href="#十四、C-的内存管理" class="headerlink" title="十四、C++的内存管理"></a>十四、C++的内存管理</h1><pre><code>1、new/delete C++具备申请/释放堆内存功能的运算符
+}</code></pre><h2 id="十四、C-的内存管理"><a href="#十四、C-的内存管理" class="headerlink" title="十四、C++的内存管理"></a>十四、C++的内存管理</h2><pre><code>1、new/delete C++具备申请/释放堆内存功能的运算符
     相当于C语言中的malloc和free。
     new 类型：会自动计算类型所需要字节数，然后从堆中分配对应字节数的内存，并返回内存的首地址（具备类型）。
     delete 指针：会自动释放堆内存。

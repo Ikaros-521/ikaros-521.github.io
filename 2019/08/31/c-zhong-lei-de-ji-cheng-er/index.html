@@ -420,14 +420,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、子类的构造、析构、拷贝"><a href="#一、子类的构造、析构、拷贝" class="headerlink" title="一、子类的构造、析构、拷贝"></a>一、子类的构造、析构、拷贝</h1><pre><code>1、子类的构造在执行它的构造函数前会根据继承表的顺序执行父类的构造函数。
+                <h2 id="一、子类的构造、析构、拷贝"><a href="#一、子类的构造、析构、拷贝" class="headerlink" title="一、子类的构造、析构、拷贝"></a>一、子类的构造、析构、拷贝</h2><pre><code>1、子类的构造在执行它的构造函数前会根据继承表的顺序执行父类的构造函数。
     默认执行父类的无参构造
     显示调用有参构造，在子类的构造函数后，初始化列表中显示调用父类的有参构造函数。</code></pre><a id="more"></a>
 
 <pre><code>2、子类在它的析构执行完后，会根据继承表的顺序，逆顺序执行父类的析构函数。
     注意：父类的指针可以指向子类对象，当通过父类指针释放对象时，只会调用父类的析构函数，而这种析构方式有可能造成内存泄漏。
 3、当使用子类对象来初始化新的子类对象时，会自动调用子类缺省的拷贝构造函数，并且会先调用父类缺省的拷贝构造函数。
-    如果子类中实现的拷贝构造，需要显式调用父类拷贝构造，否则就会调用无参构造。</code></pre><h1 id="二、私有继承、保护继承"><a href="#二、私有继承、保护继承" class="headerlink" title="二、私有继承、保护继承"></a>二、私有继承、保护继承</h1><pre><code>使用 private 方式继承父类，公开的变成私有，其他的不变（有争议），这种继承方式防止父类的成员扩散。
+    如果子类中实现的拷贝构造，需要显式调用父类拷贝构造，否则就会调用无参构造。</code></pre><h2 id="二、私有继承、保护继承"><a href="#二、私有继承、保护继承" class="headerlink" title="二、私有继承、保护继承"></a>二、私有继承、保护继承</h2><pre><code>使用 private 方式继承父类，公开的变成私有，其他的不变（有争议），这种继承方式防止父类的成员扩散。
 
 使用 protected 方式继承父类，公开成员在子类中会变成保护的，其他不变，这种继承方式可以有效防止父类的成员扩散。
 
@@ -467,7 +467,7 @@ int main()
 //    A a;
 //    Base a;
 //    cout &lt;&lt; a.a &lt;&lt; " " &lt;&lt; a.b &lt;&lt; " " &lt;&lt; a.c &lt;&lt; endl;
-}</code></pre><h1 id="三、多重继承、钻石继承、虚继承"><a href="#三、多重继承、钻石继承、虚继承" class="headerlink" title="三、多重继承、钻石继承、虚继承"></a>三、多重继承、钻石继承、虚继承</h1><h2 id="1、多重载继承"><a href="#1、多重载继承" class="headerlink" title="1、多重载继承"></a>1、多重载继承</h2><pre><code>在C++中一个子类可以有多个父类，在继承表中按照顺序继承多个父类中的属性和行为，并按照顺序表，调用父类的构造函数。
+}</code></pre><h2 id="三、多重继承、钻石继承、虚继承"><a href="#三、多重继承、钻石继承、虚继承" class="headerlink" title="三、多重继承、钻石继承、虚继承"></a>三、多重继承、钻石继承、虚继承</h2><h3 id="1、多重载继承"><a href="#1、多重载继承" class="headerlink" title="1、多重载继承"></a>1、多重载继承</h3><pre><code>在C++中一个子类可以有多个父类，在继承表中按照顺序继承多个父类中的属性和行为，并按照顺序表，调用父类的构造函数。
 按照从低到高的地址顺序排序父类，子类中会标记每个父类存储位置。
 当子类指针转换成父类的隐式指针时候，编译器会自动计算父类中的内容在子类中的位置，地址会自动进行偏移计算。</code></pre><pre><code>#include &lt;iostream&gt;
 #include &lt;stdio.h&gt;
@@ -510,7 +510,7 @@ int main()
     C* cp = p;
     printf("%p %p %p  p:%p\n",ap,bp,cp,p);
     cout &lt;&lt; ap-&gt;a &lt;&lt; " " &lt;&lt; bp-&gt;b &lt;&lt; " " &lt;&lt; cp-&gt;c &lt;&lt; endl;
-}</code></pre><h2 id="2、名字冲突"><a href="#2、名字冲突" class="headerlink" title="2、名字冲突"></a>2、名字冲突</h2><pre><code>如果父类中有同名的成员，可以正常继承，但如果直接使用，会造成歧义，需要 类名::成员名 进行访问。</code></pre><pre><code>#include &lt;iostream&gt;
+}</code></pre><h3 id="2、名字冲突"><a href="#2、名字冲突" class="headerlink" title="2、名字冲突"></a>2、名字冲突</h3><pre><code>如果父类中有同名的成员，可以正常继承，但如果直接使用，会造成歧义，需要 类名::成员名 进行访问。</code></pre><pre><code>#include &lt;iostream&gt;
 #include &lt;stdio.h&gt;
 using namespace std;
 
@@ -545,10 +545,10 @@ int main()
 {
     Test* p = new Test;
 }
-</code></pre><h2 id="3、钻石继承"><a href="#3、钻石继承" class="headerlink" title="3、钻石继承"></a>3、钻石继承</h2><pre><code>假如有一个类A，类B继承类A，类C也继承类A，类D继承B和C。
+</code></pre><h3 id="3、钻石继承"><a href="#3、钻石继承" class="headerlink" title="3、钻石继承"></a>3、钻石继承</h3><pre><code>假如有一个类A，类B继承类A，类C也继承类A，类D继承B和C。
 一个子类继承多个父类，这些父类有一个共同的祖先，这种继承叫钻石继承。
-注意：钻石继承不会导致继承错误，但访问祖先类中的成员时每次需要使用 类名::成员名 ，重点是这种继承会造成冗余。</code></pre><h2 id="4、虚继承-virtual"><a href="#4、虚继承-virtual" class="headerlink" title="4、虚继承 virtual"></a>4、虚继承 virtual</h2><pre><code>当进行钻石继承时，祖先类中的内容会有冗余，而进行虚继承后，在子类中的内容只会保留一份。
-注意：但使用虚继承时，子类中会多了一些内容（指向从祖先类继承来的成员）。</code></pre><h2 id="5、构造函数"><a href="#5、构造函数" class="headerlink" title="5、构造函数"></a>5、构造函数</h2><pre><code>一旦进行了虚继承祖先类的构造函数只执行一次，由孙子类直接调用，祖先类的有参构造也需要在孙子类中显示调用。</code></pre><h2 id="6、拷贝构造"><a href="#6、拷贝构造" class="headerlink" title="6、拷贝构造"></a>6、拷贝构造</h2><pre><code>在虚拟继承（钻石）中祖先类拷贝构造也由孙子类直接调用，子类中不再调用祖先类的拷贝构造，在手动实现的拷贝构造时（深拷贝），祖先类中的内容也由孙子类负责拷贝，同理赋值构造也一样。</code></pre><pre><code>#include &lt;iostream&gt;
+注意：钻石继承不会导致继承错误，但访问祖先类中的成员时每次需要使用 类名::成员名 ，重点是这种继承会造成冗余。</code></pre><h3 id="4、虚继承-virtual"><a href="#4、虚继承-virtual" class="headerlink" title="4、虚继承 virtual"></a>4、虚继承 virtual</h3><pre><code>当进行钻石继承时，祖先类中的内容会有冗余，而进行虚继承后，在子类中的内容只会保留一份。
+注意：但使用虚继承时，子类中会多了一些内容（指向从祖先类继承来的成员）。</code></pre><h3 id="5、构造函数"><a href="#5、构造函数" class="headerlink" title="5、构造函数"></a>5、构造函数</h3><pre><code>一旦进行了虚继承祖先类的构造函数只执行一次，由孙子类直接调用，祖先类的有参构造也需要在孙子类中显示调用。</code></pre><h3 id="6、拷贝构造"><a href="#6、拷贝构造" class="headerlink" title="6、拷贝构造"></a>6、拷贝构造</h3><pre><code>在虚拟继承（钻石）中祖先类拷贝构造也由孙子类直接调用，子类中不再调用祖先类的拷贝构造，在手动实现的拷贝构造时（深拷贝），祖先类中的内容也由孙子类负责拷贝，同理赋值构造也一样。</code></pre><pre><code>#include &lt;iostream&gt;
 using namespace std;
 
 class A
@@ -600,7 +600,7 @@ int main()
     D d;
 //    cout &lt;&lt;sizeof(A) &lt;&lt;" "&lt;&lt; sizeof(B) &lt;&lt;" "&lt;&lt;sizeof(C)&lt;&lt;" " &lt;&lt;sizeof(D)&lt;&lt; endl;
 //    cout &lt;&lt; d.B::a &lt;&lt; endl;
-}</code></pre><h1 id="四、虚函数、覆盖、多态"><a href="#四、虚函数、覆盖、多态" class="headerlink" title="四、虚函数、覆盖、多态"></a>四、虚函数、覆盖、多态</h1><h2 id="1、虚函数"><a href="#1、虚函数" class="headerlink" title="1、虚函数"></a>1、虚函数</h2><pre><code>类的成员函数前加 virtual 这种函数就叫做虚函数。</code></pre><h2 id="2、覆盖"><a href="#2、覆盖" class="headerlink" title="2、覆盖"></a>2、覆盖</h2><pre><code>子类会覆盖父类的虚函数。</code></pre><h2 id="3、多态"><a href="#3、多态" class="headerlink" title="3、多态"></a>3、多态</h2><pre><code>当子类覆盖了父类的虚函数时，通过父类指针指向子类对象时，调用虚函数，会根据具体的对象是谁来决定执行谁的函数，这就是多态。</code></pre><pre><code>#include &lt;iostream&gt;
+}</code></pre><h2 id="四、虚函数、覆盖、多态"><a href="#四、虚函数、覆盖、多态" class="headerlink" title="四、虚函数、覆盖、多态"></a>四、虚函数、覆盖、多态</h2><h3 id="1、虚函数"><a href="#1、虚函数" class="headerlink" title="1、虚函数"></a>1、虚函数</h3><pre><code>类的成员函数前加 virtual 这种函数就叫做虚函数。</code></pre><h3 id="2、覆盖"><a href="#2、覆盖" class="headerlink" title="2、覆盖"></a>2、覆盖</h3><pre><code>子类会覆盖父类的虚函数。</code></pre><h3 id="3、多态"><a href="#3、多态" class="headerlink" title="3、多态"></a>3、多态</h3><pre><code>当子类覆盖了父类的虚函数时，通过父类指针指向子类对象时，调用虚函数，会根据具体的对象是谁来决定执行谁的函数，这就是多态。</code></pre><pre><code>#include &lt;iostream&gt;
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 using namespace std;
@@ -657,7 +657,7 @@ int main()
     // 这就是多态
     Base* arr[] = {new A,new B,new C};
     arr[rand()%3]-&gt;func();
-}</code></pre><h1 id="五、覆盖和多态的条件"><a href="#五、覆盖和多态的条件" class="headerlink" title="五、覆盖和多态的条件"></a>五、覆盖和多态的条件</h1><h2 id="1、覆盖的条件"><a href="#1、覆盖的条件" class="headerlink" title="1、覆盖的条件"></a>1、覆盖的条件</h2><pre><code>    必须是虚函数
+}</code></pre><h2 id="五、覆盖和多态的条件"><a href="#五、覆盖和多态的条件" class="headerlink" title="五、覆盖和多态的条件"></a>五、覆盖和多态的条件</h2><h3 id="1、覆盖的条件"><a href="#1、覆盖的条件" class="headerlink" title="1、覆盖的条件"></a>1、覆盖的条件</h3><pre><code>    必须是虚函数
     必须是父子类之间
     函数签名必须相同（参数列表完全一致，const属性也会影响覆盖的结果）
     返回值必须是同类型或父子类（子类的返回值要能向父类隐式转换）
@@ -694,10 +694,10 @@ int main()
     A* a = new A;
     Base* p = a;
     p-&gt;func();
-}    </code></pre><h2 id="2、重载、隐藏、覆盖（重写）的区别"><a href="#2、重载、隐藏、覆盖（重写）的区别" class="headerlink" title="2、重载、隐藏、覆盖（重写）的区别"></a>2、重载、隐藏、覆盖（重写）的区别</h2><pre><code>    重载：同一作用域下的同名函数，函数签名不同（类型、个数、顺序、常函数等），构成重载关系。
+}    </code></pre><h3 id="2、重载、隐藏、覆盖（重写）的区别"><a href="#2、重载、隐藏、覆盖（重写）的区别" class="headerlink" title="2、重载、隐藏、覆盖（重写）的区别"></a>2、重载、隐藏、覆盖（重写）的区别</h3><pre><code>    重载：同一作用域下的同名函数，函数签名不同（类型、个数、顺序、常函数等），构成重载关系。
     覆盖：符合一系列条件。
-    隐藏：父子类之间的同名成员如果没有形成覆盖，且能通过编译，必定构成隐藏。</code></pre><h2 id="3、多态的条件"><a href="#3、多态的条件" class="headerlink" title="3、多态的条件"></a>3、多态的条件</h2><pre><code>    1.父子类之间有的函数有覆盖关系。
-    2.父类的指针或引用指向子类的对象。</code></pre><h2 id="4、在构造、析构函数中调用虚函数"><a href="#4、在构造、析构函数中调用虚函数" class="headerlink" title="4、在构造、析构函数中调用虚函数"></a>4、在构造、析构函数中调用虚函数</h2><pre><code>    在父类的构造函数中调用虚函数，此时子类还没有创建完成（回顾构造函数的调用过程），因此只能调用父类的虚函数，而不是覆盖版本的虚函数。
+    隐藏：父子类之间的同名成员如果没有形成覆盖，且能通过编译，必定构成隐藏。</code></pre><h3 id="3、多态的条件"><a href="#3、多态的条件" class="headerlink" title="3、多态的条件"></a>3、多态的条件</h3><pre><code>    1.父子类之间有的函数有覆盖关系。
+    2.父类的指针或引用指向子类的对象。</code></pre><h3 id="4、在构造、析构函数中调用虚函数"><a href="#4、在构造、析构函数中调用虚函数" class="headerlink" title="4、在构造、析构函数中调用虚函数"></a>4、在构造、析构函数中调用虚函数</h3><pre><code>    在父类的构造函数中调用虚函数，此时子类还没有创建完成（回顾构造函数的调用过程），因此只能调用父类的虚函数，而不是覆盖版本的虚函数。
     在父类的析构函数中调用虚函数，此时子类已经释放完成，因此只能调用父类的虚函数，而不是覆盖版本的虚函数。</code></pre><pre><code>#include &lt;iostream&gt;
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -749,7 +749,7 @@ int main()
 //    Base* p = a;
 //    p-&gt;func();
 }
-</code></pre><h1 id="六、纯虚函数和抽象类"><a href="#六、纯虚函数和抽象类" class="headerlink" title="六、纯虚函数和抽象类"></a>六、纯虚函数和抽象类</h1><h2 id="1、纯虚函数"><a href="#1、纯虚函数" class="headerlink" title="1、纯虚函数"></a>1、纯虚函数</h2><pre><code>在虚函数的声明的后面添加=0，这种虚函数就叫做纯虚函数，可以不实现，但如果实现必须在类外（只能在父类的构造函数、析构函数中调用）。
+</code></pre><h2 id="六、纯虚函数和抽象类"><a href="#六、纯虚函数和抽象类" class="headerlink" title="六、纯虚函数和抽象类"></a>六、纯虚函数和抽象类</h2><h3 id="1、纯虚函数"><a href="#1、纯虚函数" class="headerlink" title="1、纯虚函数"></a>1、纯虚函数</h3><pre><code>在虚函数的声明的后面添加=0，这种虚函数就叫做纯虚函数，可以不实现，但如果实现必须在类外（只能在父类的构造函数、析构函数中调用）。
 virtual 返回值 函数名(参数) = 0;</code></pre><pre><code>#include &lt;iostream&gt;
 #include &lt;stdio.h&gt;
 using namespace std;
@@ -789,9 +789,9 @@ int main()
     a.func();
     //Base b;
     //b.func();
-}</code></pre><h2 id="2、抽象类"><a href="#2、抽象类" class="headerlink" title="2、抽象类"></a>2、抽象类</h2><pre><code>成员函数中有纯虚函数，这种类叫抽象类，抽象类不能实例化（不能创建对象）。
+}</code></pre><h3 id="2、抽象类"><a href="#2、抽象类" class="headerlink" title="2、抽象类"></a>2、抽象类</h3><pre><code>成员函数中有纯虚函数，这种类叫抽象类，抽象类不能实例化（不能创建对象）。
 抽象类必须被继承且纯虚函数被覆盖后，由子类实例化对象。
-如果继承抽象类，但没有覆盖纯虚函数，那么子类也将成为抽象类，不能实例化。</code></pre><h2 id="3、纯抽象类"><a href="#3、纯抽象类" class="headerlink" title="3、纯抽象类"></a>3、纯抽象类</h2><pre><code>所有成员函数都是纯虚函数，这种只能被继承的类叫纯抽象类。
+如果继承抽象类，但没有覆盖纯虚函数，那么子类也将成为抽象类，不能实例化。</code></pre><h3 id="3、纯抽象类"><a href="#3、纯抽象类" class="headerlink" title="3、纯抽象类"></a>3、纯抽象类</h3><pre><code>所有成员函数都是纯虚函数，这种只能被继承的类叫纯抽象类。
 这种类一般用来设计接口，这种类在子类被替换后不需要修改或少量的修改即可继续使用。</code></pre><pre><code>#include &lt;iostream&gt;
 using namespace std;
 

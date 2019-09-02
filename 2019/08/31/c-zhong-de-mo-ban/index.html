@@ -413,13 +413,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、为什么使用模板"><a href="#一、为什么使用模板" class="headerlink" title="一、为什么使用模板"></a>一、为什么使用模板</h1><pre><code>1、C/C++是一种静态类型语言（预处理-&gt;汇编-&gt;编译-&gt;链接），好处是速度快，缺点是实现通用代码麻烦。例如：实现支持所有类型的快速排序。
+                <h2 id="一、为什么使用模板"><a href="#一、为什么使用模板" class="headerlink" title="一、为什么使用模板"></a>一、为什么使用模板</h2><pre><code>1、C/C++是一种静态类型语言（预处理-&gt;汇编-&gt;编译-&gt;链接），好处是速度快，缺点是实现通用代码麻烦。例如：实现支持所有类型的快速排序。
 2、借助函数重载实现通用代码，好处是实现简单，但代码段会增加。
 3、借助宏函数实现通用代码，类型检查不严格。
 4、借助回调函数实现通用代码，使用麻烦。
 5、由于以上原因C++之父在C++实现了模板技术，让C++能够支持泛型编程。</code></pre><a id="more"></a>
 
-<h1 id="二、函数模板"><a href="#二、函数模板" class="headerlink" title="二、函数模板"></a>二、函数模板</h1><h2 id="1、函数模板的定义"><a href="#1、函数模板的定义" class="headerlink" title="1、函数模板的定义"></a>1、函数模板的定义</h2><pre><code>  template &lt;typename 类型参数1,typename 类型参数2,...&gt;
+<h2 id="二、函数模板"><a href="#二、函数模板" class="headerlink" title="二、函数模板"></a>二、函数模板</h2><h3 id="1、函数模板的定义"><a href="#1、函数模板的定义" class="headerlink" title="1、函数模板的定义"></a>1、函数模板的定义</h3><pre><code>  template &lt;typename 类型参数1,typename 类型参数2,...&gt;
   类型参数1 函数名(参数类型2 参数名)
   {
       return 返回值;
@@ -431,7 +431,7 @@
      return val;
   }
 
-可以用任何标识符作为类型参数名，但使用‘T’ 是约定俗成的，它表示调用这个函数时所指定的任意类型。</code></pre><h2 id="2、函数模板的使用"><a href="#2、函数模板的使用" class="headerlink" title="2、函数模板的使用"></a>2、函数模板的使用</h2><pre><code>    C++编译的编译器并不是把模板编译成一个可以处理任何类型的单一实体，而是根据模板的使用者的参数，产生不同的函数的实体。
+可以用任何标识符作为类型参数名，但使用‘T’ 是约定俗成的，它表示调用这个函数时所指定的任意类型。</code></pre><h3 id="2、函数模板的使用"><a href="#2、函数模板的使用" class="headerlink" title="2、函数模板的使用"></a>2、函数模板的使用</h3><pre><code>    C++编译的编译器并不是把模板编译成一个可以处理任何类型的单一实体，而是根据模板的使用者的参数，产生不同的函数的实体。
     根据具体类型代表模板参数生成函数实体过程叫实例化。
 
 模板是在使用时才实例化，可以自动实例化，也可以手动实例化（在函数调用时函数名与小括号之间加&lt;类型参数&gt;)。
@@ -465,7 +465,7 @@ int main()
 
     A a1,a2;
     Max(a1,a2);
-}</code></pre><h2 id="3、函数模板的隐式推断"><a href="#3、函数模板的隐式推断" class="headerlink" title="3、函数模板的隐式推断"></a>3、函数模板的隐式推断</h2><pre><code>    函数模板虽然可以手动实例化，但使用麻烦，因此一般都根据参数类型进行隐式推断模板的参数。
+}</code></pre><h3 id="3、函数模板的隐式推断"><a href="#3、函数模板的隐式推断" class="headerlink" title="3、函数模板的隐式推断"></a>3、函数模板的隐式推断</h3><pre><code>    函数模板虽然可以手动实例化，但使用麻烦，因此一般都根据参数类型进行隐式推断模板的参数。
     注意：不能隐式推断的三种情况
     1、函数参数与模板参数类型没有关系
     2、不允许隐式类型转换
@@ -499,7 +499,7 @@ int main()
     cout &lt;&lt; Min('a','h') &lt;&lt; endl;
     cout &lt;&lt; Min&lt;int&gt;(3.14,12) &lt;&lt; endl;
     long temp = func&lt;int,long&gt;(100);
-}</code></pre><h2 id="4、函数模板与默认形参之间有冲突。"><a href="#4、函数模板与默认形参之间有冲突。" class="headerlink" title="4、函数模板与默认形参之间有冲突。"></a>4、函数模板与默认形参之间有冲突。</h2><h2 id="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"><a href="#5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。" class="headerlink" title="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"></a>5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。</h2><pre><code>注意：一般char*类型都需要特化。</code></pre><h1 id="三、类模板"><a href="#三、类模板" class="headerlink" title="三、类模板"></a>三、类模板</h1><h2 id="1、类模板的定义"><a href="#1、类模板的定义" class="headerlink" title="1、类模板的定义"></a>1、类模板的定义</h2><pre><code> template &lt;typename M,typename R,typename A,typename O...&gt;
+}</code></pre><h3 id="4、函数模板与默认形参之间有冲突。"><a href="#4、函数模板与默认形参之间有冲突。" class="headerlink" title="4、函数模板与默认形参之间有冲突。"></a>4、函数模板与默认形参之间有冲突。</h3><h3 id="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"><a href="#5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。" class="headerlink" title="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"></a>5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。</h3><pre><code>注意：一般char*类型都需要特化。</code></pre><h2 id="三、类模板"><a href="#三、类模板" class="headerlink" title="三、类模板"></a>三、类模板</h2><h3 id="1、类模板的定义"><a href="#1、类模板的定义" class="headerlink" title="1、类模板的定义"></a>1、类模板的定义</h3><pre><code> template &lt;typename M,typename R,typename A,typename O...&gt;
  class Test
  {
  public:
@@ -512,7 +512,7 @@ int main()
      {
 
      }
- };</code></pre><h2 id="2、类模板的使用"><a href="#2、类模板的使用" class="headerlink" title="2、类模板的使用"></a>2、类模板的使用</h2><pre><code>    类模板的参数不支持隐式推断，必须显示指定类型参数。
+ };</code></pre><h3 id="2、类模板的使用"><a href="#2、类模板的使用" class="headerlink" title="2、类模板的使用"></a>2、类模板的使用</h3><pre><code>    类模板的参数不支持隐式推断，必须显示指定类型参数。
     类名&lt;类型...&gt; 对象;
 
 类模板分为两步进行实例化：
@@ -520,7 +520,7 @@ int main()
     运行期：处理器执行类对象创建指令，将类实例化为对象。
     类模板也是一种静态多态。
 
-类模板中，只有那些被调用的成员函数才实例化出代码，即产生二进制指令（调用谁实例化谁）。</code></pre><h2 id="3、类模板中的静态成员"><a href="#3、类模板中的静态成员" class="headerlink" title="3、类模板中的静态成员"></a>3、类模板中的静态成员</h2><pre><code>    静态成员需要在类外定义，这一点不改变，但与普通类的定义不同。
+类模板中，只有那些被调用的成员函数才实例化出代码，即产生二进制指令（调用谁实例化谁）。</code></pre><h3 id="3、类模板中的静态成员"><a href="#3、类模板中的静态成员" class="headerlink" title="3、类模板中的静态成员"></a>3、类模板中的静态成员</h3><pre><code>    静态成员需要在类外定义，这一点不改变，但与普通类的定义不同。
     template &lt;typename ...&gt; 类型 类名&lt;...&gt;::成员名;</code></pre><pre><code>#include &lt;iostream&gt;
 
 using namespace std;
@@ -544,15 +544,15 @@ int main()
 {
     //Test* t = new Test(100);
     Test&lt;int&gt; t(100);
-}</code></pre><h2 id="4、递归实例化"><a href="#4、递归实例化" class="headerlink" title="4、递归实例化"></a>4、递归实例化</h2><pre><code>    类模板的参数可以是任何类型，只有该类型提供类模板所需要的功能。
+}</code></pre><h3 id="4、递归实例化"><a href="#4、递归实例化" class="headerlink" title="4、递归实例化"></a>4、递归实例化</h3><pre><code>    类模板的参数可以是任何类型，只有该类型提供类模板所需要的功能。
     类模板的实例化已经是一个有效的类型了，因此它也可以当作类模板的参数，这种叫作递归实例化。
     Vectors&lt;Vectors&lt;int&gt;&gt; //二维数组
-    Test&lt;Test&lt;int&gt;&gt;</code></pre><h2 id="5、类的局部特化"><a href="#5、类的局部特化" class="headerlink" title="5、类的局部特化"></a>5、类的局部特化</h2><pre><code>    当类的某个成员函数不能通用，需要对特殊类型(char*)实现一个特殊版本，这叫类的局部特化。
+    Test&lt;Test&lt;int&gt;&gt;</code></pre><h3 id="5、类的局部特化"><a href="#5、类的局部特化" class="headerlink" title="5、类的局部特化"></a>5、类的局部特化</h3><pre><code>    当类的某个成员函数不能通用，需要对特殊类型(char*)实现一个特殊版本，这叫类的局部特化。
     template&lt;&gt; 类型 返回值类型 类名&lt;类型&gt;::函数名(参数)
     {
 
     }
-    注意：在类外实现</code></pre><h2 id="6、全类特化"><a href="#6、全类特化" class="headerlink" title="6、全类特化"></a>6、全类特化</h2><pre><code>    当需要针对某种类型对类全部实现一个特殊版本，这种叫类的全类特化。
+    注意：在类外实现</code></pre><h3 id="6、全类特化"><a href="#6、全类特化" class="headerlink" title="6、全类特化"></a>6、全类特化</h3><pre><code>    当需要针对某种类型对类全部实现一个特殊版本，这种叫类的全类特化。
 
 
 template &lt;&gt; 类名&lt;类型&gt;
@@ -619,8 +619,8 @@ int main()
     Compare&lt;const char*&gt; com("ad","adf");;
     cout &lt;&lt; com.max() &lt;&lt; endl;
 
-}</code></pre><h2 id="7、类模板的缺省值"><a href="#7、类模板的缺省值" class="headerlink" title="7、类模板的缺省值"></a>7、类模板的缺省值</h2><pre><code>    类模板的类型参数可以设置默认值类型，规则与函数的默认形参基本一致（设置缺省值类型靠右）。
-    后面的类型参数可以使用前面的类型，但前面不能使用后面的。</code></pre><h2 id="8、普通数据也可以作为模板参数"><a href="#8、普通数据也可以作为模板参数" class="headerlink" title="8、普通数据也可以作为模板参数"></a>8、普通数据也可以作为模板参数</h2><pre><code>template &lt;typename T,类型 B&gt;
+}</code></pre><h3 id="7、类模板的缺省值"><a href="#7、类模板的缺省值" class="headerlink" title="7、类模板的缺省值"></a>7、类模板的缺省值</h3><pre><code>    类模板的类型参数可以设置默认值类型，规则与函数的默认形参基本一致（设置缺省值类型靠右）。
+    后面的类型参数可以使用前面的类型，但前面不能使用后面的。</code></pre><h3 id="8、普通数据也可以作为模板参数"><a href="#8、普通数据也可以作为模板参数" class="headerlink" title="8、普通数据也可以作为模板参数"></a>8、普通数据也可以作为模板参数</h3><pre><code>template &lt;typename T,类型 B&gt;
 {
    int arr[B];
 }
@@ -643,7 +643,7 @@ public:
 int main()
 {
     Test&lt;&gt; t;
-}</code></pre><h1 id="模板的技巧"><a href="#模板的技巧" class="headerlink" title="模板的技巧"></a>模板的技巧</h1><pre><code>1、typename可以用class代替
+}</code></pre><h2 id="模板的技巧"><a href="#模板的技巧" class="headerlink" title="模板的技巧"></a>模板的技巧</h2><pre><code>1、typename可以用class代替
 2、不能直接使用模板父类的成员
 
 #include &lt;iostream&gt;
