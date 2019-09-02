@@ -32,7 +32,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -189,7 +189,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/Ikaros-521" class="waves-effect waves-light" target="_blank">
                 <i class="fa fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -245,7 +245,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/Ikaros-521" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -410,10 +410,10 @@
                 
 				
 				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <span id="busuanzi_container_site_pv" style='display:none'></span>
                         <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
                         <span id="busuanzi_value_page_pv"></span>
-                    </div>
+                    
 				
             </div>
         </div>
@@ -431,44 +431,420 @@
 
 使用 protected 方式继承父类，公开成员在子类中会变成保护的，其他不变，这种继承方式可以有效防止父类的成员扩散。
 
-子类以私有或保护方式继承父类，会禁止向上造型（子类的指针或引用不能隐式转换成父类的指针或引用，要想实现多态只能以公开方式继承父类）。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">	int a;</span><br><span class="line">public:</span><br><span class="line">	int b;</span><br><span class="line">protected:</span><br><span class="line">	int c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A:private Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	A(void)</span><br><span class="line">	&#123;</span><br><span class="line">//		cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B:public A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	B(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Base* p = new A;</span><br><span class="line">//	A a;</span><br><span class="line">//	Base a;</span><br><span class="line">//	cout &lt;&lt; a.a &lt;&lt; &quot; &quot; &lt;&lt; a.b &lt;&lt; &quot; &quot; &lt;&lt; a.c &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+子类以私有或保护方式继承父类，会禁止向上造型（子类的指针或引用不能隐式转换成父类的指针或引用，要想实现多态只能以公开方式继承父类）。</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-<h1 id="三、多重继承、钻石继承、虚继承"><a href="#三、多重继承、钻石继承、虚继承" class="headerlink" title="三、多重继承、钻石继承、虚继承"></a>三、多重继承、钻石继承、虚继承</h1><h2 id="1、多重载继承"><a href="#1、多重载继承" class="headerlink" title="1、多重载继承"></a>1、多重载继承</h2><pre><code>在C++中一个子类可以有多个父类，在继承表中按照顺序继承多个父类中的属性和行为，并按照顺序表，调用父类的构造函数。
+class Base
+{
+    int a;
+public:
+    int b;
+protected:
+    int c;
+};
+
+class A:private Base
+{
+public:
+    A(void)
+    {
+//        cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot; &quot; &lt;&lt; c &lt;&lt; endl;
+    }
+};
+
+class B:public A
+{
+public:
+    B(void)
+    {
+        cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot; &quot; &lt;&lt; c &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+    Base* p = new A;
+//    A a;
+//    Base a;
+//    cout &lt;&lt; a.a &lt;&lt; &quot; &quot; &lt;&lt; a.b &lt;&lt; &quot; &quot; &lt;&lt; a.c &lt;&lt; endl;
+}</code></pre><h1 id="三、多重继承、钻石继承、虚继承"><a href="#三、多重继承、钻石继承、虚继承" class="headerlink" title="三、多重继承、钻石继承、虚继承"></a>三、多重继承、钻石继承、虚继承</h1><h2 id="1、多重载继承"><a href="#1、多重载继承" class="headerlink" title="1、多重载继承"></a>1、多重载继承</h2><pre><code>在C++中一个子类可以有多个父类，在继承表中按照顺序继承多个父类中的属性和行为，并按照顺序表，调用父类的构造函数。
 按照从低到高的地址顺序排序父类，子类中会标记每个父类存储位置。
-当子类指针转换成父类的隐式指针时候，编译器会自动计算父类中的内容在子类中的位置，地址会自动进行偏移计算。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class C</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Test:public A,public B,public C</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	Test(void)</span><br><span class="line">	&#123;</span><br><span class="line">		a = 1;</span><br><span class="line">		b = 2;</span><br><span class="line">		c = 3;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Test* p = new Test;</span><br><span class="line">	A* ap = p;</span><br><span class="line">	B* bp = p;</span><br><span class="line">	C* cp = p;</span><br><span class="line">	printf(&quot;%p %p %p  p:%p\n&quot;,ap,bp,cp,p);</span><br><span class="line">	cout &lt;&lt; ap-&gt;a &lt;&lt; &quot; &quot; &lt;&lt; bp-&gt;b &lt;&lt; &quot; &quot; &lt;&lt; cp-&gt;c &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+当子类指针转换成父类的隐式指针时候，编译器会自动计算父类中的内容在子类中的位置，地址会自动进行偏移计算。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+using namespace std;
 
-<h2 id="2、名字冲突"><a href="#2、名字冲突" class="headerlink" title="2、名字冲突"></a>2、名字冲突</h2><pre><code>如果父类中有同名的成员，可以正常继承，但如果直接使用，会造成歧义，需要 类名::成员名 进行访问。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class C</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Test:public A,public B,public C</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	Test(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; A::num &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Test* p = new Test;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+class A
+{
+public:
+    int a;
+};
 
-<h2 id="3、钻石继承"><a href="#3、钻石继承" class="headerlink" title="3、钻石继承"></a>3、钻石继承</h2><pre><code>假如有一个类A，类B继承类A，类C也继承类A，类D继承B和C。
+class B
+{
+public:
+    int b;
+};
+
+class C
+{
+public:
+    int c;
+};
+
+class Test:public A,public B,public C
+{
+public:
+    Test(void)
+    {
+        a = 1;
+        b = 2;
+        c = 3;
+    }
+};
+
+int main()
+{
+    Test* p = new Test;
+    A* ap = p;
+    B* bp = p;
+    C* cp = p;
+    printf(&quot;%p %p %p  p:%p\n&quot;,ap,bp,cp,p);
+    cout &lt;&lt; ap-&gt;a &lt;&lt; &quot; &quot; &lt;&lt; bp-&gt;b &lt;&lt; &quot; &quot; &lt;&lt; cp-&gt;c &lt;&lt; endl;
+}</code></pre><h2 id="2、名字冲突"><a href="#2、名字冲突" class="headerlink" title="2、名字冲突"></a>2、名字冲突</h2><pre><code>如果父类中有同名的成员，可以正常继承，但如果直接使用，会造成歧义，需要 类名::成员名 进行访问。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+using namespace std;
+
+class A
+{
+public:
+    int num;
+};
+
+class B
+{
+public:
+    int num;
+};
+
+class C
+{
+public:
+    int num;
+};
+
+class Test:public A,public B,public C
+{
+public:
+    Test(void)
+    {
+        cout &lt;&lt; A::num &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+    Test* p = new Test;
+}
+</code></pre><h2 id="3、钻石继承"><a href="#3、钻石继承" class="headerlink" title="3、钻石继承"></a>3、钻石继承</h2><pre><code>假如有一个类A，类B继承类A，类C也继承类A，类D继承B和C。
 一个子类继承多个父类，这些父类有一个共同的祖先，这种继承叫钻石继承。
 注意：钻石继承不会导致继承错误，但访问祖先类中的成员时每次需要使用 类名::成员名 ，重点是这种继承会造成冗余。</code></pre><h2 id="4、虚继承-virtual"><a href="#4、虚继承-virtual" class="headerlink" title="4、虚继承 virtual"></a>4、虚继承 virtual</h2><pre><code>当进行钻石继承时，祖先类中的内容会有冗余，而进行虚继承后，在子类中的内容只会保留一份。
-注意：但使用虚继承时，子类中会多了一些内容（指向从祖先类继承来的成员）。</code></pre><h2 id="5、构造函数"><a href="#5、构造函数" class="headerlink" title="5、构造函数"></a>5、构造函数</h2><pre><code>一旦进行了虚继承祖先类的构造函数只执行一次，由孙子类直接调用，祖先类的有参构造也需要在孙子类中显示调用。</code></pre><h2 id="6、拷贝构造"><a href="#6、拷贝构造" class="headerlink" title="6、拷贝构造"></a>6、拷贝构造</h2><pre><code>在虚拟继承（钻石）中祖先类拷贝构造也由孙子类直接调用，子类中不再调用祖先类的拷贝构造，在手动实现的拷贝构造时（深拷贝），祖先类中的内容也由孙子类负责拷贝，同理赋值构造也一样。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	int a;</span><br><span class="line">	A(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;A类的构造函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	A(int num)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;A有参构造&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B:virtual public A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	B(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;B的构造&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class C:virtual public A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	C(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;C的构造&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class D:virtual public B,virtual public C</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	D(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;D的构造&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	//A a;</span><br><span class="line">	//B b;</span><br><span class="line">	//C c;</span><br><span class="line">	D d;</span><br><span class="line">//	cout &lt;&lt;sizeof(A) &lt;&lt;&quot; &quot;&lt;&lt; sizeof(B) &lt;&lt;&quot; &quot;&lt;&lt;sizeof(C)&lt;&lt;&quot; &quot; &lt;&lt;sizeof(D)&lt;&lt; endl;</span><br><span class="line">//	cout &lt;&lt; d.B::a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+注意：但使用虚继承时，子类中会多了一些内容（指向从祖先类继承来的成员）。</code></pre><h2 id="5、构造函数"><a href="#5、构造函数" class="headerlink" title="5、构造函数"></a>5、构造函数</h2><pre><code>一旦进行了虚继承祖先类的构造函数只执行一次，由孙子类直接调用，祖先类的有参构造也需要在孙子类中显示调用。</code></pre><h2 id="6、拷贝构造"><a href="#6、拷贝构造" class="headerlink" title="6、拷贝构造"></a>6、拷贝构造</h2><pre><code>在虚拟继承（钻石）中祖先类拷贝构造也由孙子类直接调用，子类中不再调用祖先类的拷贝构造，在手动实现的拷贝构造时（深拷贝），祖先类中的内容也由孙子类负责拷贝，同理赋值构造也一样。</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-<h1 id="四、虚函数、覆盖、多态"><a href="#四、虚函数、覆盖、多态" class="headerlink" title="四、虚函数、覆盖、多态"></a>四、虚函数、覆盖、多态</h1><h2 id="1、虚函数"><a href="#1、虚函数" class="headerlink" title="1、虚函数"></a>1、虚函数</h2><pre><code>类的成员函数前加 virtual 这种函数就叫做虚函数。</code></pre><h2 id="2、覆盖"><a href="#2、覆盖" class="headerlink" title="2、覆盖"></a>2、覆盖</h2><pre><code>子类会覆盖父类的虚函数。</code></pre><h2 id="3、多态"><a href="#3、多态" class="headerlink" title="3、多态"></a>3、多态</h2><pre><code>当子类覆盖了父类的虚函数时，通过父类指针指向子类对象时，调用虚函数，会根据具体的对象是谁来决定执行谁的函数，这就是多态。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	virtual void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是Base的func函数&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;我是类A的func函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;我是类B的func函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class C:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;我是类C的func函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">/*覆盖</span><br><span class="line">	A* a = new A;</span><br><span class="line">	Base* p = a;</span><br><span class="line">	Base* b = new Base;</span><br><span class="line">	b-&gt;func(); // 并没有消失</span><br><span class="line">	a-&gt;func(); // 调用子类函数</span><br><span class="line">	p-&gt;func(); // 如果父类的函数是虚函数，调用子类函数</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">	srand(time(NULL));</span><br><span class="line"></span><br><span class="line">	// 这就是多态</span><br><span class="line">	Base* arr[] = &#123;new A,new B,new C&#125;;</span><br><span class="line">	arr[rand()%3]-&gt;func();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+class A
+{
+public:
+    int a;
+    A(void)
+    {
+        cout &lt;&lt; &quot;A类的构造函数&quot; &lt;&lt; endl;
+    }
+    A(int num)
+    {
+        cout&lt;&lt;&quot;A有参构造&quot;&lt;&lt;endl;
+    }
+};
 
-<h1 id="五、覆盖和多态的条件"><a href="#五、覆盖和多态的条件" class="headerlink" title="五、覆盖和多态的条件"></a>五、覆盖和多态的条件</h1><h2 id="1、覆盖的条件"><a href="#1、覆盖的条件" class="headerlink" title="1、覆盖的条件"></a>1、覆盖的条件</h2><pre><code>必须是虚函数
-必须是父子类之间
-函数签名必须相同（参数列表完全一致，const属性也会影响覆盖的结果）
-返回值必须是同类型或父子类（子类的返回值要能向父类隐式转换）
-访问属性不会影响覆盖
-常函数属性也会影响覆盖</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	virtual Base* func(void)</span><br><span class="line">	//virtual void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是Base的func函数&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	A* func(void)</span><br><span class="line">    //在覆盖版本的函数中，所得到的this指针依然是实际对象地址，依然能够调用子类中的函数。</span><br><span class="line">	//void func(int num,char* str)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;我是类A的func函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	A* a = new A;</span><br><span class="line">	Base* p = a;</span><br><span class="line">	p-&gt;func();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+class B:virtual public A
+{
+public:
+    B(void)
+    {
+        cout&lt;&lt;&quot;B的构造&quot;&lt;&lt;endl;
+    }
+};
 
+class C:virtual public A
+{
+public:
+    C(void)
+    {
+        cout &lt;&lt; &quot;C的构造&quot; &lt;&lt; endl;
+    }
+};
 
-<h2 id="2、重载、隐藏、覆盖（重写）的区别"><a href="#2、重载、隐藏、覆盖（重写）的区别" class="headerlink" title="2、重载、隐藏、覆盖（重写）的区别"></a>2、重载、隐藏、覆盖（重写）的区别</h2><pre><code>重载：同一作用域下的同名函数，函数签名不同（类型、个数、顺序、常函数等），构成重载关系。
-覆盖：符合一系列条件。
-隐藏：父子类之间的同名成员如果没有形成覆盖，且能通过编译，必定构成隐藏。</code></pre><h2 id="3、多态的条件"><a href="#3、多态的条件" class="headerlink" title="3、多态的条件"></a>3、多态的条件</h2><pre><code>1.父子类之间有的函数有覆盖关系。
-2.父类的指针或引用指向子类的对象。</code></pre><h2 id="4、在构造、析构函数中调用虚函数"><a href="#4、在构造、析构函数中调用虚函数" class="headerlink" title="4、在构造、析构函数中调用虚函数"></a>4、在构造、析构函数中调用虚函数</h2><pre><code>在父类的构造函数中调用虚函数，此时子类还没有创建完成（回顾构造函数的调用过程），因此只能调用父类的虚函数，而不是覆盖版本的虚函数。
-在父类的析构函数中调用虚函数，此时子类已经释放完成，因此只能调用父类的虚函数，而不是覆盖版本的虚函数。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	Base(void)</span><br><span class="line">	&#123;</span><br><span class="line">		func();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	virtual void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是Base的func函数&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	~Base(void)</span><br><span class="line">	&#123;</span><br><span class="line">		func();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	A(void)</span><br><span class="line">	&#123;</span><br><span class="line">		func();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;我是类A的func函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	~A(void)</span><br><span class="line">	&#123;</span><br><span class="line">		func();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	A aa;</span><br><span class="line"></span><br><span class="line">//	A* a = new A;</span><br><span class="line">//	Base* p = a;</span><br><span class="line">//	p-&gt;func();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+class D:virtual public B,virtual public C
+{
+public:
+    D(void)
+    {
+        cout &lt;&lt; &quot;D的构造&quot; &lt;&lt; endl;
+    }
+};
 
-<h1 id="六、纯虚函数和抽象类"><a href="#六、纯虚函数和抽象类" class="headerlink" title="六、纯虚函数和抽象类"></a>六、纯虚函数和抽象类</h1><h2 id="1、纯虚函数"><a href="#1、纯虚函数" class="headerlink" title="1、纯虚函数"></a>1、纯虚函数</h2><pre><code>在虚函数的声明的后面添加=0，这种虚函数就叫做纯虚函数，可以不实现，但如果实现必须在类外（只能在父类的构造函数、析构函数中调用）。
-virtual 返回值 函数名(参数) = 0;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	Base(void)</span><br><span class="line">	&#123;</span><br><span class="line">		func();</span><br><span class="line">	&#125;</span><br><span class="line">	// 纯虚函数</span><br><span class="line">	virtual void func(void) = 0;</span><br><span class="line">	~Base(void)</span><br><span class="line">	&#123;</span><br><span class="line">		func();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void func(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是纯虚函数的覆盖&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void Base::func(void)</span><br><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt; &quot;我是虚函数&quot; &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	A a;</span><br><span class="line">	a.func();</span><br><span class="line">	//Base b;</span><br><span class="line">	//b.func();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+int main()
+{
+    //A a;
+    //B b;
+    //C c;
+    D d;
+//    cout &lt;&lt;sizeof(A) &lt;&lt;&quot; &quot;&lt;&lt; sizeof(B) &lt;&lt;&quot; &quot;&lt;&lt;sizeof(C)&lt;&lt;&quot; &quot; &lt;&lt;sizeof(D)&lt;&lt; endl;
+//    cout &lt;&lt; d.B::a &lt;&lt; endl;
+}</code></pre><h1 id="四、虚函数、覆盖、多态"><a href="#四、虚函数、覆盖、多态" class="headerlink" title="四、虚函数、覆盖、多态"></a>四、虚函数、覆盖、多态</h1><h2 id="1、虚函数"><a href="#1、虚函数" class="headerlink" title="1、虚函数"></a>1、虚函数</h2><pre><code>类的成员函数前加 virtual 这种函数就叫做虚函数。</code></pre><h2 id="2、覆盖"><a href="#2、覆盖" class="headerlink" title="2、覆盖"></a>2、覆盖</h2><pre><code>子类会覆盖父类的虚函数。</code></pre><h2 id="3、多态"><a href="#3、多态" class="headerlink" title="3、多态"></a>3、多态</h2><pre><code>当子类覆盖了父类的虚函数时，通过父类指针指向子类对象时，调用虚函数，会根据具体的对象是谁来决定执行谁的函数，这就是多态。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
 
-<h2 id="2、抽象类"><a href="#2、抽象类" class="headerlink" title="2、抽象类"></a>2、抽象类</h2><pre><code>成员函数中有纯虚函数，这种类叫抽象类，抽象类不能实例化（不能创建对象）。
+class Base
+{
+public:
+    virtual void func(void)
+    {
+        cout &lt;&lt; &quot;我是Base的func函数&quot;&lt;&lt;endl;
+    }
+};
+
+class A:public Base
+{
+public:
+    void func(void)
+    {
+        cout&lt;&lt;&quot;我是类A的func函数&quot; &lt;&lt; endl;
+    }
+};
+
+class B:public Base
+{
+public:
+    void func(void)
+    {
+        cout&lt;&lt;&quot;我是类B的func函数&quot; &lt;&lt; endl;
+    }
+};
+
+class C:public Base
+{
+public:
+    void func(void)
+    {
+        cout&lt;&lt;&quot;我是类C的func函数&quot; &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+/*覆盖
+    A* a = new A;
+    Base* p = a;
+    Base* b = new Base;
+    b-&gt;func(); // 并没有消失
+    a-&gt;func(); // 调用子类函数
+    p-&gt;func(); // 如果父类的函数是虚函数，调用子类函数
+*/
+
+    srand(time(NULL));
+
+    // 这就是多态
+    Base* arr[] = {new A,new B,new C};
+    arr[rand()%3]-&gt;func();
+}</code></pre><h1 id="五、覆盖和多态的条件"><a href="#五、覆盖和多态的条件" class="headerlink" title="五、覆盖和多态的条件"></a>五、覆盖和多态的条件</h1><h2 id="1、覆盖的条件"><a href="#1、覆盖的条件" class="headerlink" title="1、覆盖的条件"></a>1、覆盖的条件</h2><pre><code>    必须是虚函数
+    必须是父子类之间
+    函数签名必须相同（参数列表完全一致，const属性也会影响覆盖的结果）
+    返回值必须是同类型或父子类（子类的返回值要能向父类隐式转换）
+    访问属性不会影响覆盖
+    常函数属性也会影响覆盖</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
+
+class Base
+{
+public:
+    virtual Base* func(void)
+    //virtual void func(void)
+    {
+        cout &lt;&lt; &quot;我是Base的func函数&quot;&lt;&lt;endl;
+    }
+};
+
+class A:public Base
+{
+public:
+    A* func(void)
+    //在覆盖版本的函数中，所得到的this指针依然是实际对象地址，依然能够调用子类中的函数。
+    //void func(int num,char* str)
+    {
+        cout&lt;&lt;&quot;我是类A的func函数&quot; &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+
+    A* a = new A;
+    Base* p = a;
+    p-&gt;func();
+}    </code></pre><h2 id="2、重载、隐藏、覆盖（重写）的区别"><a href="#2、重载、隐藏、覆盖（重写）的区别" class="headerlink" title="2、重载、隐藏、覆盖（重写）的区别"></a>2、重载、隐藏、覆盖（重写）的区别</h2><pre><code>    重载：同一作用域下的同名函数，函数签名不同（类型、个数、顺序、常函数等），构成重载关系。
+    覆盖：符合一系列条件。
+    隐藏：父子类之间的同名成员如果没有形成覆盖，且能通过编译，必定构成隐藏。</code></pre><h2 id="3、多态的条件"><a href="#3、多态的条件" class="headerlink" title="3、多态的条件"></a>3、多态的条件</h2><pre><code>    1.父子类之间有的函数有覆盖关系。
+    2.父类的指针或引用指向子类的对象。</code></pre><h2 id="4、在构造、析构函数中调用虚函数"><a href="#4、在构造、析构函数中调用虚函数" class="headerlink" title="4、在构造、析构函数中调用虚函数"></a>4、在构造、析构函数中调用虚函数</h2><pre><code>    在父类的构造函数中调用虚函数，此时子类还没有创建完成（回顾构造函数的调用过程），因此只能调用父类的虚函数，而不是覆盖版本的虚函数。
+    在父类的析构函数中调用虚函数，此时子类已经释放完成，因此只能调用父类的虚函数，而不是覆盖版本的虚函数。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
+
+class Base
+{
+public:
+    Base(void)
+    {
+        func();
+    }
+
+    virtual void func(void)
+    {
+        cout &lt;&lt; &quot;我是Base的func函数&quot;&lt;&lt;endl;
+    }
+
+    ~Base(void)
+    {
+        func();
+    }
+};
+
+class A:public Base
+{
+public:
+    A(void)
+    {
+        func();
+    }
+
+    void func(void)
+    {
+        cout&lt;&lt;&quot;我是类A的func函数&quot; &lt;&lt; endl;
+    }
+
+    ~A(void)
+    {
+        func();
+    }
+};
+
+int main()
+{
+    A aa;
+
+//    A* a = new A;
+//    Base* p = a;
+//    p-&gt;func();
+}
+</code></pre><h1 id="六、纯虚函数和抽象类"><a href="#六、纯虚函数和抽象类" class="headerlink" title="六、纯虚函数和抽象类"></a>六、纯虚函数和抽象类</h1><h2 id="1、纯虚函数"><a href="#1、纯虚函数" class="headerlink" title="1、纯虚函数"></a>1、纯虚函数</h2><pre><code>在虚函数的声明的后面添加=0，这种虚函数就叫做纯虚函数，可以不实现，但如果实现必须在类外（只能在父类的构造函数、析构函数中调用）。
+virtual 返回值 函数名(参数) = 0;</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+using namespace std;
+
+class Base
+{
+public:
+    Base(void)
+    {
+        func();
+    }
+    // 纯虚函数
+    virtual void func(void) = 0;
+    ~Base(void)
+    {
+        func();
+    }
+};
+
+class A:public Base
+{
+public:
+    void func(void)
+    {
+        cout &lt;&lt; &quot;我是纯虚函数的覆盖&quot;&lt;&lt;endl;
+    }
+};
+
+void Base::func(void)
+{
+    cout&lt;&lt; &quot;我是虚函数&quot; &lt;&lt; endl;
+}
+
+int main()
+{
+    A a;
+    a.func();
+    //Base b;
+    //b.func();
+}</code></pre><h2 id="2、抽象类"><a href="#2、抽象类" class="headerlink" title="2、抽象类"></a>2、抽象类</h2><pre><code>成员函数中有纯虚函数，这种类叫抽象类，抽象类不能实例化（不能创建对象）。
 抽象类必须被继承且纯虚函数被覆盖后，由子类实例化对象。
 如果继承抽象类，但没有覆盖纯虚函数，那么子类也将成为抽象类，不能实例化。</code></pre><h2 id="3、纯抽象类"><a href="#3、纯抽象类" class="headerlink" title="3、纯抽象类"></a>3、纯抽象类</h2><pre><code>所有成员函数都是纯虚函数，这种只能被继承的类叫纯抽象类。
-这种类一般用来设计接口，这种类在子类被替换后不需要修改或少量的修改即可继续使用。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	virtual void show(void) = 0;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void show(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是类A的show函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">class B:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void show(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是类B的show函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">class C:public Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	void show(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;我是类C的show函数&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum ClassType&#123;typeA,typeB,typeC&#125;;</span><br><span class="line"></span><br><span class="line">// 工厂类模式</span><br><span class="line">Base* creat_object(ClassType type)</span><br><span class="line">&#123;</span><br><span class="line">	switch(type)</span><br><span class="line">	&#123;</span><br><span class="line">		case typeA: return new A;</span><br><span class="line">		case typeB: return new B;</span><br><span class="line">		case typeC: return new C;</span><br><span class="line">		default: return NULL;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Base* p = creat_object(typeA);</span><br><span class="line">	p-&gt;show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这种类一般用来设计接口，这种类在子类被替换后不需要修改或少量的修改即可继续使用。</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
 
+class Base
+{
+public:
+    virtual void show(void) = 0;
+};
 
+class A:public Base
+{
+public:
+    void show(void)
+    {
+        cout &lt;&lt; &quot;我是类A的show函数&quot; &lt;&lt; endl;
+    }
+};
+class B:public Base
+{
+public:
+    void show(void)
+    {
+        cout &lt;&lt; &quot;我是类B的show函数&quot; &lt;&lt; endl;
+    }
+};
+class C:public Base
+{
+public:
+    void show(void)
+    {
+        cout &lt;&lt; &quot;我是类C的show函数&quot; &lt;&lt; endl;
+    }
+};
+
+enum ClassType{typeA,typeB,typeC};
+
+// 工厂类模式
+Base* creat_object(ClassType type)
+{
+    switch(type)
+    {
+        case typeA: return new A;
+        case typeB: return new B;
+        case typeC: return new C;
+        default: return NULL;
+    }
+}
+
+int main()
+{
+    Base* p = creat_object(typeA);
+    p-&gt;show();
+}</code></pre>
             </div>
             <hr/>
 
@@ -653,6 +1029,28 @@ virtual 返回值 函数名(参数) = 0;</code></pre><figure class="highlight pl
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8eb6282cd486a5fcac3c',
+        clientSecret: 'f89a28165a1fd9f0c144d8f4805bb9f1d7e91f91',
+        repo: 'ikaros-521.github.io',
+        owner: 'Ikaros-521',
+        admin: null,
+        id: '2019-08-31T22-24-52',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
@@ -880,6 +1278,8 @@ virtual 返回值 函数名(参数) = 0;</code></pre><figure class="highlight pl
 </main>
 
 
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
@@ -893,39 +1293,101 @@ virtual 返回值 函数名(参数) = 0;</code></pre><figure class="highlight pl
 			
                 <br>
                 
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+					<i class="fa fa-heart-o"></i>
+					本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+					
+				
+				
+					<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+				
+				
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ikaros-521" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:327209194@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=327209194" class="tooltipped" data-tooltip="QQ联系我: 327209194" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
 </div>
+		<span id="sitetime"></span>
     </div>
 </footer>
 
 <div class="progress-bar"></div>
 
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 09, 1, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
 
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -970,5 +1432,5 @@ $(function () {
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
 
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>

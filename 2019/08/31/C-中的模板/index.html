@@ -29,7 +29,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -186,7 +186,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/Ikaros-521" class="waves-effect waves-light" target="_blank">
                 <i class="fa fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -242,7 +242,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/Ikaros-521" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -403,10 +403,10 @@
                 
 				
 				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <span id="busuanzi_container_site_pv" style='display:none'></span>
                         <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
                         <span id="busuanzi_value_page_pv"></span>
-                    </div>
+                    
 				
             </div>
         </div>
@@ -437,28 +437,82 @@
 模板是在使用时才实例化，可以自动实例化，也可以手动实例化（在函数调用时函数名与小括号之间加&lt;类型参数&gt;)。
 
 每个函数模板都会进行二次编译，第一次编译在实例化之前，检查模板代码本身是否正确，第二次是实例化过程中，结合所使用类型参数，再次检查模板代码，是否所有的代码都有效。  
-注意：第二次编译才会生成二进制指令，第一次编译仅仅是在编译器内部生成一个用于描述模板的数据结构。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">template &lt;typename T,typename T1&gt;</span><br><span class="line">T Max(T val1,T1 val2)</span><br><span class="line">&#123;</span><br><span class="line">	return val1 &gt; val2 ? val1 : val2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">	int val;</span><br><span class="line">public:</span><br><span class="line">	A(int val=0):val(val) &#123;&#125;</span><br><span class="line">	bool operator&gt;(A&amp; that)</span><br><span class="line">	&#123;</span><br><span class="line">		return val &gt; that.val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; Max(&apos;a&apos;,100) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; Max(100,99) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; Max(3.14,2.18) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	A a1,a2;</span><br><span class="line">	Max(a1,a2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+注意：第二次编译才会生成二进制指令，第一次编译仅仅是在编译器内部生成一个用于描述模板的数据结构。</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-<h2 id="3、函数模板的隐式推断"><a href="#3、函数模板的隐式推断" class="headerlink" title="3、函数模板的隐式推断"></a>3、函数模板的隐式推断</h2><pre><code>函数模板虽然可以手动实例化，但使用麻烦，因此一般都根据参数类型进行隐式推断模板的参数。
-注意：不能隐式推断的三种情况
-1、函数参数与模板参数类型没有关系
-2、不允许隐式类型转换
-3、返回值类型不能隐式推断</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">char arr[10];</span><br><span class="line"></span><br><span class="line">template &lt;typename T&gt;</span><br><span class="line">T Min(T v1,T v2)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; &quot;T&quot; &lt;&lt; endl;</span><br><span class="line">	return v1 &lt;v2 ? v1 : v2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">char Min(char ch1,char ch2)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; &quot;char&quot; &lt;&lt; endl;</span><br><span class="line">	return ch1 &lt; ch2 ? ch1 : ch2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;typename T,typename R&gt;</span><br><span class="line">R func(T a)</span><br><span class="line">&#123;</span><br><span class="line">	return 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	//cout &lt;&lt; Min(3.14,12) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; Min(&apos;a&apos;,&apos;h&apos;) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; Min&lt;int&gt;(3.14,12) &lt;&lt; endl;</span><br><span class="line">	long temp = func&lt;int,long&gt;(100);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、函数模板与默认形参之间有冲突。"><a href="#4、函数模板与默认形参之间有冲突。" class="headerlink" title="4、函数模板与默认形参之间有冲突。"></a>4、函数模板与默认形参之间有冲突。</h2><h2 id="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"><a href="#5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。" class="headerlink" title="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"></a>5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。</h2><pre><code>注意：一般char*类型都需要特化。</code></pre><h1 id="三、类模板"><a href="#三、类模板" class="headerlink" title="三、类模板"></a>三、类模板</h1><h2 id="1、类模板的定义"><a href="#1、类模板的定义" class="headerlink" title="1、类模板的定义"></a>1、类模板的定义</h2><pre><code>template &lt;typename M,typename R,typename A,typename O...&gt;
-class Test
+template &lt;typename T,typename T1&gt;
+T Max(T val1,T1 val2)
 {
-public:
-    M val;
-    Test(A a)
-    {
-        O var;
-    }
-    R func(void)
-    {
+    return val1 &gt; val2 ? val1 : val2;
+}
 
+class A
+{
+    int val;
+public:
+    A(int val=0):val(val) {}
+    bool operator&gt;(A&amp; that)
+    {
+        return val &gt; that.val;
     }
-};</code></pre><h2 id="2、类模板的使用"><a href="#2、类模板的使用" class="headerlink" title="2、类模板的使用"></a>2、类模板的使用</h2><pre><code>    类模板的参数不支持隐式推断，必须显示指定类型参数。
+};
+
+int main()
+{
+    cout &lt;&lt; Max(&#39;a&#39;,100) &lt;&lt; endl;
+    cout &lt;&lt; Max(100,99) &lt;&lt; endl;
+    cout &lt;&lt; Max(3.14,2.18) &lt;&lt; endl;
+
+    A a1,a2;
+    Max(a1,a2);
+}</code></pre><h2 id="3、函数模板的隐式推断"><a href="#3、函数模板的隐式推断" class="headerlink" title="3、函数模板的隐式推断"></a>3、函数模板的隐式推断</h2><pre><code>    函数模板虽然可以手动实例化，但使用麻烦，因此一般都根据参数类型进行隐式推断模板的参数。
+    注意：不能隐式推断的三种情况
+    1、函数参数与模板参数类型没有关系
+    2、不允许隐式类型转换
+    3、返回值类型不能隐式推断</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+char arr[10];
+
+template &lt;typename T&gt;
+T Min(T v1,T v2)
+{
+    cout &lt;&lt; &quot;T&quot; &lt;&lt; endl;
+    return v1 &lt;v2 ? v1 : v2;
+}
+
+char Min(char ch1,char ch2)
+{
+    cout &lt;&lt; &quot;char&quot; &lt;&lt; endl;
+    return ch1 &lt; ch2 ? ch1 : ch2;
+}
+
+template &lt;typename T,typename R&gt;
+R func(T a)
+{
+    return 10;
+}
+
+int main()
+{
+    //cout &lt;&lt; Min(3.14,12) &lt;&lt; endl;
+    cout &lt;&lt; Min(&#39;a&#39;,&#39;h&#39;) &lt;&lt; endl;
+    cout &lt;&lt; Min&lt;int&gt;(3.14,12) &lt;&lt; endl;
+    long temp = func&lt;int,long&gt;(100);
+}</code></pre><h2 id="4、函数模板与默认形参之间有冲突。"><a href="#4、函数模板与默认形参之间有冲突。" class="headerlink" title="4、函数模板与默认形参之间有冲突。"></a>4、函数模板与默认形参之间有冲突。</h2><h2 id="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"><a href="#5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。" class="headerlink" title="5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。"></a>5、普通函数与同名的模板函数构成重载，编译器会优先调用普通函数，如果实现一个与模板函数功能一致的普通函数，那么这叫做模板函数的特化。</h2><pre><code>注意：一般char*类型都需要特化。</code></pre><h1 id="三、类模板"><a href="#三、类模板" class="headerlink" title="三、类模板"></a>三、类模板</h1><h2 id="1、类模板的定义"><a href="#1、类模板的定义" class="headerlink" title="1、类模板的定义"></a>1、类模板的定义</h2><pre><code> template &lt;typename M,typename R,typename A,typename O...&gt;
+ class Test
+ {
+ public:
+     M val;
+     Test(A a)
+     {
+         O var;
+     }
+     R func(void)
+     {
+
+     }
+ };</code></pre><h2 id="2、类模板的使用"><a href="#2、类模板的使用" class="headerlink" title="2、类模板的使用"></a>2、类模板的使用</h2><pre><code>    类模板的参数不支持隐式推断，必须显示指定类型参数。
     类名&lt;类型...&gt; 对象;
 
 类模板分为两步进行实例化：
@@ -466,35 +520,130 @@ public:
     运行期：处理器执行类对象创建指令，将类实例化为对象。
     类模板也是一种静态多态。
 
-类模板中，只有那些被调用的成员函数才实例化出代码，即产生二进制指令（调用谁实例化谁）。</code></pre><h2 id="3、类模板中的静态成员"><a href="#3、类模板中的静态成员" class="headerlink" title="3、类模板中的静态成员"></a>3、类模板中的静态成员</h2><pre><code>静态成员需要在类外定义，这一点不改变，但与普通类的定义不同。
-template &lt;typename ...&gt; 类型 类名&lt;...&gt;::成员名;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">template &lt;typename A&gt;</span><br><span class="line">class Test</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	static A a;</span><br><span class="line">	static int b;</span><br><span class="line">	Test(A arg)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arg &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">template&lt;typename A&gt; A Test&lt;A&gt;::a;</span><br><span class="line">template&lt;typename A&gt; int Test&lt;A&gt;::b;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	//Test* t = new Test(100);</span><br><span class="line">	Test&lt;int&gt; t(100);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+类模板中，只有那些被调用的成员函数才实例化出代码，即产生二进制指令（调用谁实例化谁）。</code></pre><h2 id="3、类模板中的静态成员"><a href="#3、类模板中的静态成员" class="headerlink" title="3、类模板中的静态成员"></a>3、类模板中的静态成员</h2><pre><code>    静态成员需要在类外定义，这一点不改变，但与普通类的定义不同。
+    template &lt;typename ...&gt; 类型 类名&lt;...&gt;::成员名;</code></pre><pre><code>#include &lt;iostream&gt;
 
-<h2 id="4、递归实例化"><a href="#4、递归实例化" class="headerlink" title="4、递归实例化"></a>4、递归实例化</h2><pre><code>类模板的参数可以是任何类型，只有该类型提供类模板所需要的功能。
-类模板的实例化已经是一个有效的类型了，因此它也可以当作类模板的参数，这种叫作递归实例化。
-Vectors&lt;Vectors&lt;int&gt;&gt; //二维数组
-Test&lt;Test&lt;int&gt;&gt;</code></pre><h2 id="5、类的局部特化"><a href="#5、类的局部特化" class="headerlink" title="5、类的局部特化"></a>5、类的局部特化</h2><pre><code>当类的某个成员函数不能通用，需要对特殊类型(char*)实现一个特殊版本，这叫类的局部特化。
-template&lt;&gt; 类型 返回值类型 类名&lt;类型&gt;::函数名(参数)
+using namespace std;
+
+template &lt;typename A&gt;
+class Test
 {
+public:
+    static A a;
+    static int b;
+    Test(A arg)
+    {
+        cout &lt;&lt; arg &lt;&lt; endl;
+    }
+};
 
-}
-注意：在类外实现</code></pre><h2 id="6、全类特化"><a href="#6、全类特化" class="headerlink" title="6、全类特化"></a>6、全类特化</h2><pre><code>    当需要针对某种类型对类全部实现一个特殊版本，这种叫类的全类特化。
+template&lt;typename A&gt; A Test&lt;A&gt;::a;
+template&lt;typename A&gt; int Test&lt;A&gt;::b;
+
+int main()
+{
+    //Test* t = new Test(100);
+    Test&lt;int&gt; t(100);
+}</code></pre><h2 id="4、递归实例化"><a href="#4、递归实例化" class="headerlink" title="4、递归实例化"></a>4、递归实例化</h2><pre><code>    类模板的参数可以是任何类型，只有该类型提供类模板所需要的功能。
+    类模板的实例化已经是一个有效的类型了，因此它也可以当作类模板的参数，这种叫作递归实例化。
+    Vectors&lt;Vectors&lt;int&gt;&gt; //二维数组
+    Test&lt;Test&lt;int&gt;&gt;</code></pre><h2 id="5、类的局部特化"><a href="#5、类的局部特化" class="headerlink" title="5、类的局部特化"></a>5、类的局部特化</h2><pre><code>    当类的某个成员函数不能通用，需要对特殊类型(char*)实现一个特殊版本，这叫类的局部特化。
+    template&lt;&gt; 类型 返回值类型 类名&lt;类型&gt;::函数名(参数)
+    {
+
+    }
+    注意：在类外实现</code></pre><h2 id="6、全类特化"><a href="#6、全类特化" class="headerlink" title="6、全类特化"></a>6、全类特化</h2><pre><code>    当需要针对某种类型对类全部实现一个特殊版本，这种叫类的全类特化。
 
 
 template &lt;&gt; 类名&lt;类型&gt;
 {
     ...
-};</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">template &lt;typename T&gt;</span><br><span class="line">class Compare</span><br><span class="line">&#123;</span><br><span class="line">	T a,b;</span><br><span class="line">public:</span><br><span class="line">	Compare(T a,T b):a(a),b(b) &#123; &#125;</span><br><span class="line">	const T&amp; max(void)</span><br><span class="line">	&#123;</span><br><span class="line">		return a &gt; b ? a : b;</span><br><span class="line">	&#125;</span><br><span class="line">	const T&amp; min(void)</span><br><span class="line">	&#123;</span><br><span class="line">		return a &lt; b ? a : b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">/*</span><br><span class="line">template&lt;&gt; const char* const&amp; Compare&lt;const char*&gt;::max(void)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; &quot;------&quot; &lt;&lt; endl;</span><br><span class="line">	if(1 == strcmp(a,b))</span><br><span class="line">		return a;</span><br><span class="line">	else</span><br><span class="line">		return b;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">template&lt;&gt; class Compare&lt;const char*&gt;</span><br><span class="line">&#123;</span><br><span class="line">	const char* str1;</span><br><span class="line">	const char* str2;</span><br><span class="line">public:</span><br><span class="line">	Compare(const char* str1,const char* str2)</span><br><span class="line">	&#123;</span><br><span class="line">		this-&gt;str1 = str1;</span><br><span class="line">		this-&gt;str2 = str2;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	const char* max(void)</span><br><span class="line">	&#123;</span><br><span class="line">		if(1 == strcmp(str1,str2))</span><br><span class="line">			return str1;</span><br><span class="line">		else</span><br><span class="line">			return str2;</span><br><span class="line">	&#125;</span><br><span class="line">	const char* min(void)</span><br><span class="line">	&#123;</span><br><span class="line">		if(1 == strcmp(str1,str2))</span><br><span class="line">			return str2;</span><br><span class="line">		else</span><br><span class="line">			return str1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Compare&lt;const char*&gt; com(&quot;ad&quot;,&quot;adf&quot;);;</span><br><span class="line">	cout &lt;&lt; com.max() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+};</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+using namespace std;
 
-<h2 id="7、类模板的缺省值"><a href="#7、类模板的缺省值" class="headerlink" title="7、类模板的缺省值"></a>7、类模板的缺省值</h2><pre><code>类模板的类型参数可以设置默认值类型，规则与函数的默认形参基本一致（设置缺省值类型靠右）。
-后面的类型参数可以使用前面的类型，但前面不能使用后面的。</code></pre><h2 id="8、普通数据也可以作为模板参数"><a href="#8、普通数据也可以作为模板参数" class="headerlink" title="8、普通数据也可以作为模板参数"></a>8、普通数据也可以作为模板参数</h2><pre><code>template &lt;typename T,类型 B&gt;
+template &lt;typename T&gt;
+class Compare
+{
+    T a,b;
+public:
+    Compare(T a,T b):a(a),b(b) { }
+    const T&amp; max(void)
+    {
+        return a &gt; b ? a : b;
+    }
+    const T&amp; min(void)
+    {
+        return a &lt; b ? a : b;
+    }
+};
+/*
+template&lt;&gt; const char* const&amp; Compare&lt;const char*&gt;::max(void)
+{
+    cout &lt;&lt; &quot;------&quot; &lt;&lt; endl;
+    if(1 == strcmp(a,b))
+        return a;
+    else
+        return b;
+}
+*/
+template&lt;&gt; class Compare&lt;const char*&gt;
+{
+    const char* str1;
+    const char* str2;
+public:
+    Compare(const char* str1,const char* str2)
+    {
+        this-&gt;str1 = str1;
+        this-&gt;str2 = str2;
+    }
+
+    const char* max(void)
+    {
+        if(1 == strcmp(str1,str2))
+            return str1;
+        else
+            return str2;
+    }
+    const char* min(void)
+    {
+        if(1 == strcmp(str1,str2))
+            return str2;
+        else
+            return str1;
+    }
+};
+
+int main()
+{
+    Compare&lt;const char*&gt; com(&quot;ad&quot;,&quot;adf&quot;);;
+    cout &lt;&lt; com.max() &lt;&lt; endl;
+
+}</code></pre><h2 id="7、类模板的缺省值"><a href="#7、类模板的缺省值" class="headerlink" title="7、类模板的缺省值"></a>7、类模板的缺省值</h2><pre><code>    类模板的类型参数可以设置默认值类型，规则与函数的默认形参基本一致（设置缺省值类型靠右）。
+    后面的类型参数可以使用前面的类型，但前面不能使用后面的。</code></pre><h2 id="8、普通数据也可以作为模板参数"><a href="#8、普通数据也可以作为模板参数" class="headerlink" title="8、普通数据也可以作为模板参数"></a>8、普通数据也可以作为模板参数</h2><pre><code>template &lt;typename T,类型 B&gt;
 {
    int arr[B];
 }
 
 给类模板一个数据，在类中就可以像使用宏明一样使用参数。
-注意：实例化类中提供的数据必须是常量。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;typeinfo&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">template &lt;typename A=int,typename B=A&gt;</span><br><span class="line">class Test</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	Test(void)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; typeid(A).name() &lt;&lt; &quot; &quot; &lt;&lt; typeid(B).name() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Test&lt;&gt; t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+注意：实例化类中提供的数据必须是常量。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;typeinfo&gt;
+using namespace std;
 
-<h1 id="模板的技巧"><a href="#模板的技巧" class="headerlink" title="模板的技巧"></a>模板的技巧</h1><pre><code>1、typename可以用class代替
+template &lt;typename A=int,typename B=A&gt;
+class Test
+{
+public:
+    Test(void)
+    {
+        cout &lt;&lt; typeid(A).name() &lt;&lt; &quot; &quot; &lt;&lt; typeid(B).name() &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+    Test&lt;&gt; t;
+}</code></pre><h1 id="模板的技巧"><a href="#模板的技巧" class="headerlink" title="模板的技巧"></a>模板的技巧</h1><pre><code>1、typename可以用class代替
 2、不能直接使用模板父类的成员
 
 #include &lt;iostream&gt;
@@ -709,6 +858,28 @@ int main()
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8eb6282cd486a5fcac3c',
+        clientSecret: 'f89a28165a1fd9f0c144d8f4805bb9f1d7e91f91',
+        repo: 'ikaros-521.github.io',
+        owner: 'Ikaros-521',
+        admin: null,
+        id: '2019-08-31T22-36-49',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
@@ -932,6 +1103,8 @@ int main()
 </main>
 
 
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
@@ -945,39 +1118,101 @@ int main()
 			
                 <br>
                 
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+					<i class="fa fa-heart-o"></i>
+					本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+					
+				
+				
+					<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+				
+				
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ikaros-521" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:327209194@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=327209194" class="tooltipped" data-tooltip="QQ联系我: 327209194" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
 </div>
+		<span id="sitetime"></span>
     </div>
 </footer>
 
 <div class="progress-bar"></div>
 
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 09, 1, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
 
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1022,5 +1257,5 @@ $(function () {
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
 
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>
