@@ -4,10 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++基础知识(一), Ikaros">
-    <meta name="description" content="思考题：C与C++的区别？
-一、C++介绍本贾尼·斯特劳斯特卢普，与1979年4月份贝尔实验室的本贾尼博士在分析UNIX系统分布内核流量分析时，希望有一种有效的更加模块化的工具。
-1979年10月完成了预处理器Cpre，为C增加了类机制，也">
+    <meta name="keywords" content="C++中的虚函数表、强制类型转换、I/O流等, Ikaros">
+    <meta name="description" content="一、虚函数表什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++基础知识(一) | Ikaros</title>
+    <title>C++中的虚函数表、强制类型转换、I/O流等 | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++基础知识(一)
+                        C++中的虚函数表、强制类型转换、I/O流等
                     </div>
                 </div>
             </div>
@@ -377,13 +375,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/C/" target="_blank">
-                                <span class="chip bg-color">C++</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -394,21 +388,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-29
+                    2019-09-03
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        1.8k
+                        2.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        7 Min
+                        8 Min
                     </div>
                     
                 
@@ -424,198 +418,245 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>思考题：C与C++的区别？</p>
-<h2 id="一、C-介绍"><a href="#一、C-介绍" class="headerlink" title="一、C++介绍"></a>一、C++介绍</h2><pre><code>本贾尼·斯特劳斯特卢普，与1979年4月份贝尔实验室的本贾尼博士在分析UNIX系统分布内核流量分析时，希望有一种有效的更加模块化的工具。
-1979年10月完成了预处理器Cpre，为C增加了类机制，也就是面向对象，1983年完成了C++的第一个版本，C with classes也就是C++。
-C++与C的不同点：
-1、C++完全兼容C的所有语法（内容）
-2、支持面向对象的编程思想
-3、支持运算符重载
-4、支持泛型编程、模板
-5、支持异常处理
-6、类型检查严格</code></pre><a id="more"></a>
+                <h2 id="一、虚函数表"><a href="#一、虚函数表" class="headerlink" title="一、虚函数表"></a>一、虚函数表</h2><pre><code>什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类的成员函数中有函数签名与父类的虚函数一样，就会用子类中的函数体寒它在虚函数表中的位置，这样就达到了覆盖的效果。
+当通过类指针或引用调用函数时，会根据对象中实际的虚函数表记录来调用函数，这样就达到了多态的效果。</code></pre><h2 id="二、虚析构"><a href="#二、虚析构" class="headerlink" title="二、虚析构"></a>二、虚析构</h2><pre><code>当使用delete释放一个父类指针时，不管实际指向的对象是子类还是父类都只会调用父类的析构函数（多态肯定会出现的问题）。
+如果子类的析构函数有需要负责释放的内存，就会造成内存泄漏。
+为了解决这个问题，可以把父类的析构函数设置为虚函数，析构函数进行覆盖时不会比较函数名。
 
-<h2 id="二、第一个C-程序"><a href="#二、第一个C-程序" class="headerlink" title="二、第一个C++程序"></a>二、第一个C++程序</h2><pre><code>1、文件扩展名
-    .cpp .cc .C .cxx
-2、编译器
-    g++ 大多数系统需要额外安装，Ubuntu系统下的安装命令：
-        sudo apt-get update
-        sudo apt-get install g++
-    gcc也可以继续使用，但需要增加参数 -xC++ -lstdc++
-3、头文件
-    #include &lt;iostream&gt;
-    #include &lt;stdio.h&gt; 可以继续使用，但C++建议使用 #include &lt;cstdio&gt;
-4、输入/输出
-    cin &lt;&lt; 输入数据
-    cout &gt;&gt; 输出数据
-    cin/cout会自动识别类型
-    scanf/printf可以继续使用
-    注意：cout和cin是类对象，而scanf/printf是标准库函数。
-5、增加了名字空间
-    std::cout
-    using namespace std;</code></pre><h2 id="三、名字空间"><a href="#三、名字空间" class="headerlink" title="三、名字空间"></a>三、名字空间</h2><pre><code>1、什么是名字空间
-在C++中经常使用多个独立开发的库来完成项目，由于库的作者或开发人员没见过面，因此命名冲突在所难免。
-2、为什么需要名字空间
-在项目中函数名、全局变量、结构、联合、枚举、类，非常有可能名字冲突，而名字空间就对这些命名进行逻辑空间划分（不是物理单元划分），
-为了解决命名冲突，C++之父为防止命名冲突给C++设计一个名字空间的机制。
-通过使用namespace XXX把库中的变量、函数、类型、结构等包含在名字空间中，形成自己的作用域，避免名字冲突。
-namespace xxx
-{
-}// 没有分号
-注意：名字空间也是一种标识符，在同一作用域下不能重名。
-3、同名的名字空间有自动合并（为了声明和定义可以分开写）
-同名的名字空间中如果有重名的依然会命名冲突
-4、名字空间的使用方法
-::域限定符
-空间名::标识符 // 使用麻烦，但是非常安全
-using namespace 空间名; 把空间中定义的标识符导入到当前代码中
-    不建议这样使用，相当于把垃圾分类后，又倒入同一个垃圾车，依然会冲突</code></pre><pre><code>#include &lt;iostream&gt;
+当父类的析构函数为虚函数时，通过父类指针或引用释放子类对象时，会自动调用子类的析构函数，子类的析构函数执行完成后也会调用父类的析构函数。
+注意：析构函数可以是虚函数，但构造函数不行</code></pre><h2 id="三、强制类型转换"><a href="#三、强制类型转换" class="headerlink" title="三、强制类型转换"></a>三、强制类型转换</h2><pre><code>注意：C++中为了兼容C语言，(目标类型)源类型 依然可以继续使用，但C语言的强制类型转换安全性差，因此建议使用C++中的强制类型转换。
+注意：C++之父认为如果代码设计的完善，根本不需要用到强制类型转换，而C++的强制类型转换之所以设计的很复杂，是为了让程序员多关注代码本身的设计，尽量少使用。
 
-namespace test{
-int cout = 100;
-int cin = 99;
-}
+C++中的强制类型转换保证没有很大安全隐患。
+
+static_cast&lt;目标类型&gt;(源类型)   编译器会对源类型和目标类型做兼容性检查，不通过则报错。
+dynamic_cast&lt;目标类型&gt;(源类型)  编译器会对源类型和目标类是否同为指针或引用，并且存在多态型的继承关系。
+const_cast&lt;目标类型&gt;(源类型)    编译器会对源类型和目标类检查，是否同为指针或引用，除了常属性外其他必须完全相同，否则报错。
+reinterpret_cast&lt;目标类型&gt;(源类型)  编译器会对源类型和目标类是否为指针或整数进行检查，也就是说把整数转换成指针或把指针转换为整数。</code></pre><p>拓展：<br>    静态编译：指针或引用的目标是确定的，在编译时期就确定了所有的类型检查、函数调用。<br>    动态编译：指针或引用的目标是不确定的（多态），只有在函数调用的时候才确定具体是哪一个子类。</p>
+<h2 id="四、I-O流"><a href="#四、I-O流" class="headerlink" title="四、I/O流"></a>四、I/O流</h2><pre><code>I/O流的打开模式：
+    ios::in     以读权限打开文件，不存在则失败，存在不清空
+    ios::out    以写权限打开文件，不存在则创建，存在则清空
+    ios::app    打开文件用于追加，不存在则创建，存在不清空
+    ios::binary 以二进制模式进行读写
+    ios::ate    打开时定位到文件末尾
+    ios::trunc  打开文件时清空
+fstream/ifstream/ofstream 类用于进行文件操作。
+    构造函数或成员函数 open 用于打开文件
+    good成员函数检查流是否可用
+    eof成员函数用于输入流是否结束
+
+操作符 &gt;&gt;  用于从文件中读取数据到变量 
+操作符 &lt;&lt;  用于输出数据到文件
+
+IO流有一系列格式化控制函数，类似：左对齐、右对齐、宽度、填充、小数点位数。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
 
 int main()
 {
-    std::cout&lt;&lt;test::cout&lt;&lt;' '&lt;&lt;test::cin&lt;&lt;std::endl;
-}</code></pre><p>   5、无名名字空间<br>    不属于任何名字空间中的标识符，隶属于无名名字空间。<br>    无名名字空间中的成员使用 ::标识符 进行访问。<br>    如何访问被屏蔽的全局变量。</p>
-<p>   6、名字空间的嵌套<br>    名字空间内部可以再定义名字空间，这种名字空间嵌套<br>    内层的名字空间与外层的名字空间的成员，可以重名，内层会屏蔽外层的同名标识符。<br>    多层的名字空间在使用时逐层分解。</p>
-<pre><code>    n1::n2::num;
-    namespace n1
+    fstream fsi("test.txt",ios::in);
+    //fs.open("test.txt",ios::in);
+    if(!fsi.good())
     {
-        int num = 1;
-        namespace n2
-        {   
-            int num = 2;
-            namespace n3
-            {
+        cout &lt;&lt;"打开失败"&lt;&lt;endl;
+    }
+    else
+    {
+        cout &lt;&lt;"打开成功"&lt;&lt;endl;
+    }
 
-            }
+
+    string str,s1,s2,s3;
+    int num = 0;
+/*    fsi &gt;&gt; str;    //读到空格或换行就停止
+    fsi &gt;&gt; num &gt;&gt; s1 &gt;&gt; s2 &gt;&gt; s3;
+    cout&lt;&lt;str&lt;&lt;"-"&lt;&lt;num&lt;&lt;"-"&lt;&lt;s1&lt;&lt;"-"&lt;&lt;s2&lt;&lt;"-"&lt;&lt;s3&lt;&lt;endl;
+*/
+
+    string arr[10];
+    int i = 0;
+    while(1)
+    {
+        fsi &gt;&gt; arr[i];
+        if(arr[i].size() == 0)
+        {
+            break;
+        }
+        i++;
+    }
+
+    for(int j=0; j&lt;i; j++)
+    {
+        cout &lt;&lt; arr[j] &lt;&lt;"-";
+    }
+
+    fstream fso("test.txt",ios::out);
+    fso &lt;&lt; "hehe" &lt;&lt; " " &lt;&lt; 100 &lt;&lt;" " &lt;&lt;"adsadsad"&lt;&lt;endl;
+}
+
+</code></pre><pre><code>二进制读写：read/write
+    read (char_type *__s,streamsize __n)
+    write (char_type *__s,streamsize __n)
+
+gcount成员函数可以获取上次流的二进制读写操作的字节数。
+
+随机读写：
+    seekp (off_type,ios_base::seekdir)
+    功能：设置文件的位置指针。
+    off_type：偏移值
+        正值向右，负值向左
+    seekdir：基础位置
+        ios::beg    文件开头
+        ios::cur    当前位置
+        ios::end    文件末尾</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+int main()
+{
+    fstream fs("test.txt",ios::in);
+    if(!fs.good())
+    {
+        cout &lt;&lt; "文件打开失败" &lt;&lt; endl;
+        return -1;
+    }
+    // 调整文件的位置指针到末尾
+    fs.seekp(0,ios::end);
+    cout &lt;&lt; "文件的字节数：" &lt;&lt; fs.tellp() &lt;&lt; endl;
+    fs.close();
+}</code></pre><pre><code>练习：使用C++标准IO，实现带覆盖检查的cp命令。
+    ./cp src dest</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(int argc,char* argv[])// 写的有点问题0.0
+{
+    if(argc != 3)
+    {
+        cout &lt;&lt; "命令错误" &lt;&lt; endl;
+    }
+    // 读写
+    fstream fi(argv[1],ios::in);
+    fstream fo(argv[2],ios::out);
+    if(!fi.good())
+    {
+        cout &lt;&lt; "源文件不存在" &lt;&lt; endl;
+    }
+    cout &lt;&lt; "是否要覆盖目标文件,y/n" &lt;&lt; endl;
+
+    while(1)
+    {
+        string a;
+        cin &gt;&gt; a;
+        if(a == "y")
+        {
+            break;
+        }
+
+        else if(a == "n")
+        {
+            return 0;
+        }
+
+        else
+        {
+            cout &lt;&lt; "指令错误" &lt;&lt; endl;
+            continue;
         }
     }
 
-</code></pre><p>   7、可以给名字空间取别名<br>    由于名字空间可以嵌套，这样就会导致在使用内层成员时过于麻烦，可以给名字空间取别名来解决这类问题。<br>    namespace n123 = n1::n2::n3;</p>
-<h2 id="四、C-的结构"><a href="#四、C-的结构" class="headerlink" title="四、C++的结构"></a>四、C++的结构</h2><p>   1、不再需要 typedef ，在定义结构变量时，可以省略struct关键字<br>    2、成员可以是函数（成员函数），在成员函数中可以直接访问成员变量，不需要.或-&gt;，但是C的结构成员可以是函数指针。<br>    3、有一些隐藏的成员函数（构造、析构、拷贝构造、赋值构造）。<br>    4、可以继承，可以设置成员的访问权限（面向对象）。</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;cstring&gt;
+    while(1)
+    {
+        string str;
+        fi &gt;&gt; str;
+        if(str.size() == 0)
+        {
+            break;
+        }
+        fo &lt;&lt; str &lt;&lt;" "; // 文件末尾多个空格，需要删除，并且没有换行功能
+    }
+}</code></pre><h2 id="五、类型信息-typeid"><a href="#五、类型信息-typeid" class="headerlink" title="五、类型信息 typeid"></a>五、类型信息 typeid</h2><pre><code>用于获取数据的类型信息。
+name成员函数，可以获取类型的名字，内建类型名字使用缩写。
+同时还支持 == != 用来比较是否是同一种类型。
+
+如果用于判断父子类的指针或引用，它不能准确判断出实际的对象类型。但可以判断出具有多态继承关系的父子类的指针或引用，它的实际对象。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;typeinfo&gt;
 using namespace std;
 
-struct Man
+class Base
 {
-    char id[18];
+public:
+    virtual ~Base(void)
+    {
+    }
 };
 
-struct Student:public Man
+class Test:public Base
 {
-    char name[20];
-    char sex;
-    short age;
-    Student(void)
-    {
-        cout&lt;&lt; "我被调用了..." &lt;&lt; endl;
-    }
-    void show(void)
-    {
-        cout &lt;&lt; "我是秀" &lt;&lt; name &lt;&lt; " " &lt;&lt; sex &lt;&lt; " " &lt;&lt; age &lt;&lt; endl;
-    }
+
 };
 
 int main()
 {
-    Student stu;
-    strcpy(stu.name,"hehe");
-    stu.sex = 'm';
-    stu.age = 12;
-    strcpy(stu.id,"1235214141231");
+    Base b;
+    Test t;
+    cout &lt;&lt; typeid(b).name() &lt;&lt; endl;
+    cout &lt;&lt; (typeid(t) == typeid(b)) &lt;&lt; endl;
 
-    cout &lt;&lt; stu.name &lt;&lt; " " &lt;&lt; stu.sex &lt;&lt; " " &lt;&lt; stu.age &lt;&lt; endl;
-    cout&lt;&lt;stu.id&lt;&lt;endl;
-    stu.show();
-}</code></pre><h2 id="五、C-的联合"><a href="#五、C-的联合" class="headerlink" title="五、C++的联合"></a>五、C++的联合</h2><p>   1、不再需要 typedef ，在定义结构变量时，可以省略union关键字<br>    2、成员可以是函数（成员函数），在成员函数中可以直接访问成员变量，不需要.或-&gt;，但是C的结构成员可以是函数指针。<br>    3、有一些隐藏的成员函数（构造、析构、拷贝构造、赋值构造）。</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
+    cout &lt;&lt; endl;
+    Base* p = new Test;
+    cout &lt;&lt; (typeid(*p) == typeid(Test)) &lt;&lt; endl;
+    cout &lt;&lt; (typeid(p) == typeid(Test*)) &lt;&lt; endl;
 
-union Data
-{
-    char ch[5];
-    int num;
-    Data(void)
-    {
-        cout&lt;&lt;"我被调用了？"&lt;&lt;endl;
-    }
-    void show(void)
-    {
-        cout &lt;&lt; ch &lt;&lt;" " &lt;&lt; num &lt;&lt; endl;
-    }
-    ~Data(void)
-    {
-        cout&lt;&lt;"析构"&lt;&lt;endl;
-    }
-};
-
-int main()
-{
-    Data d;
-    d.show();
-    cout &lt;&lt; sizeof(d) &lt;&lt; endl;
-
-}</code></pre><h2 id="六、C-的枚举"><a href="#六、C-的枚举" class="headerlink" title="六、C++的枚举"></a>六、C++的枚举</h2><p>   1、定义、使用方法与C语言基本一致。<br>    2、类型检查比C语言更严格</p>
-<pre><code>#include &lt;iostream&gt;
-
-using namespace std;
-
-enum Color
-{
-    RED,
-    YELLOW,
-    BLUE,
-    WHITE,
-    BLACK
-};
-
-int main()
-{
-    Color r;
-    r = BLUE;
-    //r = 0; error 类型检查更严格
-    cout &lt;&lt; r &lt;&lt; endl;
 }
+</code></pre><pre><code>扩展：
+    sudo find / -name filename
+    sudo find / | grep "std"
+    grep 'Base' *               当前目录查找包含此字符的文件
+    grep -r 'Base' *            当前目录及所有子级目录，查找包含此字符的文件
+    grep -r 'Base' * dir        指定目录下及所有子级目录，查找包含此字符的文件</code></pre><h2 id="六、异常处理"><a href="#六、异常处理" class="headerlink" title="六、异常处理"></a>六、异常处理</h2><pre><code>抛异常
+    throw 数据
+    抛异常对象
+    抛基本类型
+    注意：不能抛出局部对象的指针或引用（构造函数和析构函数不能抛出异常）。
+    注意：如果异常没有被捕获处理，程序就会停止。
+捕获异常
 
-</code></pre><h2 id="七、C-的布尔类型"><a href="#七、C-的布尔类型" class="headerlink" title="七、C++的布尔类型"></a>七、C++的布尔类型</h2><p>   1、C++具有真的布尔类型，bool是C++中的关键字，在C语言中使用布尔类型需要导入头文件stdbool.h（在C11中bool应该是数据类型了）。<br>    2、在C++中 true false 是关键字，而在C语言中不是。<br>    3、在C++中 true false 是1字节，而C语言中是4字节。</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
 
-int main()
+try{
+    可以抛出异常的代码
+}
+catch(类型 变量名) // 根据数据类型进行捕获
 {
-    bool flag = 0;
-    cout &lt;&lt; flag &lt;&lt; " " &lt;&lt; sizeof(flag) &lt;&lt; endl;
-}</code></pre><h2 id="八、C-的void"><a href="#八、C-的void" class="headerlink" title="八、C++的void*"></a>八、C++的void*</h2><p>   1、C语言中void* 可以与任意类型指针 自动转换。</p>
-<pre><code>#include &lt;stdio.h&gt;
+    处理异常，如果无法处理可以继续抛出异常
+}
+注意：捕获异常的顺序是自上而下的，而不是最精准的匹配，针对子类异常捕获时要放在父类的前面。
 
-int main()
-{
-    void* p = NULL;
-    char* p1 = p;
-    int* p2 = p;
-    double* p3 = p;
-    p = p1;
-    p = p3;
-}</code></pre><p>   2、C++中void<em>不能给其他类型的指针直接赋值，必须强制类型转换，但其他类型的指针可以自动给void</em>赋值。<br>    3、C++为什么这样修改void*？<br>        为了更安全，所以C++类型检查更严格。<br>        C++可以自动识别类型，对万能指针的需求不再那么强烈。</p>
-<h2 id="九、操作符别名"><a href="#九、操作符别名" class="headerlink" title="九、操作符别名"></a>九、操作符别名</h2><p>   某些特殊语言的键没有~,&amp;符合，所以C++标准委员会为了让C++更有竞争力，为符号定义了一些别名，让这些小语种也可以愉快编写C++代码</p>
-<pre><code>and       &amp;&amp;
-or      ||
-not     !
-{       &lt;%    
-}       %&gt;
-#       :%</code></pre><pre><code>%:include &lt;iostream&gt;
-using namespace std;
+函数的异常声明：
+    返回值类型 函数名(参数列表)throw(类型1,类型2,...)
+    注意：如果不写异常声明表示什么类型的异常都可能抛出。
+    注意：如果写了异常声明表示只抛出某些类型的异常，一旦超出异常声明的范围，程序会直接停止，无法捕获。
+    注意：throw() 表示什么类型都不会抛出
 
-int main()
-&lt;%
-    cout &lt;&lt; "hello" &lt;&lt;endl;
-%&gt;</code></pre><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=28481591&amp;auto=1&amp;height=66"></iframe>
-<script>
+
+设计异常类：</code></pre><pre><code>      class Error
+      {
+          int errno;
+          char errmsg[255];
+      public:
+          Error(int errno = -1,const char* msg = "未知错误")
+          {
+              this-&gt;errno = errno;
+              strcpy(errmsg,msg);
+          }
+          int getError(void)
+          {
+              return errno;
+          }
+          const char* getErrmsg(void)
+          {
+              return errmsg;
+          }
+      }</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -791,9 +832,9 @@ int main()
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C++基础知识(一)》
+                    《C++中的虚函数表、强制类型转换、I/O流等》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/29/c-ji-chu-zhi-shi-yi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Love丶伊卡洛斯
             </a> is licensed under a
@@ -834,7 +875,7 @@ int main()
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-08-29T09-59-56',
+        id: '2019-09-03T16-42-27',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -855,35 +896,68 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/08/29/c-ji-chu-zhi-shi-er/">
+                <a href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="C++基础知识(二)">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C++中的虚函数表、强制类型转换、I/O流等">
                         
-                        <span class="card-title">C++基础知识(二)</span>
+                        <span class="card-title">C++中的虚函数表、强制类型转换、I/O流等</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            十、函数重载（重载、隐藏、重写）1、函数重载
-    在同一作用域下，函数名相同，参数列表不同的函数，构成重载关系。
-
-#include &lt;iostream&gt;
-using namespace std;
-
-void f(const
+                            一、虚函数表什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Love丶伊卡洛斯
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/31/c-zhong-stl-xiang-guan-zhi-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++中STL相关知识">
+                        
+                        <span class="card-title">C++中STL相关知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -899,43 +973,10 @@ void f(const
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/28/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Love丶伊卡洛斯
-                            
-                        </span>
-                    </div>
+                    <a href="/tags/STL/" target="_blank">
+                        <span class="chip bg-color">STL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
