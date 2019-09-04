@@ -4,8 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++中的虚函数表、强制类型转换、I/O流等, ikaros">
-    <meta name="description" content="一、虚函数表什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类">
+    <meta name="keywords" content="我的项目的相关问题, ikaros">
+    <meta name="description" content="由于个人编程是，使用的自己的getch.h头文件，导致可能部分项目无法成功通过编译。Linux系统，需要将getch.h添加到user/include下Windows系统，需要将getch.h头文件换为conio.h
+
+        do">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++中的虚函数表、强制类型转换、I/O流等 | Ikaros</title>
+    <title>我的项目的相关问题 | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++中的虚函数表、强制类型转换、I/O流等
+                        我的项目的相关问题
                     </div>
                 </div>
             </div>
@@ -377,8 +379,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/" target="_blank">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/github/" target="_blank">
+                                <span class="chip bg-color">github</span>
+                            </a>
+                        
+                            <a href="/tags/项目/" target="_blank">
+                                <span class="chip bg-color">项目</span>
                             </a>
                         
                     </div>
@@ -392,21 +398,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-03
+                    2019-09-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        2.2k
+                        112
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        8 Min
+                        1 Min
                     </div>
                     
                 
@@ -422,245 +428,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、虚函数表"><a href="#一、虚函数表" class="headerlink" title="一、虚函数表"></a>一、虚函数表</h2><pre><code>什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类的成员函数中有函数签名与父类的虚函数一样，就会用子类中的函数体寒它在虚函数表中的位置，这样就达到了覆盖的效果。
-当通过类指针或引用调用函数时，会根据对象中实际的虚函数表记录来调用函数，这样就达到了多态的效果。</code></pre><h2 id="二、虚析构"><a href="#二、虚析构" class="headerlink" title="二、虚析构"></a>二、虚析构</h2><pre><code>当使用delete释放一个父类指针时，不管实际指向的对象是子类还是父类都只会调用父类的析构函数（多态肯定会出现的问题）。
-如果子类的析构函数有需要负责释放的内存，就会造成内存泄漏。
-为了解决这个问题，可以把父类的析构函数设置为虚函数，析构函数进行覆盖时不会比较函数名。
-
-当父类的析构函数为虚函数时，通过父类指针或引用释放子类对象时，会自动调用子类的析构函数，子类的析构函数执行完成后也会调用父类的析构函数。
-注意：析构函数可以是虚函数，但构造函数不行</code></pre><h2 id="三、强制类型转换"><a href="#三、强制类型转换" class="headerlink" title="三、强制类型转换"></a>三、强制类型转换</h2><pre><code>注意：C++中为了兼容C语言，(目标类型)源类型 依然可以继续使用，但C语言的强制类型转换安全性差，因此建议使用C++中的强制类型转换。
-注意：C++之父认为如果代码设计的完善，根本不需要用到强制类型转换，而C++的强制类型转换之所以设计的很复杂，是为了让程序员多关注代码本身的设计，尽量少使用。
-
-C++中的强制类型转换保证没有很大安全隐患。
-
-static_cast&lt;目标类型&gt;(源类型)   编译器会对源类型和目标类型做兼容性检查，不通过则报错。
-dynamic_cast&lt;目标类型&gt;(源类型)  编译器会对源类型和目标类是否同为指针或引用，并且存在多态型的继承关系。
-const_cast&lt;目标类型&gt;(源类型)    编译器会对源类型和目标类检查，是否同为指针或引用，除了常属性外其他必须完全相同，否则报错。
-reinterpret_cast&lt;目标类型&gt;(源类型)  编译器会对源类型和目标类是否为指针或整数进行检查，也就是说把整数转换成指针或把指针转换为整数。</code></pre><p>拓展：<br>    静态编译：指针或引用的目标是确定的，在编译时期就确定了所有的类型检查、函数调用。<br>    动态编译：指针或引用的目标是不确定的（多态），只有在函数调用的时候才确定具体是哪一个子类。</p>
-<h2 id="四、I-O流"><a href="#四、I-O流" class="headerlink" title="四、I/O流"></a>四、I/O流</h2><pre><code>I/O流的打开模式：
-    ios::in     以读权限打开文件，不存在则失败，存在不清空
-    ios::out    以写权限打开文件，不存在则创建，存在则清空
-    ios::app    打开文件用于追加，不存在则创建，存在不清空
-    ios::binary 以二进制模式进行读写
-    ios::ate    打开时定位到文件末尾
-    ios::trunc  打开文件时清空
-fstream/ifstream/ofstream 类用于进行文件操作。
-    构造函数或成员函数 open 用于打开文件
-    good成员函数检查流是否可用
-    eof成员函数用于输入流是否结束
-
-操作符 &gt;&gt;  用于从文件中读取数据到变量 
-操作符 &lt;&lt;  用于输出数据到文件
-
-IO流有一系列格式化控制函数，类似：左对齐、右对齐、宽度、填充、小数点位数。</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-
-int main()
-{
-    fstream fsi("test.txt",ios::in);
-    //fs.open("test.txt",ios::in);
-    if(!fsi.good())
-    {
-        cout &lt;&lt;"打开失败"&lt;&lt;endl;
-    }
-    else
-    {
-        cout &lt;&lt;"打开成功"&lt;&lt;endl;
-    }
-
-
-    string str,s1,s2,s3;
-    int num = 0;
-/*    fsi &gt;&gt; str;    //读到空格或换行就停止
-    fsi &gt;&gt; num &gt;&gt; s1 &gt;&gt; s2 &gt;&gt; s3;
-    cout&lt;&lt;str&lt;&lt;"-"&lt;&lt;num&lt;&lt;"-"&lt;&lt;s1&lt;&lt;"-"&lt;&lt;s2&lt;&lt;"-"&lt;&lt;s3&lt;&lt;endl;
-*/
-
-    string arr[10];
-    int i = 0;
-    while(1)
-    {
-        fsi &gt;&gt; arr[i];
-        if(arr[i].size() == 0)
-        {
-            break;
-        }
-        i++;
-    }
-
-    for(int j=0; j&lt;i; j++)
-    {
-        cout &lt;&lt; arr[j] &lt;&lt;"-";
-    }
-
-    fstream fso("test.txt",ios::out);
-    fso &lt;&lt; "hehe" &lt;&lt; " " &lt;&lt; 100 &lt;&lt;" " &lt;&lt;"adsadsad"&lt;&lt;endl;
-}
-
-</code></pre><pre><code>二进制读写：read/write
-    read (char_type *__s,streamsize __n)
-    write (char_type *__s,streamsize __n)
-
-gcount成员函数可以获取上次流的二进制读写操作的字节数。
-
-随机读写：
-    seekp (off_type,ios_base::seekdir)
-    功能：设置文件的位置指针。
-    off_type：偏移值
-        正值向右，负值向左
-    seekdir：基础位置
-        ios::beg    文件开头
-        ios::cur    当前位置
-        ios::end    文件末尾</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-int main()
-{
-    fstream fs("test.txt",ios::in);
-    if(!fs.good())
-    {
-        cout &lt;&lt; "文件打开失败" &lt;&lt; endl;
-        return -1;
-    }
-    // 调整文件的位置指针到末尾
-    fs.seekp(0,ios::end);
-    cout &lt;&lt; "文件的字节数：" &lt;&lt; fs.tellp() &lt;&lt; endl;
-    fs.close();
-}</code></pre><pre><code>练习：使用C++标准IO，实现带覆盖检查的cp命令。
-    ./cp src dest</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-
-int main(int argc,char* argv[])// 写的有点问题0.0
-{
-    if(argc != 3)
-    {
-        cout &lt;&lt; "命令错误" &lt;&lt; endl;
-    }
-    // 读写
-    fstream fi(argv[1],ios::in);
-    fstream fo(argv[2],ios::out);
-    if(!fi.good())
-    {
-        cout &lt;&lt; "源文件不存在" &lt;&lt; endl;
-    }
-    cout &lt;&lt; "是否要覆盖目标文件,y/n" &lt;&lt; endl;
-
-    while(1)
-    {
-        string a;
-        cin &gt;&gt; a;
-        if(a == "y")
-        {
-            break;
-        }
-
-        else if(a == "n")
-        {
-            return 0;
-        }
-
-        else
-        {
-            cout &lt;&lt; "指令错误" &lt;&lt; endl;
-            continue;
-        }
-    }
-
-    while(1)
-    {
-        string str;
-        fi &gt;&gt; str;
-        if(str.size() == 0)
-        {
-            break;
-        }
-        fo &lt;&lt; str &lt;&lt;" "; // 文件末尾多个空格，需要删除，并且没有换行功能
-    }
-}</code></pre><h2 id="五、类型信息-typeid"><a href="#五、类型信息-typeid" class="headerlink" title="五、类型信息 typeid"></a>五、类型信息 typeid</h2><pre><code>用于获取数据的类型信息。
-name成员函数，可以获取类型的名字，内建类型名字使用缩写。
-同时还支持 == != 用来比较是否是同一种类型。
-
-如果用于判断父子类的指针或引用，它不能准确判断出实际的对象类型。但可以判断出具有多态继承关系的父子类的指针或引用，它的实际对象。</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;typeinfo&gt;
-using namespace std;
-
-class Base
-{
-public:
-    virtual ~Base(void)
-    {
-    }
-};
-
-class Test:public Base
-{
-
-};
-
-int main()
-{
-    Base b;
-    Test t;
-    cout &lt;&lt; typeid(b).name() &lt;&lt; endl;
-    cout &lt;&lt; (typeid(t) == typeid(b)) &lt;&lt; endl;
-
-    cout &lt;&lt; endl;
-    Base* p = new Test;
-    cout &lt;&lt; (typeid(*p) == typeid(Test)) &lt;&lt; endl;
-    cout &lt;&lt; (typeid(p) == typeid(Test*)) &lt;&lt; endl;
-
-}
-</code></pre><pre><code>扩展：
-    sudo find / -name filename
-    sudo find / | grep "std"
-    grep 'Base' *               当前目录查找包含此字符的文件
-    grep -r 'Base' *            当前目录及所有子级目录，查找包含此字符的文件
-    grep -r 'Base' * dir        指定目录下及所有子级目录，查找包含此字符的文件</code></pre><h2 id="六、异常处理"><a href="#六、异常处理" class="headerlink" title="六、异常处理"></a>六、异常处理</h2><pre><code>抛异常
-    throw 数据
-    抛异常对象
-    抛基本类型
-    注意：不能抛出局部对象的指针或引用（构造函数和析构函数不能抛出异常）。
-    注意：如果异常没有被捕获处理，程序就会停止。
-捕获异常
-
-
-try{
-    可以抛出异常的代码
-}
-catch(类型 变量名) // 根据数据类型进行捕获
-{
-    处理异常，如果无法处理可以继续抛出异常
-}
-注意：捕获异常的顺序是自上而下的，而不是最精准的匹配，针对子类异常捕获时要放在父类的前面。
-
-函数的异常声明：
-    返回值类型 函数名(参数列表)throw(类型1,类型2,...)
-    注意：如果不写异常声明表示什么类型的异常都可能抛出。
-    注意：如果写了异常声明表示只抛出某些类型的异常，一旦超出异常声明的范围，程序会直接停止，无法捕获。
-    注意：throw() 表示什么类型都不会抛出
-
-
-设计异常类：</code></pre><pre><code>      class Error
-      {
-          int errno;
-          char errmsg[255];
-      public:
-          Error(int errno = -1,const char* msg = "未知错误")
-          {
-              this-&gt;errno = errno;
-              strcpy(errmsg,msg);
-          }
-          int getError(void)
-          {
-              return errno;
-          }
-          const char* getErrmsg(void)
-          {
-              return errmsg;
-          }
-      }</code></pre><script>
+                <p>由于个人编程是，使用的自己的getch.h头文件，导致可能部分项目无法成功通过编译。<br>Linux系统，需要将getch.h添加到user/include下<br>Windows系统，需要将getch.h头文件换为conio.h</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -836,9 +605,9 @@ catch(类型 变量名) // 根据数据类型进行捕获
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C++中的虚函数表、强制类型转换、I/O流等》
+                    《我的项目的相关问题》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Love丶伊卡洛斯
             </a> is licensed under a
@@ -879,7 +648,7 @@ catch(类型 变量名) // 根据数据类型进行捕获
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-09-03T16-42-27',
+        id: '2019-09-04T14-33-22',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -900,9 +669,10 @@ catch(类型 变量名) // 根据数据类型进行捕获
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/">
                     <div class="card-image">
@@ -922,9 +692,9 @@ catch(类型 变量名) // 根据数据类型进行捕获
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -933,6 +703,7 @@ catch(类型 变量名) // 根据数据类型进行捕获
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -955,24 +726,24 @@ catch(类型 变量名) // 根据数据类型进行捕获
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/31/c-zhong-stl-xiang-guan-zhi-shi/">
+                <a href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++中STL相关知识">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C++中的虚函数表、强制类型转换、I/O流等">
                         
-                        <span class="card-title">C++中STL相关知识</span>
+                        <span class="card-title">C++中的虚函数表、强制类型转换、I/O流等</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大
+                            一、虚函数表什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
                             </span>
                         <span class="publish-author">
                             
@@ -987,10 +758,6 @@ catch(类型 变量名) // 根据数据类型进行捕获
                     
                     <a href="/tags/C/" target="_blank">
                         <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/STL/" target="_blank">
-                        <span class="chip bg-color">STL</span>
                     </a>
                     
                 </div>

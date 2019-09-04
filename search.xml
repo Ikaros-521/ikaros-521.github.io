@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>我的项目的相关问题</title>
+      <link href="/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/"/>
+      <url>/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<p>由于个人编程是，使用的自己的getch.h头文件，导致可能部分项目无法成功通过编译。<br>Linux系统，需要将getch.h添加到user/include下<br>Windows系统，需要将getch.h头文件换为conio.h</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> 项目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++中的虚函数表、强制类型转换、I/O流等</title>
       <link href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/"/>
       <url>/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/</url>
