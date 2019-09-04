@@ -4,8 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++中STL相关知识, ikaros">
-    <meta name="description" content="STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大">
+    <meta name="keywords" content="UML相关知识, ikaros">
+    <meta name="description" content="一、UML概述1、什么是UML
+    统一建模语言（Unified Modeling Language）。用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的开发方法。
+UML展现了一系列最佳工程实践，这些最佳实践在对大">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++中STL相关知识 | Ikaros</title>
+    <title>UML相关知识 | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++中STL相关知识
+                        UML相关知识
                     </div>
                 </div>
             </div>
@@ -377,12 +379,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/" target="_blank">
-                                <span class="chip bg-color">C++</span>
-                            </a>
-                        
-                            <a href="/tags/STL/" target="_blank">
-                                <span class="chip bg-color">STL</span>
+                            <a href="/tags/UML/" target="_blank">
+                                <span class="chip bg-color">UML</span>
                             </a>
                         
                     </div>
@@ -396,21 +394,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-31
+                    2019-09-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        1.2k
+                        2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        5 Min
+                        6 Min
                     </div>
                     
                 
@@ -426,190 +424,105 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>STL介绍</strong><br>    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。<br>    容器：用来存储各种类型数据的数据结构。<br>    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大提高容器的访问速度。<br>    算法：STL实现了常见的排序、查找算法。</p>
-<a id="more"></a>
+                <h2 id="一、UML概述"><a href="#一、UML概述" class="headerlink" title="一、UML概述"></a>一、UML概述</h2><pre><code>1、什么是UML
+    统一建模语言（Unified Modeling Language）。用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的开发方法。
+UML展现了一系列最佳工程实践，这些最佳实践在对大规模，复杂系统进行建模方面，特别是在软件架构层次已经被验证有效。
+    项目开发的说明书（设计图）。
+2、UML是做什么的
+    帮助建立软件开发过程和各种模型
+    主要目的是为了让开发者之间进行有效的交流。
+        开发者与设计者之间的交流
+        开发者与开发者之间的交流
+        开发者与管理者之间的交流
+    适合大型项目和大型团队的开发
 
-<p><img src="https://img-blog.csdnimg.cn/20190827150134261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="List：双端链表容器"><a href="#List：双端链表容器" class="headerlink" title="List：双端链表容器"></a>List：双端链表容器</h2><pre><code>iterator：用来指向容器中的元素
-    begin() 获取指向第一个元素的迭代器
-    end() 获取指向最后一个元素的下一个位置
-相关使用参考：https://blog.csdn.net/Ikaros_521/article/details/100091859</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150153998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="vector：向量容器，俗称数组"><a href="#vector：向量容器，俗称数组" class="headerlink" title="vector：向量容器，俗称数组"></a>vector：向量容器，俗称数组</h2><pre><code>    #include &lt;iostream&gt;
-    #include &lt;vector&gt;
-    using namespace std;
-
-    void show(vector&lt;int&gt;&amp; arr)
-    {
-        for(int i=0; i&lt;arr.size(); i++)
-        {
-            cout &lt;&lt; arr[i] &lt;&lt; " ";
-        }
-        cout &lt;&lt; endl;
-    }
-
-    int main()
-    {
-        // 创建向量，设置容量并初始化
-        vector&lt;int&gt; arr(12,0);
-        show(arr);
-
-        // 向量支持[]运算符，所以被称为数组
-        for(int i=0; i&lt;10; i++)
-        {
-            arr[i] = i;
-        }
-        show(arr);
-
-        vector&lt;int&gt; arr1(10,0);    
-        // 支持比较运算符
-        cout &lt;&lt; (arr[0]==arr1[0]) &lt;&lt; endl;
-
-        // at成员函数,相当于[]操作
-        for(int i=0; i&lt;arr.size(); i++)
-        {
-            cout &lt;&lt; arr.at(i) &lt;&lt; " ";
-        }
-        cout &lt;&lt; endl;
-
-        // 获取向量的容量 
-        cout &lt;&lt; arr.capacity() &lt;&lt; endl;
-    }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150209482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/2019082715022572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="stack、queue：栈和队列"><a href="#stack、queue：栈和队列" class="headerlink" title="stack、queue：栈和队列"></a>stack、queue：栈和队列</h2><p>   <img src="https://img-blog.csdnimg.cn/20190827150318915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"><a href="#double-ended-queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素" class="headerlink" title="double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素"></a>double-ended queues：双端队列，用法与向量基本一致，但可以在头和尾快速插入和删除元素</h2><pre><code>    #include &lt;iostream&gt;
-    #include &lt;deque&gt;
-    using namespace std;
-
-    int main()
-    {
-        deque&lt;int&gt; d(10,0);
-        for(int i=0; i&lt;d.size(); i++)
-        {
-            d[i] = i;
-        }
-
-        for(int i=0; i&lt;d.size(); i++)
-        {
-            cout &lt;&lt; d[i] &lt;&lt; " ";
-        }
-        cout &lt;&lt; endl;
-    }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150335763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"><a href="#set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。" class="headerlink" title="set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。"></a>set：集合容器，集合中的数据会自动排序，不能重复（赋重复值也没用）。</h2><pre><code>    #include &lt;iostream&gt;
-    #include &lt;set&gt;
-    using namespace std;
-
-    int main()
-    {
-        int arr[5] = {4,3,2,2,5};
-        set&lt;int&gt; s;
-        // 在集合中插入元素
-        s.insert(arr,arr+5);
-        set&lt;int&gt;::iterator it;
-        for(it=s.begin(); it!=s.end(); it++)
-        {
-            cout &lt;&lt; *it &lt;&lt; " ";
-        }
-        // 返回某个值元素的个数
-        cout &lt;&lt; endl &lt;&lt; s.count(2) &lt;&lt;" "&lt;&lt;s.count(1)&lt;&lt; endl;
-        // 返回指向大于（或等于）某值的第一个元素的迭代器
-        cout &lt;&lt; *s.lower_bound(1) &lt;&lt; endl;
-    }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150349668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。"><a href="#map：是一种关联容器，在其他编程语言中叫字典，C-中叫映射，以key-value键值对的方式进行存储，key的值不能重复。" class="headerlink" title="map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。"></a>map：是一种关联容器，在其他编程语言中叫字典，C++中叫映射，以key/value键值对的方式进行存储，key的值不能重复。</h2><pre><code>    #include &lt;iostream&gt;
-    #include &lt;map&gt;
-    using namespace std;
-
-    int main()
-    {
-        map&lt;int,string&gt; m;
-        // 插入元素
-        m.insert(make_pair(10010,"hehe"));
-        m.insert(make_pair(10011,"haaa"));
-        m.insert(make_pair(10012,"xixi"));
-        m.insert(make_pair(10013,"ohho"));
-        m.insert(make_pair(10013,"ohho"));
-        cout &lt;&lt; m.size() &lt;&lt; endl;
-        cout &lt;&lt; (*m.find(10011)).second &lt;&lt; endl;
-
-        map&lt;int,string&gt;::iterator it;
-        for(it=m.begin(); it!=m.end(); it++)
-        {
-            cout&lt;&lt; (*it).first &lt;&lt; " " &lt;&lt; (*it).second &lt;&lt; endl;
-        }
-    }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150410951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"><a href="#multimap：多重映射，它与map很像，区别是它的key的值可以重复。" class="headerlink" title="multimap：多重映射，它与map很像，区别是它的key的值可以重复。"></a>multimap：多重映射，它与map很像，区别是它的key的值可以重复。</h2><pre><code>    #include &lt;iostream&gt;
-    #include &lt;map&gt;
-    using namespace std;
-
-    int main()
-    {
-        multimap&lt;int,string&gt; mm;
-        // 插入元素
-        mm.insert(make_pair(10010,"ha1"));
-        mm.insert(make_pair(10012,"ha2"));
-        mm.insert(make_pair(10010,"ha3"));
-        mm.insert(make_pair(10013,"ha4"));
-        mm.insert(make_pair(10010,"ha5"));
-        cout &lt;&lt; mm.size() &lt;&lt; endl;
-        multimap&lt;int,string&gt;::iterator it;
-        // 查找一个元素
-        it = mm.find(10010);
-        // 返回指定元素出现的次数
-        for(int i=0; i&lt;mm.count(10010); i++)
-        {
-            cout &lt;&lt; (*it).second &lt;&lt; endl;
-            it++;
-        }
-    }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150451820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="multiset：多重集合，它与set很像，区别是它的值可以重复。"><a href="#multiset：多重集合，它与set很像，区别是它的值可以重复。" class="headerlink" title="multiset：多重集合，它与set很像，区别是它的值可以重复。"></a>multiset：多重集合，它与set很像，区别是它的值可以重复。</h2><pre><code>    #include &lt;iostream&gt;
-    #include &lt;set&gt;
-    using namespace std;
-
-    int main()
-    {
-        int arr[10] = {1,3,5,3,2,5,7,6,3,9};
-        multiset&lt;int&gt; ms(arr,arr+10);
-        cout &lt;&lt; ms.size() &lt;&lt; endl;
-        cout &lt;&lt; ms.count(3) &lt;&lt; endl;
-        multiset&lt;int&gt;::iterator it;
-        for(it=ms.begin(); it!=ms.end(); it++)
-        {
-            cout &lt;&lt; (*it) &lt;&lt; " ";
-        }
-    }</code></pre><p><img src="https://img-blog.csdnimg.cn/20190827150513935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="priority-queue：优先队列，它会根据元素的比较结果进行排序。"><a href="#priority-queue：优先队列，它会根据元素的比较结果进行排序。" class="headerlink" title="priority_queue：优先队列，它会根据元素的比较结果进行排序。"></a>priority_queue：优先队列，它会根据元素的比较结果进行排序。</h2><pre><code>#include &lt;iostream&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;time.h&gt;
-#include &lt;queue&gt;
-
-using namespace std;
-
-int com(int&amp; a,int&amp; b)
-{
-    if(a &gt; b)
-        return 1;
-    else if(a &lt; b)
-        return -1;
-    else
-        return 0;
-}
-int main()
-{
-    srand(time(NULL));
-    priority_queue&lt;int&gt; pq;
-    for(int i=0; i&lt;10; i++)
-    {
-        int val = rand()%100;
-        cout &lt;&lt; val &lt;&lt; " ";
-        pq.push(val);
-    }
-    cout &lt;&lt; pq.size() &lt;&lt; endl;
-    while(!pq.empty())
-    {
-        cout &lt;&lt; pq.top() &lt;&lt; " ";
-        pq.pop();
-    }
-
-}</code></pre><p>   总结：<br>    1、vector和deque是支持[]运算，因此基本不需要迭代器，其他容器一律使用迭代器进行遍历。<br>    2、stack、queue、priority_queue容器没有迭代器。<br>    3、set、multiset、priority_queue会对元素进行排序，因它存储元素要支持比较运算符。</p>
-<script>
+3、UML的应用领域
+    UML的目标是以面向对象的方式来描述任何类型的系统，常用于建立软件的模型。
+4、我对UML的看法
+    不建议用UML生成代码。
+    没有完美的UML图，够用就行，图是死的，人是活的。
+    UML主要功能是为了更好的让开发团队与用户之间进行沟通交流。
+    先结对学习UML目的以应用、看懂为主(有利于后期工作)，以画图为辅。
+    但需要长期学习，为后期成为系统分析师、架构师、产品经理、项目经理打下基础。</code></pre><h2 id="二、Rational-Rose四种视图与UML的8中图形关系"><a href="#二、Rational-Rose四种视图与UML的8中图形关系" class="headerlink" title="二、Rational Rose四种视图与UML的8中图形关系"></a>二、Rational Rose四种视图与UML的8中图形关系</h2><pre><code>    Rose启动后自动创建四种视图：
+        用例视图： Use Case View
+            帮助理解和使用系统，这种图展示了系统的参与者和用例是怎么相互作用的，包括了系统中的所有角色。
+            用例图：Use Case Digram
+            时序图：Sequence Digram
+            协作图：Collaboration Digram
+            活动图：Activity Digram
+            这种视图的主要使用都是用户、分析人员、项目管理人员。
+        逻辑视图： Logical View
+            逻辑视图关注的是系统如何实现用例中提出的功能，它提供系统的详细图形，描述了组件间如何关联。
+            类图：Call Digram
+            状态图：Statechart Dirgam
+            这种视图的主要使用者是开发人员，开发人员包括：程序员、需求分析师、测试工程师、项目经理。
+        构件视图： Component View
+            这种视图关注的是代码模板间的关系，通过组件视图可以知道哪些代码是组件，哪些是代码库，哪些是运行组件，会默认有一个Component图表。
+            这种视图的主要使用者是负责控制代码、编译、部署应用程序的人员。
+        部署视图： Deployment View
+            这种视图关注的是系统的实际部署，进程和设备间的实际连接。
+            这种视图的使用者是用户和软件的发布人员。</code></pre><h2 id="三、用例图：详细表示所有的用例需求，不考虑细节"><a href="#三、用例图：详细表示所有的用例需求，不考虑细节" class="headerlink" title="三、用例图：详细表示所有的用例需求，不考虑细节"></a>三、用例图：详细表示所有的用例需求，不考虑细节</h2><pre><code> 1、用例图的作用
+        主要用它来描述需求，画图时要从用户的角度出发，主要用于与用户之间的交流。
+    2、用例图的要点
+        正确反应用户的需求
+        每个用例的内部实现
+        细节不是本阶段要考虑的问题
+    3、用例图包括
+        参与者
+        用例
+        用例之间的关系
+    4、如何确定参与者
+        谁使用系统
+        谁负责启动、关闭系统
+        谁查询数据
+        谁提供数据
+        谁安装、升级系统
+    5、什么是用例
+        是系统的使用过程，一个用例就是一个功能需求。</code></pre><h2 id="四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法"><a href="#四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法" class="headerlink" title="四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法"></a>四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法</h2><pre><code>    1、类图的主要作用
+        主要用来描述类的内部结构和类与类之间的关系。
+        类图中不显示暂时性的消息，是面向对象剑魔时的主要组成部分。
+    2、类图主要包括
+        名称：类名
+        属性：类的成员变量
+            访问权限
+            变量名
+            类型
+        操作：类的成员函数
+            访问权限
+            函数名
+            参数名
+            参数类型
+            返回值类型
+        职责：说明此类具体负责的任务，解决什么问题
+    3、类之间的关系
+        继承关系：空心箭头实线来表示继承关系，子类指向父类
+            一个类Test继承Base类的属性和行为，并可以增加自己的属性和行为。
+        实现关系：空心箭头虚线来表示继承关系，子类指向父类
+            一个类Test继承一个抽象类，父类中的函数定义为纯虚函数，子类继承后覆盖所有纯虚函数。
+        依赖关系：箭头和虚线来表示依赖关系，依赖者指向被依赖者
+            一个类A中使用到类B（类A中的函数的参数或返回值类型是类B），这种关系是一种偶然、临时的，是一种非常弱的关系。
+        关联关系：箭头和实线来表示关联关系，依赖者指向被依赖者
+            是一种强依赖关系，类A的属性（成员变量）是类B。
+        聚合关系：实心菱形和箭头实线来表示聚合关系，菱形指向整体，箭头指向部分。
+            聚合关系是一种关联关系的特例，它体现的是整体与部分。
+            整体与部分之间是可分离，它们可以具有各自的生命周期。
+            从代码层面来讲与关联是一致的。
+        组合关系：实心菱形和箭头实线来表示组合关系，菱形指向整体，箭头指向部分。
+            组合关系也是一种聚合关系的特例，这种关系比聚合更强，也称为强聚合，同样也体现出整体与部分，但此时的整体与部分是不可分隔的。
+            从代码层面来讲与关联是一致的。
+        从代码实现层面只有继承、包含、依赖。
+    用例图和类表示对象之间消息的发送顺序，值考虑正确情况。</code></pre><h2 id="五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。"><a href="#五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。" class="headerlink" title="五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。"></a>五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。</h2><pre><code>用来表示对象之间的关系，同时强调对象之间的交互。
+时序图向用户表示时间随着时间的推移，清晰的可视化轨迹。
+时序图用来表示项目中的某个操作中如何进行的，具体的步骤是什么。</code></pre><h2 id="六、状态图"><a href="#六、状态图" class="headerlink" title="六、状态图"></a>六、状态图</h2><pre><code>用来表示对象的状态变化，用于帮助开发人员理解系统中对象的行为。
+主要有状态，生命周期，条件，状态转换，事件和动作。</code></pre><h2 id="七、活动图"><a href="#七、活动图" class="headerlink" title="七、活动图"></a>七、活动图</h2><pre><code>活动图的本质就是流程图，它描述了系统的活动、判断点和分支。
+侧重于操作而不是对象，重点表示逻辑变化。
+一个动作的流程图一般包括起点、终点、操作。
+泳道：用于多种角色参与一个过程，一个活动只能属于一个泳道。</code></pre><h2 id="八、协作图"><a href="#八、协作图" class="headerlink" title="八、协作图"></a>八、协作图</h2><pre><code>主要用来描述对象之间的交互关系，强调参与交互的各对象的组织。
+需要按照组织对控制流程进行建模时选择画协作图。
+协作图与时序图的区别：
+    时序图描述了交互过程中的时间顺序，但没有表达对象之间的关系。
+    协作图描述了对象间的关系但时间顺序必须从时序图中获得。
+合格的协作图和时序图主义相同，可互换，而不丢失信息。</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -785,9 +698,9 @@ int main()
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C++中STL相关知识》
+                    《UML相关知识》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/31/c-zhong-stl-xiang-guan-zhi-shi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/uml-xiang-guan-zhi-shi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Love丶伊卡洛斯
             </a> is licensed under a
@@ -828,7 +741,7 @@ int main()
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-08-31T22-43-57',
+        id: '2019-09-04T19-10-06',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -849,29 +762,32 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/">
+                <a href="/2019/09/04/uml-xiang-guan-zhi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C++中的虚函数表、强制类型转换、I/O流等">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="UML相关知识">
                         
-                        <span class="card-title">C++中的虚函数表、强制类型转换、I/O流等</span>
+                        <span class="card-title">UML相关知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、虚函数表什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类
+                            一、UML概述1、什么是UML
+    统一建模语言（Unified Modeling Language）。用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的开发方法。
+UML展现了一系列最佳工程实践，这些最佳实践在对大
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -880,11 +796,12 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/UML/" target="_blank">
+                        <span class="chip bg-color">UML</span>
                     </a>
                     
                 </div>
@@ -898,25 +815,26 @@ int main()
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/31/c-zhong-de-mo-ban/">
+                <a href="/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="C++中的模板">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="我的项目的相关问题">
                         
-                        <span class="card-title">C++中的模板</span>
+                        <span class="card-title">我的项目的相关问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、为什么使用模板1、C/C++是一种静态类型语言（预处理-&gt;汇编-&gt;编译-&gt;链接），好处是速度快，缺点是实现通用代码麻烦。例如：实现支持所有类型的快速排序。
-2、借助函数重载实现通用代码，好处是实现简单，但代码段会增加。
+                            由于个人编程是，使用的自己的getch.h头文件，导致可能部分项目无法成功通过编译。Linux系统，需要将getch.h添加到user/include下Windows系统，需要将getch.h头文件换为conio.h
+
+        do
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
                             </span>
                         <span class="publish-author">
                             
@@ -929,12 +847,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/github/" target="_blank">
+                        <span class="chip bg-color">github</span>
                     </a>
                     
-                    <a href="/tags/模板/" target="_blank">
-                        <span class="chip bg-color">模板</span>
+                    <a href="/tags/项目/" target="_blank">
+                        <span class="chip bg-color">项目</span>
                     </a>
                     
                 </div>
