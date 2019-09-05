@@ -443,8 +443,13 @@ const 类对象 operator#(const 类&amp; that) const
 {
     return 类(参数#参数);
 }
-注意：双目录运算符的运算结果是个右值，返回值应该加 const ，然后为了const对象能够调用，参数应写const，函数也应该具备const属性。</code></pre><p>   全局函数：<br>    const 类 operator#(const 类&amp; a,const 类&amp; b)<br>    {</p>
-<pre><code>}
+注意：双目录运算符的运算结果是个右值，返回值应该加 const ，然后为了const对象能够调用，参数应写const，函数也应该具备const属性。
+
+全局函数：
+const 类 operator#(const 类&amp; a,const 类&amp; b)
+{
+
+}
 注意：全局函数不是成员函数，可能会需要访问到类的私有成员，解决这种问题可以把函数声明为类的友元函数（友元不是成员）。
 友元：在类的外部想访问类的私有成员（public/protected/private）时，需要把所在的函数声明为友元，但是友元只是朋友，因此它只有访问权，没有实际的拥有权（其根本原因是它没有this指针）。
 友元声明：把函数的声明写一份到类中，然后在声明前加上friend 关键字。使用友元即可把操作符函数定义为全局的，也可以确保类的封装性。
