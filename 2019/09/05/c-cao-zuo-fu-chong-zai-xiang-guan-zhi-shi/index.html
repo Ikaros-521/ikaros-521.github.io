@@ -4,10 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="UML相关知识, ikaros">
-    <meta name="description" content="一、UML概述1、什么是UML
-    统一建模语言（Unified Modeling Language）。用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的开发方法。
-UML展现了一系列最佳工程实践，这些最佳实践在对大">
+    <meta name="keywords" content="C++操作符重载相关知识, ikaros">
+    <meta name="description" content="一、操作符函数重载什么是操作符函数：在C++中针对类类型的对象的运算符，由于它们肯定不支持真正的运算操作，因此编译器会将它们翻译成函数，这种就叫做操作符函数（运算符函数）。
+编译器把运算翻译成运算符函数，可以针对自定义的类类型设计它独有的运">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>UML相关知识 | Ikaros</title>
+    <title>C++操作符重载相关知识 | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +261,13 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        UML相关知识
+                        C++操作符重载相关知识
                     </div>
                 </div>
             </div>
@@ -379,8 +378,8 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/UML/" target="_blank">
-                                <span class="chip bg-color">UML</span>
+                            <a href="/tags/C/" target="_blank">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -394,21 +393,21 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-04
+                    2019-09-05
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        2k
+                        2.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        6 Min
+                        11 Min
                     </div>
                     
                 
@@ -424,105 +423,418 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、UML概述"><a href="#一、UML概述" class="headerlink" title="一、UML概述"></a>一、UML概述</h2><pre><code>1、什么是UML
-    统一建模语言（Unified Modeling Language）。用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的开发方法。
-UML展现了一系列最佳工程实践，这些最佳实践在对大规模，复杂系统进行建模方面，特别是在软件架构层次已经被验证有效。
-    项目开发的说明书（设计图）。
-2、UML是做什么的
-    帮助建立软件开发过程和各种模型
-    主要目的是为了让开发者之间进行有效的交流。
-        开发者与设计者之间的交流
-        开发者与开发者之间的交流
-        开发者与管理者之间的交流
-    适合大型项目和大型团队的开发
+                <h2 id="一、操作符函数重载"><a href="#一、操作符函数重载" class="headerlink" title="一、操作符函数重载"></a>一、操作符函数重载</h2><pre><code>什么是操作符函数：在C++中针对类类型的对象的运算符，由于它们肯定不支持真正的运算操作，因此编译器会将它们翻译成函数，这种就叫做操作符函数（运算符函数）。
+编译器把运算翻译成运算符函数，可以针对自定义的类类型设计它独有的运算功能。
+其实各种运算符已经具备一些功能，再次实现它的就是叫作运算符重载。
 
-3、UML的应用领域
-    UML的目标是以面向对象的方式来描述任何类型的系统，常用于建立软件的模型。
-4、我对UML的看法
-    不建议用UML生成代码。
-    没有完美的UML图，够用就行，图是死的，人是活的。
-    UML主要功能是为了更好的让开发团队与用户之间进行沟通交流。
-    先结对学习UML目的以应用、看懂为主(有利于后期工作)，以画图为辅。
-    但需要长期学习，为后期成为系统分析师、架构师、产品经理、项目经理打下基础。</code></pre><h2 id="二、Rational-Rose四种视图与UML的8中图形关系"><a href="#二、Rational-Rose四种视图与UML的8中图形关系" class="headerlink" title="二、Rational Rose四种视图与UML的8中图形关系"></a>二、Rational Rose四种视图与UML的8中图形关系</h2><pre><code>    Rose启动后自动创建四种视图：
-        用例视图： Use Case View
-            帮助理解和使用系统，这种图展示了系统的参与者和用例是怎么相互作用的，包括了系统中的所有角色。
-            用例图：Use Case Digram
-            时序图：Sequence Digram
-            协作图：Collaboration Digram
-            活动图：Activity Digram
-            这种视图的主要使用都是用户、分析人员、项目管理人员。
-        逻辑视图： Logical View
-            逻辑视图关注的是系统如何实现用例中提出的功能，它提供系统的详细图形，描述了组件间如何关联。
-            类图：Call Digram
-            状态图：Statechart Dirgam
-            这种视图的主要使用者是开发人员，开发人员包括：程序员、需求分析师、测试工程师、项目经理。
-        构件视图： Component View
-            这种视图关注的是代码模板间的关系，通过组件视图可以知道哪些代码是组件，哪些是代码库，哪些是运行组件，会默认有一个Component图表。
-            这种视图的主要使用者是负责控制代码、编译、部署应用程序的人员。
-        部署视图： Deployment View
-            这种视图关注的是系统的实际部署，进程和设备间的实际连接。
-            这种视图的使用者是用户和软件的发布人员。</code></pre><h2 id="三、用例图：详细表示所有的用例需求，不考虑细节"><a href="#三、用例图：详细表示所有的用例需求，不考虑细节" class="headerlink" title="三、用例图：详细表示所有的用例需求，不考虑细节"></a>三、用例图：详细表示所有的用例需求，不考虑细节</h2><pre><code> 1、用例图的作用
-        主要用它来描述需求，画图时要从用户的角度出发，主要用于与用户之间的交流。
-    2、用例图的要点
-        正确反应用户的需求
-        每个用例的内部实现
-        细节不是本阶段要考虑的问题
-    3、用例图包括
-        参与者
-        用例
-        用例之间的关系
-    4、如何确定参与者
-        谁使用系统
-        谁负责启动、关闭系统
-        谁查询数据
-        谁提供数据
-        谁安装、升级系统
-    5、什么是用例
-        是系统的使用过程，一个用例就是一个功能需求。</code></pre><h2 id="四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法"><a href="#四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法" class="headerlink" title="四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法"></a>四、类图：主要表示类与类之间的关系，不用详细考虑类的属性和方法</h2><pre><code>    1、类图的主要作用
-        主要用来描述类的内部结构和类与类之间的关系。
-        类图中不显示暂时性的消息，是面向对象剑魔时的主要组成部分。
-    2、类图主要包括
-        名称：类名
-        属性：类的成员变量
-            访问权限
-            变量名
-            类型
-        操作：类的成员函数
-            访问权限
-            函数名
-            参数名
-            参数类型
-            返回值类型
-        职责：说明此类具体负责的任务，解决什么问题
-    3、类之间的关系
-        继承关系：空心箭头实线来表示继承关系，子类指向父类
-            一个类Test继承Base类的属性和行为，并可以增加自己的属性和行为。
-        实现关系：空心箭头虚线来表示继承关系，子类指向父类
-            一个类Test继承一个抽象类，父类中的函数定义为纯虚函数，子类继承后覆盖所有纯虚函数。
-        依赖关系：箭头和虚线来表示依赖关系，依赖者指向被依赖者
-            一个类A中使用到类B（类A中的函数的参数或返回值类型是类B），这种关系是一种偶然、临时的，是一种非常弱的关系。
-        关联关系：箭头和实线来表示关联关系，依赖者指向被依赖者
-            是一种强依赖关系，类A的属性（成员变量）是类B。
-        聚合关系：实心菱形和箭头实线来表示聚合关系，菱形指向整体，箭头指向部分。
-            聚合关系是一种关联关系的特例，它体现的是整体与部分。
-            整体与部分之间是可分离，它们可以具有各自的生命周期。
-            从代码层面来讲与关联是一致的。
-        组合关系：实心菱形和箭头实线来表示组合关系，菱形指向整体，箭头指向部分。
-            组合关系也是一种聚合关系的特例，这种关系比聚合更强，也称为强聚合，同样也体现出整体与部分，但此时的整体与部分是不可分隔的。
-            从代码层面来讲与关联是一致的。
-        从代码实现层面只有继承、包含、依赖。
-    用例图和类表示对象之间消息的发送顺序，值考虑正确情况。</code></pre><h2 id="五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。"><a href="#五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。" class="headerlink" title="五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。"></a>五、时序图：主要表示对象之间消息的发送顺序，只考虑正确情况。</h2><pre><code>用来表示对象之间的关系，同时强调对象之间的交互。
-时序图向用户表示时间随着时间的推移，清晰的可视化轨迹。
-时序图用来表示项目中的某个操作中如何进行的，具体的步骤是什么。</code></pre><h2 id="六、状态图"><a href="#六、状态图" class="headerlink" title="六、状态图"></a>六、状态图</h2><pre><code>用来表示对象的状态变化，用于帮助开发人员理解系统中对象的行为。
-主要有状态，生命周期，条件，状态转换，事件和动作。</code></pre><h2 id="七、活动图"><a href="#七、活动图" class="headerlink" title="七、活动图"></a>七、活动图</h2><pre><code>活动图的本质就是流程图，它描述了系统的活动、判断点和分支。
-侧重于操作而不是对象，重点表示逻辑变化。
-一个动作的流程图一般包括起点、终点、操作。
-泳道：用于多种角色参与一个过程，一个活动只能属于一个泳道。</code></pre><h2 id="八、协作图"><a href="#八、协作图" class="headerlink" title="八、协作图"></a>八、协作图</h2><pre><code>主要用来描述对象之间的交互关系，强调参与交互的各对象的组织。
-需要按照组织对控制流程进行建模时选择画协作图。
-协作图与时序图的区别：
-    时序图描述了交互过程中的时间顺序，但没有表达对象之间的关系。
-    协作图描述了对象间的关系但时间顺序必须从时序图中获得。
-合格的协作图和时序图主义相同，可互换，而不丢失信息。</code></pre><script>
+双目运算符：
+    a+b
+    成员函数
+        a.operator+(b);
+    全局函数
+        operator+(a,b);
+单目运算符：
+    !a
+    成员函数
+        a.operator!(void);
+    全局函数
+        operator!(a);</code></pre><h2 id="二、双目操作符函数重载"><a href="#二、双目操作符函数重载" class="headerlink" title="二、双目操作符函数重载"></a>二、双目操作符函数重载</h2><pre><code>成员函数：
+const 类对象 operator#(const 类&amp; that) const
+{
+    return 类(参数#参数);
+}
+注意：双目录运算符的运算结果是个右值，返回值应该加 const ，然后为了const对象能够调用，参数应写const，函数也应该具备const属性。</code></pre><p>   全局函数：<br>    const 类 operator#(const 类&amp; a,const 类&amp; b)<br>    {</p>
+<pre><code>}
+注意：全局函数不是成员函数，可能会需要访问到类的私有成员，解决这种问题可以把函数声明为类的友元函数（友元不是成员）。
+友元：在类的外部想访问类的私有成员（public/protected/private）时，需要把所在的函数声明为友元，但是友元只是朋友，因此它只有访问权，没有实际的拥有权（其根本原因是它没有this指针）。
+友元声明：把函数的声明写一份到类中，然后在声明前加上friend 关键字。使用友元即可把操作符函数定义为全局的，也可以确保类的封装性。
+注意：友元函数与成员函数不会构成重载关系，因此它们不在同一个作用域内。</code></pre><h2 id="三、赋值类型的双目操作符"><a href="#三、赋值类型的双目操作符" class="headerlink" title="三、赋值类型的双目操作符"></a>三、赋值类型的双目操作符</h2><pre><code>成员
+    类 operator#(void)
+    {
+
+    }
+全局
+    类 operator#(const 类&amp; that)
+    {
+
+    }
+1、获取单参构造成赋值运算的调用方式。
+String str = "xxx"; // 会调用单参构造，而不调用赋值运算符
+str = "hhh";
+
+2、左操作数据不能具有const属性
+    1.成员函数不能是常函数
+    2.全局函数第一个参数不能有const属性
+3、返回值应该都（成员/全局）具备const属性</code></pre><h2 id="四、单目操作符函数重载"><a href="#四、单目操作符函数重载" class="headerlink" title="四、单目操作符函数重载"></a>四、单目操作符函数重载</h2><pre><code>-,~,!,&amp;,*,-&gt;,++,--
+成员
+    const 类 operator#(void) const
+    {
+
+    }
+全局
+    const 类 operator#(const 类&amp; that)
+    {
+
+    }
+前++/--
+    类&amp; operator#(void)
+    {
+
+    }
+    类&amp; operator#(类&amp; that)
+    {
+
+    }
+后++/--(哑元)
+    const 类&amp; operator#(int)
+    {
+
+    }
+    const 类&amp; operator#(类&amp; that,int)
+    {
+
+    }</code></pre><h2 id="五、输入输出操作符重载"><a href="#五、输入输出操作符重载" class="headerlink" title="五、输入输出操作符重载"></a>五、输入输出操作符重载</h2><pre><code>cout 是 ostream 类型的对象，cin 是 istream 类型的对象。
+如果&lt;&lt;/&gt;&gt;运算实现为成员函数，那么调用者应该是ostream/istream,而我们无权增加标准库的代码，因此输入/输出运算符只能定义为全局函数。
+
+ostream&amp; operator&lt;&lt;(ostream&amp; os,const 类&amp; n)
+{
+
+}
+istream&amp; operator&gt;&gt;(istream&amp; os,类&amp; n)
+{
+
+}</code></pre><h2 id="六、特殊操作符的重载（笔试面试比较重要）"><a href="#六、特殊操作符的重载（笔试面试比较重要）" class="headerlink" title="六、特殊操作符的重载（笔试面试比较重要）"></a>六、特殊操作符的重载（笔试面试比较重要）</h2><pre><code>1、下标操作符 []，常用于在容器类型中以下标方式获取元素。
+类型&amp; operator[](int i)
+{
+
+}
+2、函数操作符()，一个类如果重载函数操作符，那么它的对象就可以像函数一样使用，参数的个数、返回值类型，可以不确定，它是唯一一个可以参数有缺省参数的操作符。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
+
+class Array
+{
+    int* arr;
+    size_t len;
+public:
+    Array(size_t len):len(len)
+    {
+        arr = new int[len];
+    }
+
+    void operator()(void)
+    {
+        cout&lt;&lt;"emmm"&lt;&lt;endl;
+    }
+
+    int&amp; operator[](int i)
+    {
+        if(i &lt; 0 || i &gt;= len)
+        {
+            cout&lt;&lt;"下标错误"&lt;&lt;endl;
+            exit(0);
+        }
+        return arr[i];
+    }
+};
+
+int main()
+{
+    Array arr(100);
+    for(int i=0; i&lt;10; i++)
+    {
+        arr[i] = i;
+        cout&lt;&lt; arr[i] &lt;&lt; endl;
+    }
+    arr();
+}</code></pre><pre><code>3、解引用操作符*，成员访问操作符-&gt;
+    如果一个类重载了*和-&gt;，那么它的对象就可以像指针一样使用。
+    所谓的智能指针就是一种类对象，它支持解引用和成员访问操作符。
+4、智能指针
+    常规指针的缺点：
+        当一个常规指针离开它的作用域时，只有该指针所占用的空间会被释放，而它指向的内存空间能否被释放就不一定了，在一些特殊情况（人为、业务逻辑特殊）free或delete没有执行，就会形成内存泄漏。
+    智能指针的优点：
+        智能指针是一个封装了常规指针的类类型对象，当它离开作用域时，它的析构函数会自动执行，它的析构函数会负责释放常规指针所指向的动态内存（以正确方式创建的智能指针，它的析构函数才会正确执行）。
+    智能指针和常规指针的相同点：都支持*和-&gt;运算。
+    智能指针和常规指针的不同点：
+        任何时候，一个对象只能使用一个智能指针来指向，而常规指针可以指向多次。
+        只能指针的赋值操作需要经过拷贝构造和赋值构造特殊处理（深拷贝）。</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Int
+{
+public:
+    int val;
+    Int(int val=0):val(val){ }
+
+    void set_val(int val)
+    {
+        this-&gt;val = val;
+    }
+    int get_val(void)
+    {
+        return val;
+    }
+
+    Int&amp; operator=(const int val)
+    {
+        this-&gt;val = val;
+        return *this;
+    }
+
+    ~Int(void)
+    {
+        cout&lt;&lt;"我是Int的析构函数"&lt;&lt;endl;
+    }
+
+    friend ostream&amp; operator&gt;&gt;(ostream&amp; os,Int&amp; n);
+};
+ostream&amp; operator&lt;&lt;(ostream&amp; os,Int&amp; n)
+{
+    return os&lt;&lt;n.val;
+}
+
+class IntPointer
+{
+    Int* ptr;
+public:
+    IntPointer(Int* ptr):ptr(ptr){ }
+    Int&amp; operator*(void)
+    {
+        return *ptr;
+    }
+    ~IntPointer(void)
+    {
+        delete ptr;
+    }
+};
+
+int main()
+{
+    Int* num =new Int(100);
+    IntPointer p = num;
+    *p = 20;
+    cout&lt;&lt;*p &lt;&lt;endl;
+    *p = 10;
+    cout&lt;&lt;*p &lt;&lt;endl;
+}</code></pre><pre><code>auto_ptr:标准库中封装好的智能指针，实现了常规指针的基本功能，头文件 #include &lt;memory&gt;
+    用法：auto_ptr&lt;指向的类型&gt; 指针变量名(对象的地址)
+    auto_ptr的局限性：
+        不能跨作用域使用，一旦离开作用域指针变量会释放它指向的对象也会释放。
+        不能放入标准容器。
+        不能指向对象数组。</code></pre><pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+using namespace std;
+
+class A
+{
+public:
+    A(void)
+    {
+        cout&lt;&lt;"构造"&lt;&lt;endl;
+    }
+
+    ~A(void)
+    {
+        cout&lt;&lt;"析构"&lt;&lt;endl;
+    }
+
+    void show(void)
+    {
+        cout&lt;&lt;"A's show"&lt;&lt;endl;
+    }
+
+};
+
+int main()
+{
+    auto_ptr&lt;A&gt; ptr(new A);
+    (*ptr).show();
+}</code></pre><pre><code>5、new/delete/new[]/delete[]运算符重载
+    1.C++缺省的堆内存管理器速度较慢，重载new/delete底层使用malloc/free可以提高运行速度。
+    2.new在失败会产生异常，而每次使用new时为了安全都应该进行异常捕获，而重载new操作符只需要在操作符函数中进行一次错误处理即可。
+    3.在一些占字节数比较小的类，频繁使用new，可能会产生大量的内存碎片，而重载new操作符后，可以适当的扩大每次申请的字节数，减少内存碎片产生的机率。
+    4.重载 new/delete 可以记录堆内存使用的信息
+    5.重载 delete 可以检查到释放内存失败时的信息，检查到内存泄漏。</code></pre><h2 id="七、重载操作符的限制"><a href="#七、重载操作符的限制" class="headerlink" title="七、重载操作符的限制"></a>七、重载操作符的限制</h2><pre><code>1、不能重载的操作符
+    域限定符 ::
+    直接成员访问操作符 .
+    三目操作符 ?:
+    字节长度操作符 sizeof
+    类型信息操作符 typeid
+2、重载操作符不能修改操作符的优先级
+3、无法重载所有基本类型的操作符运算
+4、不能修改操作符的参数个数
+5、不能发明新的操作符</code></pre><h2 id="关于操作符重载的建议："><a href="#关于操作符重载的建议：" class="headerlink" title="关于操作符重载的建议："></a>关于操作符重载的建议：</h2><pre><code>1、在重载操作符时要根据操作符实际的功能和意义来确定具体参数，返回值，是否具有const属性，返回值是否是引用或者临时对象。
+2、重载操作符要符合情理（要有意义），要以实际用途为前提。
+3、重载操作符的意义是为了让对象的操作更简单、方便，提高代码的可读性，而不是为了炫技。
+4、重载操作符要与默认的操作符的功能、运算规则一致，不要出现反人类的操作。
+#define ture 0
+#define false 1</code></pre><p>相关测试代码：</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Point
+{
+    int x;
+    int y;
+public:
+    Point(int _x=0,int _y=0)
+    {
+        x = _x;
+        y = _y;
+    }
+
+/*    void show(void) const
+    {
+        cout&lt;&lt; "(x:" &lt;&lt;x &lt;&lt;",y:" &lt;&lt;y&lt;&lt; ")"&lt;&lt;endl;
+    }*/
+
+    friend const Point operator+(const Point&amp; a,const Point&amp; b);
+    friend const Point operator-(const Point&amp; a,const Point&amp; b);
+    friend const Point operator*(const Point&amp; a,int b);
+    friend const Point operator*(int a,const Point&amp; b);
+    const Point operator/(const int that) const
+    {
+        return Point(x/that,y/that);
+    }
+/*    const Point operator+(const Point&amp; that) const
+    {
+        return Point(that.x+x,that.y+y);
+    }
+*/
+    const Point&amp; operator+=(const Point&amp; that)
+    {
+        x += that.x;
+        y += that.y;
+        cout&lt;&lt;"___";
+        return *this;
+    }
+
+    Point operator-(void)
+    {
+        return Point(-x,-y);
+    }
+
+    // 前++
+    Point&amp; operator++(void)
+    {
+        x++;
+        y++;
+        return *this;
+    }
+
+    // 后++ (哑元)
+/*    Point operator++(int)
+    {
+        Point temp(x,y);
+        x++;
+        y++;
+        return temp;
+    }
+*/
+    friend Point operator++(Point&amp; that,int);//友元
+    Point operator--(int)
+    {
+        Point temp(x,y);
+        x--;
+        y--;
+        return temp;
+    }
+    friend ostream&amp; operator&lt;&lt;(ostream&amp; os,const Point&amp; p);
+    friend istream&amp; operator&gt;&gt;(istream&amp; is,Point&amp; p);
+};
+
+ostream&amp; operator&lt;&lt;(ostream&amp; os,const Point&amp; p)
+{
+    return os &lt;&lt;p.x&lt;&lt;","&lt;&lt;p.y;
+}
+
+istream&amp; operator&gt;&gt;(istream&amp; is,Point&amp; p)
+{
+    cout &lt;&lt; "请输入x的值:";
+    is &gt;&gt; p.x;
+    cout&lt;&lt;"请输入y的值：";
+    is &gt;&gt; p.y;
+    return is;
+}
+
+Point operator++(Point&amp; that,int)
+{
+    Point temp(that.x,that.y);
+    that.x++;
+    that.y++;
+    return temp;
+}
+
+const Point operator+(const Point&amp; a,const Point&amp; b)
+{
+    return Point(a.x+b.x,a.y+b.y);
+}
+
+const Point operator-(const Point&amp; a,const Point&amp; b)
+{
+    return Point(a.x-b.x,a.y-b.y);
+}
+
+const Point operator*(const Point&amp; a,int b)
+{
+    return Point(a.x*b,a.y*b);
+}
+
+const Point operator*(int a,const Point&amp; b)
+{
+    return Point(a*b.x,a*b.y);
+}
+
+int main()
+{
+    Point p(3,9);
+    Point p1(1,3);
+    Point p2 = p1+p+p1;
+    cout&lt;&lt;"+:";
+    cout&lt;&lt;p2&lt;&lt;endl;
+
+    Point p4(6,6);
+    cin&gt;&gt;p4;
+    cout&lt;&lt;p4&lt;&lt;endl;
+//    p2.show();
+    p2 = p2-p1;
+    cout&lt;&lt;"-:";
+    cout&lt;&lt;p2&lt;&lt;endl;
+//    p2.show();
+    p2 = p1*3;
+    cout&lt;&lt;"*:";
+    cout&lt;&lt;p2&lt;&lt;endl;
+//    p2.show();
+    p2 = 3*p1;
+//    p2.show();
+    cout&lt;&lt;p2&lt;&lt;endl;
+
+    cout&lt;&lt;(-p1)&lt;&lt;endl;
+//    (-p1).show();
+
+    p2 = p1;
+//    p2.show();
+
+//    (++p1).show();
+    cout&lt;&lt;(++p1)&lt;&lt;endl;
+
+//    (p2++).show();
+    cout&lt;&lt;"p2:"&lt;&lt;(p2++)&lt;&lt;endl;
+    cout&lt;&lt;"p2:"&lt;&lt;p2&lt;&lt;endl;
+//    p2.show();
+
+    cout&lt;&lt;"p2:"&lt;&lt;(p2--)&lt;&lt;endl;
+    cout&lt;&lt;"p2:"&lt;&lt;p2&lt;&lt;endl;
+//    (p2--).show();
+//    p2.show();
+
+    p2 = p2/3;
+//    p2.show();
+    cout&lt;&lt;"p2:"&lt;&lt;p2&lt;&lt;endl;
+
+}</code></pre><p>如有错误，望指出，谢谢~</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -698,9 +1010,9 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《UML相关知识》
+                    《C++操作符重载相关知识》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/uml-xiang-guan-zhi-shi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/05/c-cao-zuo-fu-chong-zai-xiang-guan-zhi-shi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Love丶伊卡洛斯
             </a> is licensed under a
@@ -741,7 +1053,7 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-09-04T19-10-06',
+        id: '2019-09-05T20-50-24',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -762,9 +1074,10 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/09/05/c-cao-zuo-fu-chong-zai-xiang-guan-zhi-shi/">
                     <div class="card-image">
@@ -783,9 +1096,9 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -794,6 +1107,7 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -812,21 +1126,21 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/">
+                <a href="/2019/09/04/uml-xiang-guan-zhi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="我的项目的相关问题">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="UML相关知识">
                         
-                        <span class="card-title">我的项目的相关问题</span>
+                        <span class="card-title">UML相关知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            由于个人编程是，使用的自己的getch.h头文件，导致可能部分项目无法成功通过编译。Linux系统，需要将getch.h添加到user/include下Windows系统，需要将getch.h头文件换为conio.h
-
-        do
+                            一、UML概述1、什么是UML
+    统一建模语言（Unified Modeling Language）。用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的开发方法。
+UML展现了一系列最佳工程实践，这些最佳实践在对大
                         
                     </div>
                     <div class="publish-info">
@@ -844,12 +1158,8 @@ UML展现了一系列最佳工程实践，这些最佳实践在对大规模，�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/github/" target="_blank">
-                        <span class="chip bg-color">github</span>
-                    </a>
-                    
-                    <a href="/tags/项目/" target="_blank">
-                        <span class="chip bg-color">项目</span>
+                    <a href="/tags/UML/" target="_blank">
+                        <span class="chip bg-color">UML</span>
                     </a>
                     
                 </div>
