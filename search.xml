@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>宣讲会个人体会</title>
+      <link href="/2019/09/14/xuan-jiang-hui-ge-ren-ti-hui/"/>
+      <url>/2019/09/14/xuan-jiang-hui-ge-ren-ti-hui/</url>
+      
+        <content type="html"><![CDATA[<h2 id="杭电CVTE宣讲会"><a href="#杭电CVTE宣讲会" class="headerlink" title="杭电CVTE宣讲会"></a>杭电CVTE宣讲会</h2><p>第一次去参加宣讲会，主要分为3大块，公司介绍自己，你提问公司，公司提问你。<br>宣讲会有福利，这次的宣讲会提供了绿卡(免笔试，直接面试，算是个加分吧。通过线上推广集赞和线下现场抢答来获取)。换句话说就是宣讲会表现好是有很大好处的。<br>个人对这家公司介绍后的总结就是福利待遇特别好，养小养老还养你，上班时间不固定(可早可晚)，支持创业。总体感觉很好，过多的个人看法就不提了。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 心得 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux下互斥与死锁</title>
       <link href="/2019/09/09/linux-xia-hu-chi-yu-si-suo/"/>
       <url>/2019/09/09/linux-xia-hu-chi-yu-si-suo/</url>
