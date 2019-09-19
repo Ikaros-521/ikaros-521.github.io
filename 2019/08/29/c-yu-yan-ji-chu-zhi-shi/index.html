@@ -409,7 +409,7 @@ if else for switch ca">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        5.2k
+                        5.3k
                     </div>
                     
 
@@ -791,7 +791,10 @@ typedef struct Student
     long ftell(FILE *stream);
     功能：返回文件位置指针所在的位置。
     void rewind(FILE *stream);
-    功能：把文件位置指针调整到开头</code></pre><h2 id="多文件编程："><a href="#多文件编程：" class="headerlink" title="多文件编程："></a>多文件编程：</h2><pre><code>随着代码量的增加，不得不把代码分成若干个.c文件编写，这样能够给文件。。。
+    功能：把文件位置指针调整到开头
+文件关闭：
+    int fclose(FILE *fp);
+    功能：把文件关闭，以释放相关资源，避免数据丢失。</code></pre><h2 id="多文件编程："><a href="#多文件编程：" class="headerlink" title="多文件编程："></a>多文件编程：</h2><pre><code>随着代码量的增加，不得不把代码分成若干个.c文件编写，这样能够给文件。。。
 但缺点是不方便编译，需要借助编译脚本。
 如何进行多文件编译：根据功能、责任分成若干个.c文件，然后为每个.c文件配备一个辅助文件.h然后单独编译每个.c文件，
     生成目标文件.o，然后再把.o文件合并成可执行文件。
@@ -1277,7 +1280,7 @@ make程序会监控每个文件的最后修改时间，如果没有被修改的�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">35.9k</span>
+                <span class="white-color">38k</span>
             
 
             

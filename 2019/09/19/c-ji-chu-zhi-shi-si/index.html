@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++中的虚函数表、强制类型转换、I/O流等, ikaros">
-    <meta name="description" content="一、虚函数表什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类">
+    <meta name="keywords" content="C++基础知识(四), ikaros">
+    <meta name="description" content="面向过程编程：    关注是问题解决的过程步骤，算法
+面向对象编程：    关注的是谁能解决问题（类），需要什么样的数据（成员变量），具备什么样的技能（成员函数）才能解决问题。    抽象：找出一个能够解决问题的“对象”（观察研究对象），找">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++中的虚函数表、强制类型转换、I/O流等 | Ikaros</title>
+    <title>C++基础知识(四) | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++中的虚函数表、强制类型转换、I/O流等
+                        C++基础知识(四)
                     </div>
                 </div>
             </div>
@@ -381,6 +382,18 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
+                            <a href="/tags/面向对象/" target="_blank">
+                                <span class="chip bg-color">面向对象</span>
+                            </a>
+                        
+                            <a href="/tags/类/" target="_blank">
+                                <span class="chip bg-color">类</span>
+                            </a>
+                        
+                            <a href="/tags/构造函数/" target="_blank">
+                                <span class="chip bg-color">构造函数</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -389,8 +402,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-C/" class="post-category" target="_blank">
-                                C/C++
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                C++
                             </a>
                         
                     </div>
@@ -401,21 +414,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-03
+                    2019-09-19
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        2.2k
+                        2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        8 Min
+                        7 Min
                     </div>
                     
                 
@@ -431,245 +444,186 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、虚函数表"><a href="#一、虚函数表" class="headerlink" title="一、虚函数表"></a>一、虚函数表</h2><pre><code>什么是虚函数表，在C++的类中，一旦成员函数中有虚函数，这个类中就会多一个虚函数表指针，这个指针指向一个虚函数表，表里面记录了这个类中所有的虚函数，当这个类被继承，它的子类中也会有一个虚函数表（不管子类中有没有虚函数），如果子类的成员函数中有函数签名与父类的虚函数一样，就会用子类中的函数体寒它在虚函数表中的位置，这样就达到了覆盖的效果。
-当通过类指针或引用调用函数时，会根据对象中实际的虚函数表记录来调用函数，这样就达到了多态的效果。</code></pre><h2 id="二、虚析构"><a href="#二、虚析构" class="headerlink" title="二、虚析构"></a>二、虚析构</h2><pre><code>当使用delete释放一个父类指针时，不管实际指向的对象是子类还是父类都只会调用父类的析构函数（多态肯定会出现的问题）。
-如果子类的析构函数有需要负责释放的内存，就会造成内存泄漏。
-为了解决这个问题，可以把父类的析构函数设置为虚函数，析构函数进行覆盖时不会比较函数名。
-
-当父类的析构函数为虚函数时，通过父类指针或引用释放子类对象时，会自动调用子类的析构函数，子类的析构函数执行完成后也会调用父类的析构函数。
-注意：析构函数可以是虚函数，但构造函数不行</code></pre><h2 id="三、强制类型转换"><a href="#三、强制类型转换" class="headerlink" title="三、强制类型转换"></a>三、强制类型转换</h2><pre><code>注意：C++中为了兼容C语言，(目标类型)源类型 依然可以继续使用，但C语言的强制类型转换安全性差，因此建议使用C++中的强制类型转换。
-注意：C++之父认为如果代码设计的完善，根本不需要用到强制类型转换，而C++的强制类型转换之所以设计的很复杂，是为了让程序员多关注代码本身的设计，尽量少使用。
-
-C++中的强制类型转换保证没有很大安全隐患。
-
-static_cast&lt;目标类型&gt;(源类型)   编译器会对源类型和目标类型做兼容性检查，不通过则报错。
-dynamic_cast&lt;目标类型&gt;(源类型)  编译器会对源类型和目标类是否同为指针或引用，并且存在多态型的继承关系。
-const_cast&lt;目标类型&gt;(源类型)    编译器会对源类型和目标类检查，是否同为指针或引用，除了常属性外其他必须完全相同，否则报错。
-reinterpret_cast&lt;目标类型&gt;(源类型)  编译器会对源类型和目标类是否为指针或整数进行检查，也就是说把整数转换成指针或把指针转换为整数。</code></pre><p>拓展：<br>    静态编译：指针或引用的目标是确定的，在编译时期就确定了所有的类型检查、函数调用。<br>    动态编译：指针或引用的目标是不确定的（多态），只有在函数调用的时候才确定具体是哪一个子类。</p>
-<h2 id="四、I-O流"><a href="#四、I-O流" class="headerlink" title="四、I/O流"></a>四、I/O流</h2><pre><code>I/O流的打开模式：
-    ios::in     以读权限打开文件，不存在则失败，存在不清空
-    ios::out    以写权限打开文件，不存在则创建，存在则清空
-    ios::app    打开文件用于追加，不存在则创建，存在不清空
-    ios::binary 以二进制模式进行读写
-    ios::ate    打开时定位到文件末尾
-    ios::trunc  打开文件时清空
-fstream/ifstream/ofstream 类用于进行文件操作。
-    构造函数或成员函数 open 用于打开文件
-    good成员函数检查流是否可用
-    eof成员函数用于输入流是否结束
-
-操作符 &gt;&gt;  用于从文件中读取数据到变量 
-操作符 &lt;&lt;  用于输出数据到文件
-
-IO流有一系列格式化控制函数，类似：左对齐、右对齐、宽度、填充、小数点位数。</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-
-int main()
+                <p>面向过程编程：<br>    关注是问题解决的过程步骤，算法</p>
+<p>面向对象编程：<br>    关注的是谁能解决问题（类），需要什么样的数据（成员变量），具备什么样的技能（成员函数）才能解决问题。<br>    抽象：找出一个能够解决问题的“对象”（观察研究对象），找出解决所必须的数据（属性）、功能（成员函数）。<br>    封装：把抽象的结果，归结为一个类（数据类型），然后实例化出类对象，设置对象的属性，调用对象的功能达到解决问题的目的。<br>    继承：在解决问题前，先寻找之前的类能不能解决问题，或解决部分问题，如果可以则把旧的类继承后再次拓展，来缩短解决问题的时间，降低<br>解决问题的难度。<br>    多态：对象的多种形态，外部看到一个对象发出指令，对象会根据自身情况做出独特的反应。</p>
+<h2 id="一、类和对象"><a href="#一、类和对象" class="headerlink" title="一、类和对象"></a>一、类和对象</h2><h3 id="1、通过分析对象的属性和行为设计出一个类。"><a href="#1、通过分析对象的属性和行为设计出一个类。" class="headerlink" title="1、通过分析对象的属性和行为设计出一个类。"></a>1、通过分析对象的属性和行为设计出一个类。</h3><h3 id="2、类就是数据类型"><a href="#2、类就是数据类型" class="headerlink" title="2、类就是数据类型"></a>2、类就是数据类型</h3><pre><code>    简单类型：只能表示一个属性（变量），C/C++内建数据类型
+    数组类型：可以表示多个属性（变量），类型必须相同。
+    结构类型：可以表示多个属性（变量），但缺少行为（函数）。
+    类类型：即能表示属性，也能表示行为，一直复合数据类型。</code></pre><h3 id="3、对象就是类这种数据类型创建出的实例，相当于结构变量。"><a href="#3、对象就是类这种数据类型创建出的实例，相当于结构变量。" class="headerlink" title="3、对象就是类这种数据类型创建出的实例，相当于结构变量。"></a>3、对象就是类这种数据类型创建出的实例，相当于结构变量。</h3><pre><code>class Student
 {
-    fstream fsi("test.txt",ios::in);
-    //fs.open("test.txt",ios::in);
-    if(!fsi.good())
-    {
-        cout &lt;&lt;"打开失败"&lt;&lt;endl;
-    }
-    else
-    {
-        cout &lt;&lt;"打开成功"&lt;&lt;endl;
-    }
+    属性(成员变量);
+    行为（成员函数）;
+};
 
-
-    string str,s1,s2,s3;
-    int num = 0;
-/*    fsi &gt;&gt; str;    //读到空格或换行就停止
-    fsi &gt;&gt; num &gt;&gt; s1 &gt;&gt; s2 &gt;&gt; s3;
-    cout&lt;&lt;str&lt;&lt;"-"&lt;&lt;num&lt;&lt;"-"&lt;&lt;s1&lt;&lt;"-"&lt;&lt;s2&lt;&lt;"-"&lt;&lt;s3&lt;&lt;endl;
-*/
-
-    string arr[10];
-    int i = 0;
-    while(1)
-    {
-        fsi &gt;&gt; arr[i];
-        if(arr[i].size() == 0)
-        {
-            break;
-        }
-        i++;
-    }
-
-    for(int j=0; j&lt;i; j++)
-    {
-        cout &lt;&lt; arr[j] &lt;&lt;"-";
-    }
-
-    fstream fso("test.txt",ios::out);
-    fso &lt;&lt; "hehe" &lt;&lt; " " &lt;&lt; 100 &lt;&lt;" " &lt;&lt;"adsadsad"&lt;&lt;endl;
-}
-
-</code></pre><pre><code>二进制读写：read/write
-    read (char_type *__s,streamsize __n)
-    write (char_type *__s,streamsize __n)
-
-gcount成员函数可以获取上次流的二进制读写操作的字节数。
-
-随机读写：
-    seekp (off_type,ios_base::seekdir)
-    功能：设置文件的位置指针。
-    off_type：偏移值
-        正值向右，负值向左
-    seekdir：基础位置
-        ios::beg    文件开头
-        ios::cur    当前位置
-        ios::end    文件末尾</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-int main()
+Student stu;</code></pre><h2 id="二、类的定义与实例化"><a href="#二、类的定义与实例化" class="headerlink" title="二、类的定义与实例化"></a>二、类的定义与实例化</h2><h3 id="1、类的一般形式"><a href="#1、类的一般形式" class="headerlink" title="1、类的一般形式"></a>1、类的一般形式</h3><pre><code>class 类名 : 继承方式 父类
 {
-    fstream fs("test.txt",ios::in);
-    if(!fs.good())
+public/private/protected: // 访问控制限制符
+
+    成员变量;
+
+    // 构造函数
+    类名(形参表)
     {
-        cout &lt;&lt; "文件打开失败" &lt;&lt; endl;
-        return -1;
+
     }
-    // 调整文件的位置指针到末尾
-    fs.seekp(0,ios::end);
-    cout &lt;&lt; "文件的字节数：" &lt;&lt; fs.tellp() &lt;&lt; endl;
-    fs.close();
-}</code></pre><pre><code>练习：使用C++标准IO，实现带覆盖检查的cp命令。
-    ./cp src dest</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
+
+    // 析构函数
+    ~类名(void)
+    {
+
+    }
+};</code></pre><h3 id="2、类的访问控制限定符"><a href="#2、类的访问控制限定符" class="headerlink" title="2、类的访问控制限定符"></a>2、类的访问控制限定符</h3><pre><code>public：公有成员，在任何位置都可以访问
+private：私有成员，只能在类（自己）的成员函数中访问
+protected：受保护成员，只能在类（自己）和子类中访问
+注意：类中的成员变量、成员函数默认是 private，结构中的成员和成员函数默认是 public。
+注意：C++中类和结构的区别只有成员函数和成员变量的默认访问权限不同。</code></pre><h3 id="3、构造函数"><a href="#3、构造函数" class="headerlink" title="3、构造函数"></a>3、构造函数</h3><pre><code>    1）什么是构造函数：类的同名函数就是构造函数，没有返回值。
+    2）什么时候调用，谁调用，调用几次？
+        创建类对象时会被自动调用（每创建一个类对象，就会调用一次），对象整个生命周期中一定会被调用一次，只能被调用一次。
+    3）负责干什么
+        成员变量的初始化，分配相关资源，设置对象的初始状态。
+
+    class 类名 : 继承方式 父类
+    {
+        // 构造函数
+     类名(形参表)
+        {
+
+        }
+    };</code></pre><h3 id="4、类型的创建过程"><a href="#4、类型的创建过程" class="headerlink" title="4、类型的创建过程"></a>4、类型的创建过程</h3><pre><code>    1.分配类型所需要空间，无论栈还是堆。
+    2.传递实参调用构造函数，完成如下任务：
+        1）根据继承表依次调用父类的构造函数
+        2）根据成员变量的顺序依次调用成员变量的构造函数。
+        3）执行构造函数体中的代码。
+注意：执行构造函数的代码是整个构造函数的最后一步。
+要保证构造函数代码所需要的一切资源和先决条件在该代码执行前已经准备充分，并得到正确的初始化。</code></pre><h3 id="5、对象的创建方法"><a href="#5、对象的创建方法" class="headerlink" title="5、对象的创建方法"></a>5、对象的创建方法</h3><pre><code>    1.在栈上创建：类名 对象；// 不需要括号
+        类名 对象(实参);
+    2.在堆上创建：类名* 对象指针 = new 类名；
+        类名* 对象指针 = new 类名(实参)；
+    3.创建多个对象：
+        类名 对象 = {类名(实参)，类名(实参)，类名(实参)};
+        类名* 对象指针 = new 类名[n]{类名(实参),类名(实参)};
+    注意：通过malloc创建的类对象不能调用构造函数。
+    注意：通过new[]创建的对象，一定要通过delete[]释放。</code></pre><h3 id="6、类的声明、实现、调用"><a href="#6、类的声明、实现、调用" class="headerlink" title="6、类的声明、实现、调用"></a>6、类的声明、实现、调用</h3><pre><code>    1.在头文件中声明
+    class 类名 : 继承方式 父类
+    {
+        成员变量;
+    public: // 访问控制限制符
+        // 构造函数
+        类名(形参表);
+        // 析构函数
+        ~类名(void);
+        // 其他成员函数
+        返回值 函数名(参数列表);
+    };
+
+    2.源文件实现类的相关函数
+    返回值 类名::函数名（参数列表）
+    {
+
+    }
+
+    3.调用时只需要导入头文件，然后与类函数所在的源文件一起编译即可。
+    注意：如果一个类内容不多，可以考虑在头文件中完全实现。
+        也可以只在头文件中实现一些简单的成员函数。
+    注意：类中自动生成的函数，在源文件中实现时，也需要在头文件中声明。
+
+class和struct的区别？
+    class的默认继承和访问权限是private，struct的默认继承和访问权限是public。class能做模板的参数，struct不行。</code></pre><h2 id="三、构造函数与初始化列表"><a href="#三、构造函数与初始化列表" class="headerlink" title="三、构造函数与初始化列表"></a>三、构造函数与初始化列表</h2><h3 id="1、构造函数可以被重载（同一个名字的函数有多个不同版本）"><a href="#1、构造函数可以被重载（同一个名字的函数有多个不同版本）" class="headerlink" title="1、构造函数可以被重载（同一个名字的函数有多个不同版本）"></a>1、构造函数可以被重载（同一个名字的函数有多个不同版本）</h3><h3 id="2、缺省构造是编译器自动生成的一个什么都不做的构造函数（唯一的作用就是避免编译错误）。"><a href="#2、缺省构造是编译器自动生成的一个什么都不做的构造函数（唯一的作用就是避免编译错误）。" class="headerlink" title="2、缺省构造是编译器自动生成的一个什么都不做的构造函数（唯一的作用就是避免编译错误）。"></a>2、缺省构造是编译器自动生成的一个什么都不做的构造函数（唯一的作用就是避免编译错误）。</h3><pre><code>注意：当类实现一个有参构造时，缺省构造就不会再自动生成，如果有需要必须显示地写出来。</code></pre><h3 id="3、无参构造未必无参，当给有参构造的所有参数设置默认形参，调用这种构造函数就不需要传参。"><a href="#3、无参构造未必无参，当给有参构造的所有参数设置默认形参，调用这种构造函数就不需要传参。" class="headerlink" title="3、无参构造未必无参，当给有参构造的所有参数设置默认形参，调用这种构造函数就不需要传参。"></a>3、无参构造未必无参，当给有参构造的所有参数设置默认形参，调用这种构造函数就不需要传参。</h3><pre><code>注意：所谓的“编译器生成的某某函数”其实不是真正语法意义上的函数，而是功能意义上的函数，编译器作为可执行指令的生成者，它会直接生成具有某项功能的二进制指令，不需要借助高级语言语义上的函数完成此任务。
+
+注意：如果一个类是其他类的成员变量，那么一定要保证它有一个无参构造，当B的构造函数执行时会执行成员变量的无参构造，而此时类B是无法给类A成员变量提供参数的。</code></pre><h3 id="4、单参构造与类型转换"><a href="#4、单参构造与类型转换" class="headerlink" title="4、单参构造与类型转换"></a>4、单参构造与类型转换</h3><pre><code>    如果构造函数的参数只有一个，那么Test t = n语句就不会出错，它会自动调用单参构造来达到类型转换的效果。
+    如果想禁止这种类型转换需要在单参构造前加 explicit</code></pre><h3 id="5、初始化列表"><a href="#5、初始化列表" class="headerlink" title="5、初始化列表"></a>5、初始化列表</h3><pre><code>    为类成员进行初始化用的。
+    构造函数(参数):成员1(参数1),成员2(参数2)...
+    const int num;
+    Test(int n):num(n)
+    {
+    }
+    通过初始化列表可以给类成员变量传递参数，以此调用类成员的有参构造。
+    初始化列表也可以给 const 成员、引用成员进行初始化。</code></pre><pre><code>#include &lt;iostream&gt;
 using namespace std;
 
-int main(int argc,char* argv[])// 写的有点问题0.0
-{
-    if(argc != 3)
-    {
-        cout &lt;&lt; "命令错误" &lt;&lt; endl;
-    }
-    // 读写
-    fstream fi(argv[1],ios::in);
-    fstream fo(argv[2],ios::out);
-    if(!fi.good())
-    {
-        cout &lt;&lt; "源文件不存在" &lt;&lt; endl;
-    }
-    cout &lt;&lt; "是否要覆盖目标文件,y/n" &lt;&lt; endl;
-
-    while(1)
-    {
-        string a;
-        cin &gt;&gt; a;
-        if(a == "y")
-        {
-            break;
-        }
-
-        else if(a == "n")
-        {
-            return 0;
-        }
-
-        else
-        {
-            cout &lt;&lt; "指令错误" &lt;&lt; endl;
-            continue;
-        }
-    }
-
-    while(1)
-    {
-        string str;
-        fi &gt;&gt; str;
-        if(str.size() == 0)
-        {
-            break;
-        }
-        fo &lt;&lt; str &lt;&lt;" "; // 文件末尾多个空格，需要删除，并且没有换行功能
-    }
-}</code></pre><h2 id="五、类型信息-typeid"><a href="#五、类型信息-typeid" class="headerlink" title="五、类型信息 typeid"></a>五、类型信息 typeid</h2><pre><code>用于获取数据的类型信息。
-name成员函数，可以获取类型的名字，内建类型名字使用缩写。
-同时还支持 == != 用来比较是否是同一种类型。
-
-如果用于判断父子类的指针或引用，它不能准确判断出实际的对象类型。但可以判断出具有多态继承关系的父子类的指针或引用，它的实际对象。</code></pre><pre><code>#include &lt;iostream&gt;
-#include &lt;typeinfo&gt;
-using namespace std;
-
-class Base
+class A
 {
 public:
-    virtual ~Base(void)
+    int num;
+    A(int _num)
     {
+        num = _num;
+        cout&lt;&lt;"我A的有参构造"&lt;&lt;endl;
     }
 };
 
-class Test:public Base
+class Test
 {
-
+public:
+    string str;
+    const int num;
+    int&amp; xiu;
+    A a;
+    Test(int num,const char* str,int&amp; x):num(num),str(str),a(num),xiu(x)
+    {
+        cout&lt;&lt;"---"&lt;&lt;endl;
+    }
 };
 
 int main()
 {
-    Base b;
-    Test t;
-    cout &lt;&lt; typeid(b).name() &lt;&lt; endl;
-    cout &lt;&lt; (typeid(t) == typeid(b)) &lt;&lt; endl;
+    int x = 100;
+    Test t(10,"aa",x);
+    //Test t = {10};
+    //t.num = 100;
+    cout&lt;&lt; t.num &lt;&lt; endl;
+    cout&lt;&lt;t.xiu&lt;&lt;endl;
+    x = 1000;
+    cout&lt;&lt;t.xiu&lt;&lt;endl;
+}</code></pre><pre><code>    成员的初始化顺序与初始化列表没有关系，而是在类中的定义顺序有关。</code></pre><pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-    cout &lt;&lt; endl;
-    Base* p = new Test;
-    cout &lt;&lt; (typeid(*p) == typeid(Test)) &lt;&lt; endl;
-    cout &lt;&lt; (typeid(p) == typeid(Test*)) &lt;&lt; endl;
-
-}
-</code></pre><pre><code>扩展：
-    sudo find / -name filename
-    sudo find / | grep "std"
-    grep 'Base' *               当前目录查找包含此字符的文件
-    grep -r 'Base' *            当前目录及所有子级目录，查找包含此字符的文件
-    grep -r 'Base' * dir        指定目录下及所有子级目录，查找包含此字符的文件</code></pre><h2 id="六、异常处理"><a href="#六、异常处理" class="headerlink" title="六、异常处理"></a>六、异常处理</h2><pre><code>抛异常
-    throw 数据
-    抛异常对象
-    抛基本类型
-    注意：不能抛出局部对象的指针或引用（构造函数和析构函数不能抛出异常）。
-    注意：如果异常没有被捕获处理，程序就会停止。
-捕获异常
-
-
-try{
-    可以抛出异常的代码
-}
-catch(类型 变量名) // 根据数据类型进行捕获
+class A
 {
-    处理异常，如果无法处理可以继续抛出异常
-}
-注意：捕获异常的顺序是自上而下的，而不是最精准的匹配，针对子类异常捕获时要放在父类的前面。
+public:
+    A(int n)
+    {
+        cout&lt;&lt;"A"&lt;&lt;endl;
+    }
+};
 
-函数的异常声明：
-    返回值类型 函数名(参数列表)throw(类型1,类型2,...)
-    注意：如果不写异常声明表示什么类型的异常都可能抛出。
-    注意：如果写了异常声明表示只抛出某些类型的异常，一旦超出异常声明的范围，程序会直接停止，无法捕获。
-    注意：throw() 表示什么类型都不会抛出
+class B
+{
+public:
+    B(int n)
+    {
+        cout&lt;&lt;"B"&lt;&lt;endl;
+    }
+};
 
+class C
+{
+public:
+    C(int n)
+    {
+        cout&lt;&lt;"C"&lt;&lt;endl;
+    }
+};
 
-设计异常类：</code></pre><pre><code>      class Error
-      {
-          int errno;
-          char errmsg[255];
-      public:
-          Error(int errno = -1,const char* msg = "未知错误")
-          {
-              this-&gt;errno = errno;
-              strcpy(errmsg,msg);
-          }
-          int getError(void)
-          {
-              return errno;
-          }
-          const char* getErrmsg(void)
-          {
-              return errmsg;
-          }
-      }</code></pre><script>
+class Test
+{
+public:
+    A a;
+    C c;
+    B b;
+    //A a;
+    Test(int c1,int a1,int b1):c(c1),a(a1),b(b1)
+    {
+    }
+};
+
+int main()
+{
+//    A a1;
+//    B b1;
+//    C c1;
+    Test t(1,2,3);
+}</code></pre><pre><code>    注意：初始化列表运行类成员变量还没有定义成功。</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -845,9 +799,9 @@ catch(类型 变量名) // 根据数据类型进行捕获
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C++中的虚函数表、强制类型转换、I/O流等》
+                    《C++基础知识(四)》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/03/c-zhong-de-xu-han-shu-biao-qiang-zhi-lei-xing-zhuan-huan-i-o-liu-deng/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/19/c-ji-chu-zhi-shi-si/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Love丶伊卡洛斯
             </a> is licensed under a
@@ -888,7 +842,7 @@ catch(类型 变量名) // 根据数据类型进行捕获
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-09-03T16-42-27',
+        id: '2019-09-19T20-28-42',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -909,52 +863,61 @@ catch(类型 变量名) // 根据数据类型进行捕获
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/09/04/wo-de-xiang-mu-de-xiang-guan-wen-ti/">
+                <a href="/2019/09/19/c-ji-chu-zhi-shi-si/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="我的项目的相关问题">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="C++基础知识(四)">
                         
-                        <span class="card-title">我的项目的相关问题</span>
+                        <span class="card-title">C++基础知识(四)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            由于个人编程是，使用的自己的getch.h头文件，导致可能部分项目无法成功通过编译。Linux系统，需要将getch.h添加到user/include下Windows系统，需要将getch.h头文件换为conio.h
-
-        do
+                            面向过程编程：    关注是问题解决的过程步骤，算法
+面向对象编程：    关注的是谁能解决问题（类），需要什么样的数据（成员变量），具备什么样的技能（成员函数）才能解决问题。    抽象：找出一个能够解决问题的“对象”（观察研究对象），找
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/相关问题/" class="post-category" target="_blank">
-                                    相关问题
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/github/" target="_blank">
-                        <span class="chip bg-color">github</span>
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/项目/" target="_blank">
-                        <span class="chip bg-color">项目</span>
+                    <a href="/tags/面向对象/" target="_blank">
+                        <span class="chip bg-color">面向对象</span>
+                    </a>
+                    
+                    <a href="/tags/类/" target="_blank">
+                        <span class="chip bg-color">类</span>
+                    </a>
+                    
+                    <a href="/tags/构造函数/" target="_blank">
+                        <span class="chip bg-color">构造函数</span>
                     </a>
                     
                 </div>
@@ -968,31 +931,31 @@ catch(类型 变量名) // 根据数据类型进行捕获
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/31/c-zhong-stl-xiang-guan-zhi-shi/">
+                <a href="/2019/09/14/xuan-jiang-hui-ge-ren-ti-hui/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++中STL相关知识">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="宣讲会个人体会">
                         
-                        <span class="card-title">C++中STL相关知识</span>
+                        <span class="card-title">宣讲会个人体会</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL介绍    STL标准模板库，由惠普实验室提供，里面集成了常用的数据结构类模板和算法函数模板等。    容器：用来存储各种类型数据的数据结构。    迭代器：类似于专门用来指向容器成员的指针，用来遍历、操作、管理容器中的成员，可以大大
+                            杭电CVTE宣讲会第一次去参加宣讲会，主要分为3大块，公司介绍自己，你提问公司，公司提问你。宣讲会有福利，这次的宣讲会提供了绿卡(免笔试，直接面试，算是个加分吧。通过线上推广集赞和线下现场抢答来获取)。换句话说就是宣讲会表现好是有很大好处的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-C/" class="post-category" target="_blank">
-                                    C/C++
+                            <a href="/categories/心得-体会/" class="post-category" target="_blank">
+                                    心得/体会
                                 </a>
                             
                             
@@ -1002,12 +965,8 @@ catch(类型 变量名) // 根据数据类型进行捕获
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/STL/" target="_blank">
-                        <span class="chip bg-color">STL</span>
+                    <a href="/tags/心得/" target="_blank">
+                        <span class="chip bg-color">心得</span>
                     </a>
                     
                 </div>
