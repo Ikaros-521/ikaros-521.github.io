@@ -4,15 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++中类的继承(一), ikaros">
-    <meta name="description" content="一、类的继承1、共性与个性
-    表达不同类型事物之间公有的属性和行为。
-    个性用于刻画每种事物特有的属性和行为。
-2、共性表示为父类（基类），个性表示为子类（派生类）。
-    子类继承自父类
-    基类派生出子类
-
-二、继承的">
+    <meta name="keywords" content="多路复用IO, ikaros">
+    <meta name="description" content="一、IO模型介绍    1、阻塞IO，常用的scanf、printf、read、write、cout、cin
+    2、非阻塞IO，recv、send和Qt中read、write 
+    3、多路复用IO   
+    4、信号驱动IO">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++中类的继承(一) | Ikaros</title>
+    <title>多路复用IO | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,7 +269,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++中类的继承(一)
+                        多路复用IO
                     </div>
                 </div>
             </div>
@@ -384,16 +380,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/" target="_blank">
-                                <span class="chip bg-color">C++</span>
-                            </a>
-                        
-                            <a href="/tags/类/" target="_blank">
-                                <span class="chip bg-color">类</span>
-                            </a>
-                        
-                            <a href="/tags/继承/" target="_blank">
-                                <span class="chip bg-color">继承</span>
+                            <a href="/tags/多路复用/" target="_blank">
+                                <span class="chip bg-color">多路复用</span>
                             </a>
                         
                     </div>
@@ -404,8 +392,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-C/" class="post-category" target="_blank">
-                                C/C++
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                C
                             </a>
                         
                     </div>
@@ -416,14 +404,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-31
+                    2019-09-21
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        913
+                        986
                     </div>
                     
 
@@ -446,106 +434,81 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、类的继承"><a href="#一、类的继承" class="headerlink" title="一、类的继承"></a>一、类的继承</h2><pre><code>1、共性与个性
-    表达不同类型事物之间公有的属性和行为。
-    个性用于刻画每种事物特有的属性和行为。
-2、共性表示为父类（基类），个性表示为子类（派生类）。
-    子类继承自父类
-    基类派生出子类</code></pre><a id="more"></a>
+                <h2 id="一、IO模型介绍"><a href="#一、IO模型介绍" class="headerlink" title="一、IO模型介绍"></a>一、IO模型介绍</h2><pre><code>    1、阻塞IO，常用的scanf、printf、read、write、cout、cin
+    2、非阻塞IO，recv、send和Qt中read、write 
+    3、多路复用IO   
+    4、信号驱动IO    
+    5、异步IO</code></pre><h2 id="二、多路复用IO"><a href="#二、多路复用IO" class="headerlink" title="二、多路复用IO"></a>二、多路复用IO</h2><pre><code>在不创建新的进程和线程的情况下监控多个文件描述符，多应用于网络编程时一个服务端程序为多个客户端程序提供服务，多用于在业务逻辑简单，客户端需要的服务时间短，响应时间无太高要求的场景。</code></pre><h2 id="三、使用select函数实现多路复用IO"><a href="#三、使用select函数实现多路复用IO" class="headerlink" title="三、使用select函数实现多路复用IO"></a>三、使用select函数实现多路复用IO</h2><pre><code>int select(int nfds, fd_set *readfds, fd_set *writefds,fd_set *exceptfds, struct timeval *timeout);
 
-<h2 id="二、继承的基本语法"><a href="#二、继承的基本语法" class="headerlink" title="二、继承的基本语法"></a>二、继承的基本语法</h2><pre><code>1、继承表
-一个子类可以同时继承零到多个父类，每个父类的继承方式可以相同也可以不同。
-class 子类：继承方式1 父类1,继承方式2 父类2,...
+功能：监控多个文件描述符的 读、写、异常 操作
+nfds：最大文件描述符+1
+readfds：监控读操作文件描述符集合
+writefds：监控写操作文件描述符集合
+exceptfds：监控异常操作文件描述符集合
+timeout：设置超时时间
+返回值：监控到文件描述符的个数,超时返回0，出错返回-1
+
+void FD_CLR(int fd, fd_set *set);
+功能：从集合吕删除文件描述符
+
+int FD_ISSET(int fd, fd_set *set);
+功能：测试集合中是否有文件描述符存在
+
+void FD_SET(int fd, fd_set *set);
+功能：向集合中添加文件描述符
+
+void FD_ZERO(fd_set *set);
+功能：清空文件描述符集合
+
+select设计不合理的地方：
+    1、所有被监视的文件描述符都需要检查（效率不高）。
+    2、每次调用select都需要向它传递新的监视对象信息 
+
+select的优点是：
+    程序的兼容性高  
+
+int pselect(int maxfdp1, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timespec *timeout, const sigset_t *sigmask);
+功能：与select的功能大致类似
+区别：
+    1、select函数用的timeout参数，是一个timeval的结构体（包含秒和微秒），然而pselect用的是一个timespec结构体（包含秒和纳秒）
+
+    2、select函数可能会为了指示还剩多长时间而更新timeout参数，然而pselect不会改变timeout参数
+
+    3、select函数没有sigmask参数，当pselect的sigmask参数为null时，两者行为时一致的。有sigmask的时候，pselect相当于如下的select()函数，在进入select()函数之前手动将信号的掩码改变，并保存之前的掩码值；select()函数执行之后，再恢复为之前的信号掩码值。</code></pre><h2 id="四、使用poll函数实现多路复用IO"><a href="#四、使用poll函数实现多路复用IO" class="headerlink" title="四、使用poll函数实现多路复用IO"></a>四、使用poll函数实现多路复用IO</h2><pre><code>int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+fds：所有被监控的文件描述符结构体数组
+nfds：数组的长度
+timeout：超时时间，毫秒单位
+
+struct pollfd
 {
-
-}
-
-2、继承方式
-    public 公有继承：父类的特性可通过子类向外扩展。
-    private 私有继承：父类的特性只能为子类所有。
-    protected 保护继承：父类的特性只能在继承链内扩展。</code></pre><h2 id="三、继承的基本特点"><a href="#三、继承的基本特点" class="headerlink" title="三、继承的基本特点"></a>三、继承的基本特点</h2><pre><code>1、公共特点（所有继承都有的特点）
-    子类对象可以当作父类对象使用，子类对象与父类没有本质上的区别。
-    子类的逻辑空间小于父类，但它的物理空间要大于等于父类。
-    子类对象 IS A 父类对象
-2、向上和向下转换（造型）
-    从子类到父类：子类的指针或引用可以隐式转换成父类的指针或引用，这是一种缩小类型的转换，对于编译器来说是安全的。
-    从父类到子类：父类的指针或引用不可以转换成子类的指针或引用，这是一种扩大类型的转换，在编译器看来是危险的。（子类的指针指向父类的对象，不安全）
-    编译器仅仅是检查指针或引用的数据类型，而对实际引用的目标对象不关心（构成多态的基础）。
-    类型一致：父类的指针或引用实际的目标类型是否需要转换成实际的指针或引用由程序自己决定。
-3、子类会继承父类的所有成员（公有，私有，保护）
-4、子类会隐藏父类的同名成员
-    1.可以通过域限定符 父类::隐藏成员 进行访问父类中的隐藏成员
-    2.可以使用父类的指针或引用来指向子类对象，然后访问父类中的隐藏成员。
-5、虽然子类继承所有父类中的成员，但不能访问父类中的私有成员。</code></pre><h2 id="四、继承方式影响访问控制"><a href="#四、继承方式影响访问控制" class="headerlink" title="四、继承方式影响访问控制"></a>四、继承方式影响访问控制</h2><p><img src="https://img-blog.csdnimg.cn/20190819182508729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190819164034499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-class A
-{
-private:
-    int a;
-    friend void f_show(A a);
-public:
-    int b;
-    A(void)
-    {
-        a = 1;
-        b = 2;
-        c = 3;
-        cout&lt;&lt;"A构造"&lt;&lt;endl;
-    }
-    void show(void)
-    {
-        cout &lt;&lt; a &lt;&lt; b &lt;&lt; c &lt;&lt;endl;
-    }
-protected:
-    int c;
+    int fd;     //被监控文件描述符
+    short events; // 等待的需要监控事件
+    short revents; // 实际发生了的事件，也就是返回结果
 };
 
-void f_show(A a)
-{
-    cout&lt;&lt;  a.a&lt;&lt;a.b&lt;&lt;a.c &lt;&lt;endl;
-}
+events:
+    POLLIN      普通或优先级带数据可读
+    POLLPRI     高优先级数据可读   
+    POLLOUT     普通数据可写
+    POLLRDHUP   对方socket关闭
+    POLLERR     发生错误
+    POLLHUP     发生挂起
+    POLLNVAL    描述字不是一个打开的文件
 
-class B:public A
-{
-public:
-    int b;
-    B(void)
-    {
-        b = 4;
-        //cout &lt;&lt; a &lt;&lt; endl;
-        cout&lt;&lt;"B构造 "&lt;&lt;" "&lt;&lt;b&lt;&lt;" "&lt;&lt;c&lt;&lt;endl;
-    }
-    void show(void)
-    {
-        cout&lt;&lt; A::b &lt;&lt; " "&lt;&lt; b&lt;&lt;" "&lt;&lt; c &lt;&lt;endl;
-    }
-};
-/*
-class B:private A
-{
-};
-class B:protected A
-{
-};
-*/
-int main()
-{
-    B b;
-    // 子类的指针或引用可以隐式转换成父类的指针或引用
-    A* a = &amp;b;
-    A aa;
-    f_show(aa);
-    cout&lt;&lt;b.b&lt;&lt;endl;
-    a-&gt;show();
-    b.show();
-    //cout&lt;&lt;b.c&lt;&lt;endl;
-    b.A::show();
-    // 父类的指针或引用不能转换成子类的指针或引用
-    //error  B* p = a;
-    cout&lt;&lt; sizeof(B)&lt;&lt;endl;
-}</code></pre><script>
+poll特点：
+    1.文件描述符没有最大限制 -数据结构：链表
+    2.每次调用都需要将fd集合从用户态拷贝到内核态 
+    3.内核需要遍历所有fd，效率低</code></pre><h2 id="五、使用epoll函数实现多路复IO"><a href="#五、使用epoll函数实现多路复IO" class="headerlink" title="五、使用epoll函数实现多路复IO"></a>五、使用epoll函数实现多路复IO</h2><pre><code>int epoll_create(int size);
+功能：创建用于保存被监控文件描述符的空间
+
+int epoll_ctl(int epfd, int op, int fd, struct  epoll_event *event);  
+功能：向文件中添加、删除，文件描述符
+
+int epoll_wait(int epfd, struct epoll_event *events,  int maxevents, int timeout); 
+功能：监控文件描述符
+1.文件描述符没有最大限制 --数据结构：红黑树
+2.只需拷贝一次fd到内核态 
+3.内核只需判断就绪链表是否为空，不需要遍历所有fd，效率高，并把就绪fd拷贝到用户空间</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -721,9 +684,9 @@ int main()
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C++中类的继承(一)》
+                    《多路复用IO》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/31/c-zhong-lei-de-ji-cheng-yi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/21/duo-lu-fu-yong-io/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Love丶伊卡洛斯
             </a> is licensed under a
@@ -764,7 +727,7 @@ int main()
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-08-31T21-34-44',
+        id: '2019-09-21T10-18-36',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -785,39 +748,90 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/08/31/c-zhong-lei-de-ji-cheng-er/">
+                <a href="/2019/09/21/duo-lu-fu-yong-io/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++中类的继承(二)">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="多路复用IO">
                         
-                        <span class="card-title">C++中类的继承(二)</span>
+                        <span class="card-title">多路复用IO</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、子类的构造、析构、拷贝1、子类的构造在执行它的构造函数前会根据继承表的顺序执行父类的构造函数。
-    默认执行父类的无参构造
-    显示调用有参构造，在子类的构造函数后，初始化列表中显示调用父类的有参构造函数。
-
-2、子类在它的析构
+                            一、IO模型介绍    1、阻塞IO，常用的scanf、printf、read、write、cout、cin
+    2、非阻塞IO，recv、send和Qt中read、write 
+    3、多路复用IO   
+    4、信号驱动IO
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-C/" class="post-category" target="_blank">
-                                    C/C++
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/多路复用/" target="_blank">
+                        <span class="chip bg-color">多路复用</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/19/c-ji-chu-zhi-shi-si/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="C++基础知识(四)">
+                        
+                        <span class="card-title">C++基础知识(四)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            面向过程编程：    关注是问题解决的过程步骤，算法
+面向对象编程：    关注的是谁能解决问题（类），需要什么样的数据（成员变量），具备什么样的技能（成员函数）才能解决问题。    抽象：找出一个能够解决问题的“对象”（观察研究对象），找
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C++
                                 </a>
                             
                             
@@ -835,58 +849,12 @@ int main()
                         <span class="chip bg-color">类</span>
                     </a>
                     
-                    <a href="/tags/继承/" target="_blank">
-                        <span class="chip bg-color">继承</span>
+                    <a href="/tags/面向对象/" target="_blank">
+                        <span class="chip bg-color">面向对象</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/29/c-yu-yan-ji-chu-zhi-shi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C语言基础知识">
-                        
-                        <span class="card-title">C语言基础知识</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            C语言关键字：unsigned signed bool void char short int long double float struct enum union typedef sizeof
-if else for switch ca
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/C-C/" class="post-category" target="_blank">
-                                    C/C++
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C</span>
+                    <a href="/tags/构造函数/" target="_blank">
+                        <span class="chip bg-color">构造函数</span>
                     </a>
                     
                 </div>
