@@ -64,11 +64,11 @@
             
             <tag> 嵌入式 </tag>
             
+            <tag> Linux </tag>
+            
             <tag> HTML </tag>
             
             <tag> CGI </tag>
-            
-            <tag> Linux </tag>
             
             <tag> BOA </tag>
             
@@ -137,11 +137,11 @@
             
             <tag> 嵌入式 </tag>
             
+            <tag> Linux </tag>
+            
             <tag> HTML </tag>
             
             <tag> CGI </tag>
-            
-            <tag> Linux </tag>
             
             <tag> BOA </tag>
             
@@ -707,6 +707,35 @@
         <tags>
             
             <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用码云或GitHub搭建简单的个人网站（补充hexo搭建博客）</title>
+      <link href="/2019/08/14/shi-yong-ma-yun-huo-github-da-jian-jian-dan-de-ge-ren-wang-zhan-bu-chong-hexo-da-jian-bo-ke/"/>
+      <url>/2019/08/14/shi-yong-ma-yun-huo-github-da-jian-jian-dan-de-ge-ren-wang-zhan-bu-chong-hexo-da-jian-bo-ke/</url>
+      
+        <content type="html"><![CDATA[<p>视频链接：<a href="https://www.bilibili.com/video/av64294697" target="_blank" rel="noopener">https://www.bilibili.com/video/av64294697</a></p><h2 id="码云："><a href="#码云：" class="headerlink" title="码云："></a>码云：</h2><h3 id="1、新建一个仓库"><a href="#1、新建一个仓库" class="headerlink" title="1、新建一个仓库"></a>1、新建一个仓库</h3><p>​<img src="https://img-blog.csdnimg.cn/2019110817364811.png" alt=" "><br>路径名会影响你的个人网站的网址（自行修改），开源（公开），其他默认</p><p><img src="https://img-blog.csdnimg.cn/2019110817371867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p><p>我们点击“创建”<br>   <img src="https://img-blog.csdnimg.cn/20191108173736588.png" alt=" "></p><h3 id="2、进入仓库后，我们新建一个文件"><a href="#2、进入仓库后，我们新建一个文件" class="headerlink" title="2、进入仓库后，我们新建一个文件"></a>2、进入仓库后，我们新建一个文件</h3><p><img src="https://img-blog.csdnimg.cn/20191108173825143.png" alt=" "></p><h3 id="3、文件名为index-html，再写入我们的html代码"><a href="#3、文件名为index-html，再写入我们的html代码" class="headerlink" title="3、文件名为index.html，再写入我们的html代码"></a>3、文件名为index.html，再写入我们的html代码</h3><p><img src="https://img-blog.csdnimg.cn/20191108173844773.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p><p>然后“提交”<br><img src="https://img-blog.csdnimg.cn/20191108173858414.png" alt=" "></p><h3 id="4、文件添加完成后，我们点击“服务”-gt-“Gitee-Pages”"><a href="#4、文件添加完成后，我们点击“服务”-gt-“Gitee-Pages”" class="headerlink" title="4、文件添加完成后，我们点击“服务”->“Gitee Pages”"></a>4、文件添加完成后，我们点击“服务”-&gt;“Gitee Pages”</h3><p><img src="https://img-blog.csdnimg.cn/20191108173913633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p><h3 id="5、启动服务"><a href="#5、启动服务" class="headerlink" title="5、启动服务"></a>5、启动服务</h3><p><img src="https://img-blog.csdnimg.cn/20191108173924896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p><h3 id="6、启动完毕后，这个网址就是我们的个人网站的网址了。"><a href="#6、启动完毕后，这个网址就是我们的个人网站的网址了。" class="headerlink" title="6、启动完毕后，这个网址就是我们的个人网站的网址了。"></a>6、启动完毕后，这个网址就是我们的个人网站的网址了。</h3><p><img src="https://img-blog.csdnimg.cn/20191108173935545.png" alt=" "></p><h3 id="7、我们点击网址进入看看"><a href="#7、我们点击网址进入看看" class="headerlink" title="7、我们点击网址进入看看"></a>7、我们点击网址进入看看</h3><p><img src="https://img-blog.csdnimg.cn/20191108173946721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p><h3 id="8、之后我们就可以上传其他文件，如css和js"><a href="#8、之后我们就可以上传其他文件，如css和js" class="headerlink" title="8、之后我们就可以上传其他文件，如css和js"></a>8、之后我们就可以上传其他文件，如css和js</h3><p>网站加载可能不会很快，需要耐心等待，我搭建的网站：<a href="http://ikaros-521.gitee.io/self.gitee.io/" target="_blank" rel="noopener">传送门</a></p><hr><h2 id="GitHub："><a href="#GitHub：" class="headerlink" title="GitHub："></a>GitHub：</h2><p>操作类似</p><p>注意：新建仓库时，仓库名是“你的GitHub的用户名.github.io” （用户名如果是大写，仓库名要改成小写）</p><p>进入仓库后，我们在网址后面加上/new/master，进入创建文件页面</p><p><img src="https://img-blog.csdnimg.cn/20191108174023775.png" alt=" "></p><p>之后就类似了，创建index.html文件</p><p><img src="https://img-blog.csdnimg.cn/20191108174037629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p><p>访问的网址是https://你的仓库名    我的就是（<a href="https://ikaros-521.github.io）" target="_blank" rel="noopener">https://ikaros-521.github.io）</a> </p><hr><h2 id="补充部分："><a href="#补充部分：" class="headerlink" title="补充部分："></a>补充部分：</h2><p>我已经在GitHub上搭建“博客”了，网址同上，可以参考。</p><p>主要使用的是<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>提供的一系列服务，以及 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">matery</a> 的主题。</p><p>hexo的搭建参考博客：<a href="https://www.cnblogs.com/shwee/p/11421156.html" target="_blank" rel="noopener">Hexo+Github: 个人博客网站搭建完全教程(看这篇就够了)</a></p><p>matery主题设置：<a href="https://blinkfox.github.io/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/" target="_blank" rel="noopener">Hexo博客主题之hexo-theme-matery的介绍 | 闪烁之狐</a></p><p>yilia主题设置参考博客：<a href="https://blog.csdn.net/lynnbest/article/details/79845944" target="_blank" rel="noopener">Hexo yilia 主题一揽子使用方案</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+            <tag> 码云 </tag>
+            
+            <tag> 个人网站 </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> 博客 </tag>
+            
+            <tag> matery </tag>
             
         </tags>
       
