@@ -443,8 +443,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><p>操作系统： Ubuntu12.04 LTS<br>环境搭建： 需要 BOA，Apache，CCGI，MySQL，GCC<br><a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">Linux下嵌入式Web服务器BOA和CGI编程开发</a><br><a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">数据库的相关知识——学习笔记</a> 的三<br><a href="https://blog.csdn.net/Ikaros_521/article/details/102664117" target="_blank" rel="noopener">mysql中文乱码问题解决 / C程序插入仍是乱码解决 / 卸载重装教学</a><br>扩展： 我还用了<a href="https://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="noopener">bootstrap</a>框架，CSS/JS<br>源码链接：GitHub：<a href="https://github.com/Ikaros-521/boa_cgi_html_mysql" target="_blank" rel="noopener">传送门</a>  ， 码云：<a href="https://gitee.com/ikaros-521/boa_cgi_html_mysql" target="_blank" rel="noopener">传送门</a></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>环境准备好后，我们在 /var/www 下写HTML文件<br><img src="https://img-blog.csdnimg.cn/20191029161455842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在 /var/www/cgi-bin 下写c文件，编译后命名为.cgi。<br>编译命令仅供参考<br> <code>gcc -o login.cgi login.c cgic.c -lpthread -ldl -lmysqlclient</code><br><img src="https://img-blog.csdnimg.cn/20191029161513208.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>程序都写好后，我们开始测试。</p>
-<p><strong>1、开启MySQL服务    默认开启</strong><br><img src="https://img-blog.csdnimg.cn/20191029161420461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我的程序需要事先   新建用户test，数据库register，表user</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>环境准备好后，我们在 /var/www 下写HTML文件<br><img src="https://img-blog.csdnimg.cn/20191029161455842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>在 /var/www/cgi-bin 下写c文件，编译后命名为.cgi。<br>编译命令仅供参考<br> <code>gcc -o login.cgi login.c cgic.c -lpthread -ldl -lmysqlclient</code><br><img src="https://img-blog.csdnimg.cn/20191029161513208.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>程序都写好后，我们开始测试。</p>
+<p><strong>1、开启MySQL服务    默认开启</strong><br><img src="https://img-blog.csdnimg.cn/20191029161420461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>我的程序需要事先   新建用户test，数据库register，表user</p>
 <pre class=" language-bash"><code class="language-bash">mysql -utest -ptest</code></pre>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">// 创建新用户test</span>
 mysql<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">user</span> <span class="token string">'test'</span>@'localhost<span class="token string">' identified by '</span>test'<span class="token punctuation">;</span>
@@ -455,8 +455,8 @@ mysql<span class="token operator">></span> flush <span class="token keyword">pri
 <pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">database</span> register<span class="token punctuation">;</span></code></pre>
 <pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">use</span> register<span class="token punctuation">;</span>
 mysql<span class="token operator">></span> <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">user</span><span class="token punctuation">(</span>username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>password <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong>2、开启BOA服务器，在/boa/src目录下</strong>    <code>sudo ./boa</code><br><img src="https://img-blog.csdnimg.cn/2019102916165782.png" alt="在这里插入图片描述"><br><strong>3、打开浏览器，访问localhost:端口号 访问的即 /var/www 目录<br>我直接访问 <a href="http://localhost:886/login.html" target="_blank" rel="noopener">http://localhost:886/login.html</a>  我的登录页面</strong><br><img src="https://img-blog.csdnimg.cn/20191029161753741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   其他页面都是同理。</p>
-<h2 id="思路讲解"><a href="#思路讲解" class="headerlink" title="思路讲解"></a>思路讲解</h2><p><img src="https://img-blog.csdnimg.cn/20191029165019995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>开启boa服务器后，我们访问到我们在 /var/www 下编写的HTML文件，显示我们的登录页面。<br>我们点击“注册”按钮，跳转到 register.html</strong><br><img src="https://img-blog.csdnimg.cn/20191029162441412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>点击“注册”按钮，提交form表单信息给cgi-bin/register.cgi</strong><br><img src="https://img-blog.csdnimg.cn/20191029162553274.png" alt="在这里插入图片描述"><br><strong>cgi程序通过 cgiFormString函数试图检索发送给指定字段的字符串。存入变量中。我们连接MySQL数据库</strong><br><img src="https://img-blog.csdnimg.cn/20191029162908685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191029163139201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>将数据写入register数据库中的user表中（此数据库和表需要先建好）</strong><br><img src="https://img-blog.csdnimg.cn/20191029163104479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>处理完毕后，跳回 login.html 登录页面</strong><br><img src="https://img-blog.csdnimg.cn/20191029163244907.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191029163352485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>现在我们输入数据，点击“登录”，同理将表单发给 login.cgi ，对数据在MySQL数据库中查询后，成功就来到base_config.html 配置页面。</strong><br><img src="https://img-blog.csdnimg.cn/20191029164311961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>然后我们输入相应数据，点击“提交”，交给base_config.cgi处理，之后任意发挥就好了。</strong><br><img src="https://img-blog.csdnimg.cn/20191029164437115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>我是打印出来，写入系统文件的代码暂时注释了，慎用</strong><br><img src="https://img-blog.csdnimg.cn/20191029164447236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><em>遇到问题可以参考页首的链接</em></p>
+<p><strong>2、开启BOA服务器，在/boa/src目录下</strong>    <code>sudo ./boa</code><br><img src="https://img-blog.csdnimg.cn/2019102916165782.png" alt=" "><br><strong>3、打开浏览器，访问localhost:端口号 访问的即 /var/www 目录<br>我直接访问 <a href="http://localhost:886/login.html" target="_blank" rel="noopener">http://localhost:886/login.html</a>  我的登录页面</strong><br><img src="https://img-blog.csdnimg.cn/20191029161753741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>   其他页面都是同理。</p>
+<h2 id="思路讲解"><a href="#思路讲解" class="headerlink" title="思路讲解"></a>思路讲解</h2><p><img src="https://img-blog.csdnimg.cn/20191029165019995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>开启boa服务器后，我们访问到我们在 /var/www 下编写的HTML文件，显示我们的登录页面。<br>我们点击“注册”按钮，跳转到 register.html</strong><br><img src="https://img-blog.csdnimg.cn/20191029162441412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>点击“注册”按钮，提交form表单信息给cgi-bin/register.cgi</strong><br><img src="https://img-blog.csdnimg.cn/20191029162553274.png" alt=" "><br><strong>cgi程序通过 cgiFormString函数试图检索发送给指定字段的字符串。存入变量中。我们连接MySQL数据库</strong><br><img src="https://img-blog.csdnimg.cn/20191029162908685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><img src="https://img-blog.csdnimg.cn/20191029163139201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>将数据写入register数据库中的user表中（此数据库和表需要先建好）</strong><br><img src="https://img-blog.csdnimg.cn/20191029163104479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>处理完毕后，跳回 login.html 登录页面</strong><br><img src="https://img-blog.csdnimg.cn/20191029163244907.png" alt=" "><br><img src="https://img-blog.csdnimg.cn/20191029163352485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>现在我们输入数据，点击“登录”，同理将表单发给 login.cgi ，对数据在MySQL数据库中查询后，成功就来到base_config.html 配置页面。</strong><br><img src="https://img-blog.csdnimg.cn/20191029164311961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>然后我们输入相应数据，点击“提交”，交给base_config.cgi处理，之后任意发挥就好了。</strong><br><img src="https://img-blog.csdnimg.cn/20191029164437115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>我是打印出来，写入系统文件的代码暂时注释了，慎用</strong><br><img src="https://img-blog.csdnimg.cn/20191029164447236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><em>遇到问题可以参考页首的链接</em></p>
 <hr>
 <h2 id="相关源码"><a href="#相关源码" class="headerlink" title="相关源码"></a>相关源码</h2><p>login.html</p>
 <pre class=" language-c"><code class="language-c"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
@@ -1316,30 +1316,30 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/11/08/qian-ru-shi-web-fu-wu-qi-boa-cgi-html-mysql-xiang-mu-shi-zhan-linux/">
+                <a href="/2019/11/08/b-zhan-dong-tai-zhuan-fa-chou-jiang-jiao-ben-jiao-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="嵌入式web服务器BOA+CGI+HTML+MySQL项目实战——Linux">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="B站动态转发抽奖脚本+教程">
                         
-                        <span class="card-title">嵌入式web服务器BOA+CGI+HTML+MySQL项目实战——Linux</span>
+                        <span class="card-title">B站动态转发抽奖脚本+教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            准备环境操作系统： Ubuntu12.04 LTS环境搭建： 需要 BOA，Apache，CCGI，MySQL，GCCLinux下嵌入式Web服务器BOA和CGI编程开发数据库的相关知识——学习笔记 的三mysql中文乱码问题解决 / C程
+                            运行python脚本需要的条件：1、连通的网络2、已安装Python2并配置环境变量3、Python脚本源码
+环境搭建：网络就不用我说了(〃’▽’〃)  那么下面我们来安装python吧。Python官网有2个版本2和3，我们选择2，因为语
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -1348,32 +1348,23 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/Linux/" target="_blank">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/哔哩哔哩/" target="_blank">
+                        <span class="chip bg-color">哔哩哔哩</span>
                     </a>
                     
-                    <a href="/tags/BOA/" target="_blank">
-                        <span class="chip bg-color">BOA</span>
+                    <a href="/tags/脚本/" target="_blank">
+                        <span class="chip bg-color">脚本</span>
                     </a>
                     
-                    <a href="/tags/CGI/" target="_blank">
-                        <span class="chip bg-color">CGI</span>
-                    </a>
-                    
-                    <a href="/tags/HTML/" target="_blank">
-                        <span class="chip bg-color">HTML</span>
-                    </a>
-                    
-                    <a href="/tags/MySQL/" target="_blank">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/转发抽奖/" target="_blank">
+                        <span class="chip bg-color">转发抽奖</span>
                     </a>
                     
                 </div>
@@ -1400,7 +1391,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                     <div class="summary block-with-text">
                         
                             ARM体系结构-在裸板下的开发、单片机Linux系统移植-给开发板安装操作系统Linux系统驱动编程-对内核进行扩展    开发板    SD卡    电源线    网线    串口线    蓝色USB线
-## 一、嵌入式介绍1、什么是嵌入
+一、嵌入式介绍1、什么是嵌入式系统
                         
                     </div>
                     <div class="publish-info">
@@ -1550,7 +1541,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">50.4k</span>
+                <span class="white-color">52.5k</span>
             
 
             
