@@ -4,8 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="test_new_blog, ikaros">
-    <meta name="description" content="test_new_blog | Ikaros">
+    <meta name="keywords" content="mysql中文乱码问题解决 _ C程序插入仍是乱码解决 _ 卸载重装教学, ikaros">
+    <meta name="description" content="操作系统：Ubuntu12.04 LTS
+温馨提示，在修改配置文件时务必备份，以防不测。
+终端输入 sudo vi /etc/mysql/my.cnf  
+在[mysqld]下添加character-set-server=utf8colla">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>test_new_blog | Ikaros</title>
+    <title>mysql中文乱码问题解决 _ C程序插入仍是乱码解决 _ 卸载重装教学 | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        test_new_blog
+                        mysql中文乱码问题解决 _ C程序插入仍是乱码解决 _ 卸载重装教学
                     </div>
                 </div>
             </div>
@@ -375,9 +378,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/" target="_blank">
+                                <span class="chip bg-color">C</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/" target="_blank">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -388,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-29
+                    2019-10-21
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        52
+                        636
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        1 Min
+                        3 Min
                     </div>
                     
                 
@@ -418,7 +429,121 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <p>操作系统：Ubuntu12.04 LTS</p>
+<p>温馨提示，在修改配置文件时务必备份，以防不测。</p>
+<p>终端输入 <code>sudo vi /etc/mysql/my.cnf</code>  </p>
+<p>在[mysqld]下添加<br>character-set-server=utf8<br>collation-server=utf8_general_ci</p>
+<p>按Esc键退出编译模式<br>:wq  (保存并退出)</p>
+<p>终端输入，重启mysql</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">service</span> mysql restart</code></pre>
+<p>进入mysql</p>
+<pre class=" language-bash"><code class="language-bash">mysql -uroot -p</code></pre>
+<p>查看数据库编码</p>
+<pre class=" language-bash"><code class="language-bash">show variables like <span class="token string">"%char%"</span><span class="token punctuation">;</span></code></pre>
+<p>我的如下</p>
+<pre class=" language-bash"><code class="language-bash">mysql<span class="token operator">></span> show variables like <span class="token string">"%char%"</span><span class="token punctuation">;</span>
++--------------------------+----------------------------+
+<span class="token operator">|</span> Variable_name            <span class="token operator">|</span> Value                      <span class="token operator">|</span>
++--------------------------+----------------------------+
+<span class="token operator">|</span> character_set_client     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_connection <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_database   <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_filesystem <span class="token operator">|</span> binary                     <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_results    <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_server     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_system     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_sets_dir       <span class="token operator">|</span> /usr/share/mysql/charsets/ <span class="token operator">|</span>
++--------------------------+----------------------------+
+8 rows <span class="token keyword">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span>0.00 sec<span class="token punctuation">)</span>
+</code></pre>
+<p>use数据库</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">use</span> person<span class="token punctuation">;</span></code></pre>
+<p>重新创建表</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> person<span class="token punctuation">(</span>ID <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span>age <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sex <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> company <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> profession <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> qq <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">,</span> email <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> telephone <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>插入数据看看</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> person <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'我我'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'啊的'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>查询数据</p>
+<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> person<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+--------+------+------+----------------------+----------------------+-----------+------------------+-------------+</span>
+<span class="token operator">|</span> ID                 <span class="token operator">|</span> name   <span class="token operator">|</span> age  <span class="token operator">|</span> sex  <span class="token operator">|</span> company              <span class="token operator">|</span> profession           <span class="token operator">|</span> qq        <span class="token operator">|</span> email            <span class="token operator">|</span> telephone   <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+--------+------+------+----------------------+----------------------+-----------+------------------+-------------+</span>
+<span class="token operator">|</span> <span class="token number">1</span>                  <span class="token operator">|</span> 我我   <span class="token operator">|</span> <span class="token number">1</span>    <span class="token operator">|</span> <span class="token number">1</span>    <span class="token operator">|</span> <span class="token number">1</span>                    <span class="token operator">|</span> 啊的                 <span class="token operator">|</span> <span class="token number">1</span>         <span class="token operator">|</span> <span class="token number">1</span>                <span class="token operator">|</span> <span class="token number">1</span>           <span class="token operator">|</span>
+</code></pre>
+<p>恩，中文乱码已经解决。</p>
+<hr>
+<p><strong>C程序插入mysql数据库仍然显示乱码？</strong></p>
+<p>#include &lt;mysql/mysql.h&gt;<br>源代码中加入以下代码</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 设定数据库编码</span>
+<span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token string">"SET NAMES 'utf8'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token string">"SET CHARACTER SET utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token string">"SET CHARACTER_SET_RESULT = utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>源码参考</p>
+<pre class=" language-c"><code class="language-c">    <span class="token comment" spellcheck="true">//数据存储到数据库</span>
+    MYSQL<span class="token operator">*</span> conn<span class="token punctuation">;</span>
+    bool isAutoCommit<span class="token punctuation">;</span>
+
+    conn <span class="token operator">=</span> <span class="token function">mysql_init</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">==</span> conn<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"errno:%d error:%s\n"</span><span class="token punctuation">,</span><span class="token function">mysql_errno</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">mysql_error</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">char</span> ip<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> user<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> passwd<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> database<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"person"</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">3306</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">==</span> <span class="token function">mysql_real_connect</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span>ip<span class="token punctuation">,</span>user<span class="token punctuation">,</span>passwd<span class="token punctuation">,</span>database<span class="token punctuation">,</span>port<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"---errno:%d error:%s\n\n"</span><span class="token punctuation">,</span><span class="token function">mysql_errno</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">mysql_error</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    isAutoCommit <span class="token operator">=</span> true<span class="token punctuation">;</span>
+    <span class="token function">mysql_autocommit</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span>isAutoCommit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 设定数据库编码</span>
+    <span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token string">"SET NAMES 'utf8'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token string">"SET CHARACTER SET utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token string">"SET CHARACTER_SET_RESULT = utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">char</span> cmd<span class="token punctuation">[</span>SQL_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 置字节字符串cmd的前SQL_SIZE个字节为零且包括‘\0’</span>
+    <span class="token function">bzero</span><span class="token punctuation">(</span>cmd<span class="token punctuation">,</span> SQL_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 创建person表</span>
+    <span class="token comment" spellcheck="true">// strcpy(cmd, "CREATE TABLE person(ID varchar(24) PRIMARY KEY,name text,age text, sex text, company text, profession text, qq text, email text, telephone text);");</span>
+
+    <span class="token comment" spellcheck="true">// 将sql语句写入cmd变量</span>
+    <span class="token function">sprintf</span><span class="token punctuation">(</span>cmd<span class="token punctuation">,</span> <span class="token string">"INSERT INTO person values('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');"</span><span class="token punctuation">,</span>idnumber<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">,</span>sex<span class="token punctuation">,</span>company<span class="token punctuation">,</span>profession<span class="token punctuation">,</span>qq<span class="token punctuation">,</span>email<span class="token punctuation">,</span>telephone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n\n"</span><span class="token punctuation">,</span>cmd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mysql_query</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span>cmd<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"errno:%d error:%s\n\n"</span><span class="token punctuation">,</span><span class="token function">mysql_errno</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">mysql_error</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//mysql_affected_rows(conn);</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"增加成功\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    </code></pre>
+<hr>
+<p>如果你玩脱了，下面是<strong>卸载重装教学</strong></p>
+<p>卸载</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> purge mysql-*
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf /etc/mysql/ /var/lib/mysql
+<span class="token function">sudo</span> <span class="token function">apt-get</span> autoremove
+<span class="token function">sudo</span> <span class="token function">apt-get</span> autoclean</code></pre>
+<p>重装</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> mysql-server
+<span class="token function">sudo</span> apt <span class="token function">install</span> mysql-client
+<span class="token function">sudo</span> apt <span class="token function">install</span> libmysqlclient-dev</code></pre>
+<p>检验是否安装mysql成功</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">netstat</span> -tap <span class="token operator">|</span> <span class="token function">grep</span> mysql</code></pre>
+<p>进入mysql</p>
+<pre class=" language-bash"><code class="language-bash">mysql -uroot -p</code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -594,11 +719,11 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《test_new_blog》
+                    《mysql中文乱码问题解决 _ C程序插入仍是乱码解决 _ 卸载重装教学》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/test-new-blog/index.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/21/mysql-zhong-wen-luan-ma-wen-ti-jie-jue-c-cheng-xu-cha-ru-reng-shi-luan-ma-jie-jue-xie-zai-chong-zhuang-jiao-xue/" property="cc:attributionName"
                rel="cc:attributionURL">
-                Love丶伊卡洛斯
+                Ikaros
             </a> is licensed under a
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
                 Creative Commons Attribution 4.0 International License
@@ -637,7 +762,7 @@
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-08-29T09-55-51',
+        id: '2019-10-21T15-26-01',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -658,42 +783,54 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/test-new-blog/index.html">
+                <a href="/2019/10/27/arm-ti-xi-jie-gou-jiu-ding-chuang-zhan-x210v3s/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="test_new_blog">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ARM体系结构——九鼎创展x210V3s">
                         
-                        <span class="card-title">test_new_blog</span>
+                        <span class="card-title">ARM体系结构——九鼎创展x210V3s</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            ARM体系结构-在裸板下的开发、单片机Linux系统移植-给开发板安装操作系统Linux系统驱动编程-对内核进行扩展    开发板    SD卡    电源线    网线    串口线    蓝色USB线
+一、嵌入式介绍1、什么是嵌入式系统
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
-                            Love丶伊卡洛斯
+                            Ikaros
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ARM/" target="_blank">
+                        <span class="chip bg-color">ARM</span>
+                    </a>
+                    
+                    <a href="/tags/x210V3s/" target="_blank">
+                        <span class="chip bg-color">x210V3s</span>
+                    </a>
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -701,40 +838,60 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="fa fa-dot-circle-o"></i>
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/test-new-blog/index.html">
+                <a href="/2019/10/17/linux-xia-qian-ru-shi-web-fu-wu-qi-boa-he-cgi-bian-cheng-kai-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="test_new_blog">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux下嵌入式Web服务器BOA和CGI编程开发">
                         
-                        <span class="card-title">test_new_blog</span>
+                        <span class="card-title">Linux下嵌入式Web服务器BOA和CGI编程开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            一、环境搭建操作系统：Ubuntu12.04 LTSboa下载地址（但是我找不到…）：http://www.boa.org/我是其他网站找到的资源，但是忘了网址了，所以我直接上云盘资源链接: https://pan.baidu.com/s/
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
-                            Love丶伊卡洛斯
+                            Ikaros
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/HTML/" target="_blank">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
+                    <a href="/tags/CGI/" target="_blank">
+                        <span class="chip bg-color">CGI</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/BOA/" target="_blank">
+                        <span class="chip bg-color">BOA</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
