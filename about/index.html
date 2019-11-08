@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -37,7 +37,7 @@
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/blog/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
@@ -298,21 +298,21 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/blog/" target="_blank">22</a></span>
+    <span class="count"><a href="/" target="_blank">22</a></span>
     <span class="name">Posts</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/categories" target="_blank">8</a></span>
+    <span class="count"><a href="/categories" target="_blank">8</a></span>
     <span class="name">Categories</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/tags" target="_blank">27</a></span>
+    <span class="count"><a href="/tags" target="_blank">30</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -327,21 +327,21 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/blog/" target="_blank">22</a></span>
+    <span class="count"><a href="/" target="_blank">22</a></span>
     <span class="name">Posts</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/categories" target="_blank">8</a></span>
+    <span class="count"><a href="/categories" target="_blank">8</a></span>
     <span class="name">Categories</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/tags" target="_blank">27</a></span>
+    <span class="count"><a href="/tags" target="_blank">30</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -448,7 +448,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         },
         xAxis: {
             type: 'category',
-            data: ["2018-10","2018-11","2018-12","2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10"]
+            data: ["2018-11","2018-12","2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11"]
         },
         yAxis: {
             type: 'value',
@@ -458,7 +458,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 name: 'Number of posts',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,9,13,0],
+                data: [0,0,0,0,0,0,0,0,0,8,13,1,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -500,7 +500,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"C/C++","value":10},{"name":"C++","value":1},{"name":"Linux","value":5},{"name":"UML","value":1},{"name":"C","value":1},{"name":"心得/体会","value":1},{"name":"相关问题","value":1},{"name":"计算机网络","value":1}],
+                data: [{"name":"C/C++","value":10},{"name":"C++","value":1},{"name":"Linux","value":5},{"name":"UML","value":1},{"name":"相关问题","value":1},{"name":"心得/体会","value":1},{"name":"计算机网络","value":1},{"name":"C","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -524,7 +524,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["C++","类","继承","Linux","模板","面向对象","构造函数","C","同步","互斥"]
+                data: ["C++","类","继承","Linux","ARM","x210V3s","嵌入式","STL","模板","面向对象"]
             }
         ],
         yAxis: [
@@ -654,156 +654,174 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/ARM/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">ARM</span>
+            </a>
             
             
-            <a href="/blog/tags/STL/" target="_blank">
+            
+            <a href="/tags/x210V3s/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">x210V3s</span>
+            </a>
+            
+            
+            
+            <a href="/tags/嵌入式/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">嵌入式</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/STL/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">STL</span>
             </a>
             
             
             
-            <a href="/blog/tags/模板/" target="_blank">
+            <a href="/tags/模板/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">模板</span>
             </a>
             
             
             
-            <a href="/blog/tags/类/" target="_blank">
+            <a href="/tags/类/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">类</span>
             </a>
             
             
             
-            <a href="/blog/tags/继承/" target="_blank">
+            <a href="/tags/继承/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">继承</span>
             </a>
             
             
             
-            <a href="/blog/tags/面向对象/" target="_blank">
+            <a href="/tags/面向对象/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">面向对象</span>
             </a>
             
             
             
-            <a href="/blog/tags/构造函数/" target="_blank">
+            <a href="/tags/构造函数/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">构造函数</span>
             </a>
             
             
             
-            
-            
-            <a href="/blog/tags/同步/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">同步</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/互斥/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">互斥</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/死锁/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">死锁</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/库/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">库</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/静态库/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">静态库</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/共享库/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">共享库</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/GNU/" target="_blank">
+            <a href="/tags/GNU/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">GNU</span>
             </a>
             
             
             
-            <a href="/blog/tags/Linux/" target="_blank">
+            <a href="/tags/Linux/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
             </a>
             
             
             
-            <a href="/blog/tags/系统调用/" target="_blank">
+            
+            
+            <a href="/tags/同步/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">同步</span>
+            </a>
+            
+            
+            
+            <a href="/tags/互斥/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">互斥</span>
+            </a>
+            
+            
+            
+            <a href="/tags/死锁/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">死锁</span>
+            </a>
+            
+            
+            
+            <a href="/tags/系统调用/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">系统调用</span>
             </a>
             
             
             
-            <a href="/blog/tags/文件操作/" target="_blank">
+            <a href="/tags/文件操作/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">文件操作</span>
             </a>
             
             
             
-            <a href="/blog/tags/线程/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">线程</span>
+            <a href="/tags/库/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">库</span>
             </a>
             
             
             
-            <a href="/blog/tags/UML/" target="_blank">
+            <a href="/tags/静态库/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">静态库</span>
+            </a>
+            
+            
+            
+            <a href="/tags/共享库/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">共享库</span>
+            </a>
+            
+            
+            
+            <a href="/tags/UML/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">UML</span>
             </a>
             
             
             
-            <a href="/blog/tags/多路复用/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">多路复用</span>
+            <a href="/tags/线程/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">线程</span>
             </a>
             
             
             
-            <a href="/blog/tags/心得/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">心得</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/github/" target="_blank">
+            <a href="/tags/github/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">github</span>
             </a>
             
             
             
-            <a href="/blog/tags/项目/" target="_blank">
+            <a href="/tags/项目/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">项目</span>
             </a>
             
             
             
-            <a href="/blog/tags/网络通信/" target="_blank">
+            <a href="/tags/心得/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">心得</span>
+            </a>
+            
+            
+            
+            <a href="/tags/网络通信/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">网络通信</span>
             </a>
             
             
             
-            <a href="/blog/tags/TCP/" target="_blank">
+            <a href="/tags/TCP/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">TCP</span>
             </a>
             
             
             
-            <a href="/blog/tags/UDP/" target="_blank">
+            <a href="/tags/UDP/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">UDP</span>
+            </a>
+            
+            
+            
+            <a href="/tags/多路复用/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">多路复用</span>
             </a>
             
             
@@ -902,7 +920,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">39k</span>
+                <span class="white-color">47k</span>
             
 
             
@@ -1020,7 +1038,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/blog/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
 <!-- 回到顶部按钮 -->
@@ -1048,5 +1066,5 @@ $(function () {
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
 
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/blog/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>

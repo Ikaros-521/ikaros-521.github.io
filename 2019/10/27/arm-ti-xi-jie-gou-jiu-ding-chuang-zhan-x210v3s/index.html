@@ -1,0 +1,1374 @@
+<!DOCTYPE HTML>
+<html lang="UTF-8">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="ARM体系结构——九鼎创展x210V3s, ikaros">
+    <meta name="description" content="ARM体系结构-在裸板下的开发、单片机Linux系统移植-给开发板安装操作系统Linux系统驱动编程-对内核进行扩展    开发板    SD卡    电源线    网线    串口线    蓝色USB线
+## 一、嵌入式介绍1、什么是嵌入">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ARM体系结构——九鼎创展x210V3s | Ikaros</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ikaros</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ikaros</div>
+        <div class="logo-desc">
+            
+            debugging...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Ikaros-521" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Ikaros-521" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ARM体系结构——九鼎创展x210V3s
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ARM/" target="_blank">
+                                <span class="chip bg-color">ARM</span>
+                            </a>
+                        
+                            <a href="/tags/x210V3s/" target="_blank">
+                                <span class="chip bg-color">x210V3s</span>
+                            </a>
+                        
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-10-27
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        8.2k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        29 Min
+                    </div>
+                    
+                
+				
+				
+                    <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>ARM体系结构-在裸板下的开发、单片机<br>Linux系统移植-给开发板安装操作系统<br>Linux系统驱动编程-对内核进行扩展<br>    开发板<br>    SD卡<br>    电源线<br>    网线<br>    串口线<br>    蓝色USB线</p>
+<h2 id="一、嵌入式介绍"><a href="#一、嵌入式介绍" class="headerlink" title="## 一、嵌入式介绍"></a>## 一、嵌入式介绍</h2><h3 id="1、什么是嵌入式系统"><a href="#1、什么是嵌入式系统" class="headerlink" title="1、什么是嵌入式系统"></a>1、什么是嵌入式系统</h3><pre><code>    嵌入到控件器的内部的软件，为特定的应用而设计的专用的计算机系统
+    以应用为中心，以计算机技术为基础，软硬件可裁剪，适应应用系统对功能、可靠性、成本、体积、功耗等严格要求的专用计算机系统。
+
+    学习嵌入式：
+        参与系统的裁剪
+        在此系统的基础开发应用</code></pre><h3 id="2、嵌入式系统的构成"><a href="#2、嵌入式系统的构成" class="headerlink" title="2、嵌入式系统的构成"></a>2、嵌入式系统的构成</h3><pre><code>    软件
+        应用程序
+        功能库（Qt、madplay、libc、pthread）
+        文件系统
+        内核+驱动
+        引导程序
+    硬件
+        底板（硬件接口，网卡、声卡、显卡、外设）
+        核心板（SOC（CPU+内设），SDRAM，Nand</code></pre><h3 id="3、嵌入式系统的演进方向"><a href="#3、嵌入式系统的演进方向" class="headerlink" title="3、嵌入式系统的演进方向"></a>3、嵌入式系统的演进方向</h3><pre><code>    1.以单芯片为核心，可以编程控制器存在的形式（单片机）
+        没有操作系统支持、软件以汇编为主，功能单## 一、处理效率低、存储器小、没有外部接口
+    2.以嵌入式CPU为基础、简单的操作系统为核心
+        CPU种类多、通用性强、系统开销小、效率高、具有一定的拓展性和兼容性、用户体验度不高、交互不友好。
+    3.以嵌入式操作系统为标志
+        兼容性好、适用于不同平台、具有高度模块化及拓展性、界面化、用户交互友好
+    4.万物互联
+        将传感器技术、高速网络技术、人工智能、嵌入式技术综合联合在一起实现小型化、智能化、网络化、可视化、低功耗、绿色环保
+        配合异构多核技术、云计算、大数据、人工智能、虚拟化技术</code></pre><h3 id="4、嵌入式的开发模式"><a href="#4、嵌入式的开发模式" class="headerlink" title="4、嵌入式的开发模式"></a>4、嵌入式的开发模式</h3><pre><code>    非嵌入式的开发：A类计算机编写源代码-&gt;编译得到可执行程序-&gt;发布给A类计算机执行。
+    嵌入式的开发：A类计算机编写源代码-&gt;编译得到可执行程序-&gt;发布给B类计算机执行。
+    为什么需要交叉编译：主要是嵌入式的CPU比较简单，本身无法安装开发工具，有的甚至没有操作系统，所谓的交叉编译就是用高性能的计算机为低性能的计算机开发软件。
+    交叉编译的特点：必须使用专用的交叉编译工具，由于编译出的程序无法再本机执行，因此需要把程序通过特殊方法加载到目标设备上执行（烧写）。</code></pre><h3 id="5、为什么需要SD卡等辅助设备"><a href="#5、为什么需要SD卡等辅助设备" class="headerlink" title="5、为什么需要SD卡等辅助设备"></a>5、为什么需要SD卡等辅助设备</h3><pre><code>    嵌入式设备所运行的软件（应用、库、文件系统、内核、驱动、引导程序）不会从本机上产生，它需要从其他机器上通过特殊复制SD卡上，需要嵌入式设备从SD卡启动，来运行、调试相关软件。
+    SD卡是嵌入式设备在没有安装好操作系统的情景下常用的一种调试方法。
+    网络接口是安装引导程序、操作系统后常用的一种调试方法，常用的网络调试工具有TFTP、FTP、NFS。
+    USB也建议进行调试，但不稳定而且对开发的计算机有特殊要求，基本不用。</code></pre><h2 id="二、ARM处理器介绍"><a href="#二、ARM处理器介绍" class="headerlink" title="二、ARM处理器介绍"></a>二、ARM处理器介绍</h2><h3 id="1、ARM的发展历史"><a href="#1、ARM的发展历史" class="headerlink" title="1、ARM的发展历史"></a>1、ARM的发展历史</h3><pre><code>    ARM的前身是艾康电脑，于1978年成立在英国剑桥。
+    在1980年左右，苹果电脑开始与艾康电脑合作开发新的ARM核心。
+    1995年推出全球第一款商用的RISC处理器。
+        精简指令集：只集成了一些基础运算的指令。
+        复杂指令集：它比精简指令集功能更强、指令更多，优点是使用汇编编程时更方便快捷，但随着高级语言的发展这个优势不复存在，反而缺点功耗高、效率低、耗电更明显，对于嵌入式设备说这些缺点是致命的。
+    1990年艾康电脑财务危机，接受苹果的投资分割出独立的子公司ARM（Advanced RISC Machine），ARM公司正式成立。
+    从1991年开始推出第一款嵌入式精简指令集处理器架构。
+    （时间不确定，仅供参考）
+    1993年，发布ARM7
+    1997年，发布ARM9
+    2001年，发布ARMv6
+    2002年，发布ARM11
+    2004年，发布ARMv7，同时分出三个系列是：Cortex-A Cortex-R Cortex-M
+    2005年，发布Cortex-A8
+    2007年，发布Cortex-A9
+    2010年，发布Cortex-A15
+    2011年，发布ARMv8
+    2012年，发布64位处理器</code></pre><h3 id="2、ARM的商业模式和生态系统"><a href="#2、ARM的商业模式和生态系统" class="headerlink" title="2、ARM的商业模式和生态系统"></a>2、ARM的商业模式和生态系统</h3><pre><code>    ARM之前的半导体行业，Intel、ADM、Motorola等，自己设计IC、自己生成芯片、自己销售。
+    而ARM只负责设计IC，出卖自己的设计IP，自己不生产芯片，而是把IP授权给其他半导体厂商，来收取授权费。
+    因此ARM不是一家半导体厂商，而是一家设计公司。
+    ARM的启示：
+        不要抱怨自己的劣势，劣势反而可能是机会。
+        要想成功，得先学会帮助别人、成全别人。
+        社会的成熟标志就是分工不断的细化。
+        ARM发展的很快，也很慢。</code></pre><h3 id="3、为什么选择三星"><a href="#3、为什么选择三星" class="headerlink" title="3、为什么选择三星"></a>3、为什么选择三星</h3><pre><code>    本身使用广泛，有良好的企业应用基础。
+    资料多、积累好、方便学习。
+    开发板和方案商多，软硬件平台好找。
+    体系很典型，适用于学习。</code></pre><h3 id="4、ARM的版本号"><a href="#4、ARM的版本号" class="headerlink" title="4、ARM的版本号"></a>4、ARM的版本号</h3><pre><code>    ARM型号命名问题
+        1.ARM7和ARMv7不是一回事
+        2.Cortex-A9比Cortex-A7更先推出
+        3.型号很混乱，没有规律
+    ARM的几种型号
+        内核版本号 ARMv7
+        Soc版本号 Cortex-A8
+        芯片型号 S5PV210
+        内核版本号和Soc版本号由ARM公司确定，芯片型号由半导体生产厂商确定。</code></pre><h2 id="三、开发板介绍"><a href="#三、开发板介绍" class="headerlink" title="三、开发板介绍"></a>三、开发板介绍</h2><pre><code>九鼎创展 x210V3s 目前已经停产，阅读硬件手册
+CPU：S5PV210 1GHz
+内存：512MB/1GB DDR2
+硬盘：4GB inand
+串口：两路 RS232 接口，默认andorid2.3,WINCE使用uart0作为调试串口，android4.0和linux使用uart2作为调试串口，靠近电源接口。
+SD：2个SD卡接口，在使用 SD 卡启动时，一定要插到右侧的卡槽，否则无法从 SD 卡启动。
+LED：四路LED+1电源信号灯
+复位按钮：关机，并没有重启的功能。
+硬件开机开关：长按开机，9V直流电源
+启动配置开关：拨到最上面是SD启动，最下面是USB，拨码开关靠近纽扣电池。
+触摸屏：电阻、电容屏都支持
+WIFI：外接USB无线网卡
+网卡：有线以太网 DM9000CEP</code></pre><h2 id="四、开发环境搭建"><a href="#四、开发环境搭建" class="headerlink" title="四、开发环境搭建"></a>四、开发环境搭建</h2><h3 id="1、安装串口驱动"><a href="#1、安装串口驱动" class="headerlink" title="1、安装串口驱动"></a>1、安装串口驱动</h3><pre><code>    右击我的电脑-&gt;管理-&gt;设备管理器-&gt;串口，查看COM编号</code></pre><h3 id="2、安装串口通信工具"><a href="#2、安装串口通信工具" class="headerlink" title="2、安装串口通信工具"></a>2、安装串口通信工具</h3><pre><code>    安装PuTTY-&gt;串口(COM编号，速度115200)-&gt;保存会话-&gt;双击会话。
+    长按开机按钮-&gt;显示字符即可。</code></pre><h3 id="3、安装SD卡烧写工具"><a href="#3、安装SD卡烧写工具" class="headerlink" title="3、安装SD卡烧写工具"></a>3、安装SD卡烧写工具</h3><pre><code>    以管理员身份运行x210_Fusing_Tool.exe，如果无法运行则安装vc2008运行库。
+    单击Browse按钮，选择要烧写的文件led_image.bin，单机Add按钮，单机START按钮，出现Fusing image done提示信息则表示烧成功。
+    注意：如果出现不可写的信息，问题1没有以管理员身份运行，问题2SD卡补上锁，否则就是SD卡损坏，请更换SD卡。</code></pre><h3 id="4、安装ARM交叉编译器"><a href="#4、安装ARM交叉编译器" class="headerlink" title="4、安装ARM交叉编译器"></a>4、安装ARM交叉编译器</h3><pre><code>    拷贝arm-2009q3.tar.bz2到共享目录，剪切到ubuntu主目录下，右击压缩包-&gt;解压到此处。
+    重命名为arm-linux-gnu,从终端进入arm-linux-gnu/bin，执行pwd命令，拷贝路径。
+    执行 sudo vi /etc/environment 打开环境变量配置文件，在PATH环境变量字符串的最前面添加路径，与后面的用':'分隔，然后保存退出。
+    在终端中执行 source /etc/environment
+    执行arm-none-linux-gnueabi-gcc -v 可以查看交叉编译器的版本信息。
+    注意：安装交叉编译器时以厂商提供的为准。
+
+为什么会用到汇编语言：
+    C语言等高级语言的执行是需要一个环境的，比如：设置栈顶的指针
+    初始化一些硬件环境，比如：关闭看门狗、初始化DDR
+    对于性能有严苛要求的算法，比如：音视频解码器</code></pre><h2 id="一、ARM的体系结构"><a href="#一、ARM的体系结构" class="headerlink" title="一、ARM的体系结构"></a>一、ARM的体系结构</h2><h3 id="1、ARM处理器有7种工作模式"><a href="#1、ARM处理器有7种工作模式" class="headerlink" title="1、ARM处理器有7种工作模式"></a>1、ARM处理器有7种工作模式</h3><pre><code>    用户模式 执行正常的用户程序
+    系统模式 操作系统专用
+    快速中断 调速数据传输
+    外部中断 用于处理中断
+    特权模式 操作系统专用的保护域
+    数据访问中止 虚拟存储
+    未定义指令 遇到不支持的指令时进入此模式
+    分类：
+        用户模式和特权模式
+        正常模式和异常模式</code></pre><h3 id="2、ARM处理器的寄存器"><a href="#2、ARM处理器的寄存器" class="headerlink" title="2、ARM处理器的寄存器"></a>2、ARM处理器的寄存器</h3><pre><code>    一共37个寄存器，正常模式下能访问17个，异常模式下能访问18个。
+    r0~r7 所有模式共用，也叫未分组寄存器，一旦模式切换就要立即备份。（但由于其通用性，在异常中断所引起的处理器模式切换时，其使用的是相同的物理寄存器，所以很容易遭到破坏。 ）
+    r8~r12 除快速中断外，其他模式共用
+    r1### 3、r14 正常模式共用，其他模式有自己私有的
+    r15 程序计数器，它记录着处理器要执行的下一条指令，给它赋值可以达到跳转的效果，所有模式共用
+    CPSR 当前程序状态寄存器，所有模式共用
+    SPSR 备份程序状态寄存器，正常模式没有此寄存器，其他模式有自己私有的</code></pre><h2 id="二、流水线"><a href="#二、流水线" class="headerlink" title="二、流水线"></a>二、流水线</h2><pre><code>通过合理安排硬件的分工来达到提高执行速度的效果，硬件本身的计算速度并没有提高。
+互锁和跳转会影响流水线的速度。</code></pre><h2 id="三、ARM的寻址方式"><a href="#三、ARM的寻址方式" class="headerlink" title="三、ARM的寻址方式"></a>三、ARM的寻址方式</h2><pre><code>立即寻址       ADD R0,R0,#1 &lt;=&gt; R0 += 1
+寄存器寻址     add r0,r0,r1 &lt;=&gt; r0 += r1
+寄存器间接寻址 ADD R0,R1,[R2] &lt;=&gt; R0 = R1 + *R2
+寄存器偏移寻址 add R0,R0,R2,LSL #3 &lt;=&gt; R0 = R0 + R2 &lt;&lt; 3
+基址变址寻址   ADD R0,R0,[R1,#4] &lt;=&gt; R0 = R0 + *(R1+4)
+多寄存器寻址
+    LDMIA R0,{R1,R2,R3,R4}
+        R1 = *(R0+0)
+        R2 = *(R0+4)
+        R3 = *(R0+8)
+        R4 = *(R0+12)
+    STMIA R0,{R3‐R5,R10}
+        *(R0+0) = R3
+        *(R0+4) = R4
+        *(R0+8) = R5
+        *(R0+12) = R10
+堆栈寻址
+    满堆栈：栈顶指针始终指向最后一个加入的元素
+    空堆栈：栈顶指针始终指向接下要用元素位置
+    递增：从低地址向高地址使用
+    递减：从高地址向高地址使用
+    因此堆栈有四各工作方式：
+        满增、满减、空增、空减</code></pre><h2 id="四、ARM指令集"><a href="#四、ARM指令集" class="headerlink" title="四、ARM指令集"></a>四、ARM指令集</h2><h3 id="1、ARM指令格式"><a href="#1、ARM指令格式" class="headerlink" title="1、ARM指令格式"></a>1、ARM指令格式</h3><pre><code>    &lt;opcode&gt; {&lt;cond&gt;} {S} &lt;Rd&gt;,&lt;Rn&gt;,&lt;operand&gt; 
+    &lt;&gt;为必选项，{}为可选项
+    opcode 为操作码，如ADD表示算术加操作指令
+    {&lt;cond&gt;} 决定指令是否执行的条件
+    {S}决定指令执行是否影响CPSR寄存器的值为目的寄存器
+    rd 目标寄存器
+    rn 第一个操作数为寄存器
+    operand 第二个操作数
+    注意：使用条件码可以实现逻辑操作，节省跳转语句，提高代码的执行效率，如果不使用条件码，默认无条件执行。
+    常用的条件码：
+        EQ 相等
+        NE 不等</code></pre><h3 id="2、跳转指令（类似C语言中的goto）"><a href="#2、跳转指令（类似C语言中的goto）" class="headerlink" title="2、跳转指令（类似C语言中的goto）"></a>2、跳转指令（类似C语言中的goto）</h3><pre><code>    B 短距离跳转，32M范围内，速度快，使用方便
+    BL 长距离跳转，范围不限，它会自动将下一条指令保存到r14中，然后跳转到目标位置后执行，执行结束后，可以把r14中的数据赋值给PC，实现返回的效果。</code></pre><h3 id="3、数据处理指令"><a href="#3、数据处理指令" class="headerlink" title="3、数据处理指令"></a>3、数据处理指令</h3><pre><code>    ARM 汇编中不支持乘除等一些复杂操作，只能把它们分解成一些简单的操作。
+    主要操作：赋值、加、减、位移、与、或、异或</code></pre><h3 id="4、程序状态寄存器传输指令"><a href="#4、程序状态寄存器传输指令" class="headerlink" title="4、程序状态寄存器传输指令"></a>4、程序状态寄存器传输指令</h3><pre><code>    备份状态寄存器：MSR
+    恢复状态寄存器：MRS</code></pre><h3 id="5、Load、Store指令"><a href="#5、Load、Store指令" class="headerlink" title="5、Load、Store指令"></a>5、Load、Store指令</h3><pre><code>    主要操作：把数据从内存加载到寄存器、把寄存器中的数据加载到内存。
+    单个：
+    LDR 从内存到寄存器
+    STR 从寄存器到内存
+
+    批量：
+    LDM 从内存到寄存器
+    STM 从寄存器到内存
+
+    配合堆栈操作：
+    FD 满递减堆栈
+    ED 空递减堆栈
+    FA 满递增堆栈
+    EA 空递增堆栈
+
+    寄存器中地址的值修改方式：
+    IA 每次传送后地址加4
+    IB 每次传送前地址加4
+    DA 每次传送后地址减4
+    DB 每次传送前地址减4</code></pre><h3 id="6、异常中断产生指令"><a href="#6、异常中断产生指令" class="headerlink" title="6、异常中断产生指令"></a>6、异常中断产生指令</h3><pre><code>    SWI 向CPU发送一个中断编号，切换到系统模式，根据异常向量表，跳转到相应的位置处理异常。</code></pre><h2 id="五、Thumb指令"><a href="#五、Thumb指令" class="headerlink" title="五、Thumb指令"></a>五、Thumb指令</h2><pre><code>Thumb是ARM体系结构中一种16位的指令集,密度比较高的。
+Thumb指令体系并不完整，只支持通用功能，必要时仍需要使用ARM指令，如进入异常时。其指令的格式与使用方式与ARM指令集类似，而且使用并不频繁，Thumb指令集作一般了解。</code></pre><h2 id="六、ARM伪指令"><a href="#六、ARM伪指令" class="headerlink" title="六、ARM伪指令"></a>六、ARM伪指令</h2><pre><code>有一些特殊指令助记符，这些助记符与指令系统的助记符不同，没有相对应的操作码。
+通常称这些特殊指令助记符为伪指令，他们所完成的操作称为伪操作。伪指令在源程序中的作用是为完成汇编程序作各种准备工作的，这些伪指令仅在汇编过程中起作用，一旦汇编结束，伪指令的使命就完成。
+它们的作用类似于C语言中的宏。</code></pre><h2 id="七、GDB调试ARM汇编代码"><a href="#七、GDB调试ARM汇编代码" class="headerlink" title="七、GDB调试ARM汇编代码"></a>七、GDB调试ARM汇编代码</h2><h3 id="1、准备一段ARM汇编代码"><a href="#1、准备一段ARM汇编代码" class="headerlink" title="1、准备一段ARM汇编代码"></a>1、准备一段ARM汇编代码</h3><h3 id="2、编译成目标文件"><a href="#2、编译成目标文件" class="headerlink" title="2、编译成目标文件"></a>2、编译成目标文件</h3><pre><code>    arm-none-linux-gnueabi-as -g test.S -o test.o</code></pre><h3 id="3、编译成可执行文件"><a href="#3、编译成可执行文件" class="headerlink" title="3、编译成可执行文件"></a>3、编译成可执行文件</h3><pre><code>    arm-none-linux-gnueabi-ld test.o -o test</code></pre><h3 id="4、使用ARM模拟器运行"><a href="#4、使用ARM模拟器运行" class="headerlink" title="4、使用ARM模拟器运行"></a>4、使用ARM模拟器运行</h3><pre><code>    安装ARM模拟器：sudo apt-get autoremove qemu-user
+    在模拟器中执行：qemu-arm -g 1394 test
+        注意：数字用来在GDB中定位程序，不要关闭，新建一个终端。</code></pre><h3 id="5、使用GDB运行并与模拟器建立联系"><a href="#5、使用GDB运行并与模拟器建立联系" class="headerlink" title="5、使用GDB运行并与模拟器建立联系"></a>5、使用GDB运行并与模拟器建立联系</h3><pre><code>    在新的终端下执行：arm-none-linux-gnueabi-gdb test
+    在GDB中与模拟建立连接：target remote localhost:1394
+    注意：数字要一致
+    l 查看代码
+    n/s 用于单步执行
+    info r rx 查看寄存器中的值</code></pre><h2 id="八、S5PV210的启动流程"><a href="#八、S5PV210的启动流程" class="headerlink" title="八、S5PV210的启动流程"></a>八、S5PV210的启动流程</h2><h3 id="1、常用的硬件特性"><a href="#1、常用的硬件特性" class="headerlink" title="1、常用的硬件特性"></a>1、常用的硬件特性</h3><pre><code>    内存：
+        ROM与RAM：
+            ROM只读存储器，一旦写入后就不可以轻易更改，在强紫外线或高电压下才能修改，一般用于存储固定的程序如：BIOS程序。RAM随机存储器，可以读可写。
+        RAM分类：
+            SRAM：静态随机存储器，上电可以直接使用，过程中不需要刷新，速度快，但成本非常高。
+            DRAM：动态随机存储器，也就是常说的DDR，上电后必初始化不能直接使用，过程中需要不停的刷新，速度比SRAM要慢，但价格低。
+
+    外存：
+        NorFlash：容量小，价格高，优点是可以与CPU总线直接联接，上电后直接读取，可以作为启动介质。
+        NandFlash：容量大，价格低，缺点是不能总线式访问，也就是与与CPU直接通信，需要CPU先运行一些初始化程序，然后按照时序读写。</code></pre><h3 id="2、各种计算机的启动方式"><a href="#2、各种计算机的启动方式" class="headerlink" title="2、各种计算机的启动方式"></a>2、各种计算机的启动方式</h3><pre><code>    PC：很小容量的NorFlash(BIOS)+很大容量的硬盘(类似NandFlash)+很大容量的DRAM。
+    单片机：很小容量的NorFlash+很小容量的SRAM。
+    嵌入式：SoC内置很小容量的SARM+很大容量的NandFlash+很大容量的DRAM。
+    S5PV210：SoC内置很小容量的iROM+SoC内置很小容量的SARM+很大容量的NandFlash+很大容量的DRAM。
+    iROM烧写了一段程序用于控制整个系统的启动过程。</code></pre><h3 id="3、S5PV210的启动流程"><a href="#3、S5PV210的启动流程" class="headerlink" title="3、S5PV210的启动流程"></a>3、S5PV210的启动流程</h3><pre><code>    从S5PV210_iROM_ApplicationNote_Preliminary文档中可以看出整个启动流程分为5个步骤：
+    1.iROM阶段(BL0)
+    2.BL1阶段
+    3.BL2阶段
+    4.拷贝OS到DRAM
+    5.从DRAM中启动OS
+
+   S5PV210芯片中有64KB的iROM，里面烧写一些程序负责：
+        1.初始化系统时钟（最低频率），使能一些用于启动的设备。
+        2.根据拨码开关确定启动模式，选择从个外部NandFlash把一部分引导程序加载到SRAM(96KB)里，然后进入BL1阶段。
+        3.然后SRAM中的引导程序把初始化时钟（最合适频率），初始化DRAM，然后把剩下的引导程序拷贝到DRAM中，进入BL2阶段。
+        4.把所有的设备初始化完成，拷贝OS到DRAM中。
+        5.最后启动OS</code></pre><h2 id="一、iROM完成的工作"><a href="#一、iROM完成的工作" class="headerlink" title="一、iROM完成的工作"></a>一、iROM完成的工作</h2><pre><code>1、关闭看门狗
+2、初始化调整缓存
+3、初始化栈内存地址
+4、初始化堆内存地址
+5、初始化块设备拷贝函数
+6、设置PLL并且设备系统时钟
+7、拷贝BL1阶段的代码到SRAM中
+8、检查被拷贝程序的校验和
+9、检查是否安全模式
+10、跳转到BL1的起始代码处
+
+注意：iROM中已经有固化的代码，其实不需要再做一遍，但引导程序为了能够通用会把iROM中做的事情再做一遍。</code></pre><h2 id="二、BL1中需要完成的工作"><a href="#二、BL1中需要完成的工作" class="headerlink" title="二、BL1中需要完成的工作"></a>二、BL1中需要完成的工作</h2><h3 id="1、以引导操作系统为目的"><a href="#1、以引导操作系统为目的" class="headerlink" title="1、以引导操作系统为目的"></a>1、以引导操作系统为目的</h3><pre><code>1.电源锁定
+2.初始化DRAM
+3.设置内存映射表
+4.重新设置堆、栈的内存地址
+5.拷贝BL2到DRAM中
+6.跳转到BL2中运行</code></pre><h3 id="2、以控制硬件设置为目的"><a href="#2、以控制硬件设置为目的" class="headerlink" title="2、以控制硬件设置为目的"></a>2、以控制硬件设置为目的</h3><pre><code>1.电源锁定
+2.开始执行控制硬件的业务逻辑代码
+
+注意：BL1中的代码前16个字节为校验和</code></pre><h2 id="三、电源锁定"><a href="#三、电源锁定" class="headerlink" title="三、电源锁定"></a>三、电源锁定</h2><pre><code>地址： 0xE010_E81C
+值:b[0] = 1 b[8] = 1 b[9] =1
+ldr r0, =0xe010e81c unsigned int* p = 0xe010e81c;
+ldr r1, [r0] unsigned int val = *p;
+orr r1, r1, #0x300 val = val | 0x300;
+orr r1, r1, #0x1 val = val | 0x1;
+str r1, [r0] *p = val;
+
+注意：汇编语言中 . 代表当前位置，b . 就是死循环</code></pre><h2 id="四、计算校验和"><a href="#四、计算校验和" class="headerlink" title="四、计算校验和"></a>四、计算校验和</h2><pre><code>根据官方提供mkv210_image.c，重写一份添加校验和工具。</code></pre><h2 id="一、GPIO介绍"><a href="#一、GPIO介绍" class="headerlink" title="一、GPIO介绍"></a>一、GPIO介绍</h2><pre><code>GPIO（General-purpose input/output），通用型之输入输出的简称，其接脚可以供使用者由程控自由使用，PIN脚依现实考量可作为通用输入（GPI）或通用输出（GPO）或通用输入与输出。</code></pre><h3 id="1、优点（集成在CPU内部）"><a href="#1、优点（集成在CPU内部）" class="headerlink" title="1、优点（集成在CPU内部）"></a>1、优点（集成在CPU内部）</h3><pre><code>    低功耗
+    小封装
+    成本低
+    操控简单</code></pre><h3 id="2、GPIO的寄存器"><a href="#2、GPIO的寄存器" class="headerlink" title="2、GPIO的寄存器"></a>2、GPIO的寄存器</h3><pre><code>    GPIOxCON 控制寄存器，用于配置GPIO管脚的功能，每两个二进制位控制一个GPIO管脚，一个寄存器可以最多控制16管脚。
+        00 输入
+        01 输出
+        10 特殊功能
+        11 保留
+    GPIOxDAT 数据寄存器，它的用法取决于控制寄存器
+        GPIOxCON 输入
+            此时外部设备会对该管脚输入高低电流，从GPIOxDAT寄存器中读取数据（1高，0低）可以知道外部设备的状态，如：可以获取到按键是按下还是弹起。
+        GPIOxCON 输出
+            此时向GPIOxDAT寄存器写入，如果写入的是0，该管脚输入低电流，如果写入的是1，该管脚输出高电流，根据外部设备的原理图决定。
+    GPIOxUP 上/下拉电阻寄存器
+        用于控制电阻上拉、下拉。
+        如果电阻上拉，GPIO管脚处于高阻状态，相当于没有接芯片。</code></pre><h2 id="二、点亮LED"><a href="#二、点亮LED" class="headerlink" title="二、点亮LED"></a>二、点亮LED</h2><h3 id="1、查看电路原理图，找到对应的GPIO管脚：GPJ0"><a href="#1、查看电路原理图，找到对应的GPIO管脚：GPJ0" class="headerlink" title="1、查看电路原理图，找到对应的GPIO管脚：GPJ0"></a>1、查看电路原理图，找到对应的GPIO管脚：GPJ0</h3><h3 id="2、打开CPU数据手册，找到对应地址："><a href="#2、打开CPU数据手册，找到对应地址：" class="headerlink" title="2、打开CPU数据手册，找到对应地址："></a>2、打开CPU数据手册，找到对应地址：</h3><pre><code>    GPJ0CON 0xE0200240：
+        在不修改其它二进制位的前提下，把12~23设置为以下值
+        [12~15] 0001 
+        [16~19] 0001
+        [20~23] 0001
+    GPJ0PUD 0xE0200248
+        在不修改其它二进制位的前提下,把6~11设置为以下值
+        [6~11] 000000
+    GPJ0DAT 0xE0200244
+        根据电路图得知，GPIO管脚处于低电流时，左边的高电流才会经过LED流向GPIO，LED才会亮。
+        在不修改其它二进制位的前提下,把3~5设置为以下值
+        [3~5] 000</code></pre><p>   练习1：点亮最后一个LED灯<br>   练习2：开启峰鸣器<br>        1、查看原理图 PWMTOUT2 ，根据核心板原理图得知 GPD0_2<br>        2、阅读CPU数据手册：<br>            GPD0CON 0xE020_00A0 [8<del>11]:0001<br>            GPD0DAT 0xE020_00A4 [6</del>7]:00<br>            GPD0UP 0xE020_00A8 [2]:1</p>
+<h2 id="三、ARM汇编与C代码混编"><a href="#三、ARM汇编与C代码混编" class="headerlink" title="三、ARM汇编与C代码混编"></a>三、ARM汇编与C代码混编</h2><pre><code>在裸机下使用C语言编程需要确定各内存段的位置，堆内存、栈内存在BL0中已经设置过了，因此还需要确定代码段、数据段、静态数据段，可以通过链接脚本来指定各内存段的位置及排列。</code></pre><h3 id="1、什么是链接地址"><a href="#1、什么是链接地址" class="headerlink" title="1、什么是链接地址"></a>1、什么是链接地址</h3><pre><code>    链接地址批的是希望程序执行时所在的地址，编译时通过-Ttext指定。</code></pre><h3 id="2、什么是运行地址"><a href="#2、什么是运行地址" class="headerlink" title="2、什么是运行地址"></a>2、什么是运行地址</h3><pre><code>    是程序在运行时，实际所处的位置。
+    如果运行地址和链接地址不匹配，代码在进行绝对跳转时就会出现错乱。</code></pre><h3 id="3、链接脚本中究竟要做什么"><a href="#3、链接脚本中究竟要做什么" class="headerlink" title="3、链接脚本中究竟要做什么"></a>3、链接脚本中究竟要做什么</h3><pre><code>    链接脚本是用来指挥链接器工作的，它是一个规则文件。
+    链接器会根据链接脚本中的规则来排列目标文件的代码段，谁排在第一个，谁的第一个函数就是入口函数。
+    链接脚本关键内存是：段名+地址</code></pre><h3 id="4、链接脚本的内容"><a href="#4、链接脚本的内容" class="headerlink" title="4、链接脚本的内容"></a>4、链接脚本的内容</h3><pre><code>    SECTIONS{} 它是整个链接脚本的全部
+    .代表当前地址
+    =表示赋值</code></pre><pre><code>        SECTIONS
+        {
+            . = 0xd0020010;
+            .text : {
+                start.o
+                *(.text)
+            }
+            .data : {
+                *(.data)
+            }
+            .bss : {
+                *(.bss)
+            }
+        }</code></pre><pre><code>5、链接脚本的使用</code></pre><h2 id="一、串口通信基本原理"><a href="#一、串口通信基本原理" class="headerlink" title="一、串口通信基本原理"></a>一、串口通信基本原理</h2><pre><code>串口是一种非常简单的通信方式，它是位发送接收数据，虽然它比并行通信要慢，但是它能实现远距离的通信，最长可达1200米。
+由于通信简单、稳定容易实现一般用作嵌入式开发中的调试方式，也用作PC与嵌入式设备的指令发送。</code></pre><h3 id="1、串口通信的重要参数"><a href="#1、串口通信的重要参数" class="headerlink" title="1、串口通信的重要参数"></a>1、串口通信的重要参数</h3><pre><code>    波特率：每秒的位数，表示每秒传输的比特数，比如：115200，表示每秒发送115200bit，它要与通信距离成反比，距离越远，波特率要越低，常用的波特率：115200，9600。
+    数据位：表示通信中实际每帧中数据的位数，一般常设置### 7、8位，如果要传输标准的ASCII字符只需要7位即可，如果是扩展的ASCII字符需要8位。
+    奇偶校验位：用于检查数据在传输过程是否出错，比如有：偶校验、奇校验、标记、空格方式，也可以不校验。
+    奇偶校验并不能完全杜绝数据出错，但可以大大提高数据的可靠性。
+    停止位：用于标记数据帧的结束，一般取1位或两位，不光是用于标记数据帧的结束，还为计算机与设备之间提供了时钟校验的时间，但停止位会占用数据空间，也会导致速度下降。
+    数据流控制：在串口通过过程中，由于计算机和设备之间速度不匹配或受其它因素影响，可能会造成数据丢失。比如：计算机缓冲区满的情况下，继续接收数据，新发过来的数据就无法处理，造成数据丢失，这时就可以控制数据流的速度，确保数据不会丢失。
+通用异步接收器UART：
+    通用异步收发传输器（Universal Asynchronous Receiver/Transmitter)，通常称作UART。它将要传输的资料在串行通信与并行通信之间加以转换。作为把并行输入信号转成串行输出信号的芯片，UART通常被集成于其他通讯接口的连结上。
+    每一个UART都包含四个主要部分：
+        波特率发生器、控制单元、发送器、接收器</code></pre><h3 id="2、UART数据传输模式"><a href="#2、UART数据传输模式" class="headerlink" title="2、UART数据传输模式"></a>2、UART数据传输模式</h3><pre><code>    轮询模式：比较简单，就是一不停的询问状态寄存器，是否有新的数据，如果有则读取，或者询问状态寄存器，上一波数据是否发送完成，如果完成则继续发送后续数据。
+    中断模式：CPU该干嘛干嘛，当有数据来时，产生中断，CPU会暂停手里的工作，先接收数据，再返回继续工作。
+    DMA模式：通常用于数据的转移和复制，正常情况下CPU从源地址复制数据到寄存器，再从寄存器复制数据到目标地址，这个操作由CPU来执行，但这样CPU就不再干其它事情了，可以设置UART的DMA模式，交给DMA来自动执行，这样CPU就不会被占用了。
+    红外线模式：采用红外线进行通过时的特殊时序。
+    回环模式：是一种用来测试数据完整性的械，发出的数据再接收回来，如果与发出的不符，则数据丢失。
+    FIFO模式：是一种数据先进先出，用于速度不匹配情况的工作模式。</code></pre><h3 id="3、数据的发送与接收"><a href="#3、数据的发送与接收" class="headerlink" title="3、数据的发送与接收"></a>3、数据的发送与接收</h3><pre><code>    UART发送和接收数据帧是可编程的，格式：5~8位数据位+1位可选的奇偶校验位+1~2停止位，通过设寄存器进行控制。
+    有专门用来发送、接收数据的寄存器，和标志数据的状态寄存器。</code></pre><h3 id="4、波特率"><a href="#4、波特率" class="headerlink" title="4、波特率"></a>4、波特率</h3><pre><code>    波特率由波特率发生器产生，其实就是个时钟分频器。</code></pre><h2 id="二、S5PV210的UART功能寄存器"><a href="#二、S5PV210的UART功能寄存器" class="headerlink" title="二、S5PV210的UART功能寄存器"></a>二、S5PV210的UART功能寄存器</h2><pre><code>查看S5PV210芯片手册
+ULCONn 线程控制寄存器，主要作是设置各个UART串口通信接口的数据帧格式以及通信模式。
+    0xE2900800
+    正常模式或红外线模式
+    奇偶校校验
+    停止位
+    数据位
+UCONn UART控制寄存器
+    DMA模式设置
+    时钟选择
+    中断模式设置
+    回环模式设置
+UTRSTATn 收发状态寄存器，用来实时指示缓冲区寄存器的状态，通过检查它能得知是否能发送和接收。
+UTXHn 发送缓冲区寄存器，需要发送的数据定入该寄存器即可，UART会自动发送。
+URXHn 接收缓冲区寄存器，读取后会自动继续接收后续数据。
+UBRDIVn/UDIVSLOTn 波特率分频寄存器/波特率分频槽寄存器 用于设置UART的波特率。</code></pre><p>  //  作业：实现一个简历shell程序<br>        能够解析命令，执行相应的操作。</p>
+<h2 id="一、中断的基本概念"><a href="#一、中断的基本概念" class="headerlink" title="一、中断的基本概念"></a>一、中断的基本概念</h2><h3 id="1、中断的基本概念和处理过程"><a href="#1、中断的基本概念和处理过程" class="headerlink" title="1、中断的基本概念和处理过程"></a>1、中断的基本概念和处理过程</h3><pre><code>    当计算机正在执行正常的正常，如果出现异常情况，计算机停止工作，保存当前程序运行所必备的重要参数和状态信息，转而去处理异常，处理结束后再返回到当前程序继续执行，这种处理异常情况的方式叫中断。
+    通常处理异常情况是轮询（就是不停的检查），实现一段程序，不断的查询相应情况是否发生，如果发生再进行处理，这种处理异常的缺点就是无法执行其他任务，如果要解决的问题比较复杂，这种极端情况就会产生。
+
+    针对以上问题ARM设计出中断处理系统，中断独立于主程序之外，在主程序中并没有等待事件可响应函数。
+    中断处理过程：
+        1、事件发生后，相应的中断源会产生中断请求。
+        2、CPU接收到中断求后，将停止下在运行的主程序，产生一个断点。
+        3、CPU转而执行响应中断，转而执行中断服务程序。
+        4、中断处理程序执行完成后，加到主程序的断点，继续运行主程序。
+    注意：在产生断点时，要保护现场，即把当前正在执行的下一条指针以及运算过程中产生的临时数据保存下来（压入到栈内存），在中断处理结束后再进行恢复现场（从栈内存再读取出来），这能才能保证主程序不会被中断处理程序破坏。
+
+    具备中断处理能力的芯片有哪优点：
+        1、实现实时处理：利用中断技术，CPU可以实时响应来自内部和外部的中断请求。
+        2、实现分时操作：CPU可以让多个功能部件和外设同时工作，当外设向CPU发出请求时，CPU才为提供服务，这样利用中断技术，CPU可以服务多个外部设备。
+        3、紧急故障处理：当系统在运行过程中出现紧急情况，如果电量低、温差大，可以通过中断及时向CPU发出中断请求，做紧急故障处理。
+        4、待机状态唤醒：绝大多数嵌入式设备都需要具备低功耗和休眠的功能，从休眠状态唤醒到正常工作状态也需要中断技术。</code></pre><h3 id="2、中断源"><a href="#2、中断源" class="headerlink" title="2、中断源"></a>2、中断源</h3><pre><code>    是指能够向CPU发送中断信号的部件和设备，一个系统中往往有多个中断源，每个中断源都是为特定事件所设计的，在ARM的CPU中分为内部中断源和外部中断源。
+    CPU内部集成许多功能模块，如：定时器、串行通信接口、数模转换器，它们的工作往往不需要CPU的参与，而是达到某个状态或遇到特定值的时候，才需要通过中断让CPU介入处理，这些中断源位置CPU的内部，所以叫内部中断源，便于CPU高效的管理资源。
+
+    外部设备也可以作为中断源，它们可以通过高低电平或电平之间的跳变产生中断信号，这些中断源位于CPU的外部也叫外部中断源，方便CPU与外部设备进行通信。</code></pre><h3 id="3、中断信号"><a href="#3、中断信号" class="headerlink" title="3、中断信号"></a>3、中断信号</h3><pre><code>    1.边缘触发型（脉冲信号上升或下降时触发）
+    2.电平触发型（高电平或低电平触发）
+    3.状态变化触发型（电平变化触发）</code></pre><h3 id="4、中断向量"><a href="#4、中断向量" class="headerlink" title="4、中断向量"></a>4、中断向量</h3><pre><code>    当中断产生后被CPU检测（巧妙的电路设计）到，就会跳转到一个固定的地址去执行，这个固定的地址就是中断的入口，也叫中断向量。
+    对于CPU的若干个中断源而言，每个中断源都各自的中断向量，而这些中断向量一般存储在一段连续的地址空间段，称为中断向量区（0xD003_7400）。
+    由于一个中断源只能占用几个字节或一条指令的长度，因此不能在中断向量区直接处理中断，而是设置一个指令跳转到中断服务程序，而中断服务程序存储在其它位置。</code></pre><h2 id="二、S5PV210的中断系统"><a href="#二、S5PV210的中断系统" class="headerlink" title="二、S5PV210的中断系统"></a>二、S5PV210的中断系统</h2><pre><code>见用户手册</code></pre><h2 id="三、中断实例"><a href="#三、中断实例" class="headerlink" title="三、中断实例"></a>三、中断实例</h2><h3 id="1、中断系统设置"><a href="#1、中断系统设置" class="headerlink" title="1、中断系统设置"></a>1、中断系统设置</h3><pre><code>    1.禁用所有中断 VICINTENCLEAR
+    2.选择响应的中断类型为外部中断 VICINTSELECT
+    3.清除中断处理函数的地址 VICADDRESS
+    4.绑定中断源与中断处理函数 VICADDRESS
+    5.使能中断 VICINTENABLE</code></pre><h3 id="2、中断设备设置"><a href="#2、中断设备设置" class="headerlink" title="2、中断设备设置"></a>2、中断设备设置</h3><pre><code>    1.设置工作模式为中断模式
+    2.设置中断触发模式
+    3.清除中断掩码
+    4.清除中断挂起
+### 3、当有中断产生时代码的运行流程
+    1.暂停主程序
+    2.根据异常向量表中设计的函数指针，跳转到异常响应函数位置（IRQ_handler）。
+    3.IRQ异常响应函数，保护现场，然后跳转到直接的中断处理函数irq_handler。
+    4.在irq_handler函数中调用intc_getvicirqstatus确定哪组VIC产生了中断，然后从对应组的VIC0ADDR,VIC1ADDR,VIC2ADDR,VIC3ADDR寄存器中拷贝出函数指针，这些函数指针是CPU自动帮我们从VICxVECTADDR+NUM寄存器中拷贝出的，然后调用中断处理函数。</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>Reprint policy</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《ARM体系结构——九鼎创展x210V3s》
+                </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/27/arm-ti-xi-jie-gou-jiu-ding-chuang-zhan-x210v3s/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ikaros
+            </a> is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a> 
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8eb6282cd486a5fcac3c',
+        clientSecret: 'f89a28165a1fd9f0c144d8f4805bb9f1d7e91f91',
+        repo: 'ikaros-521.github.io',
+        owner: 'Ikaros-521',
+        admin: ["Ikaros-521"],
+        id: '2019-10-27T21-56-01',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2019/10/27/arm-ti-xi-jie-gou-jiu-ding-chuang-zhan-x210v3s/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ARM体系结构——九鼎创展x210V3s">
+                        
+                        <span class="card-title">ARM体系结构——九鼎创展x210V3s</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ARM体系结构-在裸板下的开发、单片机Linux系统移植-给开发板安装操作系统Linux系统驱动编程-对内核进行扩展    开发板    SD卡    电源线    网线    串口线    蓝色USB线
+## 一、嵌入式介绍1、什么是嵌入
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Ikaros
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ARM/" target="_blank">
+                        <span class="chip bg-color">ARM</span>
+                    </a>
+                    
+                    <a href="/tags/x210V3s/" target="_blank">
+                        <span class="chip bg-color">x210V3s</span>
+                    </a>
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/21/duo-lu-fu-yong-io/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="多路复用IO">
+                        
+                        <span class="card-title">多路复用IO</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、IO模型介绍    1、阻塞IO，常用的scanf、printf、read、write、cout、cin
+    2、非阻塞IO，recv、send和Qt中read、write 
+    3、多路复用IO   
+    4、信号驱动IO
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/多路复用/" target="_blank">
+                        <span class="chip bg-color">多路复用</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://github.com/Ikaros-521" target="_blank">Ikaros</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">47k</span>
+            
+
+            
+			
+                <br>
+                
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+					<i class="fa fa-heart-o"></i>
+					本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+					
+				
+				
+					<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+				
+				
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ikaros-521" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:327209194@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=327209194" class="tooltipped" data-tooltip="QQ联系我: 327209194" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+		<span id="sitetime"></span>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 09, 1, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+</html>
