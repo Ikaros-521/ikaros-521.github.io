@@ -339,11 +339,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> 系统调用 </tag>
             
             <tag> 文件操作 </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -397,9 +397,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> GNU </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
