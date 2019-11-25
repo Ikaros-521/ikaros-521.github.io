@@ -1,0 +1,1576 @@
+<!DOCTYPE HTML>
+<html lang="UTF-8">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="gSOAP安装配置+使用案例参考+参考链接, ikaros">
+    <meta name="description" content="环境搭建与配置gSOAP下载地址：https://sourceforge.net/projects/gsoap2/files/相关配置参考：gsoap_2.8.33.zip安装与编译配置完成后，根据官网文档：https://www.geni">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>gSOAP安装配置+使用案例参考+参考链接 | Ikaros</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ikaros</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ikaros</div>
+        <div class="logo-desc">
+            
+            从天而降 只为与你相遇
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Ikaros-521" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Ikaros-521" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        gSOAP安装配置+使用案例参考+参考链接
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
+                            </a>
+                        
+                            <a href="/tags/gSOAP/" target="_blank">
+                                <span class="chip bg-color">gSOAP</span>
+                            </a>
+                        
+                            <a href="/tags/SOAP/" target="_blank">
+                                <span class="chip bg-color">SOAP</span>
+                            </a>
+                        
+                            <a href="/tags/ONVIF/" target="_blank">
+                                <span class="chip bg-color">ONVIF</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                C
+                            </a>
+                        
+                            <a href="/categories/C/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-11-25
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        19 Min
+                    </div>
+                    
+                
+				
+				
+                    <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="环境搭建与配置"><a href="#环境搭建与配置" class="headerlink" title="环境搭建与配置"></a>环境搭建与配置</h2><p>gSOAP下载地址：<a href="https://sourceforge.net/projects/gsoap2/files/" target="_blank" rel="noopener">https://sourceforge.net/projects/gsoap2/files/</a><br>相关配置参考：<a href="https://blog.csdn.net/hktkfly6/article/details/78321908" target="_blank" rel="noopener">gsoap_2.8.33.zip安装与编译</a><br>配置完成后，根据官网文档：<a href="https://www.genivia.com/dev.html" target="_blank" rel="noopener">https://www.genivia.com/dev.html</a><br>编写一个hello进行测试</p>
+<h2 id="gSOAP的使用案例参考"><a href="#gSOAP的使用案例参考" class="headerlink" title="gSOAP的使用案例参考"></a>gSOAP的使用案例参考</h2><p>新建文件 <strong>hello.h</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// hello.h</span>
+<span class="token keyword">int</span> <span class="token function">ns__hello</span><span class="token punctuation">(</span>std<span class="token punctuation">:</span><span class="token punctuation">:</span>string name<span class="token punctuation">,</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>string<span class="token operator">&amp;</span> greeting<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>终端运行 <code>soapcpp2 hello.h</code> ，如果你不在此程序的路径，则输入完整路径编译<br>如 <code>/usr/local/gSOAP/bin/soapcpp2 hello.h</code><br><img src="https://img-blog.csdnimg.cn/20191125101610120.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们新建 <strong>hello.cpp</strong></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// hello.cpp</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapH.h"</span>  </span><span class="token comment" spellcheck="true">// include the generated source code headers</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"ns.nsmap"</span> </span><span class="token comment" spellcheck="true">// include XML namespaces</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">soap_serve</span><span class="token punctuation">(</span><span class="token function">soap_new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">ns__hello</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> std<span class="token operator">::</span>string name<span class="token punctuation">,</span> std<span class="token operator">::</span>string<span class="token operator">&amp;</span> greeting<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  greeting <span class="token operator">=</span> <span class="token string">"Hello "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>终端运行 <code>c++ -o hello.cgi hello.cpp soapC.cpp soapServer.cpp stdsoap2.cpp</code><br>报错如下<br><img src="https://img-blog.csdnimg.cn/20191125101818262.png" alt="在这里插入图片描述"><br>没有<strong>stdsoap2.cpp</strong>这个文件<br>这个文件可以在gSOAP解压后的文件夹里找到 gsoap-2.8/gsoap<br><img src="https://img-blog.csdnimg.cn/20191125101956121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们将 <strong>stdsoap2.cpp</strong> 和 <strong>stdsoap2.h</strong> 这两个文件拷贝到源程序的目录，再次执行</p>
+<p><code>c++ -o hello.cgi hello.cpp soapC.cpp soapServer.cpp stdsoap2.cpp</code><br><img src="https://img-blog.csdnimg.cn/20191125102259568.png" alt="在这里插入图片描述"><br>编译完成 生成 <strong>hello.cgi</strong> 。</p>
+<hr>
+<p>看到 cgi程序，我就想到了之前我用的BOA，那么我们来试试看吧。<br>BOA相关参考：<a href="https://blog.csdn.net/Ikaros_521/article/details/102801453" target="_blank" rel="noopener">嵌入式web服务器BOA+CGI+HTML+MySQL项目实战——Linux</a><br>老规矩 运行boa</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> ./boa</code></pre>
+<p>将 cgi程序放在 /var/www/cgi-bin 目录下<br><img src="https://img-blog.csdnimg.cn/20191125103341242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后在浏览器访问我们的网址 <code>http://localhost:886/cgi-bin/hello.cgi</code><br>效果如下：<br><img src="https://img-blog.csdnimg.cn/2019112510343436.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一个SOAP的XML，SOAP相关知识可以参考：<a href="https://www.runoob.com/soap/soap-tutorial.html" target="_blank" rel="noopener">SOAP菜鸟教程</a></p>
+<hr>
+<h2 id="如何实现和部署gSOAPWeb服务API"><a href="#如何实现和部署gSOAPWeb服务API" class="headerlink" title="如何实现和部署gSOAPWeb服务API"></a>如何实现和部署gSOAPWeb服务API</h2><p>回到官方文档   如何实现和部署gSOAPWeb服务API。其教程：<a href="https://www.genivia.com/tutorials.html" target="_blank" rel="noopener">传送门</a></p>
+<p>终端运行 <code>wsdl2h -c -o calc.h http://www.genivia.com/calc.wsdl</code><br>同样，我的是<br><code>/usr/local/gSOAP/bin/wsdl2h -c -o calc.h http://www.genivia.com/calc.wsdl</code><br><img src="https://img-blog.csdnimg.cn/20191125104306549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>继续根据教程走<br>终端运行 <code>soapcpp2 -SL calc.h</code><br>同样，我的是 <code>/usr/local/gSOAP/bin/soapcpp2 -SL calc.h</code><br><img src="https://img-blog.csdnimg.cn/20191125104438805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>很顺利哈，我们继续。<br>官方教程让我们运行 <code>cc -o calc.cgi calccgi.c soapClient.c soapC.c stdsoap2.c</code><br><a href="https://www.cnblogs.com/zhouyinhui/archive/2010/02/01/1661078.html" target="_blank" rel="noopener">Linux 下 的 cc 和 gcc</a><br>这cc是个啥？我运行后。。。<br><img src="https://img-blog.csdnimg.cn/20191125104633382.png" alt="在这里插入图片描述"><br>又缺少文件了 后者我还能理解，前者这个文件从哪来的？<br>在哪也找不到 calccgi.c 这个文件，后来看了文档发现，官方提供了 此文件的超链接。。。<br>那么我们 从 <a href="https://www.genivia.com/files/calccgi.c" target="_blank" rel="noopener">https://www.genivia.com/files/calccgi.c</a> 复制代码，自建一个 <strong>calccgi.c</strong> 文件。</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
+    calccgi.c
+
+    Example calculator service in C
+
+    Compilation in C (see samples/calc/calc.h):
+    $ wsdl2h -c -o calc.h http://www.genivia.com/calc.wsdl
+    $ soapcpp2 -SL calc.h
+    $ cc -o calc.cgi calccgi.c stdsoap2.c soapC.c soapServer.c
+    where stdsoap2.c is in the 'gsoap' directory, or use libgsoap:
+    $ cc -o calc.cgi calccgi.c soapC.c soapServer.c -lgsoap
+
+--------------------------------------------------------------------------------
+gSOAP XML Web services tools
+Copyright (C) 2001-2017, Robert van Engelen, Genivia, Inc. All Rights Reserved.
+This software is released under one of the following two licenses:
+GPL or Genivia's license for commercial use.
+--------------------------------------------------------------------------------
+GPL license.
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place, Suite 330, Boston, MA 02111-1307 USA
+
+Author contact information:
+engelen@genivia.com / engelen@acm.org
+--------------------------------------------------------------------------------
+A commercial use license is available from Genivia, Inc., contact@genivia.com
+--------------------------------------------------------------------------------
+*/</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapH.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"calc.nsmap"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">struct</span> soap soap<span class="token punctuation">;</span>
+
+  <span class="token function">soap_init1</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>soap<span class="token punctuation">,</span> SOAP_XML_INDENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">soap_serve</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* serve as CGI application */</span>
+
+  <span class="token function">soap_destroy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">soap_end</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">soap_done</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">ns2__add</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>soap<span class="token punctuation">;</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">ns2__sub</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>soap<span class="token punctuation">;</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">ns2__mul</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>soap<span class="token punctuation">;</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">ns2__div</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">/</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">else</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">soap_malloc</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token function">SOAP_SNPRINTF</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"&lt;error xmlns=\"http://tempuri.org/\">Can't divide %f by %f&lt;/error>"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">soap_sender_fault</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token string">"Division by zero"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">ns2__pow</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>soap_errno <span class="token operator">==</span> EDOM<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">/* soap_errno is like errno, but compatible with Win32 */</span>
+  <span class="token punctuation">{</span> <span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">soap_malloc</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token function">SOAP_SNPRINTF</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"&lt;error xmlns=\"http://tempuri.org/\">Can't raise %f to %f&lt;/error>"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">soap_sender_fault</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token string">"Power function domain error"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> </code></pre>
+<p>那么现在我们还缺少 <strong>soapClient.c</strong>，我们之前生成了 <strong>soapClient.cpp</strong> 文件<br>打开项目文件夹，我发现一个很尴尬的事情，我们生成了server的c和cpp文件，但client却只有c。<br><img src="https://img-blog.csdnimg.cn/20191125110549933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我无语了，那我就自建 soapClient.c，拷贝soapClient.cpp贴入soapClient.c。<br>再次运行 <code>cc -o calc.cgi calccgi.c soapClient.c soapC.c stdsoap2.c</code><br>报错如下：<br><img src="https://img-blog.csdnimg.cn/20191125111124629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>果然没有那么容易，看到 std::string，这事情不简单了。<br>我们重新执行 <code>/usr/local/gSOAP/bin/soapcpp2 calc.h</code><br>成功生成了 soapClient.c 文件了<br><img src="https://img-blog.csdnimg.cn/20191125111612525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但为什么官方提供的命令是加个 <strong>-SL</strong> ?<br>我查看了下载来的gSOAP文档：<a href="https://dl.pconline.com.cn/download/1448138.html" target="_blank" rel="noopener">太平洋那下载的，自行斟酌</a><br><img src="https://img-blog.csdnimg.cn/20191125111947631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们机翻一下看看， -S -L 是干什么的<br><img src="https://img-blog.csdnimg.cn/20191125112031448.png" alt="在这里插入图片描述"><br>只生成服务器端代码，官方教程为什么要这么做，不知道为啥，既然我们现在生成好了，我们再编译看看，终端运行 <code>cc -o calc.cgi calccgi.c soapClient.c soapC.c stdsoap2.c</code><br><img src="https://img-blog.csdnimg.cn/20191125112201364.png" alt="在这里插入图片描述"></p>
+<h3 id="对‘soap-serve’未定义的引用"><a href="#对‘soap-serve’未定义的引用" class="headerlink" title="对‘soap_serve’未定义的引用"></a>对‘soap_serve’未定义的引用</h3><p>事情还是没有那么顺利，又报错了。<br>我们试试官网的 <a href="https://www.genivia.com/files/calc.h" target="_blank" rel="noopener">calc.h</a> 的源码贴入看看<br>再次执行 <code>/usr/local/gSOAP/bin/soapcpp2 calc.h</code><br><img src="https://img-blog.csdnimg.cn/20191125112555804.png" alt="在这里插入图片描述"><br>没有效果呀  ￣へ￣<br>会看之前的hello.cpp 却没有报错，区别就是c和cpp？<br>在 <strong>soapServer.cpp</strong> 中<br><img src="https://img-blog.csdnimg.cn/20191125140006682.png" alt="在这里插入图片描述"><br><strong>soapServer.c</strong> 中<br><img src="https://img-blog.csdnimg.cn/20191125140045965.png" alt="在这里插入图片描述"><br>而 soapClient.c和cpp压根没这函数？？？<br>那我们加入 <strong>soapServer.c</strong> 一起编译！</p>
+<p><code>cc -o calc.cgi calccgi.c soapClient.c soapC.c stdsoap2.c soapServer.c</code><br><img src="https://img-blog.csdnimg.cn/20191125140336937.png" alt="在这里插入图片描述"><br>(⊙ˍ⊙)  错误消失了。。。  我服了<br>pow函数大家应该都比较熟悉，链接 pow 所在的数学库 libm</p>
+<p><code>cc -o calc.cgi calccgi.c soapClient.c soapC.c stdsoap2.c soapServer.c -lm</code><br><img src="https://img-blog.csdnimg.cn/20191125140721529.png" alt="在这里插入图片描述"><br>总算过去了！ ╥﹏╥…<br>抛到BOA看看<br><img src="https://img-blog.csdnimg.cn/20191125141630416.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>和hello.cgi 一样。</p>
+<p>回到官方教程</p>
+<h3 id="部署CGI服务"><a href="#部署CGI服务" class="headerlink" title="部署CGI服务"></a>部署CGI服务</h3><p>我事先已经装好了Apache，那我们继续往下走<br>要编译C服务器：</p>
+<p><code>cc -o calcserver.cgi calcserver.c soapC.c soapServer.c stdsoap2.c</code><br>恩，calcserver.c 这文件又没有。同样官方给了链接，进去看看：<a href="https://www.genivia.com/examples/calc/index.html" target="_blank" rel="noopener">传送门</a><br><img src="https://img-blog.csdnimg.cn/20191125142133734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这 <strong>typemap.dat</strong> 在gSOAP中可以搜到，我们先手动建个 <strong>calc.h</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//gsoap ns service name:            calc Simple calculator service described at https://www.genivia.com/dev.html</span>
+<span class="token comment" spellcheck="true">//gsoap ns service protocol:        SOAP</span>
+<span class="token comment" spellcheck="true">//gsoap ns service style:           rpc</span>
+<span class="token comment" spellcheck="true">//gsoap ns service encoding:        encoded</span>
+<span class="token comment" spellcheck="true">//gsoap ns service namespace:       http://websrv.cs.fsu.edu/~engelen/calc.wsdl</span>
+<span class="token comment" spellcheck="true">//gsoap ns service location:        http://websrv.cs.fsu.edu/~engelen/calcserver.cgi</span>
+
+<span class="token comment" spellcheck="true">//gsoap ns schema namespace:        urn:calc</span>
+
+<span class="token comment" spellcheck="true">//gsoap ns service method: add Sums two values</span>
+<span class="token keyword">int</span> <span class="token function">ns__add</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//gsoap ns service method: sub Subtracts two values</span>
+<span class="token keyword">int</span> <span class="token function">ns__sub</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//gsoap ns service method: mul Multiplies two values</span>
+<span class="token keyword">int</span> <span class="token function">ns__mul</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//gsoap ns service method: div Divides two values</span>
+<span class="token keyword">int</span> <span class="token function">ns__div</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//gsoap ns service method: pow Raises a to b</span>
+<span class="token keyword">int</span> <span class="token function">ns__pow</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>其他都不管，来到client</p>
+<h3 id="为客户端应用程序构建步骤"><a href="#为客户端应用程序构建步骤" class="headerlink" title="为客户端应用程序构建步骤"></a>为客户端应用程序构建步骤</h3><p>新建 <strong>calcclient.c</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapH.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"calc.nsmap"</span></span>
+
+<span class="token comment" spellcheck="true">/* the Web service endpoint URL */</span>
+<span class="token keyword">const</span> <span class="token keyword">char</span> server<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"http://websrv.cs.fsu.edu/~engelen/calcserver.cgi"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">struct</span> soap <span class="token operator">*</span>soap <span class="token operator">=</span> <span class="token function">soap_new1</span><span class="token punctuation">(</span>SOAP_XML_INDENT<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* new context */</span>
+  <span class="token keyword">double</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> result<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Usage: [add|sub|mul|div|pow] num num\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  a <span class="token operator">=</span> <span class="token function">strtod</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  b <span class="token operator">=</span> <span class="token function">strtod</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token punctuation">:</span>
+      <span class="token function">soap_call_ns__add</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token punctuation">:</span>
+      <span class="token function">soap_call_ns__sub</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'m'</span><span class="token punctuation">:</span>
+      <span class="token function">soap_call_ns__mul</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'d'</span><span class="token punctuation">:</span>
+      <span class="token function">soap_call_ns__div</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'p'</span><span class="token punctuation">:</span>
+      <span class="token function">soap_call_ns__pow</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Unknown command\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>soap<span class="token operator">-></span>error<span class="token punctuation">)</span>
+    <span class="token function">soap_print_fault</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">else</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"result = %g\n"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">soap_destroy</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* delete deserialized objects */</span>
+  <span class="token function">soap_end</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">/* delete heap and temp data */</span>
+  <span class="token function">soap_free</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* we're done with the context */</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>使用以下方法为客户端生成服务和数据绑定接口：</strong></p>
+<p><code>soapcpp2 -c -r -CL calc.h</code><br><img src="https://img-blog.csdnimg.cn/20191125142728880.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>有产生警告，暂时不管。</p>
+<p><strong>构建示例客户端应用程序</strong></p>
+<p><code>cc -o calcclient calcclient.c stdsoap2.c soapC.c soapClient.c</code><br><img src="https://img-blog.csdnimg.cn/20191125142858180.png" alt="在这里插入图片描述"><br>没有问题。</p>
+<h3 id="实现CGI服务器应用程序"><a href="#实现CGI服务器应用程序" class="headerlink" title="实现CGI服务器应用程序"></a>实现CGI服务器应用程序</h3><p>新建 <strong>calcserver.c</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapH.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"calc.nsmap"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">struct</span> soap <span class="token operator">*</span>soap <span class="token operator">=</span> <span class="token function">soap_new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* new context */</span>
+  <span class="token function">soap_serve</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">/* serve CGI request */</span>
+  <span class="token function">soap_destroy</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* delete deserialized objects */</span>
+  <span class="token function">soap_end</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">/* delete heap and temp data */</span>
+  <span class="token function">soap_free</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* we're done with the context */</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token comment" spellcheck="true">/* service operation function implementation */</span>
+<span class="token keyword">int</span> <span class="token function">ns__add</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token comment" spellcheck="true">/* service operation function implementation */</span>
+<span class="token keyword">int</span> <span class="token function">ns__sub</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token comment" spellcheck="true">/* service operation function implementation */</span>
+<span class="token keyword">int</span> <span class="token function">ns__mul</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token comment" spellcheck="true">/* service operation function implementation */</span>
+<span class="token keyword">int</span> <span class="token function">ns__div</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    <span class="token operator">*</span>result <span class="token operator">=</span> a <span class="token operator">/</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">else</span>
+    <span class="token keyword">return</span> <span class="token function">soap_sender_fault</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token string">"Division by zero"</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token comment" spellcheck="true">/* service operation function implementation */</span>
+<span class="token keyword">int</span> <span class="token function">ns__pow</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>soap<span class="token punctuation">,</span> <span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token operator">*</span>result <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>soap_errno <span class="token operator">==</span> EDOM<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* soap_errno is like errno, but portable */</span>
+    <span class="token keyword">return</span> <span class="token function">soap_sender_fault</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token string">"Power function domain error"</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> SOAP_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>官方教程说<br><img src="https://img-blog.csdnimg.cn/20191125143241883.png" alt="在这里插入图片描述"><br>那我们继续往下走。</p>
+<h3 id="实现独立的服务器应用程序"><a href="#实现独立的服务器应用程序" class="headerlink" title="实现独立的服务器应用程序"></a>实现独立的服务器应用程序</h3><p>此示例展示了一个独立的迭代服务器，该服务器接受主机端口上的传入请求。该程序与CGI服务相同，但在循环中通过套接字进行服务请求调度除外：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapH.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"calc.nsmap"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"plugin/threads.h"</span></span>
+
+<span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8080</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">process_request</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>arg<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">struct</span> soap <span class="token operator">*</span>soap <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> soap<span class="token operator">*</span><span class="token punctuation">)</span>arg<span class="token punctuation">;</span>
+  <span class="token function">THREAD_DETACH</span><span class="token punctuation">(</span>THREAD_ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>soap<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">soap_serve</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_destroy</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_end</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_free</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  SOAP_SOCKET m<span class="token punctuation">;</span>                                    <span class="token comment" spellcheck="true">/* master socket */</span>
+  <span class="token keyword">struct</span> soap <span class="token operator">*</span>soap <span class="token operator">=</span> <span class="token function">soap_new1</span><span class="token punctuation">(</span>SOAP_IO_KEEPALIVE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* new context with HTTP keep-alive enabled */</span>
+  soap<span class="token operator">-></span>send_timeout <span class="token operator">=</span> soap<span class="token operator">-></span>recv_timeout <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* 5 sec socket idle timeout */</span>
+  soap<span class="token operator">-></span>transfer_timeout <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">/* 30 sec message transfer timeout */</span>
+  m <span class="token operator">=</span> <span class="token function">soap_bind</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">soap_valid_socket</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">soap_valid_socket</span><span class="token punctuation">(</span><span class="token function">soap_accept</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      THREAD_TYPE tid<span class="token punctuation">;</span>
+      <span class="token keyword">void</span> <span class="token operator">*</span>arg <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">soap_copy</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">/* use updated THREAD_CREATE from plugin/threads.h https://www.genivia.com/files/threads.zip */</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>arg<span class="token punctuation">)</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">THREAD_CREATE</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>tid<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span>process_request<span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">soap_print_fault</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> <span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">soap_destroy</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* delete deserialized objects */</span>
+  <span class="token function">soap_end</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">/* delete heap and temp data */</span>
+  <span class="token function">soap_free</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* we're done with the context */</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token comment" spellcheck="true">/* service operation functions */</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>这个暂且忽略，我们往下走</p>
+<h3 id="为服务器应用程序构建步骤"><a href="#为服务器应用程序构建步骤" class="headerlink" title="为服务器应用程序构建步骤"></a>为服务器应用程序构建步骤</h3><p>使用以下方法为服务器端生成服务和数据绑定接口：</p>
+<p><code>soapcpp2 -c -r -SL calc.h</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20191125144147396.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>同样有警告<br><img src="https://img-blog.csdnimg.cn/20191125144226884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们继续往下<br><strong>构建示例服务器应用程序：</strong></p>
+<p><code>cc -o calcserver calcserver.c stdsoap2.c soapC.c soapServer.c</code><br><img src="https://img-blog.csdnimg.cn/20191125144320132.png" alt="在这里插入图片描述"><br>修改为 <code>cc -o calcserver calcserver.c stdsoap2.c soapC.c soapServer.c -lm</code><br><img src="https://img-blog.csdnimg.cn/20191125144354731.png" alt="在这里插入图片描述"><br>官方教程接近尾声</p>
+<h3 id="运行示例"><a href="#运行示例" class="headerlink" title="运行示例"></a>运行示例</h3><p><img src="https://img-blog.csdnimg.cn/20191125144505380.png" alt="在这里插入图片描述"><br>根据官方教程 我们执行 calcclient程序 <code>./calcclient add 2 3</code><br><img src="https://img-blog.csdnimg.cn/20191125144557279.png" alt="在这里插入图片描述"><br>成功计算出结果了。恩 这和 calcserver 有关系吗？<br>我们删了 <strong>calcserver</strong> 看看，恩 你会发现 还是能输出结果。。。</p>
+<hr>
+<p>回到前一个<a href="https://www.genivia.com/tutorials.html" target="_blank" rel="noopener">教程</a><br>要编译C服务器：</p>
+<p><code>cc -o calcserver.cgi calcserver.c soapC.c soapServer.c stdsoap2.c</code><br><img src="https://img-blog.csdnimg.cn/20191125144943135.png" alt="在这里插入图片描述"><br>同样我们加上 -lm<br><code>cc -o calcserver.cgi calcserver.c soapC.c soapServer.c stdsoap2.c -lm</code><br><img src="https://img-blog.csdnimg.cn/20191125145011738.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191125145050913.png" alt="在这里插入图片描述"><br>我们直接执行这条命令看看 <code>./calcserver.cgi &lt; calc.add.req.xml</code><br><img src="https://img-blog.csdnimg.cn/20191125145132290.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这将显示自动生成的示例soap/xml消息的服务响应。<strong>calc.add.req.xml</strong><br>那依照教程，将 cgi 放在cgi-bin 下，我的是BOA<br><img src="https://img-blog.csdnimg.cn/20191125145433832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们提供浏览器访问看看<br><img src="https://img-blog.csdnimg.cn/20191125145510198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>效果还是一样。<br>那差不多就这样结束了，官方教程还有一大堆，可自行查阅：<a href="https://www.genivia.com/tutorials.html" target="_blank" rel="noopener">传送门</a><br><strong>目录：</strong></p>
+<ul>
+<li>了解XML SOAP、REST、WSDL和XML模式</li>
+<li>如何实现和部署gSOAPWeb服务</li>
+<li>如何链接多个C++服务类以接受一个服务器端口上的请求</li>
+<li>如何使独立服务为HTTPGET请求提供服务</li>
+<li>如何使独立服务为HTTP POST、PUT、修补和删除请求提供服务</li>
+<li>如何在gSOAP中使用JSON和JSONPath</li>
+<li>如何通过HTTP代理连接并使用HTTP承载或基本/摘要身份验证、NTLM身份验证和WS-安全身份验证</li>
+<li>如何用指数退避重试连接</li>
+<li>如何处理HTTP重定向</li>
+<li>如何启用HTTP访问控制(CORS)标头</li>
+<li>如何添加自定义HTTP报头</li>
+<li>如何在gSOAP客户机中使用curl</li>
+<li>如何在客户端和独立的gSOAP服务器上使用HTTPS tls/ssl</li>
+<li>如何使用OpenSSL启用FIPS 140-2</li>
+<li>如何使用OpenSSL和gSOAP创建自签名证书</li>
+<li>如何将PEM格式的证书转换为MS Windows的CER格式</li>
+<li>如何使用GNUTLS创建自签名证书</li>
+<li>如何通过超时和错误处理程序增强应用程序的健壮性</li>
+<li>如何设置和获取SOAP头</li>
+<li>如何设置和获取SOAP故障</li>
+<li>如何通过包装xml请求和响应元素从XSD创建新的SOAP服务操作</li>
+</ul>
+<hr>
+<h2 id="别人的案例"><a href="#别人的案例" class="headerlink" title="别人的案例"></a>别人的案例</h2><p>我们看看别人的案例试试 <a href="https://blog.csdn.net/hktkfly6/article/details/78321908" target="_blank" rel="noopener">gsoap_2.8.33.zip安装与编译</a></p>
+<h3 id="新建-add-h"><a href="#新建-add-h" class="headerlink" title="新建 add.h"></a>新建 <code>add.h</code></h3><p>复制过来运行发现有问题，改为</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//gsoapopt cw</span>
+<span class="token comment" spellcheck="true">//gsoap ns2 schema namespace: urn:add</span>
+<span class="token comment" spellcheck="true">//gsoap ns2 schema form: unqualified</span>
+<span class="token comment" spellcheck="true">//gsoap ns2 service name: add</span>
+<span class="token comment" spellcheck="true">//gsoap ns2 service type: addPortType   </span>
+<span class="token comment" spellcheck="true">//add http://schemas.xmlsoap.org/soap/encoding/</span>
+<span class="token comment" spellcheck="true">//gsoap ns2  service method-action:     add ""</span>
+
+<span class="token keyword">int</span> <span class="token function">ns2__add</span><span class="token punctuation">(</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">*</span> sum <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">ns2__sub</span><span class="token punctuation">(</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>然后 执行 <code>/usr/local/gSOAP/bin/soapcpp2 -c add.h</code><br><img src="https://img-blog.csdnimg.cn/20191125151345183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="服务端，创建-addserver-c"><a href="#服务端，创建-addserver-c" class="headerlink" title="服务端，创建 addserver.c"></a>服务端，创建 <strong>addserver.c</strong></h3><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapH.h"</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"add.nsmap"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> m<span class="token punctuation">,</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> soap add_soap<span class="token punctuation">;</span>
+    <span class="token function">soap_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_set_namespaces</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> namespaces<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"usage: %s &lt;server_port> /n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    m <span class="token operator">=</span> <span class="token function">soap_bind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>m <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">soap_print_fault</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> <span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+     <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Socket connection successful: master socket = %d\n"</span><span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          s <span class="token operator">=</span> <span class="token function">soap_accept</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token function">soap_print_fault</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> <span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+     <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Socket connection successful: slave socket = %d\n"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token function">soap_serve</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token function">soap_end</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">ns2__add</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>add_soap<span class="token punctuation">,</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sum<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">*</span>sum <span class="token operator">=</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">ns2__sub</span><span class="token punctuation">(</span><span class="token keyword">struct</span> soap <span class="token operator">*</span>sub_soap<span class="token punctuation">,</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sub<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token operator">*</span>sub <span class="token operator">=</span> num1 <span class="token operator">-</span> num2<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="客户端，新建-addclient-c"><a href="#客户端，新建-addclient-c" class="headerlink" title="客户端，新建 addclient.c"></a>客户端，新建 <strong>addclient.c</strong></h3><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapStub.h"</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"add.nsmap"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>server<span class="token punctuation">,</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">sub</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>server<span class="token punctuation">,</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> server<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> num1<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> num2<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> sum<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"usage: %s &lt;ip:port> num1 num2 /n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>server<span class="token punctuation">,</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    num1 <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    num2 <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    result <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>server<span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"soap error, errcode=%d\n"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d + %d = %d\n"</span><span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    result <span class="token operator">=</span> <span class="token function">sub</span><span class="token punctuation">(</span>server<span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"soap error, errcode=%d\n"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d - %d = %d\n"</span><span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>server<span class="token punctuation">,</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sum<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">struct</span> soap add_soap<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">soap_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_set_namespaces</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> namespaces<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_call_ns2__add</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"server is %s, num1 is %d, num2 is %d\n"</span><span class="token punctuation">,</span> server<span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>add_soap<span class="token punctuation">.</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"soap error: %d, %s, %s\n"</span><span class="token punctuation">,</span> add_soap<span class="token punctuation">.</span>error<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token function">soap_faultcode</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token function">soap_faultstring</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        result <span class="token operator">=</span> add_soap<span class="token punctuation">.</span>error<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">soap_end</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_done</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">sub</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>server<span class="token punctuation">,</span> <span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>sub<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">struct</span> soap add_soap<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">soap_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_set_namespaces</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> namespaces<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_call_ns2__sub</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">,</span> server<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> sub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"server is %s, num1 is %d, num2 is %d\n"</span><span class="token punctuation">,</span> server<span class="token punctuation">,</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>add_soap<span class="token punctuation">.</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"soap error: %d, %s, %s\n"</span><span class="token punctuation">,</span> add_soap<span class="token punctuation">.</span>error<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token function">soap_faultcode</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token function">soap_faultstring</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        result <span class="token operator">=</span> add_soap<span class="token punctuation">.</span>error<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">soap_end</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">soap_done</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>add_soap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>stdsoap2.c</strong> 和 <strong>stdsoap2.h</strong>，在gSOAP里面搜出来，拷贝过来，上文已经准备好了</p>
+<h3 id="编写Makefile"><a href="#编写Makefile" class="headerlink" title="编写Makefile"></a>编写Makefile</h3><p>新建 <strong>Makefile</strong><br>直接复制过来多半是不行的，看到第一行 GSOAP_ROOT ，根目录改成自己的，那我应该是如下</p>
+<pre class=" language-bash"><code class="language-bash">GSOAP_ROOT <span class="token operator">=</span> /home/hlx/gsoap-2.8/gsoap
+WSNAME <span class="token operator">=</span> add
+
+CC <span class="token operator">=</span> g++ -g -DWITH_NONAMESPACES
+INCLUDE <span class="token operator">=</span> -I <span class="token variable"><span class="token variable">$(</span>GSOAP_ROOT<span class="token variable">)</span></span>
+
+SERVER_OBJS <span class="token operator">=</span>soapC.o stdsoap2.o soapServer.o <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span>server.o 
+CLIENT_OBJS <span class="token operator">=</span>soapC.o stdsoap2.o soapClient.o <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span>client.o 
+all: server
+server: <span class="token variable"><span class="token variable">$(</span>SERVER_OBJS<span class="token variable">)</span></span> 
+    <span class="token variable"><span class="token variable">$(</span>CC<span class="token variable">)</span></span> <span class="token variable"><span class="token variable">$(</span>INCLUDE<span class="token variable">)</span></span> -o <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span>server <span class="token variable"><span class="token variable">$(</span>SERVER_OBJS<span class="token variable">)</span></span>    
+client: <span class="token variable"><span class="token variable">$(</span>CLIENT_OBJS<span class="token variable">)</span></span> 
+    <span class="token variable"><span class="token variable">$(</span>CC<span class="token variable">)</span></span> <span class="token variable"><span class="token variable">$(</span>INCLUDE<span class="token variable">)</span></span> -o <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span>client <span class="token variable"><span class="token variable">$(</span>CLIENT_OBJS<span class="token variable">)</span></span>
+clean:
+    <span class="token function">rm</span> -f *.o *.xml *.a *.wsdl *.nsmap soap* <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span>Stub.* <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span>server ns.xsd <span class="token variable"><span class="token variable">$(</span>WSNAME<span class="token variable">)</span></span><span class="token function">test</span></code></pre>
+<p>可以 到相应目录执行 <code>pwd</code><br><img src="https://img-blog.csdnimg.cn/20191125151953738.png" alt="在这里插入图片描述"></p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>终端执行</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> server
+<span class="token function">make</span> client</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20191125152242387.png" alt="在这里插入图片描述"><br>我make挂了，<strong>tab分割符，不能用空格</strong>，我们修改一下。<br><img src="https://img-blog.csdnimg.cn/20191125152610100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>make完毕。编译生成服务端执行程序 <strong>addserver</strong> 和客户端执行程序 <strong>addclient</strong> </p>
+<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p>终端执行 <code>./addserver  8888</code>  运行服务端程序<br><img src="https://img-blog.csdnimg.cn/20191125152804547.png" alt="在这里插入图片描述"><br>终端打印出“Socket connection successful: master socket = 3”，那么你的server已经在前台run起来了<br>新建另一终端执行客户端程序 <code>./addclient http://localhost:8888 99 22</code><br><img src="https://img-blog.csdnimg.cn/20191125152947485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>成功计算了加减法，服务端也有所响应。<br>案例结束<br>引自：<a href="https://blog.csdn.net/hktkfly6/article/details/78321908" target="_blank" rel="noopener">gsoap_2.8.33.zip安装与编译</a> 作者：拿破仑的海阔天空</p>
+<hr>
+<p>恩 我们的文章到此结束了，真是漫长的旅程。各位有缘再见。O(∩_∩)O~~</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p>gsoap下载：<a href="https://sourceforge.net/projects/gsoap2/" target="_blank" rel="noopener">https://sourceforge.net/projects/gsoap2/</a><br>gsoap主页：<a href="http://www.cs.fsu.edu/~engelen/soap.html" target="_blank" rel="noopener">http://www.cs.fsu.edu/~engelen/soap.html</a><br>gsoap官网： <a href="http://gsoap2.sourceforge.net/" target="_blank" rel="noopener">http://gsoap2.sourceforge.net/</a><br>官方教程：<a href="https://www.genivia.com/tutorials.html" target="_blank" rel="noopener">https://www.genivia.com/tutorials.html</a><br>gSOAP资料下载-太平洋下载中心（自行斟酌）：<a href="https://dl.pconline.com.cn/download/1448138.html" target="_blank" rel="noopener">https://dl.pconline.com.cn/download/1448138.html</a><br>gsoap_2.8.33.zip安装与编译：<a href="https://blog.csdn.net/hktkfly6/article/details/78321908" target="_blank" rel="noopener">https://blog.csdn.net/hktkfly6/article/details/78321908</a><br>SOAP菜鸟教程：<a href="https://www.runoob.com/soap/soap-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/soap/soap-tutorial.html</a><br>WSDL 教程：<a href="https://www.w3school.com.cn/wsdl/index.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/wsdl/index.asp</a><br>ONVIF协议解读：<a href="https://blog.csdn.net/hktkfly6/article/details/78322154" target="_blank" rel="noopener">https://blog.csdn.net/hktkfly6/article/details/78322154</a><br>ONVIF协议学习笔记：<a href="https://www.cnblogs.com/lsdb/p/9157302.html" target="_blank" rel="noopener">https://www.cnblogs.com/lsdb/p/9157302.html</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>Reprint policy</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《gSOAP安装配置+使用案例参考+参考链接》
+                </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/25/gsoap-an-zhuang-pei-zhi-shi-yong-an-li-can-kao-can-kao-lian-jie/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ikaros
+            </a> is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a> 
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8eb6282cd486a5fcac3c',
+        clientSecret: 'f89a28165a1fd9f0c144d8f4805bb9f1d7e91f91',
+        repo: 'ikaros-521.github.io',
+        owner: 'Ikaros-521',
+        admin: ["Ikaros-521"],
+        id: '2019-11-25T16-00-01',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2019/11/25/gsoap-an-zhuang-pei-zhi-shi-yong-an-li-can-kao-can-kao-lian-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="gSOAP安装配置+使用案例参考+参考链接">
+                        
+                        <span class="card-title">gSOAP安装配置+使用案例参考+参考链接</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            环境搭建与配置gSOAP下载地址：https://sourceforge.net/projects/gsoap2/files/相关配置参考：gsoap_2.8.33.zip安装与编译配置完成后，根据官网文档：https://www.geni
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C
+                                </a>
+                            
+                            <a href="/categories/C/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/gSOAP/" target="_blank">
+                        <span class="chip bg-color">gSOAP</span>
+                    </a>
+                    
+                    <a href="/tags/SOAP/" target="_blank">
+                        <span class="chip bg-color">SOAP</span>
+                    </a>
+                    
+                    <a href="/tags/ONVIF/" target="_blank">
+                        <span class="chip bg-color">ONVIF</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/22/c-yu-yan-shi-xian-socket-tong-xin-tcp-cheng-xu-can-kao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C语言实现socket通信TCP 程序参考">
+                        
+                        <span class="card-title">C语言实现socket通信TCP 程序参考</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            概念参考：网络通信TCP/UDP——学习笔记实现效果：先运行服务端，再运行客户端。连接完毕，客户端可以发送消息。客户端发送了 “1”，服务端收到消息并打印，此时轮到服务端发送消息。服务端发送消息“2”，客户端收到消息也进行打印，之后不断重复
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category" target="_blank">
+                                    C
+                                </a>
+                            
+                            <a href="/categories/C/计算机网络/" class="post-category" target="_blank">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/socket/" target="_blank">
+                        <span class="chip bg-color">socket</span>
+                    </a>
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C</span>
+                    </a>
+                    
+                    <a href="/tags/TCP/" target="_blank">
+                        <span class="chip bg-color">TCP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://github.com/Ikaros-521" target="_blank">Ikaros</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">61.3k</span>
+            
+
+            
+			
+                <br>
+                
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+					<i class="fa fa-heart-o"></i>
+					本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+					
+				
+				
+					<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+				
+				
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ikaros-521" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:327209194@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=327209194" class="tooltipped" data-tooltip="QQ联系我: 327209194" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+		<span id="sitetime"></span>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 09, 1, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+</html>
