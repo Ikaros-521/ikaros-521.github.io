@@ -424,14 +424,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        4k
+                        4.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        20 Min
+                        22 Min
                     </div>
                     
                 
@@ -942,6 +942,53 @@ clean:
 <span class="token function">make</span> client</code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20191125152242387.png" alt="在这里插入图片描述"><br>我make挂了，<strong>tab分割符，不能用空格</strong>，我们修改一下。<br><img src="https://img-blog.csdnimg.cn/20191125152610100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>make完毕。编译生成服务端执行程序 <strong>addserver</strong> 和客户端执行程序 <strong>addclient</strong> </p>
 <h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p>终端执行 <code>./addserver  8888</code>  运行服务端程序<br><img src="https://img-blog.csdnimg.cn/20191125152804547.png" alt="在这里插入图片描述"><br>终端打印出“Socket connection successful: master socket = 3”，那么你的server已经在前台run起来了<br>新建另一终端执行客户端程序 <code>./addclient http://localhost:8888 99 22</code><br><img src="https://img-blog.csdnimg.cn/20191125152947485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>成功计算了加减法，服务端也有所响应。<br>案例结束<br>引自：<a href="https://blog.csdn.net/hktkfly6/article/details/78321908" target="_blank" rel="noopener">gsoap_2.8.33.zip安装与编译</a> 作者：拿破仑的海阔天空</p>
+<h2 id="别人的博客2"><a href="#别人的博客2" class="headerlink" title="别人的博客2"></a>别人的博客2</h2><p>大佬博客链接：<a href="https://blog.csdn.net/benkaoya/article/details/72452968" target="_blank" rel="noopener">ONVIF协议网络摄像机（IPC）客户端程序开发（4）：使用gSOAP生成Web Services框架代码</a><br>我新建了个code，大佬是在Windows下的，所以那2个exe我没拷贝，其他同理拷贝，建立文件夹<br><img src="https://img-blog.csdnimg.cn/20191125172230727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>然后我们终端执行</strong></p>
+<pre class=" language-powershell"><code class="language-powershell"><span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>gSOAP<span class="token operator">/</span>bin<span class="token operator">/</span>wsdl2h <span class="token operator">-</span>o mobilecode<span class="token punctuation">.</span>h <span class="token operator">-</span>c <span class="token operator">-</span>s <span class="token operator">-</span>t typemap<span class="token punctuation">.</span>dat http:<span class="token operator">/</span><span class="token operator">/</span>ws<span class="token punctuation">.</span>webxml<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>WebServices<span class="token operator">/</span>MobileCodeWS<span class="token punctuation">.</span>asmx?wsdl</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20191125172826404.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>有警告，暂时忽略。生成了 <strong>mobilecode.h</strong><br><img src="https://img-blog.csdnimg.cn/2019112517235375.png" alt="在这里插入图片描述"><br>其中-c为产生纯c代码，默认生成 c++代码；-s为不使用STL库，-t为typemap.dat的标识。详情可通过wsdl2h.exe -help查看帮助。<br>这里的WSDL文件，可以在wsdl2h命令中在线下载，也可以先下载到本地，然后引用本地WSDL文件，这里是采用在线下载方式。 —— 引自 <a href="https://blog.csdn.net/benkaoya/article/details/72452968" target="_blank" rel="noopener">https://blog.csdn.net/benkaoya/article/details/72452968</a></p>
+<p><strong>终端执行</strong> <code>/usr/local/gSOAP/bin/soapcpp2 -C -c -x -Iimport -Icustom mobilecode.h</code><br><img src="https://img-blog.csdnimg.cn/20191125172740167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>custom、import、wsdl2h.exe、soapcpp2.exe、typemap.dat、mobilecode.h、soapClientLib.c 无用，可以删除。删除后<br><img src="https://img-blog.csdnimg.cn/20191125173011248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>新建 main.c</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"soapStub.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"MobileCodeWSSoap.nsmap"</span></span>
+
+<span class="token keyword">void</span> <span class="token function">getMobileCodeInfo</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>mobileCode<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">struct</span> soap <span class="token operator">*</span>soap <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span>  <span class="token operator">*</span>endpoint <span class="token operator">=</span> <span class="token string">"http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx"</span><span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> _ns1__getMobileCodeInfo          req<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> _ns1__getMobileCodeInfoResponse  resp<span class="token punctuation">;</span>
+
+    soap <span class="token operator">=</span> <span class="token function">soap_new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// allocate and initalize a context</span>
+
+    <span class="token function">soap_set_mode</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> SOAP_C_UTFSTRING<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// support multibyte string(for Chinese)</span>
+
+    <span class="token function">memset</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>req<span class="token punctuation">,</span> <span class="token number">0x00</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span>mobileCode <span class="token operator">=</span> mobileCode<span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span>userID     <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>SOAP_OK <span class="token operator">==</span> <span class="token function">soap_call___ns1__getMobileCodeInfo</span><span class="token punctuation">(</span>soap<span class="token punctuation">,</span> endpoint<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>req<span class="token punctuation">,</span> <span class="token operator">&amp;</span>resp<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">!=</span> resp<span class="token punctuation">.</span>getMobileCodeInfoResult<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> resp<span class="token punctuation">.</span>getMobileCodeInfoResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token function">soap_destroy</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// delete deserialized objects</span>
+    <span class="token function">soap_end</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// delete allocated data</span>
+    <span class="token function">soap_free</span><span class="token punctuation">(</span>soap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// free the soap struct context data</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token function">getMobileCodeInfo</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>大佬突然就运行了，我们Linux的话 编译 <code>gcc main.c stdsoap2.c soapC.c soapClient.c</code><br>然后 ./a.out 手机号码<br>随便百度个手机号码看看<br><img src="https://img-blog.csdnimg.cn/2019112517405115.png" alt="在这里插入图片描述"><br>我们终端执行 <code>./a.out 18937777777</code><br><img src="https://img-blog.csdnimg.cn/20191125174132491.png" alt="在这里插入图片描述"><br>运行结果出来了，大佬的博客也结束了，大佬的ONVIF栏目 <a href="https://blog.csdn.net/benkaoya/category_6924052.html" target="_blank" rel="noopener">传送门</a> 大家可自行查阅。</p>
 <hr>
 <p>恩 我们的文章到此结束了，真是漫长的旅程。各位有缘再见。O(∩_∩)O~~</p>
 <h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p>gsoap下载：<a href="https://sourceforge.net/projects/gsoap2/" target="_blank" rel="noopener">https://sourceforge.net/projects/gsoap2/</a><br>gsoap主页：<a href="http://www.cs.fsu.edu/~engelen/soap.html" target="_blank" rel="noopener">http://www.cs.fsu.edu/~engelen/soap.html</a><br>gsoap官网： <a href="http://gsoap2.sourceforge.net/" target="_blank" rel="noopener">http://gsoap2.sourceforge.net/</a><br>官方教程：<a href="https://www.genivia.com/tutorials.html" target="_blank" rel="noopener">https://www.genivia.com/tutorials.html</a><br>gSOAP资料下载-太平洋下载中心（自行斟酌）：<a href="https://dl.pconline.com.cn/download/1448138.html" target="_blank" rel="noopener">https://dl.pconline.com.cn/download/1448138.html</a><br>gsoap_2.8.33.zip安装与编译：<a href="https://blog.csdn.net/hktkfly6/article/details/78321908" target="_blank" rel="noopener">https://blog.csdn.net/hktkfly6/article/details/78321908</a><br>SOAP菜鸟教程：<a href="https://www.runoob.com/soap/soap-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/soap/soap-tutorial.html</a><br>WSDL 教程：<a href="https://www.w3school.com.cn/wsdl/index.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/wsdl/index.asp</a><br>ONVIF协议解读：<a href="https://blog.csdn.net/hktkfly6/article/details/78322154" target="_blank" rel="noopener">https://blog.csdn.net/hktkfly6/article/details/78322154</a><br>ONVIF协议学习笔记：<a href="https://www.cnblogs.com/lsdb/p/9157302.html" target="_blank" rel="noopener">https://www.cnblogs.com/lsdb/p/9157302.html</a><br>ONVIF大佬博客：<a href="https://blog.csdn.net/benkaoya/category_6924052.html" target="_blank" rel="noopener">https://blog.csdn.net/benkaoya/category_6924052.html</a></p>
@@ -1294,12 +1341,12 @@ clean:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/socket/" target="_blank">
-                        <span class="chip bg-color">socket</span>
-                    </a>
-                    
                     <a href="/tags/C/" target="_blank">
                         <span class="chip bg-color">C</span>
+                    </a>
+                    
+                    <a href="/tags/socket/" target="_blank">
+                        <span class="chip bg-color">socket</span>
                     </a>
                     
                     <a href="/tags/TCP/" target="_blank">
@@ -1426,7 +1473,7 @@ clean:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">61.3k</span>
+                <span class="white-color">61.8k</span>
             
 
             
