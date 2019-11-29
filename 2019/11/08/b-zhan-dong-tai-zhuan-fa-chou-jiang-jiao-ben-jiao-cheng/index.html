@@ -421,14 +421,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                        2.1k
+                        2.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                        10 Min
+                        11 Min
                     </div>
                     
                 
@@ -751,6 +751,7 @@ DeleteDatabase<span class="token punctuation">(</span><span class="token punctua
 <p>使用操作是不需要修改编码，直接win+R，运行cmd，然后cd到桌面，运行python文件，粘贴入你的动态页面网址，就可以完成抽奖了。之后可以选择是否私信，很方便。再次感谢<strong>Hack Inn</strong>大佬提供的源码。</p>
 <p><img src="https://img-blog.csdnimg.cn/20191030115732555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "></p>
 <h2 id="补充说明："><a href="#补充说明：" class="headerlink" title="补充说明："></a>补充说明：</h2><p>动态转发抽奖.py   是英文版<br>动态转发抽奖2.py  是中文版</p>
+<h3 id="查看所有转发者的信息"><a href="#查看所有转发者的信息" class="headerlink" title="查看所有转发者的信息"></a>查看所有转发者的信息</h3><p>如果想看所有转发者的数据，可以下载<strong>SQLiteSpy可视化工具</strong>或安装<strong>SQLite数据库</strong>，打开Bilibili_TMP.db文件（存储数据的数据库文件）<br>SQLite官网：<a href="https://www.sqlite.org/index.html" target="_blank" rel="noopener">https://www.sqlite.org/index.html</a><br>SQLite安装教程：<a href="https://www.runoob.com/sqlite/sqlite-installation.html" target="_blank" rel="noopener">https://www.runoob.com/sqlite/sqlite-installation.html</a><br><img src="https://img-blog.csdnimg.cn/20191128232530634.png" alt="在这里插入图片描述"><br>此时不要继续操作。在运行路径下可以看到文件Bilibili_TMP.db。<img src="https://img-blog.csdnimg.cn/20191128232619882.png" alt="在这里插入图片描述"><br>运行我们的 <strong>SQLiteSpy</strong><br><img src="https://img-blog.csdnimg.cn/20191128232644703.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>file -&gt; open database<br><img src="https://img-blog.csdnimg.cn/20191128232724434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开我们的 Bilibili_TMP.db<br><img src="https://img-blog.csdnimg.cn/20191128232810260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>双击table下的bilibili<br><img src="https://img-blog.csdnimg.cn/20191128232849687.png" alt="在这里插入图片描述"><br>数据库中的数据就可以看到了<br><img src="https://img-blog.csdnimg.cn/20191128232931460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>现在可以自行进行筛选，如运用SQL语句进行筛选。<br>比如：<code>select * from Bilibili where Comment!="转发动态"</code><br>除去只转发没有说多余话的人。效果如下：<br><img src="https://img-blog.csdnimg.cn/20191128233220642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>执行SQL语句的方法是在上面的框中输入SQL语句，然后按F9（execute-&gt;execute sql）运行SQL语句。<br><img src="https://img-blog.csdnimg.cn/20191128233419420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>就可以看到执行效果了。<br><strong>SQL语句的学习参考</strong>：<a href="https://blog.csdn.net/Ikaros_521/article/details/100808626" target="_blank" rel="noopener">数据库的相关知识—学习笔记</a>，<a href="https://blog.csdn.net/Ikaros_521/article/details/100826220" target="_blank" rel="noopener">SQL数据查询语言—实际运用参考</a></p>
 <p>如需帮助可联系up<br>b站：<a href="https://space.bilibili.com/3709626" target="_blank" rel="noopener">Love丶伊卡洛斯</a><br>QQ： 327209194<br>QQ群：511921385</p>
 <p>侵删同样联系方式如上。</p>
 <script>
@@ -1232,7 +1233,7 @@ DeleteDatabase<span class="token punctuation">(</span><span class="token punctua
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">69k</span>
+                <span class="white-color">69.2k</span>
             
 
             
