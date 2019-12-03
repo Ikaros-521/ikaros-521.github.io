@@ -1,0 +1,1419 @@
+<!DOCTYPE HTML>
+<html lang="UTF-8">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux驱动——学习笔记, ikaros">
+    <meta name="description" content="一、烧写Linux系统到inand1、烧写u-boot到inand
+    tftp 30008000 u-boot.bin
+    movi write u-boot 30008000
+2、烧写Linux内核到inand
+    tftp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Linux驱动——学习笔记 | Ikaros</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ikaros</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ikaros</div>
+        <div class="logo-desc">
+            
+            从天而降 只为与你相遇
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Ikaros-521" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Ikaros-521" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Linux驱动——学习笔记
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/驱动/" target="_blank">
+                                <span class="chip bg-color">驱动</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-12-01
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        3.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        13 Min
+                    </div>
+                    
+                
+				
+				
+                    <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、烧写Linux系统到inand"><a href="#一、烧写Linux系统到inand" class="headerlink" title="一、烧写Linux系统到inand"></a>一、烧写Linux系统到inand</h2><pre><code>1、烧写u-boot到inand
+    tftp 30008000 u-boot.bin
+    movi write u-boot 30008000
+2、烧写Linux内核到inand
+    tftp 30008000 zImage-qt
+    movi write kernal 30008000
+3、烧写文件系统到inand
+    开发板中已经有文件系统，无须再烧，设置启动参数即可。
+4、设置启动环境变量
+setenv bootcmd "movi read kernel 30008000;bootm 30008000"
+setenv bootargs "console=ttySAC2,115200 root=/dev/mmcblk0p2 rw init=/linuxrc rootfstype=ext3"</code></pre><h2 id="二、挂载ubuntu系统的文件夹到开发板"><a href="#二、挂载ubuntu系统的文件夹到开发板" class="headerlink" title="二、挂载ubuntu系统的文件夹到开发板"></a>二、挂载ubuntu系统的文件夹到开发板</h2><pre><code>目的：是为了把编译好驱动程序下载到共享目下。
+1、进入开发板系统 root 123456
+2、检查开板的ip地址
+3、在启动脚本添加以下内容：vi /etc/init.d/rcS
+    mount -t nfs -o nolock 192.168.1.66:/nfs /mnt</code></pre><h2 id="三、Linux内核下的C语言编程"><a href="#三、Linux内核下的C语言编程" class="headerlink" title="三、Linux内核下的C语言编程"></a>三、Linux内核下的C语言编程</h2><pre><code>1、命名习惯
+    普通代码：
+        #define PI 3.14159
+        int minVal,maxVal;
+        void sendData(void);
+    内核代码：
+        #define PI 3.14159
+        int min_val,max_val;
+        void send_data(void);
+
+2、GNU C与ANSI C
+    GNU编译器是专门为Linux内核所设计的一款编译器，而且Linux内核中也使用大量只有GNU编译才支持的C语言语法，因此只有GNU编译器才能编译内核代码和Linux驱动程序。
+    a、零长数组
+        typedef struct {
+            int len;
+            char data[0];
+        }Data;
+
+        Data* dp = malloc(sizeof(Data)+1024);
+        dp-&gt;len = 1024;
+
+        send(sockfd,dp,sizeof(dp-&gt;len+sizeof(*dp)),0);
+    b、case范围
+        switch(n)
+        {
+            case 1 ... 5: break;
+            case 6 ... 9: break;
+        }
+    c、typeof
+        定义一个宏求两个变量的最大值。
+        #define MIN(a,b) ((a)&gt;(b)?(a):(b))
+        #define MIN(type,a,b) ({type _a=num1++;type _b=num2++;_a&gt;_b?_a:_b;})
+
+        MIN(int,num1++,num2++) =&gt; num1++ &gt; num2++ ? num1++ : num2++;
+        #define MIN(a,b) ({typeof(a) _a=a; typeof(b) _b=b; _a&gt;_b?_a:_b;})
+
+        定义一个宏交换两个变量值。
+        #define swap(a,b) ({typeof(a) t=a; a=b; b =t;})
+
+    d、可变参长数宏
+        int printf(const char *format, ...);
+        #define debug(ftm,arg,...) printf(ftm,##arg)
+    e、标号元素
+        ANSI C
+        struct Student stu = {
+            name:"hehe",
+            sex:'m',
+            age:18
+        };
+
+        GNU C
+        struct Student stu = {
+            .name = "hehe",
+            .sex = 'm',
+            .age = 18
+        };
+
+3、do{ } while(0)
+    定义一个宏函数，用来释放堆内存。
+    #define FREE_HEAP(p) do{free(p); p = NULL;}while(0)
+
+    int func(void)
+    {
+        if(NULL != p)
+            FREE_HEAP(p)
+        else
+            return -1;
+    }
+
+4、goto语句
+    一般的企业代码中禁止使用goto语句，因为goto可以跳转到函数内的任意位置，会打破原有分支、循环结构、或业务逻辑，所以goto是应用层代码中是一种非常危险的语句，但在内核中却有它独到的功能。
+    int example(void)
+    {
+        if(!register_a())
+        {
+            goto err1;
+        }
+
+        if(!register_b())
+        {
+            goto err2:
+        }
+
+        if(!register_c())
+        {
+            goto err3:
+        }
+
+        // work
+
+    err3:
+        unregister_c();
+    err2:
+        unregister_b();
+    err1:
+        unretister_a();
+    err:
+        return ret;
+    }
+    在内核中，资源的申请与释放必须是逆序，而goto语句能够把错误处理的代码写的安全、严谨而有简洁。</code></pre><h2 id="四、内核模块"><a href="#四、内核模块" class="headerlink" title="四、内核模块"></a>四、内核模块</h2><pre><code>通过分析Linux内核的编译过程，了解到一个实事：Linux内核是由很多模块组成了。
+1、内核以模块的形式组成的好处
+    a、可以灵活的进行裁剪
+    b、可以动态加载或卸载
+    c、可以尽量控制内核的大小
+2、内核模块的特点
+    a、内核模块代码最终是要加入内核中的
+    b、内核模块代码工作在内核态。
+    c、内核模块代码一旦出错，可能会导致整个内核（操作）崩溃。
+    d、在Linux系统中驱动程序是一个内核模块，它按照内核模块的格式进行编写。
+3、内核模块的结构
+    a、模块加载函数（必须）
+        模块加载内核时自动执行此函数，相当于内核模块的入口函数。
+        此函数一般要做些初始化工作、申请内存、资源，注册相关信息。
+    b、模块卸载函数（必须）
+        模块被卸载时自动执行。
+        此函数一般要做些资源的释放、销毁的工作。
+    c、模块声明许可证（必须）
+    d、模块作者信息声明（可选）
+    e、其它一些自定义函数，可以被模块加载函数调用。
+4、内核模块的加载与卸载
+    insmod hello.ko
+    rmmod hello.ko</code></pre><h2 id="五、printfk函数"><a href="#五、printfk函数" class="headerlink" title="五、printfk函数"></a>五、printfk函数</h2><pre><code>printfk是在内核中运行的向控制台输出显示信息的函数，与printf函数的用法基本一致。
+内核中的消息是分等级的，定义在include/linux/kernal.h
+    #define    KERN_EMERG    "&lt;0&gt;"    /* system is unusable            */
+    #define    KERN_ALERT    "&lt;1&gt;"    /* action must be taken immediately    */
+    #define    KERN_CRIT    "&lt;2&gt;"    /* critical conditions            */
+    #define    KERN_ERR    "&lt;3&gt;"    /* error conditions            */
+    #define    KERN_WARNING    "&lt;4&gt;"    /* warning conditions            */
+    #define    KERN_NOTICE    "&lt;5&gt;"    /* normal but significant condition    */
+    #define    KERN_INFO    "&lt;6&gt;"    /* informational            */
+    #define    KERN_DEBUG    "&lt;7&gt;"    /* debug-level messages            */
+    printk 默认的等级是 KERN_NOTICE
+在操作系统中可以设置显示消息等级，数字越大，级别超低。
+    cat  /proc/sys/kernel/printk 可以看当前系统设置的消息等级
+    echo "5" &gt; /proc/sys/kernel/printk</code></pre><h2 id="一、模块参数"><a href="#一、模块参数" class="headerlink" title="一、模块参数"></a>一、模块参数</h2><pre><code>在加载模块时可以像应用程序一样附加一些参数。
+定义变量：用来存储数据。
+注册变量：让内核允许加载模块时变量被赋值。
+    module_param(变量名，类型，权限)；
+    类型:
+        byte、short、ushort、int、uint、long、ulong、charp
+    权限:
+        #define S_IRUSR 00400
+        #define S_IWUSR 00200
+        #define S_IXUSR 00100
+传递参数：insmod xxx.ko 变量名=数据
+模块导出符号：
+    EXPORT_SYMBOL_GPL(符号);
+    导出的符号（变量名、函数名）可以被其他模块使用，使用前声明一下即可。</code></pre><h2 id="二、驱动概述"><a href="#二、驱动概述" class="headerlink" title="二、驱动概述"></a>二、驱动概述</h2><pre><code>什么是驱动：就是控制硬件工作的软件。
+在Linux系统下，驱动程序工作在内核中，以内核模块形式存在，它能能够控制硬件工作，或者提供控制硬件的接口。
+驱动程序提供接口归内核调用，然后内核再统一抽象成文件（设备文件），代应用的程序以操作文件式进行控制硬件。
+应用程序工作在用户态，驱动程序工作在内核态，它们之间不能直接联系，需要按照内核提供的接口（open/read/write/close）来传递数据。
+在Linux系统下一切皆文件。</code></pre><h2 id="三、驱动的类型"><a href="#三、驱动的类型" class="headerlink" title="三、驱动的类型"></a>三、驱动的类型</h2><pre><code>字符设备：在IO过程中以字符或字节为单位进行数据传输，数据也要按照一定的顺序进行读写。
+    操作这种设备的接口有：open/close/read/write
+    常见的字符设备有：鼠标、键盘、串口、LED灯、温度传感器、湿度传感器等。
+    字符设备由于功能杂乱，设备也混乱，一般都是小厂家生产的没有统一的接口，所以大多数据需要编写驱动的都是字符设备。
+块设备：以块为单位进行数据的读写，用记在读写数据时必须最少读一块，这种设备一般都带缓冲区，而且数据量一般都很大，数据在读写时一般不会立即到达硬件。
+    操作这种设备的接口有：open/close/read/write/sync/fsync/fdatasync。
+    常见的块设备有：硬盘、SD卡、Nand、iNand。
+    虽然存储介质不同，但都有一个控制器不需要外部直接操作，只需要按照控制器的接口来操作即可。
+网络设备：具有网络通信协议的设备，网络设备没有设备文件,必须使用socket进行操作。
+    操作这种设备的接口有：send/recv/sendto/recvfrom。
+    网络设备都非常标准的、规范，所以有了万能的网卡驱动，顶多需要移植一下，也不需要编写驱动。</code></pre><h2 id="四、设备文件"><a href="#四、设备文件" class="headerlink" title="四、设备文件"></a>四、设备文件</h2><pre><code>在Linux系统会把硬件抽象成文件来制作（网上除外）。
+查看设备文件：ls -l /dev
+每个字母表示文件的类型：
+    -   普通文件
+    d   目录文件
+    l   链接文件
+    c   字符设备文件
+    b   块设备文件
+    p   管道文件
+    s   socket文件
+设备号：主设备号+从设备号组成
+    主设备号：表示硬件的类型，1~254
+    从设备号：硬件的编号，0~255
+    它是在驱动程序中确定的，可以让内核自动生成，也可以手动确定，或者手动创建。
+    注意：设备不能重复。</code></pre><h2 id="五、字符设备驱动"><a href="#五、字符设备驱动" class="headerlink" title="五、字符设备驱动"></a>五、字符设备驱动</h2><pre><code>1、字符设备驱动分析
+    drivers\char\Cs5535_gpio.c
+    a、按照内核模块格式编写
+    b、创建设备号、初始化、添加
+    c、实现文件操作函数
+2、设备号
+    dev_t dev_id = MKDEV(主设备号，从设备号);
+    功能：生成一个设备号
+    返回值：主设备号+从设备号的合体
+    注意：不一定能使用。
+
+    int register_chrdev_region(dev_t from, unsigned count, const char *name)
+    功能：注册希望使用的设备号，如果已经被占用则失败。
+    from：希望使用的设备号，MKDEV的返回值
+    count：设备的数量
+    name：设备文件名
+    返回值：成功返回0
+
+    int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count,const char *name)
+    dev：内核分配的设备号，返回值
+    baseminor：设备号的起始值
+    count：设备的数量
+    name：设备名
+    返回值：成功返回0
+
+    MAJOR(dev_id) 解析出主设备号
+    MINOR(dev_id) 解析出从设备号
+
+    void unregister_chrdev_region(dev_t from, unsigned count)
+    功能：释放设备号
+    from：设备号
+    count：数量
+3、字符设备结构体
+    struct cdev {
+        struct kobject kobj;  // 内嵌的对象
+        struct module *owner; // 模块名
+        const struct file_operations *ops; // 文件操作结构体（函数指针）
+        struct list_head list;
+        dev_t dev; // 设备号
+        unsigned int count; // 设备数量
+    };
+
+    void cdev_init(struct cdev *cdev, const struct file_operations *fops)；
+    功能：初始化字符设备结构体
+    cdev：字符设备结构体
+    fops：文件操作结构体
+
+    int cdev_add(struct cdev *p, dev_t dev, unsigned count)
+    功能：添加字符设备到内核
+    p：被初始化过的字符设备结构体
+    dev：注册过的设备号
+    count：设备数量
+
+    struct file_operations {
+        // 模块名
+        struct module *owner; 
+        // 设备文件位置指针
+        loff_t (*llseek) (struct file *, loff_t, int);
+        // read函数
+        ssize_t (*read) (struct file *, char __user *, size_t, loff_t *);
+        // write
+        ssize_t (*write) (struct file *, const char __user *, size_t, loff_t *);
+        // poll
+        unsigned int (*poll) (struct file *, struct poll_table_struct *);
+        // ioctl
+        int (*ioctl) (struct inode *, struct file *, unsigned int, unsigned long);
+        // mmap
+        int (*mmap) (struct file *, struct vm_area_struct *);
+        // open
+        int (*open) (struct inode *, struct file 
+        // flush
+        int (*flush) (struct file *, fl_owner_t id);
+        // close
+        int (*release) (struct inode *, struct file *);
+    }</code></pre><h2 id="六、设备文件"><a href="#六、设备文件" class="headerlink" title="六、设备文件"></a>六、设备文件</h2><pre><code>1、手动创建
+    mknod 创建设备文件的命令。
+    cat /proc/devices 查看内核分配的主设备号
+    mknod /dev/char_v1 c 250 0
+
+2、自动创建
+内核提供一组函数用于自动创建设备文件，设备类对动对应的数据结构：struct class
+    class_create-&gt;*__class_create
+    struct class *__class_create(struct module *owner, const char *name,struct lock_class_key *key)
+    功能：在内核中创建设备类 /sys/class/xxx
+    owner：模块名
+    key：设备类的名字
+    返回值：设备类指针
+
+    struct device *device_create(struct class *class, struct device *parent,dev_t devt, void *drvdata, const char *fmt, ...)
+    功能：/sys/class/xxx/在dev目录下自动创建设备文件
+    class：设备类指针，class_create函数的返回值
+    parent：设备结构体指针，兼容各种类型的设备，此处填写字符设备结构指针。
+    devt：设备号
+    drvdata：创建设备文件时的附加信息
+    fmt：设备文件名
+
+void device_destroy(struct class *class, dev_t devt)
+功能：删除设备
+class：设备类指针，class_create函数的返回值
+devt：设备号
+
+void class_destroy(struct class *cls)
+功能：从内核中删除设备类</code></pre><h2 id="一、驱动程序中操作GPIO"><a href="#一、驱动程序中操作GPIO" class="headerlink" title="一、驱动程序中操作GPIO"></a>一、驱动程序中操作GPIO</h2><pre><code>在内核中已经把各个GPIO定义为宏，不需要再找地址了，在头文件 arch/arm/mach-sv5pv210/include/mach/gpio.h。
+int gpio_request(unsigned gpio, const char *label)
+功能：申请GPIO资源
+gpio：GPIO管脚的编号，在gpio.h头文件中有定义
+label：给GPIO管脚取个名字
+
+void gpio_free(unsigned gpio)
+功能：释放GPIO资源
+
+int gpio_direction_input(unsigned gpio)
+功能：设置GPIO管脚为输入模式
+
+int gpio_direction_output(unsigned gpio, int value)
+功能：设置GPIO管脚为输出模式
+
+int gpio_get_value(unsigned gpio)
+功能：从GPIO管脚读取数据
+
+void gpio_set_value(unsigned gpio, int value)
+功能：向GPIO管脚写入数据</code></pre><h2 id="二、ioctl"><a href="#二、ioctl" class="headerlink" title="二、ioctl"></a>二、ioctl</h2><pre><code>int ioctl(int d, int request, ...);
+功能：从应用层来调用内核层的ioctl函数，对设备进行设置。
+d：文件描述符，open函数的返回值
+request：命令
+...：附加参数，存储在用户层，以指针的方式交给内核层。
+返回值：成功返回0，失败返回-1。
+
+int (*ioctl) (struct inode *, struct file *, unsigned int cmd, unsigned long arg);
+功能：响应应用层的ioctl函数，对硬件进行设置。
+cmd：对应应用层request
+arg：实际上是一个指针，它第指向用户层的一段数据。</code></pre><h2 id="三、内核的内存管理"><a href="#三、内核的内存管理" class="headerlink" title="三、内核的内存管理"></a>三、内核的内存管理</h2><pre><code>unsigned long __must_check copy_from_user(void *to, const void __user *from, unsigned long n)
+功能：从用户层拷贝数据到内核层
+to：指向内核层空间的指针
+from：指向用户层空间的指针
+n：要拷贝的字节数据
+返回值：成功拷贝的字节数
+
+long copy_to_user(void __user *to,const void *from, unsigned long n)
+功能：从内核层拷贝数据到用户层
+to：指向用户层空间的指针
+from：指向内核层空间的指针
+n：要拷贝的字节数据
+返回值：成功拷贝的字节数
+
+void *kmalloc(int size)
+功能：与标准C中的用法一致，其实就是调用malloc，kmalloc只是一个宏名。
+
+void kfree(void *where)
+功能：释放内存</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>Reprint policy</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《Linux驱动——学习笔记》
+                </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/01/linux-qu-dong-xue-xi-bi-ji/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ikaros
+            </a> is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a> 
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8eb6282cd486a5fcac3c',
+        clientSecret: 'f89a28165a1fd9f0c144d8f4805bb9f1d7e91f91',
+        repo: 'ikaros-521.github.io',
+        owner: 'Ikaros-521',
+        admin: ["Ikaros-521"],
+        id: '2019-12-01T17-22-01',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/12/03/onvif-she-bei-fa-xian-wang-luo-she-xiang-tou-shi-li-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ONVIF 设备发现（网络摄像头）——实例笔记">
+                        
+                        <span class="card-title">ONVIF 设备发现（网络摄像头）——实例笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            相关配置ONVIF官网：http://www.onvif.org/gSOAP安装配置：gSOAP安装配置+使用案例参考+参考链接操作系统：CentOS7
+资料参考：许振坪的ONVIF专栏：传送门onvif开发之设备发现功能的实现Linux下
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/ONVIF/" target="_blank">
+                        <span class="chip bg-color">ONVIF</span>
+                    </a>
+                    
+                    <a href="/tags/gSOAP/" target="_blank">
+                        <span class="chip bg-color">gSOAP</span>
+                    </a>
+                    
+                    <a href="/tags/网络摄像机/" target="_blank">
+                        <span class="chip bg-color">网络摄像机</span>
+                    </a>
+                    
+                    <a href="/tags/IPC/" target="_blank">
+                        <span class="chip bg-color">IPC</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/01/linux-xi-tong-yi-zhi-xue-xi-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Linux系统移植——学习笔记">
+                        
+                        <span class="card-title">Linux系统移植——学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、u-boot工程1、BootLoader介绍BootLoader是操作系统运行之前要执行的一段程序，它负责初始化硬件设备、建立内容空间映射，从而操作系统的运行做好准备，是一个专门加载操作系统的程序。        对于嵌入式系统而言，没
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/系统移植/" target="_blank">
+                        <span class="chip bg-color">系统移植</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://github.com/Ikaros-521" target="_blank">Ikaros</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">80.2k</span>
+            
+
+            
+			
+                <br>
+                
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+					<i class="fa fa-heart-o"></i>
+					本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+					
+				
+				
+					<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+				
+				
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ikaros-521" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:327209194@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=327209194" class="tooltipped" data-tooltip="QQ联系我: 327209194" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+		<span id="sitetime"></span>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 09, 1, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+</html>
