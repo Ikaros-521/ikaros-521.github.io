@@ -760,7 +760,7 @@ typedef struct Student
     stream：文件指针，fopen函数的返回值
     format：格式化控制符，点位符等
     ...：变量的地址
-    返回值：成功读取到返回0，失败返回-1。        
+    返回值：成功匹配和赋值的个数，失败返回-1。        
 读写二进制内容：
     size_t fwrite(const void *ptr, size_t size, size_t nmemb,FILE *stream);
     功能：内存中的数据，以二进制形式写入到文件中。
