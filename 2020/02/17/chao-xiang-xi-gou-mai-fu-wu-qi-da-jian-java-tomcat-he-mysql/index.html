@@ -1,0 +1,1144 @@
+<!DOCTYPE HTML>
+<html lang="UTF-8">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="【超详细】购买服务器，搭建Java，Tomcat和MySQL, ikaros">
+    <meta name="description" content="温馨提示：本文不含任何广告，使用哪款服务或软件都属个人爱好！！！
+购买服务器购买市面上有很多服务器，可挑选自己喜欢的进行购买搭建。阿里云 腾讯云 百度云 天下数据云 西部数码 景安云 青云 小鸟云 盛大云 华为云等参考文章：国内十大云服务器">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>【超详细】购买服务器，搭建Java，Tomcat和MySQL | Ikaros</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ikaros</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ikaros</div>
+        <div class="logo-desc">
+            
+            从天而降 只为与你相遇
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Ikaros-521" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Ikaros-521" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        【超详细】购买服务器，搭建Java，Tomcat和MySQL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/" target="_blank">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                            <a href="/tags/服务器/" target="_blank">
+                                <span class="chip bg-color">服务器</span>
+                            </a>
+                        
+                            <a href="/tags/Java/" target="_blank">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/Tomcat/" target="_blank">
+                                <span class="chip bg-color">Tomcat</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/服务器/" class="post-category" target="_blank">
+                                服务器
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-02-17
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        2.1k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        8 Min
+                    </div>
+                    
+                
+				
+				
+                    <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>温馨提示：本文不含任何广告，使用哪款服务或软件都属个人爱好！！！</strong></p>
+<h2 id="购买服务器"><a href="#购买服务器" class="headerlink" title="购买服务器"></a>购买服务器</h2><h3 id="购买"><a href="#购买" class="headerlink" title="购买"></a>购买</h3><p>市面上有很多服务器，可挑选自己喜欢的进行购买搭建。<br>阿里云 腾讯云 百度云 天下数据云 西部数码 景安云 青云 小鸟云 盛大云 华为云等<br>参考文章：<a href="https://www.idcbest.com/cloundnews/11002462.html" target="_blank" rel="noopener">国内十大云服务器商排名 各有什么优势呢？</a><br>我个人买的tx云，所以，以此为例。</p>
+<p>腾讯云官网：<a href="https://cloud.tencent.com/" target="_blank" rel="noopener">https://cloud.tencent.com/</a><br>这里买的<strong>腾讯云学生服务器</strong>  <a href="https://cloud.tencent.com/act/campus?from=11821" target="_blank" rel="noopener">https://cloud.tencent.com/act/campus?from=11821</a><br><img src="https://img-blog.csdnimg.cn/20200228151345280.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我买的 <strong>ubuntu18.04。</strong><br>买完之后进入右上角<strong>控制台</strong>。<br>选择左侧导航栏中的“<strong>实例</strong>”，找到刚才买的<strong>地区</strong>的服务器，便可以在实例中看到。<br><img src="https://img-blog.csdnimg.cn/20200228151505334.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><p>关机 -&gt;重置密码 -&gt; 开机<br><img src="https://img-blog.csdnimg.cn/20200228151641693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>大概这个样子，<strong>密码要符合规则</strong><br><img src="https://img-blog.csdnimg.cn/20200228151757988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>修改后重启，我们可以先用右侧的“登录”，登上我们的服务器<br><img src="https://img-blog.csdnimg.cn/20200228151918130.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200228151944382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>输入用户名和密码登录<br><img src="https://img-blog.csdnimg.cn/2020022815203345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功后的样子<br><img src="https://img-blog.csdnimg.cn/20200228152117907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>ps：如果提示“    实例鉴权失败，请确认实例已启用密码鉴权并且账号密码正确”。<br>你重新设个难点的密码试试。</p>
+<h3 id="一键开放端口"><a href="#一键开放端口" class="headerlink" title="一键开放端口"></a>一键开放端口</h3><p><img src="https://img-blog.csdnimg.cn/20200228152306228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200228152353151.png" alt="在这里插入图片描述"><br>一键放通了。<br><img src="https://img-blog.csdnimg.cn/20200228152412333.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果还要加别的端口。控制台左侧导航栏“安全性”，<strong>修改规则</strong><br><img src="https://img-blog.csdnimg.cn/20200228152530553.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>比如添加一个 3306的mysql的端口<br><img src="https://img-blog.csdnimg.cn/20200228152633909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200228152728293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><p>选择自己喜欢的软件进行安装<br>远程连接：<a href="https://www.xshellcn.com/" target="_blank" rel="noopener">Xshell</a>，<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" target="_blank" rel="noopener">putty</a>，<a href="http://www.hostbuf.com/" target="_blank" rel="noopener">finalshell</a>等<br>文件传输：<a href="https://www.flashfxp.com/" target="_blank" rel="noopener">FlashFXP</a>，<a href="http://www.winscp.net/" target="_blank" rel="noopener">WinSCP</a>等</p>
+<h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><h4 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h4><p>下面是Xshell的界面，看着很舒服，不过收费，也可以传输文件<br><img src="https://img-blog.csdnimg.cn/20200228154014240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="putty"><a href="#putty" class="headerlink" title="putty"></a>putty</h4><p>很小巧，免费，不是很美观<br><img src="https://img-blog.csdnimg.cn/20200228154114655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="finalshell"><a href="#finalshell" class="headerlink" title="finalshell"></a>finalshell</h4><p>下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank" rel="noopener">http://www.hostbuf.com/downloads/finalshell_install.exe</a><br>国产！免费。界面也不错，可以传输文件<br><img src="https://img-blog.csdnimg.cn/20200228154224716.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200228174132470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="FlashFXP"><a href="#FlashFXP" class="headerlink" title="FlashFXP"></a>FlashFXP</h4><p>界面不错，收费<br><img src="https://img-blog.csdnimg.cn/20200228154319451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="WinSCP"><a href="#WinSCP" class="headerlink" title="WinSCP"></a>WinSCP</h4><p>免费，界面不错<br><img src="https://img-blog.csdnimg.cn/20200228154452104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="下载安装-jdk"><a href="#下载安装-jdk" class="headerlink" title="下载安装 jdk"></a>下载安装 jdk</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官方网站：<a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-downloads.html</a><br><img src="https://img-blog.csdnimg.cn/20200228155736254.png" alt="在这里插入图片描述"><br>我这里使用 jdk8，别人分享的包<br>链接：<a href="https://pan.baidu.com/s/1doXS6WFVUZUjoH4citinSg" target="_blank" rel="noopener">https://pan.baidu.com/s/1doXS6WFVUZUjoH4citinSg</a><br>提取码：ppx1</p>
+<h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><p>我们使用上面的软件将压缩包发到我们的服务器上，这里我使用 <strong>WinSCP</strong><br>输入我们服务器的 <strong>公网ip</strong>，默认22端口，用户名和密码进行登录<br><img src="https://img-blog.csdnimg.cn/20200228154935649.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200228154837285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后把我们的jdk上传上去<br><img src="https://img-blog.csdnimg.cn/20200228154710918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>参考文章：<a href="https://blog.csdn.net/qq_42289906/article/details/80699777" target="_blank" rel="noopener">安装配置JDK以及Tomcat服务器</a></p>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>我们在用远程连接软件连上去，我这用 <strong>finalshell</strong> 来演示<br><img src="https://img-blog.csdnimg.cn/2020022815521710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择 <strong>SSH连接</strong><br><img src="https://img-blog.csdnimg.cn/20200228155248598.png" alt="在这里插入图片描述"><br>填入相关信息，确定登录<br><img src="https://img-blog.csdnimg.cn/20200228155344185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功后，就可以看到这个界面<br><img src="https://img-blog.csdnimg.cn/20200228155510434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="解压配置"><a href="#解压配置" class="headerlink" title="解压配置"></a>解压配置</h3><h4 id="解压移动"><a href="#解压移动" class="headerlink" title="解压移动"></a>解压移动</h4><p>我的压缩包名为 <strong>jdk-8u212-linux-x64.tar.gz</strong><br>我们用 WinSCP 上传到的目录为 <strong>/home/ubuntu</strong><br>在finalshell的终端中输入命令 <code>pwd</code> 可以查看当前完整目录<br>输入 <code>ls</code> ，查看当前目录下所有文件<br><img src="https://img-blog.csdnimg.cn/20200228155959265.png" alt="在这里插入图片描述"><br>可以看到我们的2个文件都在这 tomcat 和 jdk 。<br>我们使用命令 <code>tar -zxvf jdk-8u212-linux-x64.tar.gz</code> ，进行解压。（ps:tab键可以自动补全）<br><img src="https://img-blog.csdnimg.cn/20200228160136914.png" alt="在这里插入图片描述"><br>解压完成后我们的 文件名为 <strong>jdk1.8.0_212</strong>。<br>我们可以移动jdk到 <strong>/usr/local</strong>，使用命令 <code>sudo mv jdk1.8.0_212/ /usr/local/</code>。（ps：sudo是获取管理员权限）<br>移动后我们使用命令 <code>cd /usr/local</code>，切换到 <strong>/usr/local</strong> 目录。<br>ls 查看一下，可以看到我们的 jdk了<br><img src="https://img-blog.csdnimg.cn/20200228160719715.png" alt="在这里插入图片描述"></p>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><p>输入命令 <code>sudo vi /etc/profile</code>（使用vim进行编辑）具体vim操作可以自行百度，这里不细讲，可参考文章：<a href="https://blog.csdn.net/qq_43432935/article/details/92013718" target="_blank" rel="noopener">Vim编辑器的基本使用</a><br>按 <strong>i</strong>，可以进行编辑。<br>我们在 开头处写入，第一行 JAVA_HOME后面写的刚才jdk的完整路径，可以用 <code>pwd</code> 查看然后复制到这里。<br>剩下3行不用动</p>
+<pre class=" language-powershell"><code class="language-powershell">export  JAVA_HOME=<span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>jdk1<span class="token punctuation">.</span>8<span class="token punctuation">.</span>0_212
+export  CLASSPATH=<span class="token punctuation">.</span>:<span class="token variable">$JAVA_HOME</span><span class="token operator">/</span>lib:<span class="token variable">$JRE_HOME</span><span class="token operator">/</span>lib:<span class="token variable">$CLASSPATH</span>
+export  PATH=<span class="token variable">$JAVA_HOME</span><span class="token operator">/</span>bin:<span class="token variable">$JRE_HOME</span><span class="token operator">/</span>bin:<span class="token variable">$PATH</span>
+export  JRE_HOME=<span class="token variable">$JAVA_HOME</span><span class="token operator">/</span>jre
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200228161800151.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>写完后 按 “<strong>Esc</strong>”键，然后在输入 <strong>:wq!</strong> ，然后<strong>回车</strong>，保存退出。<br>回到终端 输入命令 <code>source /etc/profile</code>，保存配置。<br>使用命令测试是否配置完成 <code>java -version</code>。<br><img src="https://img-blog.csdnimg.cn/20200228161741805.png" alt="在这里插入图片描述"></p>
+<h2 id="下载安装-tomcat"><a href="#下载安装-tomcat" class="headerlink" title="下载安装 tomcat"></a>下载安装 tomcat</h2><p>官网：<a href="https://tomcat.apache.org/" target="_blank" rel="noopener">https://tomcat.apache.org/</a><br>我这下载的 Tomcat 10.0.0-M1，这个 tar.gz 压缩包<br><img src="https://img-blog.csdnimg.cn/20200228162032817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>同理，使用 WinSCP 上传上去<br>回到 home目录的用户下 <strong><code>cd /home/ubuntu/</code></strong>。你的不一定叫 ubuntu，根据你的用户名决定<br>同理 <strong><code>ls</code></strong> 看一下，<code>tar -zxvf apache-tomcat-10.0.0-M1.tar.gz</code>解压，<br>给下权限 <code>sudo chmod 755 -R apache-tomcat-10.0.0-M1</code><br>然后 <code>sudo mv apache-tomcat-10.0.0-M1 /usr/local</code>，也给它移动过去。<br>到 <code>cd /usr/local</code>，进入 tomcat的bin目录下。 <code>cd apache-tomcat-10.0.0-M1/bin/</code>，<br><img src="https://img-blog.csdnimg.cn/20200228162514299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>参考文章：<a href="https://blog.csdn.net/weixx3/article/details/80808484" target="_blank" rel="noopener">Ubuntu18.04 安装Tomcat 8.5</a><br>使用vim编辑下这个shell脚本 <code>sudo vi startup.sh</code><br>找个空给他加上。同理，按 <strong>i</strong> 进行编辑，加完后 <strong>:wq!</strong> 保存退出。</p>
+<pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true">#jdk</span>
+export   JAVA_HOME=<span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>jdk1<span class="token punctuation">.</span>8<span class="token punctuation">.</span>0_212
+export   CLASSPATH=<span class="token punctuation">.</span>:<span class="token variable">$JAVA_HOME</span><span class="token operator">/</span>lib:<span class="token variable">$JRE_HOME</span><span class="token operator">/</span>lib:<span class="token variable">$CLASSPATH</span>
+export  PATH=<span class="token variable">$JAVA_HOME</span><span class="token operator">/</span>bin:<span class="token variable">$JRE_HOME</span><span class="token operator">/</span>bin:<span class="token variable">$PATH</span>
+export   JRE_HOME=<span class="token variable">$JAVA_HOME</span><span class="token operator">/</span>jre
+
+<span class="token comment" spellcheck="true">#tomcat</span>
+export TOMCAT_HOME=<span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>apache<span class="token operator">-</span>tomcat<span class="token operator">-</span>10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token operator">-</span>M11</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200228163045442.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后使用命令 <code>sudo ./startup.sh</code> ，启动 tomcat<br><img src="https://img-blog.csdnimg.cn/202002281632504.png" alt="在这里插入图片描述"><br>现在我们打开浏览器，访问下地址， <code>公网IP:8080</code><br>我们可爱的 tomcat就起来了！！！<br><img src="https://img-blog.csdnimg.cn/20200228163345220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>将 你的项目 丢到 tomcat 的 webapps目录下，可以使用 WinSCP或 finalshell 将项目传进去。<br>例如：我将我的老婆程序 wives上传了进去。<br>cd进去看看参考命令 <code>cd /usr/local/apache-tomcat-10.0.0-M1/webapps/</code>，<code>ls</code>看一下<br><img src="https://img-blog.csdnimg.cn/20200228204209485.png" alt="在这里插入图片描述"><br>然后打开浏览器，<code>公网IP:8080/wives/index.html</code>，把网址发给你的小伙伴，一起玩耍吧~<br><img src="https://img-blog.csdnimg.cn/20200228204312161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="安装配置-MySQL"><a href="#安装配置-MySQL" class="headerlink" title="安装配置 MySQL"></a>安装配置 MySQL</h2><h3 id="下载安装配置"><a href="#下载安装配置" class="headerlink" title="下载安装配置"></a>下载安装配置</h3><p>参考文章：<a href="https://blog.csdn.net/qq_42289906/article/details/80704377" target="_blank" rel="noopener">3.安装MySQL数据库的相关内容</a><br>更新地址  <code>sudo apt-get update</code><br>下载mysql-server <code>sudo apt-get install mysql-server</code><br>下载mysql-client <code>sudo apt-get install mysql-client</code><br>安装好后我们连一下 使用命令 <code>sudo mysql -uroot -p</code>，然后回车，它让你输入密码，默认密码为空，所以直接回车，欧拉欧拉欧拉欧拉！！！如下<br><img src="https://img-blog.csdnimg.cn/20200228163754364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后拓展操作，文章参考：<a href="https://www.cnblogs.com/mybxy/p/10577412.html" target="_blank" rel="noopener">ubuntu安装mysql添加密码</a></p>
+<p>mysql&gt;下依次输入以下命令。帮你把 root 的密码改了</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">databases</span>；
+
+<span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
+
+<span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> authentication_string<span class="token operator">=</span>PASSWORD<span class="token punctuation">(</span><span class="token string">"自定义密码"</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> plugin<span class="token operator">=</span><span class="token string">"mysql_native_password"</span><span class="token punctuation">;</span>
+
+flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>
+
+quit<span class="token punctuation">;</span></code></pre>
+<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p><strong>服务器需要开发端口3306！！！！</strong><br>如果想在Windows下远程连接MySQL，我们装个数据库管理工具<br>我这里以 <a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">Navicat</a> 为例<br>我装的不是官网的版本，装好 Navicat for MySQL 后<br>我们连一下<br><img src="https://img-blog.csdnimg.cn/20200228164419694.png" alt="在这里插入图片描述"><br>输入你的 相关信息<br><img src="https://img-blog.csdnimg.cn/2020022816445657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>确认后双击左侧你新建的 <strong>连接名</strong><br><img src="https://img-blog.csdnimg.cn/20200228164655803.png" alt="在这里插入图片描述"><br>报错如下<br><img src="https://img-blog.csdnimg.cn/20200228164637828.png" alt="在这里插入图片描述"><br>当然你可以百度下原因。<br>我这也参考的写下。</p>
+<h3 id="新建数据库用户"><a href="#新建数据库用户" class="headerlink" title="新建数据库用户"></a>新建数据库用户</h3><p>我们不用 root 用户，我们新建个新用户。<br>参考文章：<a href="https://www.cnblogs.com/zhongyehai/p/10695659.html" target="_blank" rel="noopener">MySQL创建用户与授权</a><br><a href="https://blog.csdn.net/Ikaros_521/article/details/102664117" target="_blank" rel="noopener">mysql中文乱码问题解决 / C程序插入仍是乱码解决 / 卸载重装教学</a><br><a href="https://blog.csdn.net/Ikaros_521/article/details/100826220" target="_blank" rel="noopener">SQL数据查询语言——实际运用参考</a><br><a href="https://blog.csdn.net/Ikaros_521/article/details/100808626" target="_blank" rel="noopener">数据库的相关知识——学习笔记</a></p>
+<h4 id="1、创建用户"><a href="#1、创建用户" class="headerlink" title="1、创建用户"></a>1、创建用户</h4><p>mysql&gt;下输入以下命令<br>命令 <code>CREATE USER 'username'@'host' IDENTIFIED BY 'password';</code><br> username：就是你新用户的用户名<br>  host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%<br> password：就是你新用户的密码</p>
+<p> 所以我们使用 % 即  <code>CREATE USER 'username'@'%' IDENTIFIED BY 'password';</code><br> <img src="https://img-blog.csdnimg.cn/20200228165446648.png" alt="在这里插入图片描述"></p>
+<h4 id="2、授权"><a href="#2、授权" class="headerlink" title="2、授权"></a>2、授权</h4><p> 命令：<code>GRANT privileges ON databasename.tablename TO 'username'@'host';</code><br> privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL<br>databasename：数据库名<br>tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用 * 表示，如  *.*<br>注意:<br>用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">privileges</span> <span class="token keyword">ON</span> databasename<span class="token punctuation">.</span>tablename <span class="token keyword">TO</span> <span class="token string">'username'</span><span class="token variable">@'host'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span></code></pre>
+<p>所以我们使用命令 <code>GRANT ALL ON *.* TO 'test'@'%' WITH GRANT OPTION;</code><br><img src="https://img-blog.csdnimg.cn/20200228170035973.png" alt="在这里插入图片描述"></p>
+<h3 id="刷新权限"><a href="#刷新权限" class="headerlink" title="刷新权限"></a>刷新权限</h3><p>mysql&gt;<code>flush privileges;</code><br><img src="https://img-blog.csdnimg.cn/2020022817021141.png" alt="在这里插入图片描述"></p>
+<h3 id="再次远程连接"><a href="#再次远程连接" class="headerlink" title="再次远程连接"></a>再次远程连接</h3><p>输入刚才新建的mysql用户名和密码<br><img src="https://img-blog.csdnimg.cn/20200228170250687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>双击 test，连接成功并展开<br><img src="https://img-blog.csdnimg.cn/20200228170320429.png" alt="在这里插入图片描述"></p>
+<h3 id="建库建表"><a href="#建库建表" class="headerlink" title="建库建表"></a>建库建表</h3><p>右击 <strong>test</strong>，新建数据库<br><img src="https://img-blog.csdnimg.cn/20200228170435105.png" alt="在这里插入图片描述"><br>输入相关信息<br><img src="https://img-blog.csdnimg.cn/20200228170515675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200228170535825.png" alt="在这里插入图片描述">.<br>展开 <strong>user</strong>，右击 <strong>表</strong>，<strong>新建表</strong><br><img src="https://img-blog.csdnimg.cn/20200228170604961.png" alt="在这里插入图片描述"><br>根据自己的需求填下<br><img src="https://img-blog.csdnimg.cn/20200228170824272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>保存一下，给个表名<br><img src="https://img-blog.csdnimg.cn/20200228170932588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>左侧再展开<br><img src="https://img-blog.csdnimg.cn/20200228171013109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>随便加几个数据<br><img src="https://img-blog.csdnimg.cn/20200228171124132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>差不多就到这了，溜了溜了。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>Reprint policy</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《【超详细】购买服务器，搭建Java，Tomcat和MySQL》
+                </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/17/chao-xiang-xi-gou-mai-fu-wu-qi-da-jian-java-tomcat-he-mysql/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ikaros
+            </a> is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a> 
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '8eb6282cd486a5fcac3c',
+        clientSecret: 'f89a28165a1fd9f0c144d8f4805bb9f1d7e91f91',
+        repo: 'ikaros-521.github.io',
+        owner: 'Ikaros-521',
+        admin: ["Ikaros-521"],
+        id: '2020-02-17T11-22-01',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/03/17/yun-fu-wu-qi-da-jian-dai-li-fu-wu-qi-shadowsock-jian-dan-shuo-ming/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="云服务器搭建代理服务器 —— shadowsock，简单说明">
+                        
+                        <span class="card-title">云服务器搭建代理服务器 —— shadowsock，简单说明</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前情提要：因为公司墙了部分网站和QQ，所以用闲置服务器搭个代理玩玩。
+前提条件需要一台云服务器。我的是 ubuntu18.04
+安装 shadowsock可以参考网上教程ubuntu 16.04服务器上搭建Shadowsocks服务Ubun
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/服务器/" class="post-category" target="_blank">
+                                    服务器
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/代理服务器/" target="_blank">
+                        <span class="chip bg-color">代理服务器</span>
+                    </a>
+                    
+                    <a href="/tags/shadowsock/" target="_blank">
+                        <span class="chip bg-color">shadowsock</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/04/shi-yong-ajax-cgi-shi-xian-qian-hou-duan-shu-ju-jiao-hu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="使用ajax+cgi，实现前后端数据交互">
+                        
+                        <span class="card-title">使用ajax+cgi，实现前后端数据交互</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            相关说明操作系统：CentOS7Web服务器：BOA语言：HTML+JS+C演示了网页如何把数据通过AJAX发给后台CGI和后台CGI如何把数据返回到网页的指定控件显示源码参考：AJAX_CGIBOA的搭建参考：Linux下嵌入式Web服务
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C</span>
+                    </a>
+                    
+                    <a href="/tags/ajax/" target="_blank">
+                        <span class="chip bg-color">ajax</span>
+                    </a>
+                    
+                    <a href="/tags/cgi/" target="_blank">
+                        <span class="chip bg-color">cgi</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://github.com/Ikaros-521" target="_blank">Ikaros</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">84.4k</span>
+            
+
+            
+			
+                <br>
+                
+				<span id="busuanzi_container_site_pv" style='display:none'></span>
+					<i class="fa fa-heart-o"></i>
+					本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+					
+				
+				
+					<span id="busuanzi_container_site_uv" style='display:none'></span>
+					人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+				
+				
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ikaros-521" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:327209194@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=327209194" class="tooltipped" data-tooltip="QQ联系我: 327209194" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+		<span id="sitetime"></span>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 09, 1, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+</html>
