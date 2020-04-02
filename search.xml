@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>CentOS7搭建Squid代理服务器，代理QQ</title>
+      <link href="/2020/04/02/centos7-da-jian-squid-dai-li-fu-wu-qi-dai-li-qq/"/>
+      <url>/2020/04/02/centos7-da-jian-squid-dai-li-fu-wu-qi-dai-li-qq/</url>
+      
+        <content type="html"><![CDATA[<p>实现与CentOS7，其他版本请自行变动。</p><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>具体搭建参考 <a href="https://blog.csdn.net/qingfengxulai/article/details/80853870" target="_blank" rel="noopener">使用Squid搭建CentOS7代理服务器上网</a> 部分内容参考此文章</p><h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><p>终端执行命令</p><pre class=" language-powershell"><code class="language-powershell">yum install squid <span class="token operator">-</span>yyum install httpd<span class="token operator">-</span>tools <span class="token operator">-</span>y</code></pre><h3 id="生成密码文件"><a href="#生成密码文件" class="headerlink" title="生成密码文件"></a>生成密码文件</h3><p>创建文件夹</p><pre class=" language-powershell"><code class="language-powershell">mkdir <span class="token operator">/</span>etc<span class="token operator">/</span>squid3<span class="token operator">/</span><span class="token comment" spellcheck="true">#ikaros 是用户名</span>htpasswd <span class="token operator">-</span>cd <span class="token operator">/</span>etc<span class="token operator">/</span>squid3<span class="token operator">/</span>passwords ikaros<span class="token comment" spellcheck="true">#提示输入密码，比如输入123456</span></code></pre><p><img src="https://img-blog.csdnimg.cn/20200402120740732.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="测试密码文件"><a href="#测试密码文件" class="headerlink" title="测试密码文件"></a>测试密码文件</h3><pre class=" language-powershell"><code class="language-powershell"><span class="token operator">/</span>usr<span class="token operator">/</span>lib64<span class="token operator">/</span>squid<span class="token operator">/</span>basic_ncsa_auth <span class="token operator">/</span>etc<span class="token operator">/</span>squid3<span class="token operator">/</span>passwords<span class="token comment" spellcheck="true">#输入用户名 密码</span>ikaros  123456<span class="token comment" spellcheck="true">#提示ok说明成功</span>ok<span class="token comment" spellcheck="true">#ctrl+c退出</span></code></pre><p><img src="https://img-blog.csdnimg.cn/20200402120859483.png" alt="在这里插入图片描述"></p><h3 id="配置squid-conf文件"><a href="#配置squid-conf文件" class="headerlink" title="配置squid.conf文件"></a>配置squid.conf文件</h3><pre class=" language-powershell"><code class="language-powershell">vi <span class="token operator">/</span>etc<span class="token operator">/</span>squid<span class="token operator">/</span>squid<span class="token punctuation">.</span>conf<span class="token comment" spellcheck="true">#在最后添加</span>auth_param basic program <span class="token operator">/</span>usr<span class="token operator">/</span>lib64<span class="token operator">/</span>squid<span class="token operator">/</span>basic_ncsa_auth <span class="token operator">/</span>etc<span class="token operator">/</span>squid3<span class="token operator">/</span>passwordsauth_param basic realm proxyacl authenticated proxy_auth REQUIREDhttp_access allow authenticated<span class="token comment" spellcheck="true"># And finally deny all other access to this proxy</span>http_access allow all<span class="token comment" spellcheck="true">#这里是端口号，可以按需修改</span><span class="token comment" spellcheck="true">#http_port 3128 这样写会同时监听ipv6和ipv4的端口，推荐适应下面的配置方法。</span>http_port 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0:3128</code></pre><p>将 <code>http_access deny CONNECT !SSL_ports</code>改为<code>http_access allow CONNECT !SSL_ports</code></p><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>squid的日志位于/var/log/squid/目录下。</p><h3 id="启动，停止，重启等"><a href="#启动，停止，重启等" class="headerlink" title="启动，停止，重启等"></a>启动，停止，重启等</h3><pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true">#启动start</span>systemctl <span class="token function">start</span> squid<span class="token punctuation">.</span>service<span class="token comment" spellcheck="true">#停止stop</span>systemctl stop squid<span class="token punctuation">.</span>service<span class="token comment" spellcheck="true">#重启stop</span>systemctl restart squid<span class="token punctuation">.</span>service<span class="token comment" spellcheck="true">#配置开机自启动</span>systemctl enable squid<span class="token punctuation">.</span>service<span class="token comment" spellcheck="true">#关闭开机自启动</span>systemctl disable squid<span class="token punctuation">.</span>service<span class="token comment" spellcheck="true">#查看运行状态</span>systemctl status squid<span class="token punctuation">.</span>service</code></pre><p><img src="https://img-blog.csdnimg.cn/20200402121536499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="Windows下客户端测试"><a href="#Windows下客户端测试" class="headerlink" title="Windows下客户端测试"></a>Windows下客户端测试</h3><p>根据以上步骤安装完后，Windows下安装<strong>Proxifier</strong><br><img src="https://img-blog.csdnimg.cn/20200402112102733.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击文件下面的按钮，新建代理服务器<br><img src="https://img-blog.csdnimg.cn/20200402112227374.png" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/20200402112212627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>填完信息后我们检查一下<br><img src="https://img-blog.csdnimg.cn/20200402112319424.png" alt="在这里插入图片描述"><br>正常情况下是这样的<br><img src="https://img-blog.csdnimg.cn/2020040211234019.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="如果报错"><a href="#如果报错" class="headerlink" title="如果报错"></a>如果报错</h2><p>可以采取解决方案：<br>1、是否开放了服务器端口，例如云服务器安全组开放出入站规则，加入3128端口<br>2、<br><img src="https://img-blog.csdnimg.cn/20200402112521492.png" alt="在这里插入图片描述"><br>这种情况需要修改配置文件 /etc/squid/squid.conf。<br>将 <code>http_access deny CONNECT !SSL_ports</code>改为<code>http_access allow CONNECT !SSL_ports</code><br>3、开头文章教程里的这一块部分是否做了配置<br><img src="https://img-blog.csdnimg.cn/20200402112808217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4、这一部分是否也 allow<br><img src="https://img-blog.csdnimg.cn/20200402121121851.png" alt="在这里插入图片描述"><br>5、以上步骤结束后，重启squid</p><pre class=" language-powershell"><code class="language-powershell">systemctl restart squid</code></pre><h2 id="配置规则"><a href="#配置规则" class="headerlink" title="配置规则"></a>配置规则</h2><p><img src="https://img-blog.csdnimg.cn/20200402112947860.png" alt="在这里插入图片描述"><br>关闭默认的 localhost 和 default<br><img src="https://img-blog.csdnimg.cn/20200402113031348.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>针对对应程序进行代理设置<br><img src="https://img-blog.csdnimg.cn/20200402113124730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我这里以QQ为例<br><img src="https://img-blog.csdnimg.cn/20200402113145797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>配置好后，打开QQ，点击设置<br><img src="https://img-blog.csdnimg.cn/20200402113215482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>填入信息，默认的3128端口<br><img src="https://img-blog.csdnimg.cn/20200402113248679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>测试一下<br><img src="https://img-blog.csdnimg.cn/20200402113257814.png" alt="在这里插入图片描述"><br>就可以登录QQ了<br><img src="https://img-blog.csdnimg.cn/2020040211331528.png" alt="在这里插入图片描述"><br>回到 proxifier<br><img src="https://img-blog.csdnimg.cn/20200402113338664.png" alt="在这里插入图片描述"><br>可以看到QQ已经接入代理了。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> 代理服务器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 代理服务器 </tag>
+            
+            <tag> Squid </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>云服务器搭建代理服务器 —— shadowsock，简单说明</title>
       <link href="/2020/03/17/yun-fu-wu-qi-da-jian-dai-li-fu-wu-qi-shadowsock-jian-dan-shuo-ming/"/>
       <url>/2020/03/17/yun-fu-wu-qi-da-jian-dai-li-fu-wu-qi-shadowsock-jian-dan-shuo-ming/</url>
@@ -55,13 +86,13 @@
             
             <tag> Linux </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> 服务器 </tag>
             
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -90,9 +121,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> C </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> C </tag>
             
             <tag> ajax </tag>
             
@@ -688,9 +719,9 @@
       
         <tags>
             
-            <tag> GNU </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> GNU </tag>
             
         </tags>
       
