@@ -156,9 +156,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> gSOAP </tag>
-            
             <tag> ONVIF </tag>
+            
+            <tag> gSOAP </tag>
             
             <tag> 网络摄像机 </tag>
             
@@ -282,11 +282,11 @@
             
             <tag> 嵌入式 </tag>
             
+            <tag> ONVIF </tag>
+            
             <tag> gSOAP </tag>
             
             <tag> SOAP </tag>
-            
-            <tag> ONVIF </tag>
             
         </tags>
       
@@ -313,9 +313,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> socket </tag>
+            
+            <tag> C </tag>
             
             <tag> TCP </tag>
             
@@ -344,9 +344,9 @@
             
             <tag> python </tag>
             
-            <tag> HTML </tag>
-            
             <tag> CGI </tag>
+            
+            <tag> HTML </tag>
             
         </tags>
       
@@ -406,11 +406,11 @@
             
             <tag> Linux </tag>
             
-            <tag> HTML </tag>
+            <tag> BOA </tag>
             
             <tag> CGI </tag>
             
-            <tag> BOA </tag>
+            <tag> HTML </tag>
             
             <tag> MySQL </tag>
             
@@ -497,11 +497,11 @@
             
             <tag> Linux </tag>
             
-            <tag> HTML </tag>
+            <tag> BOA </tag>
             
             <tag> CGI </tag>
             
-            <tag> BOA </tag>
+            <tag> HTML </tag>
             
         </tags>
       
