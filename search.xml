@@ -86,13 +86,13 @@
             
             <tag> Linux </tag>
             
+            <tag> MySQL </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -156,9 +156,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> ONVIF </tag>
-            
             <tag> gSOAP </tag>
+            
+            <tag> ONVIF </tag>
             
             <tag> 网络摄像机 </tag>
             
@@ -282,11 +282,11 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> ONVIF </tag>
-            
             <tag> gSOAP </tag>
             
             <tag> SOAP </tag>
+            
+            <tag> ONVIF </tag>
             
         </tags>
       
@@ -719,9 +719,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> GNU </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
