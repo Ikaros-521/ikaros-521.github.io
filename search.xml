@@ -156,9 +156,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> ONVIF </tag>
-            
             <tag> gSOAP </tag>
+            
+            <tag> ONVIF </tag>
             
             <tag> 网络摄像机 </tag>
             
@@ -282,11 +282,11 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> ONVIF </tag>
-            
             <tag> gSOAP </tag>
             
             <tag> SOAP </tag>
+            
+            <tag> ONVIF </tag>
             
         </tags>
       
@@ -313,9 +313,9 @@
       
         <tags>
             
-            <tag> socket </tag>
-            
             <tag> C </tag>
+            
+            <tag> socket </tag>
             
             <tag> TCP </tag>
             
@@ -344,9 +344,9 @@
             
             <tag> python </tag>
             
-            <tag> CGI </tag>
-            
             <tag> HTML </tag>
+            
+            <tag> CGI </tag>
             
         </tags>
       
@@ -404,13 +404,13 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> Linux </tag>
-            
-            <tag> BOA </tag>
+            <tag> HTML </tag>
             
             <tag> CGI </tag>
             
-            <tag> HTML </tag>
+            <tag> Linux </tag>
+            
+            <tag> BOA </tag>
             
             <tag> MySQL </tag>
             
@@ -439,9 +439,9 @@
             
             <tag> ARM </tag>
             
-            <tag> x210V3s </tag>
-            
             <tag> 嵌入式 </tag>
+            
+            <tag> x210V3s </tag>
             
         </tags>
       
@@ -495,13 +495,13 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> Linux </tag>
-            
-            <tag> BOA </tag>
+            <tag> HTML </tag>
             
             <tag> CGI </tag>
             
-            <tag> HTML </tag>
+            <tag> Linux </tag>
+            
+            <tag> BOA </tag>
             
         </tags>
       
