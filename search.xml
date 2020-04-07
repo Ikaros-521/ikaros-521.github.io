@@ -86,13 +86,13 @@
             
             <tag> Linux </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> 服务器 </tag>
             
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -719,9 +719,9 @@
       
         <tags>
             
-            <tag> GNU </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> GNU </tag>
             
         </tags>
       
