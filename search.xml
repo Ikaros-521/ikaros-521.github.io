@@ -86,13 +86,13 @@
             
             <tag> Linux </tag>
             
+            <tag> MySQL </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -439,9 +439,9 @@
             
             <tag> ARM </tag>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> x210V3s </tag>
+            
+            <tag> 嵌入式 </tag>
             
         </tags>
       
@@ -719,9 +719,9 @@
       
         <tags>
             
-            <tag> GNU </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> GNU </tag>
             
         </tags>
       
