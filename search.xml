@@ -121,9 +121,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> Linux </tag>
-            
             <tag> C </tag>
+            
+            <tag> Linux </tag>
             
             <tag> ajax </tag>
             
@@ -156,9 +156,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> gSOAP </tag>
-            
             <tag> ONVIF </tag>
+            
+            <tag> gSOAP </tag>
             
             <tag> 网络摄像机 </tag>
             
@@ -282,11 +282,11 @@
             
             <tag> 嵌入式 </tag>
             
+            <tag> ONVIF </tag>
+            
             <tag> gSOAP </tag>
             
             <tag> SOAP </tag>
-            
-            <tag> ONVIF </tag>
             
         </tags>
       
