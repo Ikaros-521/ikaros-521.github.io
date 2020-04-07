@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -37,7 +37,7 @@
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/blog/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
@@ -436,27 +436,27 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/嵌入式/">
+                            <a href="/tags/嵌入式/">
                                 <span class="chip bg-color">嵌入式</span>
                             </a>
                         
-                            <a href="/blog/tags/Linux/">
+                            <a href="/tags/Linux/">
                                 <span class="chip bg-color">Linux</span>
                             </a>
                         
-                            <a href="/blog/tags/HTML/">
+                            <a href="/tags/HTML/">
                                 <span class="chip bg-color">HTML</span>
                             </a>
                         
-                            <a href="/blog/tags/CGI/">
+                            <a href="/tags/CGI/">
                                 <span class="chip bg-color">CGI</span>
                             </a>
                         
-                            <a href="/blog/tags/BOA/">
+                            <a href="/tags/BOA/">
                                 <span class="chip bg-color">BOA</span>
                             </a>
                         
-                            <a href="/blog/tags/MySQL/">
+                            <a href="/tags/MySQL/">
                                 <span class="chip bg-color">MySQL</span>
                             </a>
                         
@@ -468,7 +468,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/Linux/" class="post-category">
+                            <a href="/categories/Linux/" class="post-category">
                                 Linux
                             </a>
                         
@@ -498,7 +498,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><p>操作系统： Ubuntu12.04 LTS<br>环境搭建： 需要 BOA，Apache，CCGI，MySQL，GCC<br><a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">Linux下嵌入式Web服务器BOA和CGI编程开发</a><br><a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">数据库的相关知识——学习笔记</a> 的三<br><a href="https://blog.csdn.net/Ikaros_521/article/details/102664117" target="_blank" rel="noopener">mysql中文乱码问题解决 / C程序插入仍是乱码解决 / 卸载重装教学</a><br>扩展： 我还用了<a href="https://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="noopener">bootstrap</a>框架，CSS/JS<br>源码链接：GitHub：<a href="https://github.com/Ikaros-521/boa_cgi_html_mysql" target="_blank" rel="noopener">传送门</a>  ， 码云：<a href="https://gitee.com/ikaros-521/boa_cgi_html_mysql">传送门</a></p>
+                <h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><p>操作系统： Ubuntu12.04 LTS<br>环境搭建： 需要 BOA，Apache，CCGI，MySQL，GCC<br><a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">Linux下嵌入式Web服务器BOA和CGI编程开发</a><br><a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">数据库的相关知识——学习笔记</a> 的三<br><a href="https://blog.csdn.net/Ikaros_521/article/details/102664117" target="_blank" rel="noopener">mysql中文乱码问题解决 / C程序插入仍是乱码解决 / 卸载重装教学</a><br>扩展： 我还用了<a href="https://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="noopener">bootstrap</a>框架，CSS/JS<br>源码链接：GitHub：<a href="https://github.com/Ikaros-521/boa_cgi_html_mysql">传送门</a>  ， 码云：<a href="https://gitee.com/ikaros-521/boa_cgi_html_mysql" target="_blank" rel="noopener">传送门</a></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>环境准备好后，我们在 /var/www 下写HTML文件<br><img src="https://img-blog.csdnimg.cn/20191029161455842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>在 /var/www/cgi-bin 下写c文件，编译后命名为.cgi。<br>编译命令仅供参考<br> <code>gcc -o login.cgi login.c cgic.c -lpthread -ldl -lmysqlclient</code><br><img src="https://img-blog.csdnimg.cn/20191029161513208.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>程序都写好后，我们开始测试。</p>
 <p><strong>1、开启MySQL服务    默认开启</strong><br><img src="https://img-blog.csdnimg.cn/20191029161420461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>我的程序需要事先   新建用户test，数据库register，表user</p>
 <pre class=" language-bash"><code class="language-bash">mysql -utest -ptest</code></pre>
@@ -1131,7 +1131,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><strong>其余参考<a href="https://github.com/Ikaros-521/boa_cgi_html_mysql" target="_blank" rel="noopener">GitHub</a>或<a href="https://gitee.com/ikaros-521/boa_cgi_html_mysql">码云</a></strong></p>
+<p><strong>其余参考<a href="https://github.com/Ikaros-521/boa_cgi_html_mysql">GitHub</a>或<a href="https://gitee.com/ikaros-521/boa_cgi_html_mysql" target="_blank" rel="noopener">码云</a></strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1165,7 +1165,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/ikaros-521/blog" rel="external nofollow noreferrer">Ikaros</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" rel="external nofollow noreferrer">Ikaros</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -1175,7 +1175,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/ikaros-521/blog/blog/2019/11/08/qian-ru-shi-web-fu-wu-qi-boa-cgi-html-mysql-xiang-mu-shi-zhan-linux/">https://gitee.com/ikaros-521/blog/blog/2019/11/08/qian-ru-shi-web-fu-wu-qi-boa-cgi-html-mysql-xiang-mu-shi-zhan-linux/</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io/2019/11/08/qian-ru-shi-web-fu-wu-qi-boa-cgi-html-mysql-xiang-mu-shi-zhan-linux/">https://github.com/Ikaros-521/ikaros-521.github.io/2019/11/08/qian-ru-shi-web-fu-wu-qi-boa-cgi-html-mysql-xiang-mu-shi-zhan-linux/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1188,7 +1188,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="https://gitee.com/ikaros-521/blog" target="_blank">Ikaros</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" target="_blank">Ikaros</a>
                     !
                 </span>
             </div>
@@ -1213,27 +1213,27 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/嵌入式/">
+                                <a href="/tags/嵌入式/">
                                     <span class="chip bg-color">嵌入式</span>
                                 </a>
                             
-                                <a href="/blog/tags/Linux/">
+                                <a href="/tags/Linux/">
                                     <span class="chip bg-color">Linux</span>
                                 </a>
                             
-                                <a href="/blog/tags/HTML/">
+                                <a href="/tags/HTML/">
                                     <span class="chip bg-color">HTML</span>
                                 </a>
                             
-                                <a href="/blog/tags/CGI/">
+                                <a href="/tags/CGI/">
                                     <span class="chip bg-color">CGI</span>
                                 </a>
                             
-                                <a href="/blog/tags/BOA/">
+                                <a href="/tags/BOA/">
                                     <span class="chip bg-color">BOA</span>
                                 </a>
                             
-                                <a href="/blog/tags/MySQL/">
+                                <a href="/tags/MySQL/">
                                     <span class="chip bg-color">MySQL</span>
                                 </a>
                             
@@ -1433,7 +1433,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/blog/2019/11/08/b-zhan-dong-tai-zhuan-fa-chou-jiang-jiao-ben-jiao-cheng/">
+                <a href="/2019/11/08/b-zhan-dong-tai-zhuan-fa-chou-jiang-jiao-ben-jiao-cheng/">
                     <div class="card-image">
                         
                         
@@ -1457,7 +1457,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/python/" class="post-category">
+                            <a href="/categories/python/" class="post-category">
                                     python
                                 </a>
                             
@@ -1468,19 +1468,19 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/python/">
+                    <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/blog/tags/哔哩哔哩/">
+                    <a href="/tags/哔哩哔哩/">
                         <span class="chip bg-color">哔哩哔哩</span>
                     </a>
                     
-                    <a href="/blog/tags/脚本/">
+                    <a href="/tags/脚本/">
                         <span class="chip bg-color">脚本</span>
                     </a>
                     
-                    <a href="/blog/tags/转发抽奖/">
+                    <a href="/tags/转发抽奖/">
                         <span class="chip bg-color">转发抽奖</span>
                     </a>
                     
@@ -1495,7 +1495,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2019/10/27/arm-ti-xi-jie-gou-jiu-ding-chuang-zhan-x210v3s/">
+                <a href="/2019/10/27/arm-ti-xi-jie-gou-jiu-ding-chuang-zhan-x210v3s/">
                     <div class="card-image">
                         
                         
@@ -1519,7 +1519,7 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/嵌入式/" class="post-category">
+                            <a href="/categories/嵌入式/" class="post-category">
                                     嵌入式
                                 </a>
                             
@@ -1530,15 +1530,15 @@ mysql<span class="token operator">></span> <span class="token keyword">CREATE</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/ARM/">
+                    <a href="/tags/ARM/">
                         <span class="chip bg-color">ARM</span>
                     </a>
                     
-                    <a href="/blog/tags/x210V3s/">
+                    <a href="/tags/x210V3s/">
                         <span class="chip bg-color">x210V3s</span>
                     </a>
                     
-                    <a href="/blog/tags/嵌入式/">
+                    <a href="/tags/嵌入式/">
                         <span class="chip bg-color">嵌入式</span>
                     </a>
                     
@@ -1732,7 +1732,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="https://gitee.com/ikaros-521/blog" target="_blank">Love丶伊卡洛斯</a>
+            <a href="https://github.com/Ikaros-521/ikaros-521.github.io" target="_blank">Love丶伊卡洛斯</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1785,7 +1785,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1811,7 +1811,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/blog/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
     <!-- 回到顶部按钮 -->
@@ -1868,6 +1868,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/blog/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -37,7 +37,7 @@
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/blog/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
@@ -436,23 +436,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/嵌入式/">
+                            <a href="/tags/嵌入式/">
                                 <span class="chip bg-color">嵌入式</span>
                             </a>
                         
-                            <a href="/blog/tags/C/">
-                                <span class="chip bg-color">C</span>
-                            </a>
-                        
-                            <a href="/blog/tags/Linux/">
+                            <a href="/tags/Linux/">
                                 <span class="chip bg-color">Linux</span>
                             </a>
                         
-                            <a href="/blog/tags/ajax/">
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C</span>
+                            </a>
+                        
+                            <a href="/tags/ajax/">
                                 <span class="chip bg-color">ajax</span>
                             </a>
                         
-                            <a href="/blog/tags/cgi/">
+                            <a href="/tags/cgi/">
                                 <span class="chip bg-color">cgi</span>
                             </a>
                         
@@ -464,11 +464,11 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/Linux/" class="post-category">
+                            <a href="/categories/Linux/" class="post-category">
                                 Linux
                             </a>
                         
-                            <a href="/blog/categories/Linux/嵌入式/" class="post-category">
+                            <a href="/categories/Linux/嵌入式/" class="post-category">
                                 嵌入式
                             </a>
                         
@@ -498,7 +498,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="相关说明"><a href="#相关说明" class="headerlink" title="相关说明"></a>相关说明</h2><p>操作系统：CentOS7<br>Web服务器：<a href="http://www.boa.org/" target="_blank" rel="noopener">BOA</a><br>语言：HTML+JS+C<br>演示了网页如何把数据通过AJAX发给后台CGI和后台CGI如何把数据返回到网页的指定控件显示<br>源码参考：<a href="http://www.pudn.com/Download/item/id/2260088.html" target="_blank" rel="noopener">AJAX_CGI</a><br>BOA的搭建参考：<a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">Linux下嵌入式Web服务器BOA和CGI编程开发</a><br>小案例实战参考：<a href="https://blog.csdn.net/Ikaros_521/article/details/102801453" target="_blank" rel="noopener">嵌入式web服务器BOA+CGI+HTML+MySQL项目实战——Linux</a><br>源码下载：<a href="https://github.com/Ikaros-521/ajax_cgi" target="_blank" rel="noopener">GitHub</a>，<a href="https://gitee.com/ikaros-521/ajax_cgi">码云</a></p>
+                <h2 id="相关说明"><a href="#相关说明" class="headerlink" title="相关说明"></a>相关说明</h2><p>操作系统：CentOS7<br>Web服务器：<a href="http://www.boa.org/" target="_blank" rel="noopener">BOA</a><br>语言：HTML+JS+C<br>演示了网页如何把数据通过AJAX发给后台CGI和后台CGI如何把数据返回到网页的指定控件显示<br>源码参考：<a href="http://www.pudn.com/Download/item/id/2260088.html" target="_blank" rel="noopener">AJAX_CGI</a><br>BOA的搭建参考：<a href="https://blog.csdn.net/Ikaros_521/article/details/102610768" target="_blank" rel="noopener">Linux下嵌入式Web服务器BOA和CGI编程开发</a><br>小案例实战参考：<a href="https://blog.csdn.net/Ikaros_521/article/details/102801453" target="_blank" rel="noopener">嵌入式web服务器BOA+CGI+HTML+MySQL项目实战——Linux</a><br>源码下载：<a href="https://github.com/Ikaros-521/ajax_cgi">GitHub</a>，<a href="https://gitee.com/ikaros-521/ajax_cgi" target="_blank" rel="noopener">码云</a></p>
 <h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><h3 id="ajaxtest1-html"><a href="#ajaxtest1-html" class="headerlink" title="ajaxtest1.html"></a><strong>ajaxtest1.html</strong></h3><p><img src="https://img-blog.csdnimg.cn/20191204114725127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>实现效果：在对应输入框内输入内容调用对应函数，非空，就显示cgi程序返回的内容</strong></p>
 <pre class=" language-c"><code class="language-c">    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strstr</span><span class="token punctuation">(</span>lenstr<span class="token punctuation">,</span><span class="token string">"txtIDA"</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
@@ -782,7 +782,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/ikaros-521/blog" rel="external nofollow noreferrer">Ikaros</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" rel="external nofollow noreferrer">Ikaros</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -792,7 +792,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/ikaros-521/blog/blog/2019/12/04/shi-yong-ajax-cgi-shi-xian-qian-hou-duan-shu-ju-jiao-hu/">https://gitee.com/ikaros-521/blog/blog/2019/12/04/shi-yong-ajax-cgi-shi-xian-qian-hou-duan-shu-ju-jiao-hu/</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io/2019/12/04/shi-yong-ajax-cgi-shi-xian-qian-hou-duan-shu-ju-jiao-hu/">https://github.com/Ikaros-521/ikaros-521.github.io/2019/12/04/shi-yong-ajax-cgi-shi-xian-qian-hou-duan-shu-ju-jiao-hu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -805,7 +805,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="https://gitee.com/ikaros-521/blog" target="_blank">Ikaros</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" target="_blank">Ikaros</a>
                     !
                 </span>
             </div>
@@ -830,23 +830,23 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/嵌入式/">
+                                <a href="/tags/嵌入式/">
                                     <span class="chip bg-color">嵌入式</span>
                                 </a>
                             
-                                <a href="/blog/tags/C/">
-                                    <span class="chip bg-color">C</span>
-                                </a>
-                            
-                                <a href="/blog/tags/Linux/">
+                                <a href="/tags/Linux/">
                                     <span class="chip bg-color">Linux</span>
                                 </a>
                             
-                                <a href="/blog/tags/ajax/">
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C</span>
+                                </a>
+                            
+                                <a href="/tags/ajax/">
                                     <span class="chip bg-color">ajax</span>
                                 </a>
                             
-                                <a href="/blog/tags/cgi/">
+                                <a href="/tags/cgi/">
                                     <span class="chip bg-color">cgi</span>
                                 </a>
                             
@@ -1046,7 +1046,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/blog/2020/02/17/chao-xiang-xi-gou-mai-fu-wu-qi-da-jian-java-tomcat-he-mysql/">
+                <a href="/2020/02/17/chao-xiang-xi-gou-mai-fu-wu-qi-da-jian-java-tomcat-he-mysql/">
                     <div class="card-image">
                         
                         
@@ -1070,11 +1070,11 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/Linux/" class="post-category">
+                            <a href="/categories/Linux/" class="post-category">
                                     Linux
                                 </a>
                             
-                            <a href="/blog/categories/Linux/服务器/" class="post-category">
+                            <a href="/categories/Linux/服务器/" class="post-category">
                                     服务器
                                 </a>
                             
@@ -1085,23 +1085,23 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/Linux/">
+                    <a href="/tags/Linux/">
                         <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/blog/tags/MySQL/">
+                    <a href="/tags/MySQL/">
                         <span class="chip bg-color">MySQL</span>
                     </a>
                     
-                    <a href="/blog/tags/服务器/">
+                    <a href="/tags/服务器/">
                         <span class="chip bg-color">服务器</span>
                     </a>
                     
-                    <a href="/blog/tags/Java/">
+                    <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/blog/tags/Tomcat/">
+                    <a href="/tags/Tomcat/">
                         <span class="chip bg-color">Tomcat</span>
                     </a>
                     
@@ -1116,7 +1116,7 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2019/12/03/onvif-she-bei-fa-xian-wang-luo-she-xiang-tou-shi-li-bi-ji/">
+                <a href="/2019/12/03/onvif-she-bei-fa-xian-wang-luo-she-xiang-tou-shi-li-bi-ji/">
                     <div class="card-image">
                         
                         
@@ -1140,11 +1140,11 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/Linux/" class="post-category">
+                            <a href="/categories/Linux/" class="post-category">
                                     Linux
                                 </a>
                             
-                            <a href="/blog/categories/Linux/嵌入式/" class="post-category">
+                            <a href="/categories/Linux/嵌入式/" class="post-category">
                                     嵌入式
                                 </a>
                             
@@ -1155,23 +1155,23 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/嵌入式/">
+                    <a href="/tags/嵌入式/">
                         <span class="chip bg-color">嵌入式</span>
                     </a>
                     
-                    <a href="/blog/tags/ONVIF/">
+                    <a href="/tags/ONVIF/">
                         <span class="chip bg-color">ONVIF</span>
                     </a>
                     
-                    <a href="/blog/tags/gSOAP/">
+                    <a href="/tags/gSOAP/">
                         <span class="chip bg-color">gSOAP</span>
                     </a>
                     
-                    <a href="/blog/tags/网络摄像机/">
+                    <a href="/tags/网络摄像机/">
                         <span class="chip bg-color">网络摄像机</span>
                     </a>
                     
-                    <a href="/blog/tags/IPC/">
+                    <a href="/tags/IPC/">
                         <span class="chip bg-color">IPC</span>
                     </a>
                     
@@ -1365,7 +1365,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="https://gitee.com/ikaros-521/blog" target="_blank">Love丶伊卡洛斯</a>
+            <a href="https://github.com/Ikaros-521/ikaros-521.github.io" target="_blank">Love丶伊卡洛斯</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1418,7 +1418,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1444,7 +1444,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/blog/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
     <!-- 回到顶部按钮 -->
@@ -1501,6 +1501,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/blog/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 
 </html>
