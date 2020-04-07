@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="HTML发送表单给python处理——Linux, ikaros">
+    <meta name="keywords" content="content, ikaros">
     <meta name="description" content="从天而降 只为与你相遇">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HTML发送表单给python处理——Linux | Ikaros</title>
+    <title>content | Ikaros</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -306,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HTML发送表单给python处理——Linux</h1>
+                    <h1 class="description center-align post-title">content</h1>
                 </div>
             </div>
         </div>
@@ -434,33 +434,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/HTML/">
-                                <span class="chip bg-color">HTML</span>
-                            </a>
-                        
-                            <a href="/tags/CGI/">
-                                <span class="chip bg-color">CGI</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -469,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-11-08
+                    2019-09-02
                 </div>
                 
 
@@ -486,48 +465,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>操作系统： CentOS7<br>环境搭建： 需要 Apache，Python<br><a href="https://blog.csdn.net/u014157384/article/details/79497761" target="_blank" rel="noopener">centos7 apache 安装配置步骤</a><br><a href="https://www.cnblogs.com/anxminise/p/9650206.html" target="_blank" rel="noopener">Centos7安装Python3.7</a>，补充，将python解压后放入/usr/local/python3下。然后升级pip3，之后缺什装什。<br>具体搭建可以参考：<a href="https://blog.csdn.net/Ikaros_521/article/details/102801453" target="_blank" rel="noopener">嵌入式web服务器BOA+CGI+HTML+MySQL项目实战——Linux</a><br>与之前不同的是，我将Apache配置文件 /etc/httpd/conf/httpd.conf<br>根目录改为/var/www，cgi根目录为/var/www/cgi-bin<br><img src="https://img-blog.csdnimg.cn/20191105155011778.png" alt=" "><br><img src="https://img-blog.csdnimg.cn/2019110515511438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>然后将 html文件放在 /var/www 下，py文件放在 /var/www/cgi-bin 下。</strong><br><img src="https://img-blog.csdnimg.cn/20191105155244977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><img src="https://img-blog.csdnimg.cn/20191105155319305.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br><strong>源码如下：</strong> 转自：<a href="https://blog.csdn.net/bjbz_cxy/article/details/79358718" target="_blank" rel="noopener">从0开始python后端开发_前端（html）向后端（python）传递数据_GET_POST</a><br><strong>post.html</strong></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset="utf-8"&gt;
-&lt;title&gt;POST方法传递数据(runoob.com)&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;form action="cgi-bin/post.py" method="post"&gt;
-数据值1: &lt;input type="text" name="data_1"&gt;  &lt;br /&gt;
-数据值2: &lt;input type="text" name="data_2" /&gt;
-&lt;input type="submit" value="POST提交" /&gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p><strong>post.py</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python</span>
-<span class="token comment" spellcheck="true"># -*- coding: UTF-8 -*-</span>
-
-<span class="token comment" spellcheck="true"># 添加GI处理模块</span>
-<span class="token keyword">import</span> cgi<span class="token punctuation">,</span> cgitb 
-
-<span class="token comment" spellcheck="true"># 创建FieldStorage的实例化</span>
-form <span class="token operator">=</span> cgi<span class="token punctuation">.</span>FieldStorage<span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token comment" spellcheck="true">#获取html页面传递过来的数据值</span>
-str_data_1  <span class="token operator">=</span>  form<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token string">'data_1'</span><span class="token punctuation">)</span>
-str_data_2  <span class="token operator">=</span>  form<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token string">'data_2'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#打印输出</span>
-<span class="token keyword">print</span> <span class="token string">"Content-type:text/html"</span>
-<span class="token keyword">print</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;html>"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;head>"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;meta charset=\"utf-8\">"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;title>POST&lt;/title>"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;/head>"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;body>"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;h2>data_1:%s,data_2:%s&lt;/h2>"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>str_data_1<span class="token punctuation">,</span> str_data_2<span class="token punctuation">)</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;/body>"</span>
-<span class="token keyword">print</span> <span class="token string">"&lt;/html>"</span></code></pre>
-<p>启动Apache服务，<code>systemctl start httpd</code><br>浏览器访问 localhost:80/post.html<br><img src="https://img-blog.csdnimg.cn/20191105155543930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>输入数据，点击提交。<br><img src="https://img-blog.csdnimg.cn/20191105160047425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt=" "><br>成功跳转，并打印。<br><img src="https://img-blog.csdnimg.cn/20191105160102874.png" alt=" "></p>
-<hr>
-<p>之后我发现菜鸟教程有完整的教程，苦我百度一天无果，运气好看到了条博客，才解决问题。<br>菜鸟教程，<a href="https://www.runoob.com/python/python-cgi.html" target="_blank" rel="noopener">python的CGI编程</a></p>
-<script>
+                <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -560,7 +498,7 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" rel="external nofollow noreferrer">Ikaros</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" rel="external nofollow noreferrer">Love丶伊卡洛斯</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -570,7 +508,7 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io/2019/11/08/html-fa-song-biao-dan-gei-python-chu-li-linux/">https://github.com/Ikaros-521/ikaros-521.github.io/2019/11/08/html-fa-song-biao-dan-gei-python-chu-li-linux/</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io/content/index.html">https://github.com/Ikaros-521/ikaros-521.github.io/content/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -583,7 +521,7 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" target="_blank">Ikaros</a>
+                    <a href="https://github.com/Ikaros-521/ikaros-521.github.io" target="_blank">Love丶伊卡洛斯</a>
                     !
                 </span>
             </div>
@@ -607,19 +545,7 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/HTML/">
-                                    <span class="chip bg-color">HTML</span>
-                                </a>
-                            
-                                <a href="/tags/CGI/">
-                                    <span class="chip bg-color">CGI</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -788,7 +714,7 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
         repo: 'ikaros-521.github.io',
         owner: 'Ikaros-521',
         admin: ["Ikaros-521"],
-        id: '2019-11-08T17-26-01',
+        id: '2019-09-02T17-25-35',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -812,61 +738,42 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/11/22/c-yu-yan-shi-xian-socket-tong-xin-tcp-cheng-xu-can-kao/">
+                <a href="/content/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C语言实现socket通信TCP 程序参考">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="content">
                         
-                        <span class="card-title">C语言实现socket通信TCP 程序参考</span>
+                        <span class="card-title">content</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            概念参考：网络通信TCP/UDP——学习笔记实现效果：先运行服务端，再运行客户端。连接完毕，客户端可以发送消息。客户端发送了 “1”，服务端收到消息并打印，此时轮到服务端发送消息。服务端发送消息“2”，客户端收到消息也进行打印，之后不断重复
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-02
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/C/" class="post-category">
-                                    C
-                                </a>
-                            
-                            <a href="/categories/C/计算机网络/" class="post-category">
-                                    计算机网络
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Love丶伊卡洛斯
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C</span>
-                    </a>
-                    
-                    <a href="/tags/socket/">
-                        <span class="chip bg-color">socket</span>
-                    </a>
-                    
-                    <a href="/tags/TCP/">
-                        <span class="chip bg-color">TCP</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -874,61 +781,40 @@ str_data_2  <span class="token operator">=</span>  form<span class="token punctu
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/08/b-zhan-dong-tai-zhuan-fa-chou-jiang-jiao-ben-jiao-cheng/">
+                <a href="/content/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="B站动态转发抽奖脚本+教程">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="content">
                         
-                        <span class="card-title">B站动态转发抽奖脚本+教程</span>
+                        <span class="card-title">content</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            运行python脚本需要的条件：1、连通的网络2、已安装Python2并配置环境变量3、Python脚本源码
-环境搭建：网络就不用我说了(〃’▽’〃)  那么下面我们来安装python吧。Python官网有2个版本2和3，我们选择2，因为语
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Love丶伊卡洛斯
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/哔哩哔哩/">
-                        <span class="chip bg-color">哔哩哔哩</span>
-                    </a>
-                    
-                    <a href="/tags/脚本/">
-                        <span class="chip bg-color">脚本</span>
-                    </a>
-                    
-                    <a href="/tags/转发抽奖/">
-                        <span class="chip bg-color">转发抽奖</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
