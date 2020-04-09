@@ -496,11 +496,11 @@
             <div id="articleContent">
                 <p>参考文章：<br><a href="https://blog.csdn.net/u013144287/article/details/78589643/" target="_blank" rel="noopener">十分钟教你配置frp实现内网穿透</a><br><a href="https://www.cnblogs.com/hxun/p/10877795.html" target="_blank" rel="noopener">CentOS7 安装frp与开机启动</a><br><a href="https://www.jianshu.com/p/93bf511ea72e" target="_blank" rel="noopener">frp实现内网穿透（centos7）</a></p>
 <h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>官方项目地址：<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a><br><img src="https://img-blog.csdnimg.cn/20200409174219315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>这里下载的是0.26.0版</p>
-<pre class=" language-powershell"><code class="language-powershell">wget https:<span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>fatedier<span class="token operator">/</span>frp<span class="token operator">/</span>releases<span class="token operator">/</span>download<span class="token operator">/</span>v0<span class="token punctuation">.</span>26<span class="token punctuation">.</span>0<span class="token operator">/</span>frp_0<span class="token punctuation">.</span>26<span class="token punctuation">.</span>0_linux_amd64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><pre class=" language-powershell"><code class="language-powershell">tar <span class="token operator">-</span>xvf frp_0<span class="token punctuation">.</span>26<span class="token punctuation">.</span>0_linux_amd64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20200409173905383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="移动至-usr-local"><a href="#移动至-usr-local" class="headerlink" title="移动至 /usr/local"></a>移动至 /usr/local</h3><p>新建个文件夹<code>mkdir /usr/local/frp</code><br>全部移动到 /usr/local/frp 里面 <code>mv frp_0.26.0_linux_amd64/* /usr/local/frp/</code><br><img src="https://img-blog.csdnimg.cn/20200409173941440.png" alt="在这里插入图片描述"></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>这里下载的是0.31.1版</p>
+<pre class=" language-powershell"><code class="language-powershell">wget https:<span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>fatedier<span class="token operator">/</span>frp<span class="token operator">/</span>releases<span class="token operator">/</span>download<span class="token operator">/</span>v0<span class="token punctuation">.</span>32<span class="token punctuation">.</span>1<span class="token operator">/</span>frp_0<span class="token punctuation">.</span>32<span class="token punctuation">.</span>1_linux_amd64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><pre class=" language-powershell"><code class="language-powershell">tar <span class="token operator">-</span>xvf frp_0<span class="token punctuation">.</span>32<span class="token punctuation">.</span>1_linux_amd64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200409223507160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="移动至-usr-local"><a href="#移动至-usr-local" class="headerlink" title="移动至 /usr/local"></a>移动至 /usr/local</h3><p>新建个文件夹<code>mkdir /usr/local/frp</code><br>全部移动到 /usr/local/frp 里面 <code>mv frp_0.32.1_linux_amd64/* /usr/local/frp/</code></p>
 <h2 id="配置systemctl来控制，服务端运行"><a href="#配置systemctl来控制，服务端运行" class="headerlink" title="配置systemctl来控制，服务端运行"></a>配置systemctl来控制，服务端运行</h2><p>vim打开文件 <code>vim /usr/lib/systemd/system/frp.service</code><br>写入以下内容，注意上文的路径和此处有关。这里是启动的<strong>服务端</strong>。</p>
 <pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[Unit]</span>
 Description=The nginx HTTP and reverse proxy server
@@ -573,6 +573,24 @@ local_port = 80
 <span class="token function">type</span> = http
 local_port = 8080</code></pre>
 <p>直接运行服务端效果<br><img src="https://img-blog.csdnimg.cn/20200409174033899.png" alt="在这里插入图片描述"></p>
+<h2 id="安装Windows客户端"><a href="#安装Windows客户端" class="headerlink" title="安装Windows客户端"></a>安装Windows客户端</h2><p>官方下载传送门：<a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a><br>现在已经更新到0.32.1了。github下载慢可以去这里下载<a href="http://diannaobos.com/frp/" target="_blank" rel="noopener">http://diannaobos.com/frp/</a><br><img src="https://img-blog.csdnimg.cn/20200409212342889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200409223920951.png" alt="在这里插入图片描述"><br>解压打开来<br><img src="https://img-blog.csdnimg.cn/20200409223950527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>配置一下 frpc.ini ，type填的http也可以根据需要修改。<br><img src="https://img-blog.csdnimg.cn/20200409224100236.png" alt="在这里插入图片描述"></p>
+<pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[common]</span>
+server_addr = &lt;远程frp服务器ip>
+server_port = 远程frp服务器端口
+privilege_token = 远程frp服务器token
+
+<span class="token namespace">[http]</span>
+<span class="token function">type</span> = http
+local_ip = 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1
+local_port = 本地端口号
+remote_port = 远程frp服务器的http服务端口号
+custom_domains = 配置的域名</code></pre>
+<p>打开cmd，cd到这个路径，<strong>frpc.exe</strong>运行<br><img src="https://img-blog.csdnimg.cn/20200409224521281.png" alt="在这里插入图片描述"><br>运行会打印信息，出错就自行调整吧。</p>
+<h2 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h2><h3 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h3><p>frps.ini<br><img src="https://img-blog.csdnimg.cn/20200409224419983.png" alt="在这里插入图片描述"><br>启动服务 <code>systemctl restart frp</code><br>绑定本地7000端口，http访问端口8080，记得开放端口（安全组）。</p>
+<h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><p>frpc.ini<br><img src="https://img-blog.csdnimg.cn/20200409224100236.png" alt="在这里插入图片描述"><br>打开cmd，cd到这个路径，<strong>frpc.exe</strong>运行<br><img src="https://img-blog.csdnimg.cn/20200409224521281.png" alt="在这里插入图片描述"><br>看到打印成功了。<br>访问服务端的8080端口就相当于访问你本地的8080端口.</p>
+<pre class=" language-bash"><code class="language-bash">custom_domains:remote_port <span class="token operator">=</span> local_ip:local_port</code></pre>
+<p>我们打开浏览器，访问 域名加端口，我的配置没域名，所以是公网IP:端口，即<strong>公网IP:8080</strong>。看到本地的web项目了。<br><img src="https://img-blog.csdnimg.cn/20200409224932461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="客户端web项目"><a href="#客户端web项目" class="headerlink" title="客户端web项目"></a>客户端web项目</h3><p>我这里用的phpstudy，快速搭建的默认页面。<br><img src="https://img-blog.csdnimg.cn/202004092251115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>直接 localhost:8080 或 127.0.0.1:8080 即可访问<br><img src="https://img-blog.csdnimg.cn/20200409225310605.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -877,7 +895,7 @@ local_port = 8080</code></pre>
                         
                             参考文章：十分钟教你配置frp实现内网穿透CentOS7 安装frp与开机启动frp实现内网穿透（centos7）
 下载安装官方项目地址：https://github.com/fatedier/frp
-下载这里下载的是0.26.0版
+下载这里下载的是0.31.1版
 wge
                         
                     </div>
