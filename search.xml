@@ -22,11 +22,46 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> GateOne </tag>
+            
+            <tag> WebSSH </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS7的Apache搭建，WEB项目部署，域名备案，域名解析，正式上线</title>
+      <link href="/2020/04/06/centos7-de-apache-da-jian-web-xiang-mu-bu-shu-yu-ming-bei-an-yu-ming-jie-xi-zheng-shi-shang-xian/"/>
+      <url>/2020/04/06/centos7-de-apache-da-jian-web-xiang-mu-bu-shu-yu-ming-bei-an-yu-ming-jie-xi-zheng-shi-shang-xian/</url>
+      
+        <content type="html"><![CDATA[<p>即上期<a href="https://blog.csdn.net/Ikaros_521/article/details/104795594" target="_blank" rel="noopener">【超详细】ubuntu18.04服务器 搭建Java，Tomcat和MySQL</a>过后，这期主要将Apache的搭建，WEB项目的部署，域名的备案，域名的解析，正式上线。</p><h2 id="Apache搭建"><a href="#Apache搭建" class="headerlink" title="Apache搭建"></a>Apache搭建</h2><p>参考：<a href="https://blog.csdn.net/xgrx2008/article/details/82715186" target="_blank" rel="noopener">Centos 7 Apache 服务安装及配置</a><br>很简单，yum直接安装。</p><pre class=" language-powershell"><code class="language-powershell">yum install httpd<span class="token operator">*</span> <span class="token operator">-</span>y</code></pre><p>然后配合systemctl命令，来<strong>控制</strong>它。<br>分别是启动，重启，停止，开机自启，关闭开机自启，运行状态</p><pre class=" language-powershell"><code class="language-powershell">systemctl <span class="token function">start</span> httpd<span class="token punctuation">.</span>servicesystemctl restart httpd<span class="token punctuation">.</span>servicesystemctl stop httpd<span class="token punctuation">.</span>servicesystemctl enable httpd<span class="token punctuation">.</span>servicesystemctl disable httpd<span class="token punctuation">.</span>servicesystemctl status httpd<span class="token punctuation">.</span>service</code></pre><p><strong>配置文件</strong> <code>/etc/httpd/conf/httpd.conf</code><br>默认监听8080端口，如有需要可以自行更换，例如换成80端口<br><img src="https://img-blog.csdnimg.cn/20200404110810103.png" alt="在这里插入图片描述"><br><strong>网站数据目录</strong>    <code>/var/www/html</code></p><h2 id="WEB项目部署"><a href="#WEB项目部署" class="headerlink" title="WEB项目部署"></a>WEB项目部署</h2><p>将项目移动到apache的数据目录下，我这里是在 <strong>/var/www/html</strong>下有个<strong>home</strong>文件夹<br><img src="https://img-blog.csdnimg.cn/20200404110953373.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>运行apache服务，start命令<br><img src="https://img-blog.csdnimg.cn/20200404111449863.png" alt="在这里插入图片描述"><br>访问一下我们的项目吧~<br><strong>（记得控制台的安全组开放8080端口）</strong><br><strong>公网IP:8080</strong>就是我们的<code>/var/www/html</code>目录了，然后我的<strong>home/index.html</strong>就是我的页面了。<br><img src="https://img-blog.csdnimg.cn/20200404111628612.png" alt="在这里插入图片描述"></p><h2 id="域名备案"><a href="#域名备案" class="headerlink" title="域名备案"></a>域名备案</h2><p>前提是你买了域名<br><img src="https://img-blog.csdnimg.cn/20200404111921294.png" alt="在这里插入图片描述"><br>查一个你喜欢的域名，买下来。<br><img src="https://img-blog.csdnimg.cn/20200404112001625.png" alt="在这里插入图片描述"><br>进行实名认证<br><img src="https://img-blog.csdnimg.cn/20200404112050311.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过后可以进行备案，需要准备身份证，本人（<strong>白色背景</strong>），域名。按照步骤一一做，推荐使用手机app。<br><img src="https://img-blog.csdnimg.cn/20200404112237296.png" alt="在这里插入图片描述"></p><p>期间会有平台的电话和工信部的短信验证，切勿关闭手机。<br><img src="https://img-blog.csdnimg.cn/20200404144326806.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200404144334912.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>备案通过后，会有工信部发备案号和密码<br><img src="https://img-blog.csdnimg.cn/20200404112332418.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200404113036942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p><img src="https://img-blog.csdnimg.cn/20200404113136207.png" alt="在这里插入图片描述"><br>直接新手引导，一步到位<br><img src="https://img-blog.csdnimg.cn/20200404113231620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>记录直就是你服务器的<strong>公网IP</strong><br><img src="https://img-blog.csdnimg.cn/20200404113257803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>没有备案就解析的话，会这样哦<br><img src="https://img-blog.csdnimg.cn/20200404113432927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="正式上线"><a href="#正式上线" class="headerlink" title="正式上线"></a>正式上线</h2><p>添加备案号和超链接至web项目页面底部<br><img src="https://img-blog.csdnimg.cn/20200404113548752.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200404113706749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我是这样的结构<br><img src="https://img-blog.csdnimg.cn/20200404113759737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>span<span class="token operator">></span>备案号：<span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"http://beian.miit.gov.cn/"</span> target<span class="token operator">=</span><span class="token string">"_blank"</span> rel<span class="token operator">=</span><span class="token string">"nofollow"</span><span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span>浙ICP备<span class="token number">20009665</span>号<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span></code></pre><p>细心的小伙伴可能发现了我没有带8080端口了，这就是改成80端口的魔力哦~<br><img src="https://img-blog.csdnimg.cn/20200404114146957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200404114229136.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那么本期也就到此为止了，我们下期再见。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> 域名 </category>
+          
+      </categories>
+      
+      
+        <tags>
             
             <tag> Linux </tag>
             
-            <tag> WebSSH </tag>
+            <tag> 服务器 </tag>
+            
+            <tag> 域名 </tag>
+            
+            <tag> 域名备案 </tag>
+            
+            <tag> Apache </tag>
             
         </tags>
       
@@ -117,13 +152,13 @@
             
             <tag> Linux </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> 服务器 </tag>
             
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -470,9 +505,9 @@
             
             <tag> ARM </tag>
             
-            <tag> x210V3s </tag>
-            
             <tag> 嵌入式 </tag>
+            
+            <tag> x210V3s </tag>
             
         </tags>
       
