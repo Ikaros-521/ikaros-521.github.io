@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>CentOS7搭建Frp实现内网穿透</title>
+      <link href="/2020/04/09/centos7-da-jian-frp-shi-xian-nei-wang-chuan-tou/"/>
+      <url>/2020/04/09/centos7-da-jian-frp-shi-xian-nei-wang-chuan-tou/</url>
+      
+        <content type="html"><![CDATA[<p>参考文章：<br><a href="https://blog.csdn.net/u013144287/article/details/78589643/" target="_blank" rel="noopener">十分钟教你配置frp实现内网穿透</a><br><a href="https://www.cnblogs.com/hxun/p/10877795.html" target="_blank" rel="noopener">CentOS7 安装frp与开机启动</a><br><a href="https://www.jianshu.com/p/93bf511ea72e" target="_blank" rel="noopener">frp实现内网穿透（centos7）</a></p><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>官方项目地址：<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a><br><img src="https://img-blog.csdnimg.cn/20200409174219315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>这里下载的是0.26.0版</p><pre class=" language-powershell"><code class="language-powershell">wget https:<span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>fatedier<span class="token operator">/</span>frp<span class="token operator">/</span>releases<span class="token operator">/</span>download<span class="token operator">/</span>v0<span class="token punctuation">.</span>26<span class="token punctuation">.</span>0<span class="token operator">/</span>frp_0<span class="token punctuation">.</span>26<span class="token punctuation">.</span>0_linux_amd64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><pre class=" language-powershell"><code class="language-powershell">tar <span class="token operator">-</span>xvf frp_0<span class="token punctuation">.</span>26<span class="token punctuation">.</span>0_linux_amd64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz</code></pre><p><img src="https://img-blog.csdnimg.cn/20200409173905383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="移动至-usr-local"><a href="#移动至-usr-local" class="headerlink" title="移动至 /usr/local"></a>移动至 /usr/local</h3><p>新建个文件夹<code>mkdir /usr/local/frp</code><br>全部移动到 /usr/local/frp 里面 <code>mv frp_0.26.0_linux_amd64/* /usr/local/frp/</code><br><img src="https://img-blog.csdnimg.cn/20200409173941440.png" alt="在这里插入图片描述"></p><h2 id="配置systemctl来控制，服务端运行"><a href="#配置systemctl来控制，服务端运行" class="headerlink" title="配置systemctl来控制，服务端运行"></a>配置systemctl来控制，服务端运行</h2><p>vim打开文件 <code>vim /usr/lib/systemd/system/frp.service</code><br>写入以下内容，注意上文的路径和此处有关。这里是启动的<strong>服务端</strong>。</p><pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[Unit]</span>Description=The nginx HTTP and reverse proxy serverAfter=network<span class="token punctuation">.</span>target remote<span class="token operator">-</span>fs<span class="token punctuation">.</span>target nss<span class="token operator">-</span>lookup<span class="token punctuation">.</span>target<span class="token namespace">[Service]</span><span class="token function">Type</span>=simpleExecStart=<span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>frp<span class="token operator">/</span>frps <span class="token operator">-</span>c <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>frp<span class="token operator">/</span>frps<span class="token punctuation">.</span>iniKillSignal=SIGQUITTimeoutStopSec=5KillMode=<span class="token keyword">process</span>PrivateTmp=trueStandardOutput=syslogStandardError=inherit<span class="token namespace">[Install]</span>WantedBy=multi<span class="token operator">-</span>user<span class="token punctuation">.</span>target</code></pre><p>重新加载服务的配置文件 <code>systemctl daemon-reload</code><br>现在就可以用 systemctl 套装来控制 frp 了。</p><h3 id="启动-停止-重启，查看状态，设置开机自启-关闭开机自启"><a href="#启动-停止-重启，查看状态，设置开机自启-关闭开机自启" class="headerlink" title="启动/停止/重启，查看状态，设置开机自启/关闭开机自启"></a>启动/停止/重启，查看状态，设置开机自启/关闭开机自启</h3><pre class=" language-powershell"><code class="language-powershell">systemctl <span class="token function">start</span> frpsystemctl stop frpsystemctl restart frpsystemctl status frpsystemctl enable frpsystemctl disable frp</code></pre><p><img src="https://img-blog.csdnimg.cn/20200409173829380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="具体配置"><a href="#具体配置" class="headerlink" title="具体配置"></a>具体配置</h2><p>参考文章：<a href="https://www.jianshu.com/p/93bf511ea72e" target="_blank" rel="noopener">frp实现内网穿透（centos7）</a><br>服务端 <strong>frps.ini</strong>, 客户端 <strong>frpc.ini</strong></p><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[common]</span> 必须设置bind_port 是自己设定的frp服务端端口vhost_http_port 是自己设定的http访问端口<span class="token namespace">[ssh]</span> ssh反向代理<span class="token punctuation">(</span>不是必须设置<span class="token punctuation">)</span>listen_port 是自己设定的ssh访问端口auth_token用于身份认证（以下皆是）。<span class="token namespace">[web]</span> http反向代理<span class="token punctuation">[</span><span class="token punctuation">]</span>里的内容可以自己设定，但是客户端和服务端必须要对应<span class="token punctuation">(</span>如<span class="token namespace">[aaa]</span><span class="token punctuation">,</span><span class="token namespace">[bbb]</span><span class="token punctuation">)</span>；<span class="token function">type</span> 为服务类型，可以设为http<span class="token punctuation">,</span>httpscustom_domains为要映射的域名，记得域名的A记录要解析到外网主机的IP。<span class="token namespace">[web2]</span>同上<span class="token punctuation">(</span>可设置多个<span class="token punctuation">)</span></code></pre><h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[common]</span>bind_port = 7000vhost_http_port = 80<span class="token namespace">[ssh]</span>listen_port = 6000auth_token = 123<span class="token namespace">[web]</span><span class="token function">type</span> = httpcustom_domains = test1<span class="token punctuation">.</span>a<span class="token punctuation">.</span>comauth_token = 123<span class="token namespace">[web2]</span><span class="token function">type</span> = httpcustom_domains = test2<span class="token punctuation">.</span>a<span class="token punctuation">.</span>comauth_token = 123</code></pre><h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[common]</span>必填server_addrfrp服务端的ip（也就是外网主机的IP）server_portfrp服务端的bind_prot。<span class="token namespace">[ssh]</span>local_port客户端ssh端口。<span class="token namespace">[web]</span><span class="token function">type</span>对应服务端配置local_port客户端访问端口。<span class="token namespace">[web2]</span>同上</code></pre><h4 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h4><pre class=" language-powershell"><code class="language-powershell"><span class="token namespace">[common]</span>server_addr = 10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>10<span class="token punctuation">.</span>10server_port = 7000auth_token = 123<span class="token namespace">[ssh]</span>local_port = 22<span class="token namespace">[web]</span><span class="token function">type</span> = httplocal_port = 80<span class="token namespace">[web2]</span><span class="token function">type</span> = httplocal_port = 8080</code></pre><p>直接运行服务端效果<br><img src="https://img-blog.csdnimg.cn/20200409174033899.png" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> 内网穿透 </category>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> frp </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> 内网穿透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CentOS7搭建GateOne，实现WebSSH</title>
       <link href="/2020/04/09/centos7-da-jian-gateone-shi-xian-webssh/"/>
       <url>/2020/04/09/centos7-da-jian-gateone-shi-xian-webssh/</url>
@@ -505,9 +538,9 @@
             
             <tag> ARM </tag>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> x210V3s </tag>
+            
+            <tag> 嵌入式 </tag>
             
         </tags>
       
