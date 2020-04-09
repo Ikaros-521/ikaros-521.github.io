@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>CentOS7搭建GateOne，实现WebSSH</title>
+      <link href="/2020/04/09/centos7-da-jian-gateone-shi-xian-webssh/"/>
+      <url>/2020/04/09/centos7-da-jian-gateone-shi-xian-webssh/</url>
+      
+        <content type="html"><![CDATA[<p>参考文章：<a href="https://www.laozuo.org/10703.html" target="_blank" rel="noopener">CentOS安装配置GateOne实现Web终端SSH功能</a></p><h2 id="GateOne"><a href="#GateOne" class="headerlink" title="GateOne"></a>GateOne</h2><p>GateOne地址：<a href="https://github.com/liftoff/GateOne">https://github.com/liftoff/GateOne</a><br><img src="https://img-blog.csdnimg.cn/20200409095132585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可以看到官方也2年没有更新了。</p><h3 id="首先有python环境并安装了pip（我的是python2-7）"><a href="#首先有python环境并安装了pip（我的是python2-7）" class="headerlink" title="首先有python环境并安装了pip（我的是python2.7）"></a>首先有python环境并安装了pip（我的是python2.7）</h3><p>CentOS7自带python2.7，可以运行 <code>python -v</code> 瞅瞅你python的版本<br><img src="https://img-blog.csdnimg.cn/20200409095435656.png" alt="在这里插入图片描述"></p><h4 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h4><pre class=" language-powershell"><code class="language-powershell">wget https:<span class="token operator">/</span><span class="token operator">/</span>soft<span class="token punctuation">.</span>laozuo<span class="token punctuation">.</span>org<span class="token operator">/</span>git<span class="token operator">/</span>get<span class="token operator">-</span>pip<span class="token punctuation">.</span>pypython get<span class="token operator">-</span>pip<span class="token punctuation">.</span>py</code></pre><h3 id="安装tornado、Pillow"><a href="#安装tornado、Pillow" class="headerlink" title="安装tornado、Pillow"></a>安装tornado、Pillow</h3><pre class=" language-powershell"><code class="language-powershell">pip install <span class="token string">'tornado==2.4.1'</span>pip install Pillow</code></pre><h3 id="下载GateOne且安装"><a href="#下载GateOne且安装" class="headerlink" title="下载GateOne且安装"></a>下载GateOne且安装</h3><pre class=" language-powershell"><code class="language-powershell">wget https:<span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>downloads<span class="token operator">/</span>liftoff<span class="token operator">/</span>GateOne<span class="token operator">/</span>gateone<span class="token operator">-</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gztar <span class="token operator">-</span>zxvf gateone<span class="token operator">-</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gzcd GateOnepython setup<span class="token punctuation">.</span>py install</code></pre><h3 id="运行GateOne"><a href="#运行GateOne" class="headerlink" title="运行GateOne"></a>运行GateOne</h3><pre class=" language-powershell"><code class="language-powershell">cd <span class="token operator">/</span>opt<span class="token operator">/</span>gateone<span class="token punctuation">.</span><span class="token operator">/</span>gateone<span class="token punctuation">.</span>py</code></pre><p>默认监听443端口<br><img src="https://img-blog.csdnimg.cn/20200409092108814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="修改GateOne配置远程管理"><a href="#修改GateOne配置远程管理" class="headerlink" title="修改GateOne配置远程管理"></a>修改GateOne配置远程管理</h3><p>配置文件 <code>/opt/gateone/server.conf</code><br>vi 打开<br>origins这里添加内容，我们的服务器公网IP地址要加入进去。<strong>注意分号和双引号</strong>~<br><img src="https://img-blog.csdnimg.cn/20200409093018399.png" alt="在这里插入图片描述"><br>port端口默认是443，我们也可以修改成自己的端口。修改后记得<strong>安全组放行</strong>！！！。<br><img src="https://img-blog.csdnimg.cn/20200409093120581.png" alt="在这里插入图片描述"><br>修改session超时时间。不加入会一直在刷新刷新的，无法操作。<br><img src="https://img-blog.csdnimg.cn/20200409093342527.png" alt="在这里插入图片描述"><br>配置文件里还有很多内容，可以自行修改<br><img src="https://img-blog.csdnimg.cn/20200409095002717.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="访问webssh"><a href="#访问webssh" class="headerlink" title="访问webssh"></a>访问webssh</h2><p>默认https，加上公网IP:443端口，即可访问登录页面<br><img src="https://img-blog.csdnimg.cn/20200409094007914.png" alt="在这里插入图片描述"><br>输入对应信息，成功登录<br><img src="https://img-blog.csdnimg.cn/20200409094310896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="设定自动后台运行"><a href="#设定自动后台运行" class="headerlink" title="设定自动后台运行"></a>设定自动后台运行</h3><pre class=" language-powershell"><code class="language-powershell"><span class="token operator">/</span>sbin<span class="token operator">/</span>chkconfig gateone onsystemctl <span class="token function">start</span> gateone</code></pre><p>通过 systemctl 实现控制<br>老规矩，运行/停止/重启，查看状态，设置开机自启/关闭开机自启<br>分别是 <code>systemctl start/stop/restart/status/enable/disable gateone</code></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> WebSSH </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GateOne </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> WebSSH </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CentOS7搭建Squid代理服务器，代理QQ</title>
       <link href="/2020/04/02/centos7-da-jian-squid-dai-li-fu-wu-qi-dai-li-qq/"/>
       <url>/2020/04/02/centos7-da-jian-squid-dai-li-fu-wu-qi-dai-li-qq/</url>
@@ -86,13 +117,13 @@
             
             <tag> Linux </tag>
             
+            <tag> MySQL </tag>
+            
             <tag> 服务器 </tag>
             
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -121,9 +152,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> C </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> C </tag>
             
             <tag> ajax </tag>
             
