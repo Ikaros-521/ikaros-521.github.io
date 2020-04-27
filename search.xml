@@ -187,11 +187,11 @@
             
             <tag> 服务器 </tag>
             
+            <tag> MySQL </tag>
+            
             <tag> Java </tag>
             
             <tag> Tomcat </tag>
-            
-            <tag> MySQL </tag>
             
         </tags>
       
@@ -412,9 +412,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> socket </tag>
+            
+            <tag> C </tag>
             
             <tag> TCP </tag>
             
