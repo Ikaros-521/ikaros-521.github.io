@@ -412,9 +412,9 @@
       
         <tags>
             
-            <tag> socket </tag>
-            
             <tag> C </tag>
+            
+            <tag> socket </tag>
             
             <tag> TCP </tag>
             
