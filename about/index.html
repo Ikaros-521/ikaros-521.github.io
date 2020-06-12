@@ -537,7 +537,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05"]
+            data: ["2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06"]
         },
         yAxis: {
             type: 'value',
@@ -547,7 +547,7 @@
                 name: 'Number of posts',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,9,13,3,6,4,0,1,1,4,1],
+                data: [0,0,9,13,3,6,4,0,1,1,4,1,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -589,7 +589,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"python","value":1},{"name":"C/C++","value":10},{"name":"嵌入式","value":2},{"name":"C++","value":1},{"name":"Linux","value":18},{"name":"教程","value":1},{"name":"内网穿透","value":1},{"name":"域名","value":1},{"name":"WebSSH","value":1},{"name":"代理服务器","value":1},{"name":"C","value":3},{"name":"教程","value":1},{"name":"嵌入式","value":4},{"name":"UML","value":1},{"name":"数据库","value":1},{"name":"服务器","value":2},{"name":"计算机网络","value":1},{"name":"心得/体会","value":1},{"name":"前端","value":1},{"name":"相关问题","value":1},{"name":"计算机网络","value":1},{"name":"嵌入式","value":1}],
+                data: [{"name":"C/C++","value":10},{"name":"嵌入式","value":2},{"name":"python","value":1},{"name":"C++","value":1},{"name":"Linux","value":18},{"name":"代理服务器","value":1},{"name":"内网穿透","value":1},{"name":"WebSSH","value":1},{"name":"域名","value":1},{"name":"C","value":3},{"name":"教程","value":1},{"name":"教程","value":1},{"name":"嵌入式","value":4},{"name":"UML","value":1},{"name":"数据库","value":1},{"name":"嵌入式","value":1},{"name":"计算机网络","value":1},{"name":"服务器","value":2},{"name":"心得/体会","value":1},{"name":"前端","value":1},{"name":"相关问题","value":1},{"name":"计算机网络","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -613,7 +613,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Linux","C++","嵌入式","C","类","HTML","CGI","MySQL","python","ARM"]
+                data: ["Linux","C++","嵌入式","C","类","HTML","CGI","MySQL","ARM","继承"]
             }
         ],
         yAxis: [
@@ -794,30 +794,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/python/">
-                <span class="chip center-align waves-effect waves-light chip-default">python</span>
-            </a>
-            
-            
-            
-            <a href="/tags/哔哩哔哩/">
-                <span class="chip center-align waves-effect waves-light chip-default">哔哩哔哩</span>
-            </a>
-            
-            
-            
-            <a href="/tags/脚本/">
-                <span class="chip center-align waves-effect waves-light chip-default">脚本</span>
-            </a>
-            
-            
-            
-            <a href="/tags/转发抽奖/">
-                <span class="chip center-align waves-effect waves-light chip-default">转发抽奖</span>
-            </a>
-            
-            
-            
             
             
             <a href="/tags/STL/">
@@ -844,18 +820,6 @@
             
             
             
-            <a href="/tags/模板/">
-                <span class="chip center-align waves-effect waves-light chip-default">模板</span>
-            </a>
-            
-            
-            
-            <a href="/tags/九鼎创展/">
-                <span class="chip center-align waves-effect waves-light chip-default">九鼎创展</span>
-            </a>
-            
-            
-            
             <a href="/tags/类/">
                 <span class="chip center-align waves-effect waves-light chip-default">类</span>
             </a>
@@ -864,6 +828,42 @@
             
             <a href="/tags/继承/">
                 <span class="chip center-align waves-effect waves-light chip-default">继承</span>
+            </a>
+            
+            
+            
+            <a href="/tags/python/">
+                <span class="chip center-align waves-effect waves-light chip-default">python</span>
+            </a>
+            
+            
+            
+            <a href="/tags/哔哩哔哩/">
+                <span class="chip center-align waves-effect waves-light chip-default">哔哩哔哩</span>
+            </a>
+            
+            
+            
+            <a href="/tags/脚本/">
+                <span class="chip center-align waves-effect waves-light chip-default">脚本</span>
+            </a>
+            
+            
+            
+            <a href="/tags/转发抽奖/">
+                <span class="chip center-align waves-effect waves-light chip-default">转发抽奖</span>
+            </a>
+            
+            
+            
+            <a href="/tags/模板/">
+                <span class="chip center-align waves-effect waves-light chip-default">模板</span>
+            </a>
+            
+            
+            
+            <a href="/tags/九鼎创展/">
+                <span class="chip center-align waves-effect waves-light chip-default">九鼎创展</span>
             </a>
             
             
@@ -877,6 +877,8 @@
             <a href="/tags/构造函数/">
                 <span class="chip center-align waves-effect waves-light chip-default">构造函数</span>
             </a>
+            
+            
             
             
             
@@ -898,14 +900,38 @@
             
             
             
-            <a href="/tags/GateOne/">
-                <span class="chip center-align waves-effect waves-light chip-default">GateOne</span>
+            <a href="/tags/服务器/">
+                <span class="chip center-align waves-effect waves-light chip-default">服务器</span>
             </a>
             
             
             
-            <a href="/tags/WebSSH/">
-                <span class="chip center-align waves-effect waves-light chip-default">WebSSH</span>
+            <a href="/tags/域名/">
+                <span class="chip center-align waves-effect waves-light chip-default">域名</span>
+            </a>
+            
+            
+            
+            <a href="/tags/域名备案/">
+                <span class="chip center-align waves-effect waves-light chip-default">域名备案</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Apache/">
+                <span class="chip center-align waves-effect waves-light chip-default">Apache</span>
+            </a>
+            
+            
+            
+            <a href="/tags/HTML/">
+                <span class="chip center-align waves-effect waves-light chip-default">HTML</span>
+            </a>
+            
+            
+            
+            <a href="/tags/CGI/">
+                <span class="chip center-align waves-effect waves-light chip-default">CGI</span>
             </a>
             
             
@@ -918,6 +944,60 @@
             
             <a href="/tags/Squid/">
                 <span class="chip center-align waves-effect waves-light chip-default">Squid</span>
+            </a>
+            
+            
+            
+            <a href="/tags/GateOne/">
+                <span class="chip center-align waves-effect waves-light chip-default">GateOne</span>
+            </a>
+            
+            
+            
+            <a href="/tags/WebSSH/">
+                <span class="chip center-align waves-effect waves-light chip-default">WebSSH</span>
+            </a>
+            
+            
+            
+            <a href="/tags/GNU/">
+                <span class="chip center-align waves-effect waves-light chip-default">GNU</span>
+            </a>
+            
+            
+            
+            <a href="/tags/socket/">
+                <span class="chip center-align waves-effect waves-light chip-default">socket</span>
+            </a>
+            
+            
+            
+            <a href="/tags/TCP/">
+                <span class="chip center-align waves-effect waves-light chip-default">TCP</span>
+            </a>
+            
+            
+            
+            <a href="/tags/线程/">
+                <span class="chip center-align waves-effect waves-light chip-default">线程</span>
+            </a>
+            
+            
+            
+            <a href="/tags/同步/">
+                <span class="chip center-align waves-effect waves-light chip-default">同步</span>
+            </a>
+            
+            
+            
+            <a href="/tags/互斥/">
+                <span class="chip center-align waves-effect waves-light chip-default">互斥</span>
+            </a>
+            
+            
+            
+            <a href="/tags/死锁/">
+                <span class="chip center-align waves-effect waves-light chip-default">死锁</span>
             </a>
             
             
@@ -952,64 +1032,14 @@
             
             
             
-            
-            
-            <a href="/tags/服务器/">
-                <span class="chip center-align waves-effect waves-light chip-default">服务器</span>
+            <a href="/tags/系统调用/">
+                <span class="chip center-align waves-effect waves-light chip-default">系统调用</span>
             </a>
             
             
             
-            <a href="/tags/域名/">
-                <span class="chip center-align waves-effect waves-light chip-default">域名</span>
-            </a>
-            
-            
-            
-            <a href="/tags/域名备案/">
-                <span class="chip center-align waves-effect waves-light chip-default">域名备案</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Apache/">
-                <span class="chip center-align waves-effect waves-light chip-default">Apache</span>
-            </a>
-            
-            
-            
-            <a href="/tags/GNU/">
-                <span class="chip center-align waves-effect waves-light chip-default">GNU</span>
-            </a>
-            
-            
-            
-            <a href="/tags/同步/">
-                <span class="chip center-align waves-effect waves-light chip-default">同步</span>
-            </a>
-            
-            
-            
-            <a href="/tags/互斥/">
-                <span class="chip center-align waves-effect waves-light chip-default">互斥</span>
-            </a>
-            
-            
-            
-            <a href="/tags/死锁/">
-                <span class="chip center-align waves-effect waves-light chip-default">死锁</span>
-            </a>
-            
-            
-            
-            <a href="/tags/socket/">
-                <span class="chip center-align waves-effect waves-light chip-default">socket</span>
-            </a>
-            
-            
-            
-            <a href="/tags/TCP/">
-                <span class="chip center-align waves-effect waves-light chip-default">TCP</span>
+            <a href="/tags/文件操作/">
+                <span class="chip center-align waves-effect waves-light chip-default">文件操作</span>
             </a>
             
             
@@ -1032,32 +1062,8 @@
             
             
             
-            <a href="/tags/HTML/">
-                <span class="chip center-align waves-effect waves-light chip-default">HTML</span>
-            </a>
-            
-            
-            
-            <a href="/tags/CGI/">
-                <span class="chip center-align waves-effect waves-light chip-default">CGI</span>
-            </a>
-            
-            
-            
-            <a href="/tags/线程/">
-                <span class="chip center-align waves-effect waves-light chip-default">线程</span>
-            </a>
-            
-            
-            
-            <a href="/tags/系统调用/">
-                <span class="chip center-align waves-effect waves-light chip-default">系统调用</span>
-            </a>
-            
-            
-            
-            <a href="/tags/文件操作/">
-                <span class="chip center-align waves-effect waves-light chip-default">文件操作</span>
+            <a href="/tags/BOA/">
+                <span class="chip center-align waves-effect waves-light chip-default">BOA</span>
             </a>
             
             
@@ -1068,20 +1074,14 @@
             
             
             
-            <a href="/tags/BOA/">
-                <span class="chip center-align waves-effect waves-light chip-default">BOA</span>
+            <a href="/tags/UML/">
+                <span class="chip center-align waves-effect waves-light chip-default">UML</span>
             </a>
             
             
             
             <a href="/tags/系统移植/">
                 <span class="chip center-align waves-effect waves-light chip-default">系统移植</span>
-            </a>
-            
-            
-            
-            <a href="/tags/UML/">
-                <span class="chip center-align waves-effect waves-light chip-default">UML</span>
             </a>
             
             
@@ -1122,6 +1122,24 @@
             
             
             
+            <a href="/tags/shadowsock/">
+                <span class="chip center-align waves-effect waves-light chip-default">shadowsock</span>
+            </a>
+            
+            
+            
+            <a href="/tags/多路复用/">
+                <span class="chip center-align waves-effect waves-light chip-default">多路复用</span>
+            </a>
+            
+            
+            
+            <a href="/tags/心得/">
+                <span class="chip center-align waves-effect waves-light chip-default">心得</span>
+            </a>
+            
+            
+            
             <a href="/tags/Java/">
                 <span class="chip center-align waves-effect waves-light chip-default">Java</span>
             </a>
@@ -1130,18 +1148,6 @@
             
             <a href="/tags/Tomcat/">
                 <span class="chip center-align waves-effect waves-light chip-default">Tomcat</span>
-            </a>
-            
-            
-            
-            <a href="/tags/shadowsock/">
-                <span class="chip center-align waves-effect waves-light chip-default">shadowsock</span>
-            </a>
-            
-            
-            
-            <a href="/tags/心得/">
-                <span class="chip center-align waves-effect waves-light chip-default">心得</span>
             </a>
             
             
@@ -1182,8 +1188,14 @@
             
             
             
-            <a href="/tags/多路复用/">
-                <span class="chip center-align waves-effect waves-light chip-default">多路复用</span>
+            <a href="/tags/ajax/">
+                <span class="chip center-align waves-effect waves-light chip-default">ajax</span>
+            </a>
+            
+            
+            
+            <a href="/tags/cgi/">
+                <span class="chip center-align waves-effect waves-light chip-default">cgi</span>
             </a>
             
             
@@ -1208,18 +1220,6 @@
             
             <a href="/tags/UDP/">
                 <span class="chip center-align waves-effect waves-light chip-default">UDP</span>
-            </a>
-            
-            
-            
-            <a href="/tags/ajax/">
-                <span class="chip center-align waves-effect waves-light chip-default">ajax</span>
-            </a>
-            
-            
-            
-            <a href="/tags/cgi/">
-                <span class="chip center-align waves-effect waves-light chip-default">cgi</span>
             </a>
             
             
